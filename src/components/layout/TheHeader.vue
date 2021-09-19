@@ -39,13 +39,12 @@ header {
   background: transparent;
   z-index: 100;
   width: 100%;
-  
 }
 nav {
   display: flex;
   justify-content: space-between;
   /* align-items: flex-start;*/
-} 
+}
 ul {
   margin: 0;
   list-style: none;
@@ -57,12 +56,11 @@ a {
   font: inherit;
   margin: 0 2rem;
   text-decoration: none;
-  color:#59595e;
+  color: #59595e;
 }
 a:active,
 a:hover,
 a.router-link-active {
   border-bottom: 2px solid #03692d;
 }
-
 </style>

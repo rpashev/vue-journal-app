@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "../pages/LandingPage.vue";
 import Login from "../pages/auth/Login.vue";
 import SignUp from "../pages/auth/SignUp.vue";
+import GoPro from "../pages/GoPro.vue"
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/sign-up",
     name: "SignUp",
     component: SignUp
+  },
+  {
+    path: "/go-pro",
+    name: "GoPro",
+    component: GoPro
   }
 
 ];
