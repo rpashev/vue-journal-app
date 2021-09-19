@@ -1,12 +1,13 @@
 <template>
-  <div class="home">
-    <p>Home</p>
-  </div>
+  <landing-page-intro />
 </template>
 
 <script>
+import LandingPageIntro from "../components/landing-page/Intro.vue";
 export default {
-  name: "Home",
-  
+  components: {
+    LandingPageIntro,
+  },
 };
 </script>
+

@@ -1,17 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/login">Login</router-link>
-  </div>
+  <the-header />
   <router-view />
 </template>
+<script>
+import TheHeader from "../src/components/layout/TheHeader.vue";
+export default {
+  components: {
+    TheHeader,
+  },
+};
+</script>
 
 <style>
-body {
-  margin: 0;
+*{
   box-sizing: border-box;
 }
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
 #app {
-  background: red;
+  height:100%;
 }
 </style>
