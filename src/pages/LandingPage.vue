@@ -6,6 +6,7 @@
     <landing-page-prompt />
     <landing-page-resources />
     <landing-page-features />
+    <landing-page-final-prompt />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import LandingPagePrivacy from "../components/landing-page/Privacy.vue";
 import LandingPagePrompt from "../components/landing-page/Prompt.vue";
 import LandingPageResources from "../components/landing-page/Resources.vue";
 import LandingPageFeatures from "../components/landing-page/Features.vue";
+import LandingPageFinalPrompt from "../components/landing-page/FinalPrompt.vue";
 
 export default {
   components: {
@@ -25,6 +27,7 @@ export default {
     LandingPagePrompt,
     LandingPageResources,
     LandingPageFeatures,
+    LandingPageFinalPrompt,
   },
 };
 </script>

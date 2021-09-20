@@ -2,9 +2,7 @@
   <header>
     <nav>
       <div>
-        <h1>
-          <router-link to="/">Home</router-link>
-        </h1>
+        <router-link to="/"><div class="logo"></div></router-link>
       </div>
       <ul>
         <li v-if="!isLoggedIn">
@@ -62,5 +60,16 @@ a:active,
 a:hover,
 a.router-link-active {
   border-bottom: 2px solid #03692d;
+}
+.logo {
+  background: url("../../assets/images/penzu.png") center/contain no-repeat;
+  height: 60px;
+  width: 80px;
+  margin-left: 2rem;
+}
+.logo:hover{
+  /* border-bottom: 2px solid black; */
+  transition: all 0.1s ease-in;
+  transform: scale(1.1);
 }
 </style>

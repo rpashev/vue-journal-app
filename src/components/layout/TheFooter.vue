@@ -44,7 +44,7 @@ footer {
   position: relative;
   bottom: 0;
   left: 0;
-  height: 16rem;
+  height: 12rem;
   width: 100%;
   background: #2f3940;
   display: flex;
@@ -56,6 +56,7 @@ footer {
 }
 ul {
   list-style: none;
+  margin-top: 0;
 }
 li {
   margin: 0.2rem;

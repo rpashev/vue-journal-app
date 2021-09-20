@@ -2,7 +2,7 @@
   <div class="landing-page__intro">
     <div class="background">
       <div class="landing-page__prompt">
-        <h1>The Best Journaling App!</h1>
+        <div class="penzu__logo"></div>
         <p>
           Your private, 100% customizable online journal. Loved by over 2
           million writers around the world.
@@ -47,11 +47,13 @@ export default {};
 
 p {
   font-size: 1.2rem;
+  text-align: center;
 }
 a {
-  width: 90%;
+  width: 100%;
   text-align: center;
   font-size: 1.2rem !important;
+  
 }
 .penzu {
   text-decoration: none;
@@ -59,5 +61,12 @@ a {
 }
 h4 {
   margin-top: 3rem;
+  text-align: center;
+}
+.penzu__logo {
+  background: url("../../assets/images/penzu.png") center/contain no-repeat;
+  height: 80px;
+  width: 80%;
+  margin: 0 auto;
 }
 </style>

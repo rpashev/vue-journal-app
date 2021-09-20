@@ -48,6 +48,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style scoped>
 .features {
   margin-top: 3rem;
@@ -100,6 +104,6 @@ p {
   height: 80px;
 }
 a {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 </style>
