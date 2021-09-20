@@ -1,6 +1,6 @@
 <template>
   <the-header />
-  <router-view />
+  <router-view ></router-view>
   <the-footer />
 </template>
 <script>
@@ -25,5 +25,9 @@ body {
 }
 #app {
   height:100%;
+}
+h1,
+p {
+  color: #59595e;
 }
 </style>

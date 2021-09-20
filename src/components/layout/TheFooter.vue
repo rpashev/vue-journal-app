@@ -22,19 +22,13 @@
         <li>
           <router-link to="/sign-up">Reflective Journal</router-link>
         </li>
-        <li>
-          <router-link to="/sign-up">Dream Journal</router-link>
-        </li>
       </ul>
       <ul class="footer__info-group">
         <li>
+          <router-link to="/sign-up">Dream Journal</router-link>
+        </li>
+        <li>
           <router-link to="/sign-up">Travel Journal</router-link>
-        </li>
-        <li>
-          <router-link to="/sign-up">Bible Journal</router-link>
-        </li>
-        <li>
-          <router-link to="/sign-up">Pregnancy Journal</router-link>
         </li>
         <li>
           <router-link to="/sign-up">Five Year Journal</router-link>
