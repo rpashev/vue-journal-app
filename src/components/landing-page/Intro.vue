@@ -10,6 +10,12 @@
         <base-button link to="/sign-up"
           >Start your free journal now!</base-button
         >
+        <h4>
+          *Attention! This is a DUMMY App based on the popular
+          <a href="https://penzu.com/" class="penzu">Penzu</a>
+          app! Get started with Penzu
+          <a href="https://penzu.com/" class="penzu">HERE</a>
+        </h4>
       </div>
     </div>
   </div>
@@ -35,7 +41,7 @@ export default {};
   justify-content: flex-start;
 }
 .landing-page__prompt {
-  padding-top: 8rem;
+  padding-top: 6rem;
   width: 30%;
 }
 
@@ -46,5 +52,12 @@ a {
   width: 90%;
   text-align: center;
   font-size: 1.2rem !important;
+}
+.penzu {
+  text-decoration: none;
+  color: red;
+}
+h4 {
+  margin-top: 3rem;
 }
 </style>

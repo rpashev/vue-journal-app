@@ -29,6 +29,7 @@ export default {};
 p {
   width: 50%;
   font-size: 1.2rem;
+  text-align: center;
 }
 a {
   margin-top: 1.5rem;

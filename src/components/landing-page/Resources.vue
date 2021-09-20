@@ -3,7 +3,7 @@
     <h1>Journal Writing Resources</h1>
     <div class="resources__lists">
       <ul class="basics">
-        <h3>Journal Basics</h3>
+        <h2>Journal Basics</h2>
         <li>
           <router-link to="/sign-up">What is a Journal?</router-link>
         </li>
@@ -18,7 +18,7 @@
         </li>
       </ul>
       <ul class="types">
-        <h3>Types of Journals</h3>
+        <h2>Types of Journals</h2>
         <li>
           <router-link to="/sign-up">Reflective Journal</router-link>
         </li>
@@ -72,6 +72,7 @@ a {
   margin: 0;
   text-decoration: none;
   color: #59595e;
+  font-size: 1.1rem;
   
 }
 a:active,
