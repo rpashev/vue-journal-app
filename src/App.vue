@@ -1,6 +1,6 @@
 <template>
   <the-header />
-  <router-view ></router-view>
+  <router-view></router-view>
   <the-footer />
 </template>
 <script>
@@ -27,7 +27,7 @@ body {
   height:100%;
 }
 h1,
-p {
+p, h3, h2 {
   color: #59595e;
 }
 </style>

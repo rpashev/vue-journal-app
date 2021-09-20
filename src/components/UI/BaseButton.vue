@@ -52,13 +52,14 @@ button:active {
 }
 
 .alternative {
-  background-color: transparent;
-  color: #3a0061;
+  background-color: rgb(139, 14, 14);
+  color: white;
   border: none;
 }
 
 .alternative:hover,
 .alternative:active {
-  background-color: #e1dee4;
+  background-color: black;
+  color: white;
 }
 </style>

@@ -4,7 +4,8 @@
     <landing-page-promotion />
     <landing-page-privacy />
     <landing-page-prompt />
-    <!-- <landing-page-resources /> -->
+    <landing-page-resources />
+    <landing-page-features />
   </div>
 </template>
 
@@ -13,7 +14,8 @@ import LandingPageIntro from "../components/landing-page/Intro.vue";
 import LandingPagePromotion from "../components/landing-page/Promotion.vue";
 import LandingPagePrivacy from "../components/landing-page/Privacy.vue";
 import LandingPagePrompt from "../components/landing-page/Prompt.vue";
-// import LandingPageResources from "../components/landing-page/Resources.vue";
+import LandingPageResources from "../components/landing-page/Resources.vue";
+import LandingPageFeatures from "../components/landing-page/Features.vue";
 
 export default {
   components: {
@@ -21,7 +23,8 @@ export default {
     LandingPagePromotion,
     LandingPagePrivacy,
     LandingPagePrompt,
-    // LandingPageResources,
+    LandingPageResources,
+    LandingPageFeatures,
   },
 };
 </script>

@@ -26,6 +26,7 @@ export default {};
 
 <style scoped>
 .landing__promotion {
+  margin-top: 2rem;
   width: 100%;
 }
 .landing__promotion-items {

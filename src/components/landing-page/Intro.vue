@@ -26,8 +26,8 @@ export default {};
 .background {
   height: 1000px;
   width: 100%;
-  background: url("../../assets/images/landing-page.jpg") no-repeat;
-  background-size: 100% auto;
+  background: url("../../assets/images/landing-page.jpg") center/cover;
+  /* background-size: 100% auto; */
   margin: 0;
   display: flex;
   flex-direction: column;
