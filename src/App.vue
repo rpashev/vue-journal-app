@@ -1,6 +1,6 @@
 <template>
   <the-header />
-  <router-view></router-view>
+  <router-view id="main"></router-view>
   <the-footer />
 </template>
 <script>
@@ -10,13 +10,13 @@ import TheFooter from "../src/components/layout/TheFooter.vue";
 export default {
   components: {
     TheHeader,
-    TheFooter
+    TheFooter,
   },
 };
 </script>
 
 <style>
-*{
+* {
   box-sizing: border-box;
 }
 body {
@@ -24,10 +24,17 @@ body {
   font-family: "Roboto", sans-serif;
 }
 #app {
-  height:100%;
+  position: relative;
+  min-height: 100vh;
+}
+#main {
+  padding-bottom: 12rem;
+  margin: 0 auto;
 }
 h1,
-p, h3, h2 {
+p,
+h3,
+h2 {
   color: #59595e;
 }
 </style>

@@ -41,9 +41,8 @@
 
 <style scoped>
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
-  left: 0;
   height: 12rem;
   width: 100%;
   background: #2f3940;

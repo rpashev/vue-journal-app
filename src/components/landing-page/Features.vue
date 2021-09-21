@@ -68,6 +68,8 @@ export default {};
   align-items: center;
   justify-content: center;
   margin: 2rem;
+  min-width: 250px;
+  flex-shrink: 0;
 }
 p {
   font-size: 1.2rem;
@@ -105,5 +107,10 @@ p {
 }
 a {
   margin-top: 0.5rem;
+}
+@media (max-width: 40rem) {
+  .features {
+    flex-direction: column;
+  }
 }
 </style>
