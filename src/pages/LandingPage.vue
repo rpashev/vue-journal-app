@@ -1,5 +1,5 @@
 <template>
-  <div class="landing-page">
+  <div class="landing-page main">
     <landing-page-intro />
     <landing-page-promotion />
     <landing-page-privacy />
