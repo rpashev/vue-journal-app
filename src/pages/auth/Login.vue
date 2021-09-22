@@ -70,7 +70,7 @@ input {
   width: 100%;
   font: inherit;
   border: 1px solid #ccc;
-  padding: 0.15rem;
+  padding: 0.2rem 0.5rem;
 }
 
 input:focus {
