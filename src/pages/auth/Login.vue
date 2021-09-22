@@ -5,15 +5,57 @@
         <h1>Sign In</h1>
         <form @submit.prevent="submitHandler">
           <div class="form-control">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" v-model.trim="email" />
+            <label
+              for="email"
+              :class="{
+                'error-label': v$.email.$errors.length && v$.email.$dirty,
+              }"
+              >E-Mail</label
+            >
+            <input
+              type="email"
+              id="email"
+              @blur="v$.email.$touch"
+              v-model.trim="formState.email"
+              :class="{
+                'error-input': v$.email.$errors.length && v$.email.$dirty,
+              }"
+            />
+            <p class="error-message" v-if="v$.email.$error">
+              Please enter a valid email!
+            </p>
           </div>
           <div class="form-control">
-            <label for="password">Password</label>
-            <input type="password" id="password" v-model.trim="password" />
+            <label
+              for="password"
+              :class="{
+                'error-label': v$.password.$errors.length && v$.password.$dirty,
+              }"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              v-model.trim="formState.password"
+              @blur="v$.password.$touch"
+              :class="{
+                'error-input': v$.password.$errors.length && v$.password.$dirty,
+              }"
+            />
+            <p class="error-message" v-if="v$.password.$error">
+              Please enter a valid password!
+            </p>
           </div>
           <!-- <button></button> -->
-          <base-button type="submit" tag="button">Submit</base-button>
+          <base-button
+            type="submit"
+            tag="button"
+            :disabled="v$.$invalid"
+            :class="{
+              forbidden: v$.$invalid,
+            }"
+            >Submit</base-button
+          >
         </form>
       </div>
     </base-card>
@@ -21,20 +63,37 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { computed, reactive } from "@vue/reactivity";
+import useVuelidate from "@vuelidate/core";
+import { required, email } from "@vuelidate/validators";
+
 export default {
   setup() {
-    const email = ref("");
-    const password = ref("");
+    const formState = reactive({
+      email: "",
+      password: "",
+    });
+
+    const rules = computed(() => {
+      return {
+        email: { required, email },
+        password: { required },
+      };
+    });
+    // eslint-disable-next-line no-unused-vars
+    const v$ = useVuelidate(rules, formState);
 
     function submitHandler() {
-      console.log(email.value, password.value);
+      console.log(formState.email, formState.password);
+      if (v$._value.$invalid) {
+        console.log("invalid");
+      }
     }
 
     return {
       submitHandler,
-      email,
-      password,
+      formState,
+      v$,
     };
   },
 };
@@ -56,7 +115,7 @@ form {
 }
 
 .form-control {
-  margin: 1rem 0;
+  margin: 1.2rem 0;
 }
 
 label {
@@ -83,5 +142,18 @@ h1 {
 }
 button {
   margin-top: 2rem;
+}
+
+.error-label {
+  color: red;
+}
+.error-input,
+.error-input:focus {
+  background: rgb(238, 181, 177);
+}
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
 }
 </style>

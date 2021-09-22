@@ -62,4 +62,9 @@ button:active {
   background-color: black;
   color: white;
 }
+.forbidden, .forbidden:hover {
+  cursor: not-allowed;
+  background-color: #3498db;
+  color: white;
+}
 </style>

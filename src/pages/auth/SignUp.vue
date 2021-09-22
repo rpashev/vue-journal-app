@@ -7,38 +7,58 @@
           <div class="form-control names">
             <div>
               <label for="firstName">First Name</label>
-              <input type="text" id="firstName" v-model.trim="firstName" />
+              <input
+                type="text"
+                id="firstName"
+                v-model.trim="formState.firstName"
+              />
             </div>
             <div>
               <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" v-model.trim="lastName" />
+              <input
+                type="text"
+                id="lastName"
+                v-model.trim="formState.lastName"
+              />
             </div>
           </div>
           <div class="form-control email">
             <label for="email">E-Mail</label>
-            <input type="email" id="email" v-model.trim="email" />
+            <input type="email" id="email" v-model.trim="formState.email" />
           </div>
           <div class="form-control password">
             <label for="password">Password</label>
-            <input type="password" id="password" v-model.trim="password" />
+            <input
+              type="password"
+              id="password"
+              v-model.trim="formState.password"
+            />
           </div>
           <div class="form-control repeat-password">
             <label for="repeatPassword">Confirm your password</label>
             <input
               type="password"
               id="repeatPassword"
-              v-model.trim="repeatPassword"
+              v-model.trim="formState.repeatPassword"
             />
           </div>
           <div class="form-control" id="chekboxes">
             <div>
-              <input type="checkbox" id="terms" v-model.trim="terms" />
+              <input
+                type="checkbox"
+                id="terms"
+                v-model.trim="formState.terms"
+              />
               <label for="terms" id="id-terms"
                 >I agree with the terms and conditions</label
               >
             </div>
             <div>
-              <input type="checkbox" id="updates" v-model.trim="updates" />
+              <input
+                type="checkbox"
+                id="updates"
+                v-model.trim="formState.updates"
+              />
               <label for="updates">I want regular updates by email</label>
             </div>
           </div>
@@ -50,38 +70,34 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { reactive } from "@vue/reactivity";
 export default {
   setup() {
-    const email = ref("");
-    const password = ref("");
-    const repeatPassword = ref("");
-    const firstName = ref("");
-    const lastName = ref("");
-    const terms = ref(false);
-    const updates = ref(false);
+    const formState = reactive({
+      email: "",
+      password: "",
+      repeatPassword: "",
+      firstName: "",
+      lastName: "",
+      terms: false,
+      updates: false,
+    });
 
     function submitHandler() {
       console.log(
-        email.value,
-        password.value,
-        firstName.value,
-        lastName.value,
-        terms.value,
-        updates.value,
-        repeatPassword.value
+        formState.email,
+        formState.password,
+        formState.firstName,
+        formState.lastName,
+        formState.terms,
+        formState.updates,
+        formState.repeatPassword
       );
     }
 
     return {
       submitHandler,
-      email,
-      password,
-      firstName,
-      lastName,
-      terms,
-      updates,
-      repeatPassword,
+      formState,
     };
   },
 };
@@ -102,6 +118,9 @@ form {
   display: flex;
   flex-direction: column;
 }
+.form-control {
+  margin: 1.2rem 0;
+}
 .names,
 .checkboxes {
   display: flex;
@@ -110,10 +129,6 @@ form {
 }
 .names div {
   width: 48%;
-}
-
-.form-control {
-  margin: 1rem 0;
 }
 
 label {
