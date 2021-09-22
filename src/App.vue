@@ -1,6 +1,8 @@
 <template>
   <the-header />
-  <router-view class="main"></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
   <the-footer />
 </template>
 <script>
@@ -27,9 +29,10 @@ body {
   position: relative;
   min-height: 100vh;
 }
-.main {
-  padding-bottom: 12rem !important;
-  margin: 0 auto !important;
+main {
+  padding-bottom: 12rem ;
+  margin: 0 auto;
+  height: auto;
 }
 h1,
 p,

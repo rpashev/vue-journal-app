@@ -66,9 +66,7 @@ a {
   text-decoration: none;
   color: #fff;
 }
-a:active,
-a:hover,
-a.router-link-active {
+a:hover {
   color: rgb(155, 190, 190);
 }
 p {

@@ -1,50 +1,52 @@
 <template>
-  <base-card class="signup__page">
-    <div>
-      <h1>Sign Up</h1>
-      <form @submit.prevent="submitHandler">
-        <div class="form-control names">
-          <div>
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" v-model.trim="firstName" />
+  <div class="signup__page">
+    <base-card class="signup__card">
+      <div>
+        <h1>Sign Up</h1>
+        <form @submit.prevent="submitHandler">
+          <div class="form-control names">
+            <div>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" v-model.trim="firstName" />
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" v-model.trim="lastName" />
+            </div>
           </div>
-          <div>
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" v-model.trim="lastName" />
+          <div class="form-control email">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" v-model.trim="email" />
           </div>
-        </div>
-        <div class="form-control email">
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" v-model.trim="email" />
-        </div>
-        <div class="form-control password">
-          <label for="password">Password</label>
-          <input type="password" id="password" v-model.trim="password" />
-        </div>
-        <div class="form-control repeat-password">
-          <label for="repeatPassword">Confirm your password</label>
-          <input
-            type="password"
-            id="repeatPassword"
-            v-model.trim="repeatPassword"
-          />
-        </div>
-        <div class="form-control" id="chekboxes">
-          <div>
-            <input type="checkbox" id="terms" v-model.trim="terms" />
-            <label for="terms" id="id-terms"
-              >I agree with the terms and conditions</label
-            >
+          <div class="form-control password">
+            <label for="password">Password</label>
+            <input type="password" id="password" v-model.trim="password" />
           </div>
-          <div>
-            <input type="checkbox" id="updates" v-model.trim="updates" />
-            <label for="updates">I want regular updates by email</label>
+          <div class="form-control repeat-password">
+            <label for="repeatPassword">Confirm your password</label>
+            <input
+              type="password"
+              id="repeatPassword"
+              v-model.trim="repeatPassword"
+            />
           </div>
-        </div>
-        <base-button type="submit" tag="button">Submit</base-button>
-      </form>
-    </div>
-  </base-card>
+          <div class="form-control" id="chekboxes">
+            <div>
+              <input type="checkbox" id="terms" v-model.trim="terms" />
+              <label for="terms" id="id-terms"
+                >I agree with the terms and conditions</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="updates" v-model.trim="updates" />
+              <label for="updates">I want regular updates by email</label>
+            </div>
+          </div>
+          <base-button type="submit" tag="button">Submit</base-button>
+        </form>
+      </div>
+    </base-card>
+  </div>
 </template>
 
 <script>
@@ -87,10 +89,12 @@ export default {
 
 <style scoped>
 .signup__page {
-  height: 35rem;
-  position: relative;
+  height: 60rem;
+  padding-top: 2rem;
+}
+.signup__card {
+  height: 40rem;
   width: 30rem;
-  top: 2rem;
 }
 form {
   margin: 1rem;
@@ -109,7 +113,7 @@ form {
 }
 
 .form-control {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 label {
@@ -132,8 +136,7 @@ label {
 #chekboxes label {
   font-size: 0.8rem;
   font-weight: normal;
-  
-  }
+}
 #chekboxes input {
   width: auto;
 }

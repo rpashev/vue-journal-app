@@ -1,21 +1,23 @@
 <template>
-  <base-card class="login__page">
-    <div>
-      <h1>Sign In</h1>
-      <form @submit.prevent="submitHandler">
-        <div class="form-control">
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" v-model.trim="email" />
-        </div>
-        <div class="form-control">
-          <label for="password">Password</label>
-          <input type="password" id="password" v-model.trim="password" />
-        </div>
-        <!-- <button></button> -->
-        <base-button type="submit" tag="button">Submit</base-button>
-      </form>
-    </div>
-  </base-card>
+  <div class="login__page">
+    <base-card class="login__card">
+      <div>
+        <h1>Sign In</h1>
+        <form @submit.prevent="submitHandler">
+          <div class="form-control">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" v-model.trim="email" />
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" id="password" v-model.trim="password" />
+          </div>
+          <!-- <button></button> -->
+          <base-button type="submit" tag="button">Submit</base-button>
+        </form>
+      </div>
+    </base-card>
+  </div>
 </template>
 
 <script>
@@ -40,17 +42,21 @@ export default {
 
 <style scoped>
 .login__page {
-  height: 20rem;
-  position: relative;
-  top: 4rem;
+  padding-top: 2rem;
+}
+.login__card {
+  height: 25rem;
+  width: 30rem;
 }
 form {
   margin: 1rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-control {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 label {
@@ -74,5 +80,8 @@ input:focus {
 }
 h1 {
   text-align: center;
+}
+button {
+  margin-top: 2rem;
 }
 </style>
