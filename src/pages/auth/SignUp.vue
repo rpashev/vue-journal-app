@@ -6,41 +6,116 @@
         <form @submit.prevent="submitHandler">
           <div class="form-control names">
             <div>
-              <label for="firstName">First Name</label>
+              <label
+                for="firstName"
+                :class="{
+                  'error-label':
+                    v$.firstName.$errors.length && v$.firstName.$dirty,
+                }"
+                >First Name</label
+              >
               <input
                 type="text"
                 id="firstName"
                 v-model.trim="formState.firstName"
+                @blur="v$.firstName.$touch"
+                :class="{
+                  'error-input':
+                    v$.firstName.$errors.length && v$.firstName.$dirty,
+                }"
               />
+              <p class="error-message" v-if="v$.firstName.$error">
+                First name is required!
+              </p>
             </div>
             <div>
-              <label for="lastName">Last Name</label>
+              <label
+                for="lastName"
+                :class="{
+                  'error-label':
+                    v$.lastName.$errors.length && v$.lastName.$dirty,
+                }"
+                >Last Name</label
+              >
               <input
                 type="text"
                 id="lastName"
                 v-model.trim="formState.lastName"
+                @blur="v$.lastName.$touch"
+                :class="{
+                  'error-input':
+                    v$.lastName.$errors.length && v$.lastName.$dirty,
+                }"
               />
+              <p class="error-message" v-if="v$.lastName.$error">
+                Last name is required!
+              </p>
             </div>
           </div>
           <div class="form-control email">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" v-model.trim="formState.email" />
+            <label
+              for="email"
+              :class="{
+                'error-label': v$.email.$errors.length && v$.email.$dirty,
+              }"
+              >E-Mail</label
+            >
+            <input
+              type="email"
+              id="email"
+              v-model.trim="formState.email"
+              @blur="v$.email.$touch"
+              :class="{
+                'error-input': v$.email.$errors.length && v$.email.$dirty,
+              }"
+            />
+            <p class="error-message" v-if="v$.email.$error">
+              Please enter a valid email!
+            </p>
           </div>
           <div class="form-control password">
-            <label for="password">Password</label>
+            <label
+              for="password"
+              :class="{
+                'error-label': v$.password.$errors.length && v$.password.$dirty,
+              }"
+              >Password</label
+            >
             <input
               type="password"
               id="password"
               v-model.trim="formState.password"
+              @blur="v$.password.$touch"
+              :class="{
+                'error-input': v$.password.$errors.length && v$.password.$dirty,
+              }"
             />
+            <p class="error-message" v-if="v$.password.$error">
+              The password should be at least 6 symbols!
+            </p>
           </div>
           <div class="form-control repeat-password">
-            <label for="repeatPassword">Confirm your password</label>
+            <label
+              for="repeatPassword"
+              :class="{
+                'error-label':
+                  v$.repeatPassword.$errors.length && v$.repeatPassword.$dirty,
+              }"
+              >Confirm your password</label
+            >
             <input
               type="password"
               id="repeatPassword"
               v-model.trim="formState.repeatPassword"
+              @blur="v$.repeatPassword.$touch"
+              :class="{
+                'error-input':
+                  v$.repeatPassword.$errors.length && v$.repeatPassword.$dirty,
+              }"
             />
+            <p class="error-message" v-if="v$.repeatPassword.$error">
+              Passwords should match!
+            </p>
           </div>
           <div class="form-control" id="chekboxes">
             <div>
@@ -62,7 +137,15 @@
               <label for="updates">I want regular updates by email</label>
             </div>
           </div>
-          <base-button type="submit" tag="button">Submit</base-button>
+          <base-button
+            type="submit"
+            tag="button"
+            :disabled="v$.$invalid"
+            :class="{
+              forbidden: v$.$invalid,
+            }"
+            >Submit</base-button
+          >
         </form>
       </div>
     </base-card>
@@ -70,7 +153,10 @@
 </template>
 
 <script>
-import { reactive } from "@vue/reactivity";
+import { reactive, computed } from "@vue/reactivity";
+import useVuelidate from "@vuelidate/core";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
+
 export default {
   setup() {
     const formState = reactive({
@@ -83,21 +169,37 @@ export default {
       updates: false,
     });
 
+    const rules = computed(() => {
+      return {
+        email: { required, email },
+        password: { required, minLength: minLength(6) },
+        repeatPassword: { required, sameAs: sameAs(`${formState.password}`) },
+        firstName: { required },
+        lastName: { required },
+      };
+    });
+
+    const v$ = useVuelidate(rules, formState);
+
     function submitHandler() {
+      if (v$._value.$invalid) {
+        console.log("invalid");
+      }
       console.log(
         formState.email,
         formState.password,
+        formState.repeatPassword,
         formState.firstName,
         formState.lastName,
         formState.terms,
-        formState.updates,
-        formState.repeatPassword
+        formState.updates
       );
     }
 
     return {
       submitHandler,
       formState,
+      v$,
     };
   },
 };
@@ -172,5 +274,17 @@ input:focus {
 
 h1 {
   text-align: center;
+}
+.error-label {
+  color: red;
+}
+.error-input,
+.error-input:focus {
+  background: rgb(238, 181, 177);
+}
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
 }
 </style>

@@ -43,7 +43,7 @@
               }"
             />
             <p class="error-message" v-if="v$.password.$error">
-              Please enter a valid password!
+              The password should be at least 6 symbols!
             </p>
           </div>
           <!-- <button></button> -->
@@ -65,7 +65,7 @@
 <script>
 import { computed, reactive } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { required, email, minLength } from "@vuelidate/validators";
 
 export default {
   setup() {
@@ -77,7 +77,7 @@ export default {
     const rules = computed(() => {
       return {
         email: { required, email },
-        password: { required },
+        password: { required, minLength: minLength(6) },
       };
     });
     // eslint-disable-next-line no-unused-vars
