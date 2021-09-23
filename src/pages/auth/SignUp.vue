@@ -280,7 +280,7 @@ h1 {
 }
 .error-input,
 .error-input:focus {
-  background: rgb(238, 181, 177);
+  background: rgb(255, 233, 233);
 }
 .error-message {
   color: red;

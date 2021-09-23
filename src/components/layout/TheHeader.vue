@@ -35,7 +35,7 @@ header {
   top: 0;
   left: 0;
   background: transparent;
-  z-index: 100;
+  z-index: 99;
   width: 100%;
 }
 nav {

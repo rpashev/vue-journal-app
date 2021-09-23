@@ -36,9 +36,9 @@ export default {
     LandingPageFinalPrompt,
   },
   // setup() {
-  //   let showDialog = ref("true");
+  //   const showDialog = ref("true");
   //   function changeShowDialog() {
-  //     showDialog = null;
+  //     showDialog.value = null;
   //     console.log(showDialog);
   //   }
   //   return {
