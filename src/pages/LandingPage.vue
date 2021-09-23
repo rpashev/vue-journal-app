@@ -1,5 +1,10 @@
 <template>
   <div class="landing-page main">
+    <!-- <base-dialog
+      :show="showDialog"
+      title="Are you sure?"
+      @close="changeShowDialog"
+    /> -->
     <landing-page-intro />
     <landing-page-promotion />
     <landing-page-privacy />
@@ -18,6 +23,7 @@ import LandingPagePrompt from "../components/landing-page/Prompt.vue";
 import LandingPageResources from "../components/landing-page/Resources.vue";
 import LandingPageFeatures from "../components/landing-page/Features.vue";
 import LandingPageFinalPrompt from "../components/landing-page/FinalPrompt.vue";
+// import { ref } from "@vue/reactivity";
 
 export default {
   components: {
@@ -29,6 +35,17 @@ export default {
     LandingPageFeatures,
     LandingPageFinalPrompt,
   },
+  // setup() {
+  //   let showDialog = ref("true");
+  //   function changeShowDialog() {
+  //     showDialog = null;
+  //     console.log(showDialog);
+  //   }
+  //   return {
+  //     showDialog,
+  //     changeShowDialog,
+  //   };
+  // },
 };
 </script>
 

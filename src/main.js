@@ -5,6 +5,8 @@ import store from "./store";
 
 import BaseButton from "./components/UI/BaseButton.vue";
 import BaseCard from "./components/UI/BaseCard.vue";
+import BaseDialog from "./components/UI/BaseDialog.vue";
+
 
 
 const app = createApp(App);
@@ -12,5 +14,7 @@ app.use(store).use(router).mount("#app");
 
 app.component("base-button", BaseButton);
 app.component("base-card", BaseCard);
+app.component("base-dialog", BaseDialog);
+
 
 
