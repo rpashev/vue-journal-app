@@ -9,6 +9,7 @@
 <script>
 import { VueEditor } from "vue3-editor";
 import { ref } from "@vue/reactivity";
+
 export default {
   components: { VueEditor },
   setup() {

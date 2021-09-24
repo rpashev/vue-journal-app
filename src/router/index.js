@@ -5,7 +5,8 @@ import SignUp from "../pages/auth/SignUp.vue";
 import GoPro from "../pages/GoPro.vue";
 import HomeUser from "../pages/user-pages/HomeUser.vue";
 import UserProfile from "../pages/user-pages/UserProfile.vue";
-import NewEntry from "../pages/user-pages/journal/NewEntry.vue"
+import NewEntry from "../pages/user-pages/journal/NewEntry.vue";
+import SingleJournal from "../pages/user-pages/journal/SingleJournal.vue";
 
 const routes = [
   {
@@ -41,8 +42,13 @@ const routes = [
   {
     path: "/new-entry",
     name: "NewEntry",
-    component: NewEntry
-  }
+    component: NewEntry,
+  },
+  {
+    path: "/single-journal",
+    name: "SingleJournal",
+    component: SingleJournal,
+  },
 ];
 
 const router = createRouter({
