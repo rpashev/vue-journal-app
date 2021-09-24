@@ -4,8 +4,8 @@
       <h1>{{ name }}</h1>
       <p>{{ description }}</p>
       <div class="actions">
-        <base-button>View Entries</base-button>
-        <base-button>New Entry</base-button>
+        <base-button link to="/">View Entries</base-button>
+        <base-button link to="/new-entry">New Entry</base-button>
       </div>
     </div>
   </div>
@@ -34,12 +34,14 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.actions button {
+.actions a {
   width: 45%;
+  text-align: center;
 }
 h1,
 p {
   text-align: center;
   width: 50%;
 }
+
 </style>

@@ -5,6 +5,7 @@ import SignUp from "../pages/auth/SignUp.vue";
 import GoPro from "../pages/GoPro.vue";
 import HomeUser from "../pages/user-pages/HomeUser.vue";
 import UserProfile from "../pages/user-pages/UserProfile.vue";
+import NewEntry from "../pages/user-pages/journal/NewEntry.vue"
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     name: "UserProfile",
     component: UserProfile,
   },
+  {
+    path: "/new-entry",
+    name: "NewEntry",
+    component: NewEntry
+  }
 ];
 
 const router = createRouter({
