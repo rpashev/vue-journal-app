@@ -3,6 +3,7 @@ import LandingPage from "../pages/LandingPage.vue";
 import Login from "../pages/auth/Login.vue";
 import SignUp from "../pages/auth/SignUp.vue";
 import GoPro from "../pages/GoPro.vue";
+import HomeUser from "../pages/user-pages/HomeUser.vue"
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     name: "GoPro",
     component: GoPro,
   },
+  {
+    path:"/journals",
+    name: "HomeUser",
+    component: HomeUser
+  }
 ];
 
 const router = createRouter({

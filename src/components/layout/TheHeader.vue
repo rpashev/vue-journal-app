@@ -11,7 +11,10 @@
         <li v-if="!isLoggedIn">
           <router-link to="/sign-up">Sign Up</router-link>
         </li>
-        <li v-else>
+        <li v-if="userName">
+          <router-link to="/user-profile">{{ userName }}</router-link>
+        </li>
+        <li v-if="isLoggedIn">
           <router-link to="/logout">Logout</router-link>
         </li>
       </ul>
@@ -24,6 +27,9 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
+    },
+    userName() {
+      return this.$store.getters.userName;
     },
   },
 };
@@ -67,7 +73,7 @@ a.router-link-active {
   width: 80px;
   margin-left: 2rem;
 }
-.logo:hover{
+.logo:hover {
   /* border-bottom: 2px solid black; */
   transition: all 0.1s ease-in;
   transform: scale(1.1);
