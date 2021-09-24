@@ -3,7 +3,8 @@ import LandingPage from "../pages/LandingPage.vue";
 import Login from "../pages/auth/Login.vue";
 import SignUp from "../pages/auth/SignUp.vue";
 import GoPro from "../pages/GoPro.vue";
-import HomeUser from "../pages/user-pages/HomeUser.vue"
+import HomeUser from "../pages/user-pages/HomeUser.vue";
+import UserProfile from "../pages/user-pages/UserProfile.vue";
 
 const routes = [
   {
@@ -27,23 +28,27 @@ const routes = [
     component: GoPro,
   },
   {
-    path:"/journals",
+    path: "/journals",
     name: "HomeUser",
-    component: HomeUser
-  }
+    component: HomeUser,
+  },
+  {
+    path: "/user-profile",
+    name: "UserProfile",
+    component: UserProfile,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return savedPosition
+      return savedPosition;
     } else {
-      return { left: 0, top: 0 }
+      return { left: 0, top: 0 };
     }
-  }
+  },
 });
-
 
 export default router;

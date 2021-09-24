@@ -15,7 +15,7 @@
           <router-link to="/user-profile">{{ userName }}</router-link>
         </li>
         <li v-if="isLoggedIn">
-          <router-link to="/logout">Logout</router-link>
+          <router-link to="/">Logout</router-link>
         </li>
       </ul>
     </nav>
