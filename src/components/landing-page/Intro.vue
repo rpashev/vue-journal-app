@@ -2,7 +2,10 @@
   <div class="landing-page__intro">
     <div class="background">
       <div class="landing-page__prompt">
-        <div class="penzu__logo"></div>
+        <div class="logo__container">
+          <div class="logo"></div>
+        </div>
+
         <p>
           Your private, 100% customizable online journal. Loved by over 2
           million writers around the world.
@@ -41,7 +44,7 @@ export default {};
   justify-content: flex-start;
 }
 .landing-page__prompt {
-  padding-top: 6rem;
+  /* padding-top: 1rem; */
   width: 30%;
 }
 
@@ -53,7 +56,6 @@ a {
   width: 100%;
   text-align: center;
   font-size: 1.2rem !important;
-  
 }
 .penzu {
   text-decoration: none;
@@ -63,10 +65,19 @@ h4 {
   margin-top: 3rem;
   text-align: center;
 }
-.penzu__logo {
-  background: url("../../assets/images/penzu.png") center/contain no-repeat;
-  height: 80px;
-  width: 80%;
+.logo__container {
+  width: 12rem;
+  height: 12rem;
   margin: 0 auto;
+  position: relative;
+  
+}
+.logo {
+  background: url("../../assets/images/logo2.png") center/cover no-repeat;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 2.5rem;
 }
 </style>

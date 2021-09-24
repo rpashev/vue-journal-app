@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <div>
+      <div class="logo__container">
         <router-link to="/"><div class="logo"></div></router-link>
       </div>
       <ul>
@@ -67,10 +67,14 @@ a:hover,
 a.router-link-active {
   border-bottom: 2px solid #03692d;
 }
+.logo__container {
+  width: 5rem;
+  height: 5rem;
+}
 .logo {
-  background: url("../../assets/images/penzu.png") center/contain no-repeat;
-  height: 60px;
-  width: 80px;
+  background: url("../../assets/images/logo.png") center/contain no-repeat;
+  height: 100%;
+  width: 100%;
   margin-left: 2rem;
 }
 .logo:hover {
