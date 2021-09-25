@@ -1,15 +1,18 @@
 <template>
   <div class="single-journal__page">
     <entries-filters></entries-filters>
+    <entries-list></entries-list>
   </div>
 </template>
 
 <script>
 import EntriesFilters from "../../../components/journal/EntriesFilters.vue";
+import EntriesList from "../../../components/journal/EntriesList.vue";
 
 export default {
   components: {
     EntriesFilters,
+    EntriesList,
   },
   setup() {},
 };

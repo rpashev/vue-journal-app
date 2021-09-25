@@ -7,11 +7,13 @@ export const journals = [
       {
         id: "entry1",
         date: "25.06.2021",
+        title:"Tough day",
         body: "I am not good enough at CSS yet, but while doing those projects I will certainly get better. I think by copying other websites I can advance my CSS skills. SCSS is probably a good idea, I am underestimating the importance of nesting.",
       },
       {
         id: "entry2",
         date: "30.06.2021",
+        title: "Best day ever!",
         body: "It would be funny if I could make the movie app also in Angular but I am clueless there for now. I will explore other technologies when I am not wirking on the projects though.It would be funny if I could make the movie app also in Angular but I am clueless there for now. I will explore other technologies when I am not wirking on the projects though.",
       },
     ],
