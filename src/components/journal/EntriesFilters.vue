@@ -2,7 +2,7 @@
   <div class="entries__filters">
     <div class="form-control">
       <div class="time__filter">
-        <label for="timeFilter">Since</label>
+        <!-- <label for="timeFilter">Since</label> -->
         <select name="timeFilter" id="timeFilter">
           <option value="alltime">All Time</option>
           <option value="today">Today</option>
@@ -52,9 +52,15 @@
 input,
 select {
   width: 20rem;
-  padding: 0.25rem;
+  padding: 0.4rem;
   outline: none;
+  font: inherit;
+  font-size: 0.8rem;
 }
+input {
+  width: 25rem;
+}
+
 .search-icon {
   background: url("../../assets/images/search-icon.png") center/contain
     no-repeat;
@@ -62,9 +68,6 @@ select {
   height: 1.5rem;
   position: absolute;
   right: 0.3rem;
-  bottom: 0;
-}
-label {
-    margin-bottom: 0.25rem;
+  bottom: 0.15rem;
 }
 </style>

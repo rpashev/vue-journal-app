@@ -45,17 +45,9 @@
 </template>
 
 <script>
-import { journals } from "../../../DUMMY_DATA";
-import { ref } from "@vue/reactivity";
-
 export default {
-  setup() {
-    const entriesData = ref(journals[0].entries);
-
-    return {
-      entriesData,
-    };
-  },
+  props: ["entriesData"],
+  setup() {},
 };
 </script>
 
