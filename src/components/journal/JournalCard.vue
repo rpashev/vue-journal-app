@@ -1,11 +1,11 @@
 <template>
   <div class="journals__list-item" @click="openJournal">
     <div class="background">
-      <h1>{{ name }}</h1>
+      <h1>{{ journalName }}</h1>
       <p>{{ description }}</p>
       <div class="actions">
-        <base-button link to="/" @click.stop>View Entries</base-button>
-        <base-button link to="/new-entry" @click.stop>New Entry</base-button>
+        <base-button link :to="`/journals/${id}`" @click.stop>View Entries</base-button>
+        <base-button link :to="`/journals/${journalName}/new-entry`" @click.stop>New Entry</base-button>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
 <script>
 import { useRouter } from "vue-router";
 export default {
-  props: ["name", "description", "id"],
+  props: ["journalName", "description", "id"],
   setup(props) {
     const router = useRouter();
 
@@ -22,7 +22,8 @@ export default {
       router.push(`/journals/${props.id}`);
     };
     return {
-      openJournal
+      openJournal,
+      
     }
   },
 };

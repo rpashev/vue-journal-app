@@ -4,7 +4,7 @@
     <div class="journals__list">
       <journal-card
         v-for="journal in journalsData"
-        :name="journal.journalName"
+        :journalName="journal.journalName"
         :description="journal.description"
         :key="journal.id"
         :id="journal.id"

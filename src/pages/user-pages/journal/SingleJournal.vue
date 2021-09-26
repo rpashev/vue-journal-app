@@ -1,6 +1,7 @@
 <template>
   <div class="single-journal__page">
     <h1>{{ journalName }}</h1>
+    <base-button link :to="`/journals/${journalName}/new-entry`">New Entry</base-button>
     <entries-filters></entries-filters>
     <entries-list :entriesData="entries"></entries-list>
   </div>
@@ -11,19 +12,24 @@ import EntriesFilters from "../../../components/journal/EntriesFilters.vue";
 import EntriesList from "../../../components/journal/EntriesList.vue";
 import { journals } from "../../../../DUMMY_DATA";
 
+import { useRoute } from "vue-router";
+
 export default {
   components: {
     EntriesFilters,
     EntriesList,
   },
   setup() {
-    const journalName = journals[0].journalName;
-    const entries = journals[0].entries;
+    const route = useRoute();
+    const journalID = route.params.journalID;
+    const journal = journals.find((el) => el.id === journalID);
+    const entries = journal.entries;
+    const journalName = journal.journalName;
 
     return {
       journalName,
-      entries
-    }
+      entries,
+    };
   },
 };
 </script>
@@ -36,4 +42,8 @@ export default {
   align-items: center;
   justify-content: center;
 }
+h1{
+  margin-bottom: 2rem;
+}
+
 </style>

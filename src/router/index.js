@@ -40,12 +40,13 @@ const routes = [
     component: UserProfile,
   },
   {
-    path: "/new-entry",
+    path: "/journals/:journalName/new-entry",
     name: "NewEntry",
     component: NewEntry,
   },
+
   {
-    path: "/single-journal",
+    path: "/journals/:journalID",
     name: "SingleJournal",
     component: SingleJournal,
   },

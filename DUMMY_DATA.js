@@ -7,7 +7,7 @@ export const journals = [
       {
         id: "entry1",
         date: "25.06.2021",
-        title:"Tough day",
+        title: "Tough day",
         body: "I am not good enough at CSS yet, but while doing those projects I will certainly get better. I think by copying other websites I can advance my CSS skills. SCSS is probably a good idea, I am underestimating the importance of nesting.",
       },
       {
@@ -27,11 +27,13 @@ export const journals = [
       {
         id: "entry10",
         date: "25.08.2021",
+        title: "I am amazing!",
         body: "Finally started the journaling app today, worked mostly on the landing page. Progress is slow but it's doable. I am thinking I might just skip doing the movie app with Vue for now.",
       },
       {
         id: "entry20",
         date: "30.08.2021",
+        title: "Life sucks",
         body: "I want to start applying for jobs by the end of the year and I might not have time for another Vue app. The Journal app is not going to be a small one so this could be enough to show off that I have some understanding of Vue. I can actually do the portfolio site with Vue.I want to start applying for jobs by the end of the year and I might not have time for another Vue app. The Journal app is not going to be a small one so this could be enough to show off that I have some understanding of Vue. I can actually do the portfolio site with Vue.",
       },
     ],

@@ -79,7 +79,7 @@ a.router-link-active {
 }
 .logo:hover {
   /* border-bottom: 2px solid black; */
-  transition: all 0.1s ease-in;
+  transition: all 0.2s ease-in;
   transform: scale(1.1);
 }
 </style>
