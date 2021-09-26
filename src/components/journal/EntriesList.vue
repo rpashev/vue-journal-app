@@ -55,6 +55,7 @@ export default {
 .entries-list__container {
   margin-top: 1rem;
   width: 60%;
+  padding-bottom: 3rem;
 }
 .entris-list {
   width: 100%;
@@ -87,6 +88,6 @@ export default {
   color: #9098a5;
 }
 .entry__actions-edit {
-  margin: 0 1rem 0 0;
+  margin: 0 1.5rem 0 0;
 }
 </style>
