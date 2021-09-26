@@ -1,9 +1,11 @@
 <template>
   <div class="single-journal__page">
     <h1>{{ journalName }}</h1>
-    <base-button link :to="`/journals/${journalName}/new-entry`">New Entry</base-button>
+    <base-button link :to="`/journals/${journalName}/new-entry`"
+      >New Entry</base-button
+    >
     <entries-filters></entries-filters>
-    <entries-list :entriesData="entries"></entries-list>
+    <entries-list :entriesData="entries" :journalID="journalID"></entries-list>
   </div>
 </template>
 
@@ -29,6 +31,7 @@ export default {
     return {
       journalName,
       entries,
+      journalID,
     };
   },
 };
@@ -42,8 +45,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-h1{
+h1 {
   margin-bottom: 2rem;
 }
-
 </style>

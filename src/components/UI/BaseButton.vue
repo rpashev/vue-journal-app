@@ -21,7 +21,6 @@ export default {
       default: false,
     },
     to: {
-      type: String,
       required: false,
       default: "/",
     },
@@ -66,5 +65,8 @@ button:active {
   cursor: not-allowed;
   background-color: #3498db;
   color: white;
+}
+.allowed {
+  background-color: rgb(116, 173, 29);
 }
 </style>

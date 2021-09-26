@@ -19,25 +19,17 @@
         </div>
         <div class="entry__date">{{ entry.date }}</div>
         <div class="entry__actions">
-          <div class="entry__actions-edit">Edit</div>
-          <div class="entry__actions-delete">Delete</div>
-        </div>
-      </li>
-      <li
-        v-for="entry in entriesData"
-        :key="entry.id"
-        class="entries-list__item"
-      >
-        <div class="entry__intro">
-          <div>{{ entry.title }}</div>
-          <div class="entry__description">
-            {{ entry.body.slice(0, 60) + "..." }}
-          </div>
-        </div>
-        <div class="entry__date">{{ entry.date }}</div>
-        <div class="entry__actions">
-          <div class="entry__actions-edit">Edit</div>
-          <div class="entry__actions-delete">Delete</div>
+          <base-button
+            mode="allowed"
+            id="entry__actions-view"
+            link
+            :to="`/journals/${journalID}/${entry.id}`"
+            >View</base-button
+          >
+          <base-button id="entry__actions-edit" link :to="`/journals/${journalID}/${entry.id}/edit`">Edit</base-button>
+          <base-button id="entry__actions-delete" mode="alternative"
+            >Delete</base-button
+          >
         </div>
       </li>
     </ul>
@@ -46,7 +38,7 @@
 
 <script>
 export default {
-  props: ["entriesData"],
+  props: ["entriesData", "journalID"],
   setup() {},
 };
 </script>
@@ -78,16 +70,22 @@ export default {
   margin-top: 1rem;
   color: #4b525b;
 }
-.entry__actions {
-  display: flex;
-  /* justify-content: flex-start; */
-  /* margin: 0 auto; */
-}
 .entry__description {
   font-size: 0.8rem;
   color: #9098a5;
 }
-.entry__actions-edit {
-  margin: 0 1.5rem 0 0;
+.entry__actions {
+  display: flex;
+  /* margin: 0 auto; */
+}
+
+.entry__actions button, .entry__actions a {
+  height: 2rem;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+}
+#entry__actions-view {
+  margin-left: 0rem;
 }
 </style>
