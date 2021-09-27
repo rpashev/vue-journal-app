@@ -1,7 +1,7 @@
 <template>
   <div class="single-journal__page">
     <h1>{{ journalName }}</h1>
-    <base-button link :to="`/journals/${journalName}/new-entry`"
+    <base-button link :to="`/journals/${journalID}/new-entry`"
       >New Entry</base-button
     >
     <entries-filters></entries-filters>

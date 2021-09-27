@@ -12,7 +12,13 @@
         class="entries-list__item"
       >
         <div class="entry__intro">
-          <div>{{ entry.title }}</div>
+          <div
+            class="entry-list__item-title"
+            @click="viewEntry(entry.id)"
+            title="View Entry"
+          >
+            {{ entry.title }}
+          </div>
           <div class="entry__description">
             {{ entry.body.slice(0, 60) + "..." }}
           </div>
@@ -26,7 +32,12 @@
             :to="`/journals/${journalID}/${entry.id}`"
             >View</base-button
           >
-          <base-button id="entry__actions-edit" link :to="`/journals/${journalID}/${entry.id}/edit`">Edit</base-button>
+          <base-button
+            id="entry__actions-edit"
+            link
+            :to="`/journals/${journalID}/${entry.id}/edit`"
+            >Edit</base-button
+          >
           <base-button id="entry__actions-delete" mode="alternative"
             >Delete</base-button
           >
@@ -37,9 +48,19 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
   props: ["entriesData", "journalID"],
-  setup() {},
+  setup(props) {
+    const router = useRouter();
+    const viewEntry = (entry) => {
+      router.push(`/journals/${props.journalID}/${entry}`);
+    };
+    return {
+      viewEntry,
+    };
+  },
 };
 </script>
 
@@ -79,7 +100,8 @@ export default {
   /* margin: 0 auto; */
 }
 
-.entry__actions button, .entry__actions a {
+.entry__actions button,
+.entry__actions a {
   height: 2rem;
   text-align: center;
   padding: 0.5rem;
@@ -87,5 +109,9 @@ export default {
 }
 #entry__actions-view {
   margin-left: 0rem;
+}
+.entry-list__item-title:hover {
+  cursor: pointer;
+  color: black;
 }
 </style>

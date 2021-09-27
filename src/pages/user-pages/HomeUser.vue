@@ -7,7 +7,7 @@
         :journalName="journal.journalName"
         :description="journal.description"
         :key="journal.id"
-        :id="journal.id"
+        :journalID="journal.id"
       ></journal-card>
     </div>
   </div>
