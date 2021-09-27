@@ -26,13 +26,13 @@
         <div class="entry__date">{{ entry.date }}</div>
         <div class="entry__actions">
           <base-button
-            mode="allowed"
             id="entry__actions-view"
             link
             :to="`/journals/${journalID}/${entry.id}`"
             >View</base-button
           >
           <base-button
+            mode="allowed"
             id="entry__actions-edit"
             link
             :to="`/journals/${journalID}/${entry.id}/edit`"
