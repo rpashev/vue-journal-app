@@ -110,6 +110,15 @@ form {
   margin: 1rem 0;
   font: inherit;
 }
+input, textarea {
+  /* margin: 0 1rem 1rem 1rem; */
+  border: 1.5px solid rgb(173, 169, 169);
+}
+input:focus, textarea:focus {
+  border-color: #3d008d;
+  background-color: #faf6ff;
+  outline: none;
+}
 #journalName {
   height: 3rem;
   padding: 0.5rem 1rem;

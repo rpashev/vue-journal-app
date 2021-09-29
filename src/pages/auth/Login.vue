@@ -128,7 +128,7 @@ input {
   display: block;
   width: 100%;
   font: inherit;
-  border: 1px solid #ccc;
+  border: 1.5px solid rgb(173, 169, 169);
   padding: 0.2rem 0.5rem;
 }
 
