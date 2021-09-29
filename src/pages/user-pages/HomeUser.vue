@@ -1,6 +1,10 @@
 <template>
   <div class="home-user__page">
-    <div><base-button>Create a New Journal</base-button></div>
+    <div>
+      <base-button link :to="`/journals/create-journal`"
+        >Create a New Journal</base-button
+      >
+    </div>
     <div class="journals__list">
       <journal-card
         v-for="journal in journalsData"

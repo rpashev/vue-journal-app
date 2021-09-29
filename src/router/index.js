@@ -8,7 +8,8 @@ import UserProfile from "../pages/user-pages/UserProfile.vue";
 import NewEntry from "../pages/user-pages/journal/NewEntry.vue";
 import SingleJournal from "../pages/user-pages/journal/SingleJournal.vue";
 import SingleEntry from "../pages/user-pages/journal/SingleEntry.vue";
-import EditEntry from "../pages/user-pages/journal/EditEntry.vue"
+import EditEntry from "../pages/user-pages/journal/EditEntry.vue";
+import CreateJournal from "../pages/user-pages/journal/CreateJournal.vue";
 
 const routes = [
   {
@@ -54,13 +55,18 @@ const routes = [
   },
   {
     path: "/journals/:journalID/:entryID",
-    name: SingleEntry,
+    name: "SingleEntry",
     component: SingleEntry,
   },
   {
     path: "/journals/:journalID/:entryID/edit",
     name: EditEntry,
     component: EditEntry,
+  },
+  {
+    path: "/journals/create-journal",
+    name: "CreateJournal",
+    component: CreateJournal,
   },
 ];
 
