@@ -8,11 +8,16 @@
 <script>
 import TheHeader from "../src/components/layout/TheHeader.vue";
 import TheFooter from "../src/components/layout/TheFooter.vue";
+import { useStore } from "vuex";
 
 export default {
   components: {
     TheHeader,
     TheFooter,
+  },
+  setup() {
+    const store = useStore();
+    store.dispatch("tryLogin");
   },
 };
 </script>
@@ -30,7 +35,7 @@ body {
   min-height: 100vh;
 }
 main {
-  padding-bottom: 12rem ;
+  padding-bottom: 12rem;
   margin: 0 auto;
   height: auto;
 }

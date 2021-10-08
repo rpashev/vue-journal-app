@@ -56,6 +56,10 @@
             }"
             >Submit</base-button
           >
+          <p class="error-message submit-error" v-if="errorMessage">
+            {{ errorMessage }}
+          </p>
+          <div v-if="isLoading">Loading...</div>
         </form>
       </div>
     </base-card>
@@ -63,7 +67,7 @@
 </template>
 
 <script>
-import { computed, reactive } from "@vue/reactivity";
+import { computed, reactive, ref } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
 import { useStore } from "vuex";
@@ -77,6 +81,8 @@ export default {
       email: "",
       password: "",
     });
+    let isLoading = ref(false);
+    let errorMessage = ref(null);
 
     const rules = computed(() => {
       return {
@@ -88,6 +94,9 @@ export default {
     const v$ = useVuelidate(rules, formState);
 
     const submitHandler = async () => {
+      errorMessage.value = null;
+      isLoading.value = true;
+
       if (v$._value.$invalid) {
         console.log("invalid");
       } else {
@@ -95,7 +104,11 @@ export default {
           await store.dispatch("login", formState);
           router.push("/journals");
         } catch (err) {
-          console.log(err.response.data.message || "error");
+          errorMessage.value =
+            err.response.data.message ||
+            "Could not log in, plsea chek your input!";
+        } finally {
+          isLoading.value = false;
         }
       }
     };
@@ -104,6 +117,8 @@ export default {
       submitHandler,
       formState,
       v$,
+      isLoading,
+      errorMessage,
     };
   },
 };
@@ -114,7 +129,7 @@ export default {
   padding-top: 2rem;
 }
 .login__card {
-  height: 25rem;
+  height: 26rem;
   width: 30rem;
 }
 form {
@@ -165,5 +180,9 @@ button {
   color: red;
   font-size: 0.8rem;
   position: absolute;
+}
+.submit-error {
+  position: static;
+  text-align: center;
 }
 </style>

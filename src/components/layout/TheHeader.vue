@@ -15,7 +15,7 @@
           <router-link to="/user-profile">{{ userName }}</router-link>
         </li>
         <li v-if="isLoggedIn">
-          <router-link to="/">Logout</router-link>
+          <a @click="logout">Logout</a>
         </li>
       </ul>
     </nav>
@@ -26,10 +26,16 @@
 export default {
   computed: {
     isLoggedIn() {
-      return this.$store.getters.isLoggedIn;
+      return this.$store.getters.userId;
     },
     userName() {
-      return this.$store.getters.userName;
+      return this.$store.getters.firstName;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/")
     },
   },
 };
@@ -66,6 +72,7 @@ a:active,
 a:hover,
 a.router-link-active {
   border-bottom: 2px solid #03692d;
+  cursor: pointer;
 }
 .logo__container {
   width: 5rem;

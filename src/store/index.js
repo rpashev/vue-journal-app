@@ -3,21 +3,13 @@ import axios from "axios";
 
 export default createStore({
   state: {
-    isLoggedIn: true, //temp
     token: null,
-    userName: "Rosko", //temp
     email: null,
     userId: null,
     firstName: null,
     journals: null,
   },
   getters: {
-    isLoggedIn(state) {
-      return state.isLoggedIn; //temp
-    },
-    userName(state) {
-      return state.userName; //temp
-    },
     token(state) {
       return state.token;
     },
@@ -30,6 +22,9 @@ export default createStore({
     firstName(state) {
       return state.firstName;
     },
+    journals(state){
+      return state.journals;
+    }
   },
   mutations: {
     setUser(state, payload) {
@@ -76,11 +71,38 @@ export default createStore({
         firstName: response.data.firstName,
         journals: response.data.journals,
       };
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userId", response.data.userId);
+      localStorage.setItem("email", response.data.email);
+      localStorage.setItem("firstName", response.data.firstName);
+      localStorage.setItem("journals", response.data.journals);
 
       context.commit("setUser", { ...userData });
     },
+    tryLogin(context) {
+      const token = localStorage.getItem("token");
+      const userId = localStorage.getItem("userId");
+      const email = localStorage.getItem("email");
+      const firstName = localStorage.getItem("firstName");
+      const journals = localStorage.getItem("journals");
+
+      if (token) {
+        context.commit("setUser", {
+          token,
+          userId,
+          email,
+          firstName,
+          journals,
+        });
+      }
+    },
 
     logout(context, payload) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("email");
+      localStorage.removeItem("firstName");
+      localStorage.removeItem("journals");
       context.commit("resetUser", payload);
     },
   },
