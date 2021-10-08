@@ -59,7 +59,7 @@
           <p class="error-message submit-error" v-if="errorMessage">
             {{ errorMessage }}
           </p>
-          <div v-if="isLoading">Loading...</div>
+          <base-spinner v-if="isLoading"></base-spinner>
         </form>
       </div>
     </base-card>
@@ -129,7 +129,7 @@ export default {
   padding-top: 2rem;
 }
 .login__card {
-  height: 26rem;
+  height: 27rem;
   width: 30rem;
 }
 form {

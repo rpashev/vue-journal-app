@@ -149,7 +149,7 @@
           <p class="error-message submit-error" v-if="errorMessage">
             {{ errorMessage }}
           </p>
-          <div v-if="isLoading">Loading...</div>
+          <base-spinner v-if="isLoading"></base-spinner>
         </form>
       </div>
     </base-card>
