@@ -156,10 +156,13 @@
 import { reactive, computed } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
-import axios from "axios";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
+    const store = useStore();
+    const router = useRouter();
     const formState = reactive({
       email: "",
       password: "",
@@ -187,22 +190,12 @@ export default {
         console.log("invalid");
       } else {
         try {
-          await axios.post("http://localhost:5000/auth/signup", {
-            ...formState,
-          });
+          await store.dispatch("signup", formState);
+          router.push("/journals");
         } catch (err) {
-          console.log(err);
+          console.log(err.response.data.message || "error");
         }
       }
-      // console.log(
-      //   formState.email,
-      //   formState.password,
-      //   formState.repeatPassword,
-      //   formState.firstName,
-      //   formState.lastName,
-      //   formState.terms,
-      //   formState.updates
-      // );
     };
 
     return {

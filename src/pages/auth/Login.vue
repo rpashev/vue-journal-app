@@ -66,9 +66,13 @@
 import { computed, reactive } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
+    const store = useStore();
+    const router = useRouter();
     const formState = reactive({
       email: "",
       password: "",
@@ -83,12 +87,18 @@ export default {
     // eslint-disable-next-line no-unused-vars
     const v$ = useVuelidate(rules, formState);
 
-    function submitHandler() {
-      console.log(formState.email, formState.password);
+    const submitHandler = async () => {
       if (v$._value.$invalid) {
         console.log("invalid");
+      } else {
+        try {
+          await store.dispatch("login", formState);
+          router.push("/journals");
+        } catch (err) {
+          console.log(err.response.data.message || "error");
+        }
       }
-    }
+    };
 
     return {
       submitHandler,

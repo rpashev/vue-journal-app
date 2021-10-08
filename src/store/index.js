@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
   state: {
@@ -8,6 +9,7 @@ export default createStore({
     email: null,
     userId: null,
     firstName: null,
+    journals: null,
   },
   getters: {
     isLoggedIn(state) {
@@ -35,18 +37,49 @@ export default createStore({
       state.userId = payload.userId;
       state.email = payload.email;
       state.firstName = payload.firstName;
+      state.journals = payload.journals;
     },
     resetUser(state) {
       state.token = null;
       state.userId = null;
       state.email = null;
       state.firstName = null;
+      state.journals = null;
     },
   },
   actions: {
-    login(context, payload) {
-      context.commit("setUser", payload);
+    async login(context, payload) {
+      return context.dispatch("auth", {
+        ...payload,
+        mode: "login",
+      });
     },
+    async signup(context, payload) {
+      return context.dispatch("auth", {
+        ...payload,
+        mode: "signup",
+      });
+    },
+    async auth(context, payload) {
+      let url = "http://localhost:5000/auth/login";
+
+      if (payload.mode === "signup") {
+        url = "http://localhost:5000/auth/signup";
+      }
+
+      const response = await axios.post(url, { ...payload });
+
+      const userData = {
+        token: response.data.token,
+        userId: response.data.userId,
+        email: response.data.email,
+        firstName: response.data.firstName,
+        journals: response.data.journals,
+      };
+
+      context.commit("setUser", { ...userData });
+    },
+
     logout(context, payload) {
       context.commit("resetUser", payload);
     },

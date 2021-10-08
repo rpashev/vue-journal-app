@@ -20,12 +20,15 @@
 <script>
 import { journals } from "../../../DUMMY_DATA";
 import JournalCard from "../../components/journal/JournalCard.vue";
+import { useStore } from "vuex";
 
 export default {
   components: { JournalCard },
   setup() {
+    const store = useStore();
     const journalsData = journals;
     console.log(journals);
+    console.log(store.getters.token);
     return {
       journalsData,
     };
