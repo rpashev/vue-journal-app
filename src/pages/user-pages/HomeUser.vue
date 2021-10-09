@@ -7,7 +7,7 @@
     </div>
     <div class="journals__list">
       <journal-card
-        v-for="journal in journalsData"
+        v-for="journal in journals"
         :journalName="journal.journalName"
         :description="journal.description"
         :key="journal.id"
@@ -18,19 +18,38 @@
 </template>
 
 <script>
-import { journals } from "../../../DUMMY_DATA";
 import JournalCard from "../../components/journal/JournalCard.vue";
-import { useStore } from "vuex";
+import journalService from "../../services/journalService";
+// import { useStore } from "vuex";
+import { ref } from "@vue/reactivity";
 
 export default {
   components: { JournalCard },
   setup() {
-    const store = useStore();
-    console.log(store.getters.token);
-    const journalsData = journals;
+    let isLoading = ref(false);
+    let errorMessage = ref(null);
+    let journals = ref([]);
+    // const store = useStore();
+
+    const loadJournals = async () => {
+      try {
+        isLoading.value = true;
+        const response = await journalService.getJournals();
+
+        journals.value = response.data;
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message || "Could not load journals!";
+      } finally {
+        isLoading.value = false;
+      }
+    };
+    loadJournals();
 
     return {
-      journalsData,
+      journals,
+      isLoading,
+      errorMessage,
     };
   },
 };

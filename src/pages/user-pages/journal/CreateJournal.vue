@@ -64,7 +64,7 @@ import { ref, computed } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import journalService from "../../../services/journalService";
-// import { useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -72,7 +72,7 @@ export default {
     const journalName = ref("");
     let isLoading = ref(false);
     let errorMessage = ref(null);
-    // const router = useRouter();
+    const router = useRouter();
 
     const rules = computed(() => {
       return {
@@ -94,7 +94,7 @@ export default {
             journalName: journalName.value,
             description: description.value,
           });
-          // router.push("/journals");
+          router.push("/")
         } catch (err) {
           console.log("here");
           errorMessage.value =
