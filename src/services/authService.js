@@ -3,7 +3,6 @@ import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 export default loginService = async (formState, mode) => {
-
   const store = useStore();
   const router = useRouter();
   let url;
@@ -15,7 +14,7 @@ export default loginService = async (formState, mode) => {
   }
 
   try {
-      console.log('haha')
+    console.log("haha");
     const response = await axios.post(url, {
       ...formState,
     });

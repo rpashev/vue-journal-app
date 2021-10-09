@@ -106,7 +106,7 @@ export default {
         } catch (err) {
           errorMessage.value =
             err.response.data.message ||
-            "Could not log in, plsea chek your input!";
+            "Could not log in, please check your input!";
         } finally {
           isLoading.value = false;
         }

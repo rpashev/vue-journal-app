@@ -26,9 +26,9 @@ export default {
   components: { JournalCard },
   setup() {
     const store = useStore();
-    const journalsData = journals;
-    console.log(journals);
     console.log(store.getters.token);
+    const journalsData = journals;
+
     return {
       journalsData,
     };

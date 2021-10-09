@@ -52,6 +52,10 @@
         }"
         >Create</base-button
       >
+      <p class="error-message submit-error" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+      <base-spinner v-if="isLoading"></base-spinner>
     </form>
   </div>
 </template>
@@ -59,11 +63,17 @@
 import { ref, computed } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
+import journalService from "../../../services/journalService";
+// import { useRouter } from "vue-router";
 
 export default {
   setup() {
     const description = ref("");
     const journalName = ref("");
+    let isLoading = ref(false);
+    let errorMessage = ref(null);
+    // const router = useRouter();
+
     const rules = computed(() => {
       return {
         journalName: { required },
@@ -72,11 +82,27 @@ export default {
 
     const v$ = useVuelidate(rules, { journalName });
 
-    const submitHandler = () => {
+    const submitHandler = async () => {
+      errorMessage.value = null;
+      isLoading.value = true;
+
       if (v$._value.$invalid) {
         console.log("invalid");
       } else {
-        console.log(journalName.value, description.value);
+        try {
+          await journalService.createJournal({
+            journalName: journalName.value,
+            description: description.value,
+          });
+          // router.push("/journals");
+        } catch (err) {
+          console.log("here");
+          errorMessage.value =
+            err.response.data.message ||
+            "Could not create journal, please try again!";
+        } finally {
+          isLoading.value = false;
+        }
       }
     };
 
@@ -85,6 +111,8 @@ export default {
       v$,
       journalName,
       description,
+      isLoading,
+      errorMessage,
     };
   },
 };
@@ -110,11 +138,13 @@ form {
   margin: 1rem 0;
   font: inherit;
 }
-input, textarea {
+input,
+textarea {
   /* margin: 0 1rem 1rem 1rem; */
   border: 1.5px solid rgb(173, 169, 169);
 }
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-color: #3d008d;
   background-color: #faf6ff;
   outline: none;
@@ -156,5 +186,9 @@ textarea {
   position: absolute;
   text-align: center;
   width: 100%;
+}
+.submit-error {
+  position: static;
+  text-align: center;
 }
 </style>
