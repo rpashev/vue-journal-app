@@ -47,7 +47,6 @@ export default {
           err.response.data.message || "Couldn't load journal!";
       } finally {
         isLoading.value = false;
-        console.log(journal.value.entries.length);
       }
     };
     loadJournal();

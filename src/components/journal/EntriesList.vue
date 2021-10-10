@@ -14,26 +14,26 @@
         <div class="entry__intro">
           <div
             class="entry-list__item-title"
-            @click="viewEntry(entry.id)"
+            @click="viewEntry(entry._id)"
             title="View Entry"
           >
             {{ entry.title }}
           </div>
           <div v-html="entryContent(entry)" class="entry__description"></div>
         </div>
-        <div class="entry__date">{{ readableData(entry.date) }}</div>
+        <div class="entry__date">{{ readableDate(entry.date) }}</div>
         <div class="entry__actions">
           <base-button
             id="entry__actions-view"
             link
-            :to="`/journals/${journalID}/${entry.id}`"
+            :to="`/journals/${journalID}/${entry._id}`"
             >View</base-button
           >
           <base-button
             mode="allowed"
             id="entry__actions-edit"
             link
-            :to="`/journals/${journalID}/${entry.id}/edit`"
+            :to="`/journals/${journalID}/${entry._id}/edit`"
             >Edit</base-button
           >
           <base-button id="entry__actions-delete" mode="alternative"
@@ -63,16 +63,17 @@ export default {
         return cleanBody;
       }
     };
-    const readableData = (date) => {
+    const readableDate = (date) => {
       if (date) {
         return date.substr(0, 10);
       }
     };
+    // console.log(props.entriesData)
 
     return {
       viewEntry,
       entryContent,
-      readableData,
+      readableDate,
     };
   },
 };

@@ -8,6 +8,7 @@ export default createStore({
     userId: null,
     firstName: null,
     journals: null,
+    entries: null,
   },
   getters: {
     token(state) {
@@ -22,9 +23,12 @@ export default createStore({
     firstName(state) {
       return state.firstName;
     },
-    journals(state){
+    journals(state) {
       return state.journals;
-    }
+    },
+    entries(state) {
+      return state.entries;
+    },
   },
   mutations: {
     setUser(state, payload) {
@@ -40,6 +44,10 @@ export default createStore({
       state.email = null;
       state.firstName = null;
       state.journals = null;
+      state.entries = null;
+    },
+    setEntries(state, payload) {
+      state.entries = payload.entries;
     },
   },
   actions: {
@@ -104,6 +112,9 @@ export default createStore({
       localStorage.removeItem("firstName");
       localStorage.removeItem("journals");
       context.commit("resetUser", payload);
+    },
+    getEntries(context, payload) {
+      context.commit("setEntries", payload);
     },
   },
   modules: {},

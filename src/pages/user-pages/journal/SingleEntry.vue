@@ -1,8 +1,12 @@
 <template>
-  <div class="single-entry__page">
-    <h1>{{ title }}</h1>
-    <h3>{{ date }}</h3>
-    <div class="entry__body">{{ body }}</div>
+  <div v-if="entry" class="single-entry__page">
+    <h1>{{ entry.title }}</h1>
+    <h3>{{ readableDate(entry.date) }}</h3>
+    <div v-html="entry.body" class="entry__body"></div>
+    <p class="error-message submit-error" v-if="errorMessage">
+      {{ errorMessage }}
+    </p>
+    <base-spinner v-if="isLoading"></base-spinner>
     <div class="entry__actions">
       <base-button
         mode="allowed"
@@ -19,26 +23,51 @@
       >Back to journal</base-button
     >
   </div>
+  <base-spinner class="spinner" v-if="isLoading"></base-spinner>
 </template>
 
 <script>
+import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-import { journals } from "../../../../DUMMY_DATA";
+import entryService from "../../../services/entryService";
 
 export default {
   setup() {
     const route = useRoute();
     const entryID = route.params.entryID;
     const journalID = route.params.journalID;
-    const journal = journals.find((el) => el.id === journalID);
-    console.log(journalID);
-    const entry = journal.entries.find((entry) => entry.id === entryID);
+    const errorMessage = ref(null);
+    const isLoading = ref(false);
+    let entry = ref(null);
+    const loadEntry = async () => {
+      isLoading.value = true;
+      try {
+        const response = await entryService.getEntry(journalID, entryID);
+        console.log(response);
+        entry.value = response;
+        console.log(entry.value);
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message || "Could not load entry!";
+      } finally {
+        isLoading.value = false;
+      }
+    };
+    loadEntry();
+
+    const readableDate = (date) => {
+      if (date) {
+        return date.substr(0, 10);
+      }
+    };
+
     return {
-      title: entry.title,
-      date: entry.date,
-      body: entry.body,
       journalID,
       entryID,
+      isLoading,
+      errorMessage,
+      entry,
+      readableDate,
     };
   },
 };
@@ -64,5 +93,12 @@ export default {
 }
 #entry__actions-back {
   margin-top: 2rem;
+}
+.submit-error {
+  position: static;
+  text-align: center;
+}
+.spinner {
+  padding-top: 12rem;
 }
 </style>

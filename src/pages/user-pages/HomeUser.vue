@@ -24,12 +24,15 @@
 <script>
 import JournalCard from "../../components/journal/JournalCard.vue";
 import journalService from "../../services/journalService";
+import {useStore} from "vuex"
 // import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
   components: { JournalCard },
   setup() {
+    const store = useStore();
+    console.log(store.getters.token)
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let journals = ref([]);
