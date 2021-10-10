@@ -54,6 +54,7 @@ import { useRoute } from "vue-router";
 import { useRouter } from "vue-router";
 
 import entryService from "../../../services/entryService";
+import { customToolbar } from "../../../helper-functions/vue-editor";
 
 export default {
   components: { VueEditor },
@@ -90,19 +91,6 @@ export default {
         isLoading.value = false;
       }
     };
-
-    const customToolbar = [
-      [{ header: [false, 1, 2, 3, 4, 5, 6] }],
-      ["bold", "italic", "underline", "strike"], // toggled buttons
-      [
-        { align: "" },
-        { align: "center" },
-        { align: "right" },
-        { align: "justify" },
-      ],
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ color: [] }],
-    ];
 
     return {
       content,

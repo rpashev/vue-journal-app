@@ -119,7 +119,7 @@ export default {
 .entry__actions a {
   height: 2rem;
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.4rem 0.5rem;
   margin: 0 0.5rem;
 }
 #entry__actions-view {

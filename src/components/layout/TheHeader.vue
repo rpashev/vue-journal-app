@@ -75,11 +75,11 @@ a.router-link-active {
   cursor: pointer;
 }
 .logo__container {
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
 }
 .logo {
-  background: url("../../assets/images/logo.png") center/contain no-repeat;
+  background: url("../../assets/images/logo4.png") center/contain no-repeat;
   height: 100%;
   width: 100%;
   margin-left: 2rem;

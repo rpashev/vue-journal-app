@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <vue-editor v-model="body"> </vue-editor>
+      <vue-editor v-model="body" :editorToolbar="customToolbar"> </vue-editor>
       <base-button
         type="submit"
         tag="button"
@@ -30,7 +30,7 @@
         :class="{
           forbidden: isInvalid,
         }"
-        >Submit entry</base-button
+        >Edit entry</base-button
       >
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
@@ -42,9 +42,10 @@
 
 <script>
 import { VueEditor } from "vue3-editor";
-import { ref } from "@vue/reactivity";
+import { ref, computed } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 import entryService from "../../../services/entryService";
+import { customToolbar } from "../../../helper-functions/vue-editor";
 
 export default {
   components: { VueEditor },
@@ -70,9 +71,10 @@ export default {
           err.response.data.message || "Could not load entry!";
       } finally {
         isLoading.value = false;
+        // console.log(entry.value.date.slice(0,10));
         title.value = entry.value.title;
         body.value = entry.value.body;
-        date.value = entry.value.date;
+        date.value = entry.value.date.slice(0,10);
       }
     };
     loadEntry();
@@ -81,6 +83,12 @@ export default {
       if (date) {
         return date.substr(0, 10);
       }
+    };
+    const isInvalid = computed(() => {
+      return body.value === "";
+    });
+    const submitHandler = async () => {
+      console.log(date.value);
     };
 
     return {
@@ -92,6 +100,9 @@ export default {
       body,
       date,
       readableDate,
+      customToolbar,
+      isInvalid,
+      submitHandler,
     };
   },
 };
@@ -103,6 +114,48 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+input,
+label,
+h2 {
+  color: #59595e;
+  font: inherit;
+  outline: none;
+}
+.entry__container {
+  display: flex;
+  justify-content: space-around;
+}
+.entry__container input {
+  margin: 0 1rem 1rem 1rem;
+  border: 1.5px solid rgb(173, 169, 169);
+  padding: 0.2rem 0.5rem;
+}
+.entry-editor__content {
+  width: 50rem;
+  max-width: 50rem;
+}
+input:focus {
+  border-color: #3d008d;
+  background-color: #faf6ff;
+  outline: none;
+}
+.submit-error {
+  position: static;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+button {
+  margin-top: 2rem;
 }
 .ql-align-center {
   text-align: center;
