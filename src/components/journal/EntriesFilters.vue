@@ -3,7 +3,7 @@
     <div class="form-control">
       <div class="time__filter">
         <!-- <label for="timeFilter">Since</label> -->
-        <select name="timeFilter" id="timeFilter">
+        <select name="timeFilter" id="timeFilter" v-model="timeQuery">
           <option value="alltime">All Time</option>
           <option value="today">Today</option>
           <option value="yesterday">Yesterday</option>
@@ -18,15 +18,50 @@
       <div class="search">
         <div class="search-icon"></div>
         <input
+          v-model="contentQuery"
           type="search"
           id="search"
           placeholder="Search this journal..."
           name="search"
         />
       </div>
+      <div>{{filteredEntries}}</div>
     </div>
   </div>
 </template>
+
+<script>
+import { computed, ref } from "@vue/reactivity";
+export default {
+  props: ["entries"],
+
+  setup(props) {
+    const timeQuery = ref(null);
+    const contentQuery = ref("");
+
+    let filteredEntries = computed(() => {
+      if (contentQuery.value) {
+        let byContent = contentQuery.value;
+        return props.entries.filter((entry) => {
+          const noTagsEntryBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
+          if (
+            noTagsEntryBody.includes(byContent) ||
+            entry.title.includes(byContent)
+          ) {
+            return entry;
+          }
+        });
+      }
+    });
+
+    return {
+      timeQuery,
+      contentQuery,
+      filteredEntries,
+    };
+  },
+};
+</script>
 
 <style scoped>
 .entries__filters {

@@ -4,7 +4,7 @@
     <base-button link :to="`/journals/${journalID}/new-entry`"
       >New Entry</base-button
     >
-    <entries-filters></entries-filters>
+    <entries-filters v-if="journal" :entries="journal.entries"></entries-filters>
     <entries-list
       v-if="journal"
       :entriesData="journal.entries"

@@ -45,4 +45,16 @@ h3,
 h2 {
   color: #59595e;
 }
+.ql-align-center {
+  text-align: center;
+}
+.ql-align-right {
+  text-align: right;
+}
+.ql-align-left {
+  text-align: left;
+}
+.ql-align-justify{
+  text-align: justify;
+}
 </style>

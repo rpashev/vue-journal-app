@@ -101,4 +101,16 @@ export default {
 .spinner {
   padding-top: 12rem;
 }
+.ql-align-center {
+  text-align: center;
+}
+.ql-align-right {
+  text-align: right;
+}
+.ql-align-left {
+  text-align: left;
+}
+.ql-align-justify{
+  text-align: justify;
+}
 </style>
