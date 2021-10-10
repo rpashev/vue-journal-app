@@ -1,20 +1,29 @@
 <template>
   <div class="single-journal__page">
-    <h1>{{ journalName }}</h1>
+    <h1 v-if="journal">{{ journal.journalName }}</h1>
     <base-button link :to="`/journals/${journalID}/new-entry`"
       >New Entry</base-button
     >
     <entries-filters></entries-filters>
-    <entries-list :entriesData="entries" :journalID="journalID"></entries-list>
+    <entries-list
+      v-if="journal"
+      :entriesData="journal.entries"
+      :journalID="journalID"
+    ></entries-list>
+    <p v-if="noEntries">No entries in this journal yet!</p>
+    <p class="error-message submit-error" v-if="errorMessage">
+      {{ errorMessage }}
+    </p>
+    <base-spinner v-if="isLoading"></base-spinner>
   </div>
 </template>
 
 <script>
 import EntriesFilters from "../../../components/journal/EntriesFilters.vue";
 import EntriesList from "../../../components/journal/EntriesList.vue";
-import { journals } from "../../../../DUMMY_DATA";
-
 import { useRoute } from "vue-router";
+import journalService from "../../../services/journalService";
+import { ref, computed } from "@vue/reactivity";
 
 export default {
   components: {
@@ -24,14 +33,39 @@ export default {
   setup() {
     const route = useRoute();
     const journalID = route.params.journalID;
-    const journal = journals.find((el) => el.id === journalID);
-    const entries = journal.entries;
-    const journalName = journal.journalName;
+    let journal = ref(null);
+    let isLoading = ref(false);
+    let errorMessage = ref(null);
+
+    const loadJournal = async () => {
+      isLoading.value = true;
+      errorMessage = null;
+      try {
+        journal.value = await journalService.getJournal(journalID);
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message || "Couldn't load journal!";
+      } finally {
+        isLoading.value = false;
+        console.log(journal.value.entries.length);
+      }
+    };
+    loadJournal();
+
+    const noEntries = computed(() => {
+      if (journal.value) {
+        return journal.value.entries.length === 0;
+      } else {
+        return false;
+      }
+    });
 
     return {
-      journalName,
-      entries,
+      journal,
       journalID,
+      isLoading,
+      errorMessage,
+      noEntries,
     };
   },
 };
@@ -47,5 +81,9 @@ export default {
 }
 h1 {
   margin-bottom: 2rem;
+}
+.submit-error {
+  position: static;
+  text-align: center;
 }
 </style>

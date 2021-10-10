@@ -50,7 +50,7 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: "/journals/:journalName/new-entry",
+    path: "/journals/:journalID/new-entry",
     name: "NewEntry",
     component: NewEntry,
     meta: { requiresAuth: true },

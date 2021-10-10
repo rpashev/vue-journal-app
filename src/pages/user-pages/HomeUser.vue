@@ -11,9 +11,13 @@
         :journalName="journal.journalName"
         :description="journal.description"
         :key="journal.id"
-        :journalID="journal.id"
+        :journalID="journal._id"
       ></journal-card>
     </div>
+    <p class="error-message submit-error" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+      <base-spinner v-if="isLoading"></base-spinner>
   </div>
 </template>
 
@@ -69,5 +73,9 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+.submit-error {
+  position: static;
+  text-align: center;
 }
 </style>

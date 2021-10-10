@@ -29,15 +29,31 @@
           :editorToolbar="customToolbar"
         />
       </div>
-      <base-button>Submit entry</base-button>
-      <div v-html="content"></div>
+      <base-button
+        type="submit"
+        tag="button"
+        :disabled="isInvalid"
+        :class="{
+          forbidden: isInvalid,
+        }"
+        >Submit entry</base-button
+      >
+      <!-- <div v-html="content"></div> -->
+      <p class="error-message submit-error" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+      <base-spinner v-if="isLoading"></base-spinner>
     </form>
   </div>
 </template>
 
 <script>
 import { VueEditor } from "vue3-editor";
-import { ref } from "@vue/reactivity";
+import { computed, ref } from "@vue/reactivity";
+import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
+
+import entryService from "../../../services/entryService";
 
 export default {
   components: { VueEditor },
@@ -46,11 +62,32 @@ export default {
     const title = ref("");
     const date = ref(new Date().toISOString().substr(0, 10));
 
-    const submitHandler = () => {
-      if (!content.value) {
-        console.log("invalid");
-      } else {
-        console.log(content.value, title.value, date.value);
+    let isLoading = ref(false);
+    let errorMessage = ref(null);
+    const router = useRouter();
+    const route = useRoute();
+    const journalID = route.params.journalID;
+
+    const isInvalid = computed(() => {
+      return content.value === "";
+    });
+
+    const submitHandler = async () => {
+      console.log(journalID);
+      isLoading.value = true;
+      try {
+        await entryService.createEntry(
+          title.value,
+          content.value,
+          date.value,
+          journalID
+        );
+        router.push(`/journals/${journalID}`);
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message || "Could not create entry!";
+      } finally {
+        isLoading.value = false;
       }
     };
 
@@ -73,6 +110,9 @@ export default {
       date,
       title,
       customToolbar,
+      isInvalid,
+      errorMessage,
+      isLoading,
     };
   },
 };
@@ -115,6 +155,10 @@ input:focus {
   border-color: #3d008d;
   background-color: #faf6ff;
   outline: none;
+}
+.submit-error {
+  position: static;
+  text-align: center;
 }
 h2 {
   text-align: center;

@@ -19,11 +19,9 @@
           >
             {{ entry.title }}
           </div>
-          <div class="entry__description">
-            {{ entry.body.slice(0, 60) + "..." }}
-          </div>
+          <div v-html="entryContent(entry)" class="entry__description"></div>
         </div>
-        <div class="entry__date">{{ entry.date }}</div>
+        <div class="entry__date">{{ readableData(entry.date) }}</div>
         <div class="entry__actions">
           <base-button
             id="entry__actions-view"
@@ -48,6 +46,7 @@
 </template>
 
 <script>
+// import { computed } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 
 export default {
@@ -57,8 +56,23 @@ export default {
     const viewEntry = (entry) => {
       router.push(`/journals/${props.journalID}/${entry}`);
     };
+    const entryContent = (entry) => {
+      if (entry.body) {
+        const cleanBody =
+          entry.body.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 60) + "...";
+        return cleanBody;
+      }
+    };
+    const readableData = (date) => {
+      if (date) {
+        return date.substr(0, 10);
+      }
+    };
+
     return {
       viewEntry,
+      entryContent,
+      readableData,
     };
   },
 };
