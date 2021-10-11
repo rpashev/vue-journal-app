@@ -47,7 +47,7 @@ header {
   top: 0;
   left: 0;
   background: transparent;
-  z-index: 99;
+  z-index: 0;
   width: 100%;
 }
 nav {

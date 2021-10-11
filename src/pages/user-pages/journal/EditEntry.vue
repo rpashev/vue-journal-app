@@ -21,8 +21,14 @@
           />
         </div>
       </div>
-
-      <vue-editor v-model="body" :editorToolbar="customToolbar"> </vue-editor>
+      <div class="entry__body">
+        <vue-editor
+          class="entry-editor__content"
+          v-model="body"
+          :editorToolbar="customToolbar"
+        >
+        </vue-editor>
+      </div>
       <base-button
         type="submit"
         tag="button"
@@ -74,7 +80,7 @@ export default {
         // console.log(entry.value.date.slice(0,10));
         title.value = entry.value.title;
         body.value = entry.value.body;
-        date.value = entry.value.date.slice(0,10);
+        date.value = entry.value.date.slice(0, 10);
       }
     };
     loadEntry();
@@ -89,7 +95,7 @@ export default {
     });
     const submitHandler = async () => {
       console.log(date.value);
-      console.log(body.value, title.value, date.value)
+      console.log(body.value, title.value, date.value);
     };
 
     return {
