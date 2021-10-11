@@ -11,7 +11,7 @@
     ></entries-filters>
     <entries-list
       v-if="journal"
-      :entriesData="journal.entries"
+      :entriesData="filteredEntries"
       :journalID="journalID"
     ></entries-list>
     <p v-if="noEntries">No entries in this journal yet!</p>
@@ -28,6 +28,7 @@ import EntriesList from "../../../components/journal/EntriesList.vue";
 import { useRoute } from "vue-router";
 import journalService from "../../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
+import dayjs from "dayjs";
 
 export default {
   components: {
@@ -41,7 +42,7 @@ export default {
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let searchQuery = ref("");
-    let timeFilter = ref(null);
+    let timeFilter = ref("alltime");
 
     const loadJournal = async () => {
       isLoading.value = true;
@@ -70,6 +71,57 @@ export default {
       searchQuery.value = queries[1];
     };
 
+    const filteredEntries = computed(() => {
+      return journal.value.entries.filter((entry) => {
+        const noTagsEntryBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
+
+        let currentDate = new Date().toISOString().substr(0, 10);
+        let endDate = new Date(entry.date).toISOString().substring(0, 10);
+        let today = dayjs(currentDate);
+        let entryDate = dayjs(endDate);
+
+        if (
+          noTagsEntryBody
+            .toLowerCase()
+            .includes(searchQuery.value.toLowerCase()) ||
+          entry.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+        ) {
+          if (timeFilter.value === "alltime") {
+            return entry;
+          }
+
+          if (timeFilter.value === "today") {
+            if (entryDate.isSame(today)) {
+              return entry;
+            }
+          }
+          if (timeFilter.value === "yesterday") {
+            if (entryDate.isSame(today.subtract(1, "day"))) {
+              return entry;
+            }
+          }
+          if (timeFilter.value === "this-week") {
+            let diff = today.diff(entryDate, "day");
+            if (diff <= 7) {
+              return entry;
+            }
+          }
+          if (timeFilter.value === "this-month") {
+            let diff = today.diff(entryDate, "month");
+            if (diff <= 1) {
+              return entry;
+            }
+          }
+          if (timeFilter.value === "this-year") {
+            let diff = today.diff(entryDate, "year");
+            if (diff <= 1) {
+              return entry;
+            }
+          }
+        }
+      });
+    });
+    // console.log(new Date)
     return {
       journal,
       journalID,
@@ -77,6 +129,7 @@ export default {
       errorMessage,
       noEntries,
       saveQueries,
+      filteredEntries,
     };
   },
 };

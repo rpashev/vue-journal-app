@@ -38,7 +38,7 @@ export default {
   props: ["entries"],
 
   setup(props, context) {
-    const timeQuery = ref(null);
+    const timeQuery = ref("alltime");
     const contentQuery = ref("");
     watch([timeQuery, contentQuery], (current) => {
       context.emit("getqueries", current);
