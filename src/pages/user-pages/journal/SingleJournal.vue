@@ -4,7 +4,11 @@
     <base-button link :to="`/journals/${journalID}/new-entry`"
       >New Entry</base-button
     >
-    <entries-filters v-if="journal" :entries="journal.entries"></entries-filters>
+    <entries-filters
+      @getqueries="saveQueries"
+      v-if="journal"
+      :entries="journal.entries"
+    ></entries-filters>
     <entries-list
       v-if="journal"
       :entriesData="journal.entries"
@@ -36,6 +40,8 @@ export default {
     let journal = ref(null);
     let isLoading = ref(false);
     let errorMessage = ref(null);
+    let searchQuery = ref("");
+    let timeFilter = ref(null);
 
     const loadJournal = async () => {
       isLoading.value = true;
@@ -59,12 +65,18 @@ export default {
       }
     });
 
+    const saveQueries = (queries) => {
+      timeFilter.value = queries[0];
+      searchQuery.value = queries[1];
+    };
+
     return {
       journal,
       journalID,
       isLoading,
       errorMessage,
       noEntries,
+      saveQueries,
     };
   },
 };

@@ -25,39 +25,28 @@
           name="search"
         />
       </div>
-      <div>{{filteredEntries}}</div>
+      <!-- <div>{{ filteredEntries }}</div> -->
     </div>
   </div>
 </template>
 
 <script>
-import { computed, ref } from "@vue/reactivity";
+import { ref } from "@vue/reactivity";
+import { watch } from "@vue/runtime-core";
+
 export default {
   props: ["entries"],
 
-  setup(props) {
+  setup(props, context) {
     const timeQuery = ref(null);
     const contentQuery = ref("");
-
-    let filteredEntries = computed(() => {
-      if (contentQuery.value) {
-        let byContent = contentQuery.value;
-        return props.entries.filter((entry) => {
-          const noTagsEntryBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
-          if (
-            noTagsEntryBody.includes(byContent) ||
-            entry.title.includes(byContent)
-          ) {
-            return entry;
-          }
-        });
-      }
+    watch([timeQuery, contentQuery], (current) => {
+      context.emit("getqueries", current);
     });
 
     return {
       timeQuery,
       contentQuery,
-      filteredEntries,
     };
   },
 };

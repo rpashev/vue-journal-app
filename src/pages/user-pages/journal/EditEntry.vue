@@ -89,6 +89,7 @@ export default {
     });
     const submitHandler = async () => {
       console.log(date.value);
+      console.log(body.value, title.value, date.value)
     };
 
     return {
