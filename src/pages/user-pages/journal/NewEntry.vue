@@ -144,6 +144,13 @@ input:focus {
   background-color: #faf6ff;
   outline: none;
 }
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
 .submit-error {
   position: static;
   text-align: center;

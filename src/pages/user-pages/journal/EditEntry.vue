@@ -14,6 +14,7 @@
         <div class="entry__date">
           <label for="entry-date">Date</label
           ><input
+            disabled
             type="date"
             id="entry-date"
             name="entry-date"
@@ -49,7 +50,7 @@
 <script>
 import { VueEditor } from "vue3-editor";
 import { ref, computed } from "@vue/reactivity";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter  } from "vue-router";
 import entryService from "../../../services/entryService";
 import { customToolbar } from "../../../helper-functions/vue-editor";
 
@@ -57,8 +58,10 @@ export default {
   components: { VueEditor },
   setup() {
     const route = useRoute();
+    const router = useRouter();
     const entryID = route.params.entryID;
     const journalID = route.params.journalID;
+
     const errorMessage = ref(null);
     const isLoading = ref(false);
     let entry = ref(null);
@@ -94,8 +97,22 @@ export default {
       return body.value === "";
     });
     const submitHandler = async () => {
-      console.log(date.value);
-      console.log(body.value, title.value, date.value);
+      isLoading.value = true;
+      try {
+        await entryService.editEntry(
+          journalID,
+          entryID,
+          title.value,
+          body.value
+        );
+        router.push(`/journals/${journalID}/${entryID}/`);
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message || "Could not edit entry!";
+      } finally {
+        isLoading.value = false;
+      }
+      
     };
 
     return {
@@ -152,6 +169,16 @@ input:focus {
   border-color: #3d008d;
   background-color: #faf6ff;
   outline: none;
+}
+input[disabled] {
+  cursor: not-allowed;
+}
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 .submit-error {
   position: static;

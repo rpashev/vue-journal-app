@@ -6,7 +6,11 @@ export default {
     await axiosAuth.post(`/${id}/create-entry`, data);
   },
   async getEntry(journalID, entryID) {
-    const entry = await axiosAuth.get(`/${journalID}/${entryID}`)
+    const entry = await axiosAuth.get(`/${journalID}/${entryID}`);
     return entry.data;
-  }
+  },
+  async editEntry(journalID, entryID, title, body) {
+    const data = { title, body };
+    await axiosAuth.patch(`/${journalID}/${entryID}`, data);
+  },
 };
