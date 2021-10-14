@@ -1,10 +1,10 @@
 <template>
   <footer>
     <ul class="footer__prompts">
-      <li>
+      <li v-if="!isLoggedIn">
         <router-link to="/sign-up">Free Sign Up</router-link>
       </li>
-      <li>
+      <li v-if="!isLoggedIn">
         <router-link to="/login">Login</router-link>
       </li>
       <li>
@@ -20,12 +20,18 @@
           <router-link to="/sign-up">What to write about?</router-link>
         </li>
         <li>
-          <router-link to="/sign-up">Reflective Journal</router-link>
+          <router-link to="/">Benefits of Journaling</router-link>
+        </li>
+        <li>
+          <router-link to="/login">Journal Prompts</router-link>
         </li>
       </ul>
       <ul class="footer__info-group">
         <li>
           <router-link to="/sign-up">Dream Journal</router-link>
+        </li>
+        <li>
+          <router-link to="/sign-up">Reflective Journal</router-link>
         </li>
         <li>
           <router-link to="/sign-up">Travel Journal</router-link>
@@ -38,6 +44,24 @@
     <p>Copyright Journal App Inc. 2021</p>
   </footer>
 </template>
+
+<script>
+import { useStore } from "vuex";
+import { computed } from "@vue/reactivity";
+
+export default {
+  setup() {
+    const store = useStore();
+    const isLoggedIn = computed(() => {
+      return !!store.getters.token;
+    });
+
+    return {
+      isLoggedIn,
+    };
+  },
+};
+</script>
 
 <style scoped>
 footer {

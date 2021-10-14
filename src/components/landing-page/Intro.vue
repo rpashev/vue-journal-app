@@ -29,7 +29,7 @@ export default {};
 .background {
   height: 800px;
   width: 100%;
-  background: url("../../assets/images/landing-page3.png") top/contain no-repeat;
+  background: url("../../assets/images/landing-page1.png") top/contain no-repeat;
   /* background-size: 1400px; */
   margin: 0;
   display: flex;
