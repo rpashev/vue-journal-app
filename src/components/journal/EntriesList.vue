@@ -1,5 +1,9 @@
 <template>
   <div class="entries-list__container">
+    <p class="error-message submit-error" v-if="errorMessage">
+      {{ errorMessage }}
+    </p>
+    <base-spinner v-if="isLoading"></base-spinner>
     <ul class="entries-list">
       <li class="entries-list__title">
         <div>Entry</div>
@@ -36,22 +40,37 @@
             :to="`/journals/${journalID}/${entry._id}/edit`"
             >Edit</base-button
           >
-          <base-button id="entry__actions-delete" mode="alternative"
+          <base-button
+            id="entry__actions-delete"
+            mode="alternative"
+            @click="
+              toggleShowDialog();
+              saveEntryId(entry._id);
+            "
             >Delete</base-button
           >
         </div>
       </li>
     </ul>
+
+    <base-dialog
+      @remove="deleteEntry"
+      @close="toggleShowDialog"
+      title="Are you sure you want to delete the entry?"
+      :show="showDialog"
+    />
   </div>
 </template>
 
 <script>
+import { ref } from "@vue/reactivity";
 // import { computed } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import entryService from "../../services/entryService";
 
 export default {
   props: ["entriesData", "journalID"],
-  setup(props) {
+  setup(props, context) {
     const router = useRouter();
     const viewEntry = (entry) => {
       router.push(`/journals/${props.journalID}/${entry}`);
@@ -68,12 +87,50 @@ export default {
         return date.substr(0, 10);
       }
     };
-    // console.log(props.entriesData)
+    //deleting logic
+    const showDialog = ref(false);
+    const toggleShowDialog = () => {
+      showDialog.value = !showDialog.value;
+    };
+
+    const entryIdToDelete = ref(null);
+    let errorMessage = ref(null);
+    let isLoading = ref(false);
+
+    const saveEntryId = (entryId) => {
+      entryIdToDelete.value = entryId;
+    };
+
+    const deleteEntry = async () => {
+      isLoading.value = true;
+      errorMessage.value = null;
+      try {
+        await entryService.deleteEntry(props.journalID, entryIdToDelete.value);
+        context.emit("deleted-entry");
+        showDialog.value = false;
+        
+        // router.push(`/journals/${props.journalID}/`);
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message ||
+          "Could not delete entry! Please try again!";
+        showDialog.value = false;
+      } finally {
+        isLoading.value = false;
+      }
+    };
 
     return {
       viewEntry,
       entryContent,
       readableDate,
+      toggleShowDialog,
+      showDialog,
+      entryIdToDelete,
+      saveEntryId,
+      deleteEntry,
+      errorMessage,
+      isLoading,
     };
   },
 };
@@ -128,5 +185,16 @@ export default {
 .entry-list__item-title:hover {
   cursor: pointer;
   color: black;
+}
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.submit-error {
+  position: static;
+  text-align: center;
 }
 </style>

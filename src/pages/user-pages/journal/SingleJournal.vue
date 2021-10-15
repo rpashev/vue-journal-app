@@ -11,6 +11,7 @@
     ></entries-filters>
     <entries-list
       v-if="journal"
+      @deleted-entry="loadJournal"
       :entriesData="filteredEntries"
       :journalID="journalID"
     ></entries-list>
@@ -87,6 +88,7 @@ export default {
       noEntries,
       saveQueries,
       filteredEntries,
+      loadJournal,
     };
   },
 };

@@ -13,4 +13,7 @@ export default {
     const data = { title, body };
     await axiosAuth.patch(`/${journalID}/${entryID}`, data);
   },
+  async deleteEntry(journalID, entryID) {
+    await axiosAuth.delete(`/${journalID}/${entryID}`);
+  },
 };

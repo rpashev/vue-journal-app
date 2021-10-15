@@ -13,7 +13,11 @@
         </section>
         <menu v-if="!fixed">
           <slot name="actions">
-            <base-button @click="tryClose">Close</base-button>
+            <base-button @click="tryClose">Cancel</base-button>
+
+            <base-button @click="confirmDelete" mode="alternative"
+              >Delete</base-button
+            >
           </slot>
         </menu>
       </dialog>
@@ -24,17 +28,23 @@
 <script>
 export default {
   props: ["show", "title", "fixed"],
-  emits: ["close"],
+  emits: ["remove", "close"],
+
   setup(props, context) {
     function tryClose() {
       if (props.fixed) {
         return;
       }
-      console.log("from tryCLose")
+      console.log("from tryCLose");
       context.emit("close");
+    }
+
+    function confirmDelete() {
+      context.emit("remove");
     }
     return {
       tryClose,
+      confirmDelete,
     };
   },
 };
@@ -76,6 +86,7 @@ header {
 header h2 {
   margin: 0;
   color: white;
+  text-align: center;
 }
 
 section {
@@ -85,8 +96,11 @@ section {
 menu {
   padding: 1rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin: 0;
+}
+menu button {
+  margin: 0 1.5rem;
 }
 
 .dialog-enter-from,
