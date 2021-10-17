@@ -22,4 +22,7 @@ export default {
   async updateJournal(id, formState) {
     await axiosAuth.patch(`/${id}`, formState);
   },
+  async deleteJournal(id) {
+    await axiosAuth.delete(`/${id}`)
+  }
 };

@@ -31,18 +31,31 @@
           below.
         </p>
         <div class="actions">
-          <base-button link :to="`/journals/${journalID}/edit-journal`" mode="allowed">Edit Journal</base-button>
-          <base-button mode="alternative">Delete Journal</base-button>
+          <base-button
+            link
+            :to="`/journals/${journalID}/edit-journal`"
+            mode="allowed"
+            >Edit Journal</base-button
+          >
+          <base-button @click="toggleShowDialog" mode="alternative"
+            >Delete Journal</base-button
+          >
         </div>
       </div>
     </div>
+    <base-dialog
+      @remove="deleteJournal"
+      @close="toggleShowDialog"
+      title="Are you sure you want to delete this journal with all its entries?"
+      :show="showDialog"
+    ></base-dialog>
   </div>
 </template>
 
 <script>
 import EntriesFilters from "../../../components/journal/EntriesFilters.vue";
 import EntriesList from "../../../components/journal/EntriesList.vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import journalService from "../../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
 import { filterAndSortEntries } from "../../../helper-functions/filter-and-sort-entries";
@@ -54,16 +67,18 @@ export default {
   },
   setup() {
     const route = useRoute();
+    const router = useRouter();
     const journalID = route.params.journalID;
     let journal = ref(null);
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let searchQuery = ref("");
     let timeFilter = ref("alltime");
+    const showDialog = ref(false);
 
     const loadJournal = async () => {
       isLoading.value = true;
-      errorMessage = null;
+      errorMessage.value = null;
       try {
         journal.value = await journalService.getJournal(journalID);
       } catch (err) {
@@ -96,6 +111,25 @@ export default {
       );
     });
 
+    const toggleShowDialog = () => {
+      showDialog.value = !showDialog.value;
+    };
+    const deleteJournal = async () => {
+      isLoading.value = true;
+      errorMessage.value = null;
+      try {
+        await journalService.deleteJournal(journalID);
+        router.push("/journals");
+      } catch (err) {
+        errorMessage.value =
+          err.response.data.message || "Could not delete, please try again!";
+        showDialog.value = false;
+      } finally {
+        isLoading.value = false;
+        showDialog.value = false;
+      }
+    };
+
     return {
       journal,
       journalID,
@@ -105,6 +139,9 @@ export default {
       saveQueries,
       filteredEntries,
       loadJournal,
+      toggleShowDialog,
+      showDialog,
+      deleteJournal,
     };
   },
 };
@@ -139,7 +176,8 @@ export default {
 h1 {
   margin-bottom: 2rem;
 }
-p, h3 {
+p,
+h3 {
   text-align: center;
 }
 .submit-error {

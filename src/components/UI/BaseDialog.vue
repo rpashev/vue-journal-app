@@ -5,7 +5,7 @@
       <dialog open v-if="show">
         <header>
           <slot name="header">
-            <h2>{{ title }}</h2>
+            <h3>{{ title }}</h3>
           </slot>
         </header>
         <section>
@@ -77,13 +77,13 @@ dialog {
 }
 
 header {
-  background-color: #3498db;
+  background-color: rgb(139, 14, 14);
   color: white;
   width: 100%;
   padding: 1rem;
 }
 
-header h2 {
+header h3 {
   margin: 0;
   color: white;
   text-align: center;
