@@ -24,7 +24,7 @@
     </div>
     <div class="single-journal__page-prompts">
       <div v-if="journal" class="single-journal__page-description">
-        <h3>Journal description</h3>
+        <h2>Journal description</h2>
         <p v-if="journal.description">{{ journal.description }}</p>
         <p v-else>
           You have not added a description of this journal yet! You can add one
@@ -42,7 +42,9 @@
           >
         </div>
       </div>
+      <WritingResources />
     </div>
+
     <base-dialog
       @remove="deleteJournal"
       @close="toggleShowDialog"
@@ -59,11 +61,13 @@ import { useRoute, useRouter } from "vue-router";
 import journalService from "../../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
 import { filterAndSortEntries } from "../../../helper-functions/filter-and-sort-entries";
+import WritingResources from "../../../components/journal/WritingResources.vue";
 
 export default {
   components: {
     EntriesFilters,
     EntriesList,
+    WritingResources,
   },
   setup() {
     const route = useRoute();
@@ -149,14 +153,14 @@ export default {
 
 <style scoped>
 .single-journal__page {
-  padding-top: 6rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 .single-journal__page-entries {
-  width: 70%;
+  width: 69%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,7 +169,8 @@ export default {
 .single-journal__page-prompts {
   display: flex;
   flex-direction: column;
-  width: 28%;
+  width: 30%;
+  height: 100%;
 }
 .actions {
   width: 80%;
@@ -177,7 +182,7 @@ h1 {
   margin-bottom: 2rem;
 }
 p,
-h3 {
+h2 {
   text-align: center;
 }
 .submit-error {

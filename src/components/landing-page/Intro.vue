@@ -25,11 +25,14 @@ export default {};
 <style scoped>
 .landing-page__intro {
   width: 100%;
+  /* position:relative;
+  bottom: 6rem; */
 }
 .background {
   height: 800px;
   width: 100%;
-  background: url("../../assets/images/landing-page1.png") top/contain no-repeat;
+  background: url("../../assets/images/try1.png") top/contain no-repeat;
+
   /* background-size: 1400px; */
   margin: 0;
   display: flex;
@@ -57,7 +60,7 @@ a {
   width: 12rem;
   height: 12rem;
   margin: 0 auto;
-  margin-top:6rem;
+  margin-top: 1rem;
   position: relative;
 }
 .logo {

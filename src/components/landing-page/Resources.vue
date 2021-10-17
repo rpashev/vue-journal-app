@@ -44,7 +44,6 @@ export default {};
 .resources {
   display: flex;
   flex-direction: column;
-  /* height: 20rem; */
   width: 100%;
 }
 .resources__lists {
@@ -54,15 +53,16 @@ export default {};
   justify-content: center;
   width: auto;
 }
-.basics, .types {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0 2rem 2rem;
+.basics,
+.types {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0 2rem 2rem;
 }
 h1 {
-    text-align: center;
+  text-align: center;
 }
 ul {
   list-style: none;
@@ -73,7 +73,6 @@ a {
   text-decoration: none;
   color: #59595e;
   font-size: 1.1rem;
-  
 }
 a:active,
 a:hover,

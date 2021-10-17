@@ -64,7 +64,8 @@ export default {
 
 <style scoped>
 .home-user__page {
-  padding-top: 6rem;
+  /* padding-top: 6rem; */
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -222,15 +222,17 @@ export default {
 
 <style scoped>
 .signup__page {
-  height: 60rem;
-  padding-top: 2rem;
+  height: 50rem;
+  /* padding-top: 2rem; */
 }
 .signup__card {
-  height: 40rem;
+  height: 85%;
   width: 30rem;
+  margin-top: 0rem !important;
 }
 form {
   margin: 1rem;
+  /* margin-top: 0; */
   padding: 1rem;
   display: flex;
   flex-direction: column;

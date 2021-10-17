@@ -126,11 +126,13 @@ export default {
 
 <style scoped>
 .login__page {
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
 }
 .login__card {
   height: 27rem;
   width: 30rem;
+  margin-top: 0rem !important;
+
 }
 form {
   margin: 1rem;

@@ -122,7 +122,7 @@ export default {
 .create-journal__page {
   margin: 0 auto;
   width: 60%;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 form {
   width: 100%;

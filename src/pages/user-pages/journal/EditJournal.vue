@@ -1,5 +1,5 @@
 <template>
-  <div class="create-journal__page">
+  <div class="edit-journal__page">
     <form @submit.prevent="submitHandler">
       <div class="form-control">
         <label for="journalName"
@@ -138,10 +138,10 @@ export default {
 </script>
 
 <style scoped>
-.create-journal__page {
+.edit-journal__page {
   margin: 0 auto;
   width: 60%;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 form {
   width: 100%;

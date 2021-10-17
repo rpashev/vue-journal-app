@@ -42,13 +42,14 @@ export default {
 </script>
 <style scoped>
 header {
-  /* height: 4rem; */
-  position: fixed;
+  /* height: 6rem; */
+  /* position: fixed; */
   top: 0;
   left: 0;
   background: transparent;
-  z-index: 0;
+  z-index: 100 !important;
   width: 100%;
+  height: 7rem;
 }
 nav {
   display: flex;
