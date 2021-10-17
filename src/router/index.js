@@ -10,8 +10,9 @@ import SingleJournal from "../pages/user-pages/journal/SingleJournal.vue";
 import SingleEntry from "../pages/user-pages/journal/SingleEntry.vue";
 import EditEntry from "../pages/user-pages/journal/EditEntry.vue";
 import CreateJournal from "../pages/user-pages/journal/CreateJournal.vue";
+import EditJournal from "../pages/user-pages/journal/EditJournal.vue"
 // import { useStore } from "vuex";
-import store from "../store/index"
+import store from "../store/index";
 
 const routes = [
   {
@@ -78,6 +79,12 @@ const routes = [
     path: "/journals/create-journal",
     name: "CreateJournal",
     component: CreateJournal,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/journals/:journalID/edit-journal",
+    name: "EditJournal",
+    component: EditJournal,
     meta: { requiresAuth: true },
   },
 ];

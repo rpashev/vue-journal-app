@@ -31,7 +31,7 @@
           below.
         </p>
         <div class="actions">
-          <base-button mode="allowed">Edit Journal</base-button>
+          <base-button link :to="`/journals/${journalID}/edit-journal`" mode="allowed">Edit Journal</base-button>
           <base-button mode="alternative">Delete Journal</base-button>
         </div>
       </div>

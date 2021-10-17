@@ -7,16 +7,19 @@ export default {
   },
   async getJournals() {
     const response = await axiosAuth.get("", {
-    //   headers: {
-    //     Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //   },
+      //   headers: {
+      //     Authorization: `Bearer ${localStorage.getItem("token")}`,
+      //   },
     });
-    console.log(response)
+    console.log(response);
     return response;
   },
   async getJournal(id) {
     const response = await axiosAuth.get(`/${id}`);
     // console.log(response.data);
     return response.data;
-  }
+  },
+  async updateJournal(id, formState) {
+    await axiosAuth.patch(`/${id}`, formState);
+  },
 };
