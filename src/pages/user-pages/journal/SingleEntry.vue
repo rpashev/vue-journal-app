@@ -110,7 +110,7 @@ export default {
 
 <style scoped>
 .single-entry__page {
-  padding-top: 6rem;
+  /* padding-top: 6rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;

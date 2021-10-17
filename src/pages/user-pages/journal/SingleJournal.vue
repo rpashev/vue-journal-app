@@ -2,7 +2,10 @@
   <div class="single-journal__page">
     <div class="single-journal__page-entries">
       <h1 v-if="journal">{{ journal.journalName }}</h1>
-      <base-button link :to="`/journals/${journalID}/new-entry`"
+      <base-button
+        class="btn-entry"
+        link
+        :to="`/journals/${journalID}/new-entry`"
         >New Entry</base-button
       >
       <entries-filters
@@ -23,26 +26,28 @@
       <base-spinner v-if="isLoading"></base-spinner>
     </div>
     <div class="single-journal__page-prompts">
-      <div v-if="journal" class="single-journal__page-description">
-        <h2>Journal description</h2>
-        <p v-if="journal.description">{{ journal.description }}</p>
-        <p v-else>
-          You have not added a description of this journal yet! You can add one
-          below.
-        </p>
-        <div class="actions">
-          <base-button
-            link
-            :to="`/journals/${journalID}/edit-journal`"
-            mode="allowed"
-            >Edit Journal</base-button
-          >
-          <base-button @click="toggleShowDialog" mode="alternative"
-            >Delete Journal</base-button
-          >
+      <base-card class="card_description">
+        <div v-if="journal" class="single-journal__page-description">
+          <h2>Journal description</h2>
+          <p v-if="journal.description">{{ journal.description }}</p>
+          <p v-else>
+            You have not added a description of this journal yet! You can add
+            one below.
+          </p>
+          <div class="actions">
+            <base-button
+              link
+              :to="`/journals/${journalID}/edit-journal`"
+              mode="allowed"
+              >Edit Journal</base-button
+            >
+            <base-button @click="toggleShowDialog" mode="alternative"
+              >Delete Journal</base-button
+            >
+          </div>
         </div>
-      </div>
-      <WritingResources />
+      </base-card>
+      <WritingResources class="resources" />
     </div>
 
     <base-dialog
@@ -153,14 +158,15 @@ export default {
 
 <style scoped>
 .single-journal__page {
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
+  padding-right: 2rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
 }
 .single-journal__page-entries {
-  width: 69%;
+  width: 68%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,17 +175,30 @@ export default {
 .single-journal__page-prompts {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 32%;
   height: 100%;
 }
+.card_description {
+  background: #eff6ff;
+}
+.card_description p,
+.card_description h2 {
+  color: #312e81;
+}
+
 .actions {
   width: 80%;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
 }
+.btn-entry {
+  /* align-self: center;margin-left: 3rem; */
+}
 h1 {
   margin-bottom: 2rem;
+  /* align-self: center; */
+  /* width: 50%; */
 }
 p,
 h2 {

@@ -139,7 +139,7 @@ export default {
 <style scoped>
 .entries-list__container {
   margin-top: 1rem;
-  width: 70%;
+  width: 75%;
   padding-bottom: 3rem;
 }
 .entris-list {

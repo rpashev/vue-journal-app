@@ -1,5 +1,5 @@
 <template>
-  <base-card
+  <base-card class="resources_card"
     ><div class="resources">
       <h3>Need writing ideas? We've got you covered!</h3>
       <div class="resources__lists">
@@ -43,11 +43,15 @@ export default {};
 </script>
 
 <style scoped>
+.resources_card {
+  background: #ECFDF5;
+}
 .resources {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: rem;
   width: 100%;
+  color: #111827;
 }
 .resources__lists {
   display: flex;
@@ -66,6 +70,8 @@ export default {};
 }
 h3 {
   text-align: center;
+  color: #111827;
+
 }
 ul {
   list-style: none;
@@ -74,12 +80,13 @@ a {
   font: inherit;
   margin: 0;
   text-decoration: none;
-  color: #59595e;
   font-size: 0.9rem;
+  color: #111827;
+
 }
 a:active,
 a:hover,
 a.router-link-active {
-  color: rgb(0, 0, 0);
+  color: rgb(139, 14, 14);
 }
 </style>

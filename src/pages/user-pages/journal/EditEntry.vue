@@ -133,7 +133,7 @@ export default {
 </script>
 <style scoped>
 .edit-entry__page {
-  padding-top: 6rem;
+  /* padding-top: 6rem; */
   display: flex;
   flex-direction: column;
   align-items: center;

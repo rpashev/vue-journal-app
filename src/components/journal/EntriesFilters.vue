@@ -58,7 +58,7 @@ export default {
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  padding-left: 40px;
+  padding-left: 1.5rem;
   margin-top: 1.5rem;
   /* height: 4rem; */
 }
