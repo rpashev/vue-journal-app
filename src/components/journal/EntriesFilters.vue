@@ -58,6 +58,8 @@ export default {
   justify-content: center;
   align-items: flex-end;
   width: 100%;
+  padding-left: 40px;
+  margin-top: 1.5rem;
   /* height: 4rem; */
 }
 .time__filter,
@@ -65,7 +67,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
   height: 100%;
   position: relative;
 }
@@ -75,7 +76,7 @@ export default {
 }
 input,
 select {
-  width: 20rem;
+  width: 16rem;
   padding: 0.4rem;
   outline: none;
   font: inherit;

@@ -1,25 +1,41 @@
 <template>
   <div class="single-journal__page">
-    <h1 v-if="journal">{{ journal.journalName }}</h1>
-    <base-button link :to="`/journals/${journalID}/new-entry`"
-      >New Entry</base-button
-    >
-    <entries-filters
-      @getqueries="saveQueries"
-      v-if="journal"
-      :entries="journal.entries"
-    ></entries-filters>
-    <entries-list
-      v-if="journal"
-      @deleted-entry="loadJournal"
-      :entriesData="filteredEntries"
-      :journalID="journalID"
-    ></entries-list>
-    <p v-if="noEntries">No entries in this journal yet!</p>
-    <p class="error-message submit-error" v-if="errorMessage">
-      {{ errorMessage }}
-    </p>
-    <base-spinner v-if="isLoading"></base-spinner>
+    <div class="single-journal__page-entries">
+      <h1 v-if="journal">{{ journal.journalName }}</h1>
+      <base-button link :to="`/journals/${journalID}/new-entry`"
+        >New Entry</base-button
+      >
+      <entries-filters
+        @getqueries="saveQueries"
+        v-if="journal"
+        :entries="journal.entries"
+      ></entries-filters>
+      <entries-list
+        v-if="journal"
+        @deleted-entry="loadJournal"
+        :entriesData="filteredEntries"
+        :journalID="journalID"
+      ></entries-list>
+      <p v-if="noEntries">No entries in this journal yet!</p>
+      <p class="error-message submit-error" v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
+      <base-spinner v-if="isLoading"></base-spinner>
+    </div>
+    <div class="single-journal__page-prompts">
+      <div v-if="journal" class="single-journal__page-description">
+        <h3>Journal description</h3>
+        <p v-if="journal.description">{{ journal.description }}</p>
+        <p v-else>
+          You have not added a description of this journal yet! You can add one
+          below.
+        </p>
+        <div class="actions">
+          <base-button mode="allowed">Edit Journal</base-button>
+          <base-button mode="alternative">Delete Journal</base-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -98,12 +114,33 @@ export default {
 .single-journal__page {
   padding-top: 6rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+.single-journal__page-entries {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.single-journal__page-prompts {
+  display: flex;
+  flex-direction: column;
+  width: 28%;
+}
+.actions {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
 h1 {
   margin-bottom: 2rem;
+}
+p, h3 {
+  text-align: center;
 }
 .submit-error {
   position: static;

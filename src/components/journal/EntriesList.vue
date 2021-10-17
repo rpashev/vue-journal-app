@@ -108,7 +108,7 @@ export default {
         await entryService.deleteEntry(props.journalID, entryIdToDelete.value);
         context.emit("deleted-entry");
         showDialog.value = false;
-        
+
         // router.push(`/journals/${props.journalID}/`);
       } catch (err) {
         errorMessage.value =
@@ -139,12 +139,13 @@ export default {
 <style scoped>
 .entries-list__container {
   margin-top: 1rem;
-  width: 60%;
+  width: 70%;
   padding-bottom: 3rem;
 }
 .entris-list {
   width: 100%;
   list-style: none;
+  padding-left: 0;
 }
 
 .entries-list__item,
