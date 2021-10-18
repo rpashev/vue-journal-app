@@ -15,6 +15,17 @@
       </div>
     </div>
     <div class="form-control">
+      <div class="per__filter">
+        <!-- <label for="timeFilter">Since</label> -->
+        <select name="per" id="per" v-model="per">
+          <option value="5">Show 5</option>
+          <option value="10">Show 10</option>
+          <option value="20">Show 20</option>
+          <option value="50">Show 50</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-control">
       <div class="search">
         <div class="search-icon"></div>
         <input
@@ -40,13 +51,15 @@ export default {
   setup(props, context) {
     const timeQuery = ref("alltime");
     const contentQuery = ref("");
-    watch([timeQuery, contentQuery], (current) => {
+    const per = ref(10);
+    watch([timeQuery, contentQuery, per], (current) => {
       context.emit("getqueries", current);
     });
 
     return {
       timeQuery,
       contentQuery,
+      per,
     };
   },
 };
@@ -63,7 +76,8 @@ export default {
   /* height: 4rem; */
 }
 .time__filter,
-.search {
+.search,
+.per__filter {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -84,6 +98,9 @@ select {
 }
 input {
   width: 25rem;
+}
+.per__filter select {
+  width: 7rem;
 }
 
 .search-icon {

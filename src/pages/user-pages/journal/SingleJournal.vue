@@ -73,6 +73,7 @@ import EntriesList from "../../../components/journal/EntriesList.vue";
 import { useRoute, useRouter } from "vue-router";
 import journalService from "../../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
+import { watch } from "@vue/runtime-core";
 import { filterAndSortEntries } from "../../../helper-functions/filter-and-sort-entries";
 import WritingResources from "../../../components/journal/WritingResources.vue";
 import VPagination from "@hennge/vue3-pagination";
@@ -90,11 +91,14 @@ export default {
     const router = useRouter();
     const journalID = route.params.journalID;
     let journal = ref(null);
+    
     let isLoading = ref(false);
     let errorMessage = ref(null);
+
     let searchQuery = ref("");
     let timeFilter = ref("alltime");
-    
+    let perPage = ref(10);
+
     // getting/loading journal
     const loadJournal = async () => {
       isLoading.value = true;
@@ -121,6 +125,7 @@ export default {
     const saveQueries = (queries) => {
       timeFilter.value = queries[0];
       searchQuery.value = queries[1];
+      perPage.value = +queries[2];
     };
 
     const filteredEntries = computed(() => {
@@ -155,11 +160,10 @@ export default {
 
     //front end pagination
     const page = ref(1);
-    const perPage = 5;
 
     const numberOfPages = computed(() => {
       if (journal.value) {
-        return Math.ceil(filteredEntries.value.length / perPage);
+        return Math.ceil(filteredEntries.value.length / perPage.value);
       }
     });
 
@@ -170,10 +174,14 @@ export default {
     const paginatedEntries = computed(() => {
       if (journal.value) {
         return filteredEntries.value.slice(
-          page.value * perPage - perPage,
-          page.value * perPage
+          page.value * perPage.value - perPage.value,
+          page.value * perPage.value
         );
       }
+    });
+    //resetting the page to page 1 if filters become active
+    watch([searchQuery, timeFilter, perPage], () => {
+      page.value = 1;
     });
 
     return {
