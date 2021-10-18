@@ -16,13 +16,21 @@
       <entries-list
         v-if="journal"
         @deleted-entry="loadJournal"
-        :entriesData="filteredEntries"
+        :entriesData="paginatedEntries"
         :journalID="journalID"
       ></entries-list>
+
       <p v-if="noEntries">No entries in this journal yet!</p>
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
+      <v-pagination
+        v-model="page"
+        :pages="numberOfPages"
+        :range-size="1"
+        active-color="#DCEDFF"
+        @update:modelValue="updatePage"
+      />
       <base-spinner v-if="isLoading"></base-spinner>
     </div>
     <div class="single-journal__page-prompts">
@@ -67,12 +75,15 @@ import journalService from "../../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
 import { filterAndSortEntries } from "../../../helper-functions/filter-and-sort-entries";
 import WritingResources from "../../../components/journal/WritingResources.vue";
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 export default {
   components: {
     EntriesFilters,
     EntriesList,
     WritingResources,
+    VPagination,
   },
   setup() {
     const route = useRoute();
@@ -83,8 +94,8 @@ export default {
     let errorMessage = ref(null);
     let searchQuery = ref("");
     let timeFilter = ref("alltime");
-    const showDialog = ref(false);
-
+    
+    // getting/loading journal
     const loadJournal = async () => {
       isLoading.value = true;
       errorMessage.value = null;
@@ -106,7 +117,7 @@ export default {
         return false;
       }
     });
-
+    // sort & filter entries
     const saveQueries = (queries) => {
       timeFilter.value = queries[0];
       searchQuery.value = queries[1];
@@ -119,6 +130,9 @@ export default {
         searchQuery.value
       );
     });
+
+    // deleting journal
+    const showDialog = ref(false);
 
     const toggleShowDialog = () => {
       showDialog.value = !showDialog.value;
@@ -139,6 +153,29 @@ export default {
       }
     };
 
+    //front end pagination
+    const page = ref(1);
+    const perPage = 5;
+
+    const numberOfPages = computed(() => {
+      if (journal.value) {
+        return Math.ceil(filteredEntries.value.length / perPage);
+      }
+    });
+
+    const updatePage = (currentPage) => {
+      page.value = currentPage;
+    };
+
+    const paginatedEntries = computed(() => {
+      if (journal.value) {
+        return filteredEntries.value.slice(
+          page.value * perPage - perPage,
+          page.value * perPage
+        );
+      }
+    });
+
     return {
       journal,
       journalID,
@@ -151,6 +188,10 @@ export default {
       toggleShowDialog,
       showDialog,
       deleteJournal,
+      updatePage,
+      page,
+      numberOfPages,
+      paginatedEntries,
     };
   },
 };
