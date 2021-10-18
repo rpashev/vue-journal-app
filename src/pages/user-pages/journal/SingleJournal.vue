@@ -2,12 +2,16 @@
   <div class="single-journal__page">
     <div class="single-journal__page-entries">
       <h1 v-if="journal">{{ journal.journalName }}</h1>
-      <base-button
-        class="btn-entry"
-        link
-        :to="`/journals/${journalID}/new-entry`"
-        >New Entry</base-button
-      >
+      <div class="actions-main">
+        <base-button
+          class="btn-entry"
+          link
+          :to="`/journals/${journalID}/new-entry`"
+          >New Entry</base-button
+        >
+        <base-button class="btn-back" link :to="`/journals/`">Back</base-button>
+      </div>
+
       <entries-filters
         @getqueries="saveQueries"
         v-if="journal"
@@ -25,6 +29,7 @@
         {{ errorMessage }}
       </p>
       <v-pagination
+        class="pagination"
         v-model="page"
         :pages="numberOfPages"
         :range-size="1"
@@ -91,7 +96,7 @@ export default {
     const router = useRouter();
     const journalID = route.params.journalID;
     let journal = ref(null);
-    
+
     let isLoading = ref(false);
     let errorMessage = ref(null);
 
@@ -234,7 +239,15 @@ export default {
 .card_description h2 {
   color: #312e81;
 }
-
+.pagination {
+  margin-bottom: 2rem;
+}
+.actions-main {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
 .actions {
   width: 80%;
   display: flex;

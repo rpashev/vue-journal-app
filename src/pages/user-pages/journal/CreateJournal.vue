@@ -16,7 +16,7 @@
           type="text"
           id="journalName"
           name="journalName"
-          v-model="journalName"
+          v-model.trim="journalName"
           @blur="v$.journalName.$touch"
           :class="{
             'error-input':

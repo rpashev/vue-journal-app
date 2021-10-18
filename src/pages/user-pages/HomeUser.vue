@@ -1,38 +1,44 @@
 <template>
   <div class="home-user__page">
-    <div>
-      <base-button link :to="`/journals/create-journal`"
-        >Create a New Journal</base-button
-      >
-    </div>
-    <div class="journals__list">
-      <journal-card
-        v-for="journal in journals"
-        :journalName="journal.journalName"
-        :description="journal.description"
-        :key="journal.id"
-        :journalID="journal._id"
-      ></journal-card>
-    </div>
-    <p class="error-message submit-error" v-if="errorMessage">
+    <div class="home-user__page-journals">
+      <div>
+        <base-button link :to="`/journals/create-journal`"
+          >Create a New Journal</base-button
+        >
+      </div>
+      <div class="journals__list">
+        <journal-card
+          v-for="journal in journals"
+          :journalName="journal.journalName"
+          :description="journal.description"
+          :key="journal.id"
+          :journalID="journal._id"
+        ></journal-card>
+      </div>
+      <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
       <base-spinner v-if="isLoading"></base-spinner>
+    </div>
+    <div class="home-user__page-prompts">
+      <writing-resources />
+    </div>
   </div>
 </template>
 
 <script>
 import JournalCard from "../../components/journal/JournalCard.vue";
+import WritingResources from "../../components/journal/WritingResources.vue";
 import journalService from "../../services/journalService";
-import {useStore} from "vuex"
+import { useStore } from "vuex";
 // import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
-  components: { JournalCard },
+  components: { JournalCard, WritingResources },
   setup() {
     const store = useStore();
-    console.log(store.getters.token)
+    console.log(store.getters.token);
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let journals = ref([]);
@@ -65,16 +71,25 @@ export default {
 <style scoped>
 .home-user__page {
   /* padding-top: 6rem; */
-  padding-top: 2rem;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.home-user__page-journals {
+  width: 65%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
 }
 .journals__list {
+  width: 100%;
   margin-top: 4rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
 }

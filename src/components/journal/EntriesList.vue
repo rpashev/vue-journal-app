@@ -77,8 +77,11 @@ export default {
     };
     const entryContent = (entry) => {
       if (entry.body) {
-        const cleanBody =
-          entry.body.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 30) + "...";
+        let cleanBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
+        if (cleanBody.length > 30) {
+          cleanBody = cleanBody.slice(0, 30) + "...";
+        }
+
         return cleanBody;
       }
     };
