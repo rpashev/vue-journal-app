@@ -234,6 +234,8 @@ export default {
 }
 .card_description {
   background: #eff6ff;
+  width: 100%;
+  min-width: 30rem;
 }
 .card_description p,
 .card_description h2 {

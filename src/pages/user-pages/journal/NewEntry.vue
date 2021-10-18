@@ -29,15 +29,21 @@
           :editorToolbar="customToolbar"
         />
       </div>
-      <base-button
-        type="submit"
-        tag="button"
-        :disabled="isInvalid"
-        :class="{
-          forbidden: isInvalid,
-        }"
-        >Submit entry</base-button
-      >
+      <div class="actions">
+        <base-button
+          type="submit"
+          tag="button"
+          :disabled="isInvalid"
+          :class="{
+            forbidden: isInvalid,
+          }"
+          >Submit entry</base-button
+        >
+        <base-button class="btn-back" link :to="`/journals/${journalID}`"
+          >Back</base-button
+        >
+      </div>
+
       <!-- <div v-html="content"></div> -->
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
@@ -101,6 +107,7 @@ export default {
       isInvalid,
       errorMessage,
       isLoading,
+      journalID,
     };
   },
 };
@@ -159,7 +166,13 @@ h2 {
   text-align: center;
   font-size: 1.2rem;
 }
-button {
+.actions {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+button,
+a {
   margin-top: 2rem;
 }
 </style>

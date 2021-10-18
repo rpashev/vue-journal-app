@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "../pages/LandingPage.vue";
 import Login from "../pages/auth/Login.vue";
 import SignUp from "../pages/auth/SignUp.vue";
-import GoPro from "../pages/GoPro.vue";
 import HomeUser from "../pages/user-pages/HomeUser.vue";
 import UserProfile from "../pages/user-pages/UserProfile.vue";
 import NewEntry from "../pages/user-pages/journal/NewEntry.vue";
@@ -33,11 +32,7 @@ const routes = [
     component: SignUp,
     meta: { requiresGuest: true },
   },
-  {
-    path: "/go-pro",
-    name: "GoPro",
-    component: GoPro,
-  },
+
   {
     path: "/journals",
     name: "HomeUser",

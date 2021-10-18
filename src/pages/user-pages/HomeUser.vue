@@ -22,6 +22,7 @@
     </div>
     <div class="home-user__page-prompts">
       <writing-resources />
+      <go-pro />
     </div>
   </div>
 </template>
@@ -29,13 +30,14 @@
 <script>
 import JournalCard from "../../components/journal/JournalCard.vue";
 import WritingResources from "../../components/journal/WritingResources.vue";
+import GoPro from "../../components/journal/GoPro.vue";
 import journalService from "../../services/journalService";
 import { useStore } from "vuex";
 // import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
-  components: { JournalCard, WritingResources },
+  components: { JournalCard, WritingResources, GoPro },
   setup() {
     const store = useStore();
     console.log(store.getters.token);

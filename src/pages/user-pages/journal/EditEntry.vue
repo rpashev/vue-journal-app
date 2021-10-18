@@ -30,15 +30,21 @@
         >
         </vue-editor>
       </div>
-      <base-button
-        type="submit"
-        tag="button"
-        :disabled="isInvalid"
-        :class="{
-          forbidden: isInvalid,
-        }"
-        >Edit entry</base-button
-      >
+      <div class="actions">
+        <base-button
+          type="submit"
+          tag="button"
+          :disabled="isInvalid"
+          :class="{
+            forbidden: isInvalid,
+          }"
+          >Edit entry</base-button
+        >
+        <base-button class="btn-back" link :to="`/journals/${journalID}`"
+          >Back</base-button
+        >
+      </div>
+
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
@@ -50,7 +56,7 @@
 <script>
 import { VueEditor } from "vue3-editor";
 import { ref, computed } from "@vue/reactivity";
-import { useRoute, useRouter  } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import entryService from "../../../services/entryService";
 import { customToolbar } from "../../../helper-functions/vue-editor";
 
@@ -112,7 +118,6 @@ export default {
       } finally {
         isLoading.value = false;
       }
-      
     };
 
     return {
@@ -172,6 +177,15 @@ input:focus {
 }
 input[disabled] {
   cursor: not-allowed;
+}
+.actions {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+button,
+a {
+  margin-top: 2rem;
 }
 .error-message {
   color: red;

@@ -42,16 +42,21 @@
           v-model="description"
         />
       </div>
+      <div class="actions">
+        <base-button
+          type="submit"
+          tag="button"
+          :disabled="v$.$invalid"
+          :class="{
+            forbidden: v$.$invalid,
+          }"
+          >Edit</base-button
+        >
+        <base-button id="entry__actions-back" link :to="'/'"
+          >Cancel</base-button
+        >
+      </div>
 
-      <base-button
-        type="submit"
-        tag="button"
-        :disabled="v$.$invalid"
-        :class="{
-          forbidden: v$.$invalid,
-        }"
-        >Edit</base-button
-      >
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
@@ -176,10 +181,18 @@ textarea:focus {
   outline: none;
   color: #59595e;
 }
-button {
+.actions {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+h2 {
+  margin-top: 0;
+}
+button, a {
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 10rem;
+  margin-bottom: 2rem;
+  min-width: 6rem;
 }
 textarea {
   font-size: 1.1rem;
