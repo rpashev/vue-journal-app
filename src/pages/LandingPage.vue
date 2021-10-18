@@ -23,6 +23,7 @@ import LandingPagePrompt from "../components/landing-page/Prompt.vue";
 import LandingPageResources from "../components/landing-page/Resources.vue";
 import LandingPageFeatures from "../components/landing-page/Features.vue";
 import LandingPageFinalPrompt from "../components/landing-page/FinalPrompt.vue";
+
 // import { ref } from "@vue/reactivity";
 
 export default {
@@ -35,17 +36,6 @@ export default {
     LandingPageFeatures,
     LandingPageFinalPrompt,
   },
-  // setup() {
-  //   const showDialog = ref("true");
-  //   function changeShowDialog() {
-  //     showDialog.value = null;
-  //     console.log(showDialog);
-  //   }
-  //   return {
-  //     showDialog,
-  //     changeShowDialog,
-  //   };
-  // },
 };
 </script>
 

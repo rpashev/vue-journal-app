@@ -25,15 +25,12 @@ export default {};
 <style scoped>
 .landing-page__intro {
   width: 100%;
-  /* position:relative;
-  bottom: 6rem; */
+  /* margin-bottom: 0rem; */
 }
 .background {
   height: 800px;
   width: 100%;
   background: url("../../assets/images/try1.png") top/contain no-repeat;
-
-  /* background-size: 1400px; */
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -41,7 +38,6 @@ export default {};
   justify-content: flex-start;
 }
 .landing-page__prompt {
-  /* padding-top: 1rem; */
   width: 30%;
 }
 

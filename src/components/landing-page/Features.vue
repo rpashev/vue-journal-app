@@ -29,13 +29,17 @@
       <p>
         Make each journal your own with custom covers, backgrounds, and fonts.
       </p>
-      <base-button mode="alternative" link to="/go-pro">Go PRO</base-button>
+      <base-button @click="toggleShowGoPro" mode="alternative"
+        >Go PRO</base-button
+      >
     </div>
     <div class="features__feature">
       <div class="features__feature-icon icon5"></div>
       <h2>Smart Journal Search</h2>
       <p>Quickly and easily search through your journals, entries, and tags.</p>
-      <base-button mode="alternative" link to="/go-pro">Go PRO</base-button>
+      <base-button @click="toggleShowGoPro" mode="alternative"
+        >Go PRO</base-button
+      >
     </div>
     <div class="features__feature">
       <div class="features__feature-icon icon6"></div>
@@ -43,13 +47,30 @@
       <p>
         Further protect your diary with military-grade 256-bit AES encryption.
       </p>
-      <base-button mode="alternative" link to="/go-pro">Go PRO</base-button>
+      <base-button @click="toggleShowGoPro" mode="alternative"
+        >Go PRO</base-button
+      >
     </div>
+    <pro-modal :show="showGoPro" @close="toggleShowGoPro" />
   </div>
 </template>
 
 <script>
-export default {};
+import { ref } from "@vue/reactivity";
+import ProModal from "../journal/ProModal.vue";
+export default {
+  components: { ProModal },
+  setup() {
+    let showGoPro = ref(false);
+    const toggleShowGoPro = () => {
+      showGoPro.value = !showGoPro.value;
+    };
+    return {
+      showGoPro,
+      toggleShowGoPro,
+    };
+  },
+};
 </script>
 
 <style scoped>

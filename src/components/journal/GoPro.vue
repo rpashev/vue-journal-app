@@ -9,18 +9,33 @@
           many more additional functionalities!
         </p>
       </div>
-      <base-button mode="alternative">Learn More</base-button>
+      <base-button @click="toggleShowGoPro" mode="alternative">Learn More</base-button>
     </div>
   </base-card>
+  <pro-modal @close="toggleShowGoPro" :show="showGoPro" />
 </template>
 
+<script>
+import { ref } from "@vue/reactivity";
+import ProModal from "./ProModal.vue";
+export default {
+  components: { ProModal },
+  setup() {
+    const showGoPro = ref(false);
+    const toggleShowGoPro = () => {
+      showGoPro.value = !showGoPro.value;
+    };
+    return {
+        showGoPro,
+        toggleShowGoPro
+    }
+
+  },
+};
+</script>
+
 <style scoped>
-.go-pro__card {
-  /* width: 20rem; */
-}
 .container {
-  /* height: 20rem; */
-  /* width: 80%; */
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -35,7 +35,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout");
-      this.$router.push("/")
+      this.$router.push("/");
     },
   },
 };
@@ -46,11 +46,12 @@ header {
   /* position: fixed; */
   top: 0;
   left: 0;
-  background: transparent;
+  background: white;
   z-index: 100 !important;
   width: 100%;
   height: 7rem;
 }
+
 nav {
   display: flex;
   justify-content: space-between;

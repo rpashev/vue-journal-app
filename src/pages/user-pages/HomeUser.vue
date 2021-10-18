@@ -72,7 +72,6 @@ export default {
 
 <style scoped>
 .home-user__page {
-  /* padding-top: 6rem; */
   width: 100%;
   padding: 2rem 4rem;
   display: flex;

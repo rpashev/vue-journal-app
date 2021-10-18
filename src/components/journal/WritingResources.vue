@@ -44,7 +44,7 @@ export default {};
 
 <style scoped>
 .resources_card {
-  background: #ECFDF5;
+  /* background: #ECFDF5; */
   min-width: 30rem;
 }
 .resources {

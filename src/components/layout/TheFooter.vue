@@ -7,9 +7,7 @@
       <li v-if="!isLoggedIn">
         <router-link to="/login">Login</router-link>
       </li>
-      <li>
-        <router-link to="/go-pro">Go Pro</router-link>
-      </li>
+    
     </ul>
     <div class="footer__info">
       <ul class="footer__info-group">
