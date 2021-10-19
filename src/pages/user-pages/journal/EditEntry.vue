@@ -1,6 +1,13 @@
 <template>
   <div class="edit-entry__page">
-    <form @submit.prevent="submitHandler">
+    <base-spinner v-if="isLoading"></base-spinner>
+    <p class="error-message submit-error" v-if="errorMessage && !body">
+      {{ errorMessage }}
+    </p>
+    <form
+      v-if="!isLoading  && body"
+      @submit.prevent="submitHandler"
+    >
       <div class="entry__container">
         <div class="entry__title">
           <label for="entry-title">Entry title</label>
@@ -43,12 +50,11 @@
         <base-button class="btn-back" link :to="`/journals/${journalID}`"
           >Back</base-button
         >
+        
       </div>
-
       <p class="error-message submit-error" v-if="errorMessage">
-        {{ errorMessage }}
-      </p>
-      <base-spinner v-if="isLoading"></base-spinner>
+      {{ errorMessage }}
+    </p>
     </form>
   </div>
 </template>
@@ -82,8 +88,12 @@ export default {
 
         entry.value = response;
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Could not load entry!";
+        if (!err.response) {
+          errorMessage.value = "Could not load entry, can't connect to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Could not load entry!";
+        }
       } finally {
         isLoading.value = false;
         // console.log(entry.value.date.slice(0,10));
@@ -113,8 +123,13 @@ export default {
         );
         router.push(`/journals/${journalID}/${entryID}/`);
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Could not edit entry!";
+        if (!err.response) {
+          errorMessage.value =
+            "Could not update entry, can't connect to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Could not edit entry!";
+        }
       } finally {
         isLoading.value = false;
       }
@@ -189,7 +204,7 @@ a {
 }
 .error-message {
   color: red;
-  font-size: 0.8rem;
+  font-size: 1rem;
   position: absolute;
   text-align: center;
   width: 100%;

@@ -1,39 +1,41 @@
 <template>
-  <div v-if="entry" class="single-entry__page">
-    <h1>{{ entry.title }}</h1>
-    <h3>{{ readableDate(entry.date) }}</h3>
-    <div v-html="entry.body" class="entry__body"></div>
-
+  <div class="single-entry__page">
     <base-spinner v-if="isLoading"></base-spinner>
-    <div class="entry__actions">
-      <base-button
-        mode="allowed"
-        id="entry__actions-edit"
-        link
-        :to="`/journals/${journalID}/${entryID}/edit`"
-        >Edit</base-button
-      >
-      <base-button
-        id="entry__actions-delete"
-        mode="alternative"
-        @click="toggleShowDialog"
-        >Delete</base-button
+    <p class="error-message submit-error" v-if="errorMessage && !entry">
+      {{ errorMessage }}
+    </p>
+    <div v-if="!isLoading && entry">
+      <h1>{{ entry.title }}</h1>
+      <h3>{{ readableDate(entry.date) }}</h3>
+      <div v-html="entry.body" class="entry__body"></div>
+
+      <div class="entry__actions">
+        <base-button
+          mode="allowed"
+          id="entry__actions-edit"
+          link
+          :to="`/journals/${journalID}/${entryID}/edit`"
+          >Edit</base-button
+        >
+        <base-button
+          id="entry__actions-delete"
+          mode="alternative"
+          @click="toggleShowDialog"
+          >Delete</base-button
+        >
+      </div>
+      <base-button id="entry__actions-back" link :to="`/journals/${journalID}`"
+        >Back to journal</base-button
       >
     </div>
-    <base-button id="entry__actions-back" link :to="`/journals/${journalID}`"
-      >Back to journal</base-button
-    >
+
+    <base-dialog
+      @remove="deleteEntry"
+      @close="toggleShowDialog"
+      title="Are you sure you want to delete the entry?"
+      :show="showDialog"
+    />
   </div>
-  <base-spinner class="spinner" v-if="isLoading"></base-spinner>
-  <base-dialog
-    @remove="deleteEntry"
-    @close="toggleShowDialog"
-    title="Are you sure you want to delete the entry?"
-    :show="showDialog"
-  />
-  <p class="error-message submit-error" v-if="errorMessage">
-    {{ errorMessage }}
-  </p>
 </template>
 
 <script>
@@ -57,8 +59,12 @@ export default {
         const response = await entryService.getEntry(journalID, entryID);
         entry.value = response;
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Could not load entry!";
+        if (!err.response) {
+          errorMessage.value = "Could not load entry! Can't connect to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Could not load entry!";
+        }
       } finally {
         isLoading.value = false;
       }
@@ -150,7 +156,7 @@ export default {
 }
 .error-message {
   color: red;
-  font-size: 0.8rem;
+  font-size: 1rem;
   position: absolute;
   text-align: center;
   width: 100%;

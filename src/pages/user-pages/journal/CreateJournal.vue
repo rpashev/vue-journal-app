@@ -53,8 +53,8 @@
           >Create</base-button
         >
         <base-button id="entry__actions-back" link :to="'/'"
-      >Cancel</base-button
-    >
+          >Cancel</base-button
+        >
       </div>
 
       <p class="error-message submit-error" v-if="errorMessage">
@@ -101,10 +101,14 @@ export default {
           });
           router.push("/");
         } catch (err) {
-          console.log("here");
-          errorMessage.value =
-            err.response.data.message ||
-            "Could not create journal, please try again!";
+          if (!err.response) {
+            errorMessage.value =
+              "Could not create journal, lost connection to server!";
+          } else {
+            errorMessage.value =
+              err.response.data.message ||
+              "Could not create journal, please try again!";
+          }
         } finally {
           isLoading.value = false;
         }
@@ -170,7 +174,8 @@ h2 {
   width: 30%;
   justify-content: space-between;
 }
-button, a {
+button,
+a {
   margin-top: 1rem;
   margin-bottom: 2rem;
   min-width: 6rem;

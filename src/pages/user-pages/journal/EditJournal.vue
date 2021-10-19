@@ -1,6 +1,12 @@
 <template>
   <div class="edit-journal__page">
-    <form @submit.prevent="submitHandler">
+    <p
+      class="error-message submit-error"
+      v-if="errorMessage && !isLoading && !journal"
+    >
+      {{ errorMessage }}
+    </p>
+    <form @submit.prevent="submitHandler" v-if="!isLoading && journal">
       <div class="form-control">
         <label for="journalName"
           ><h2
@@ -60,8 +66,8 @@
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
-      <base-spinner v-if="isLoading"></base-spinner>
     </form>
+    <base-spinner v-if="isLoading"></base-spinner>
   </div>
 </template>
 <script>
@@ -95,13 +101,19 @@ export default {
       errorMessage.value = null;
       try {
         journal.value = await journalService.getJournal(journalID);
-      } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Couldn't load journal!";
-      } finally {
-        isLoading.value = false;
         description.value = journal.value.description;
         journalName.value = journal.value.journalName;
+      } catch (err) {
+        if (!err.response) {
+          errorMessage.value =
+            "Could not load journal data, lost connection to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Couldn't load journal!";
+        }
+      } finally {
+        isLoading.value = false;
+        
       }
     };
     loadJournal();
@@ -120,10 +132,14 @@ export default {
           });
           router.push(`/journals/${journalID}`);
         } catch (err) {
-          console.log("here");
-          errorMessage.value =
-            err.response.data.message ||
-            "Could not create journal, please try again!";
+          if (!err.response) {
+            errorMessage.value =
+              "Could not edit journal, lost connection to server!";
+          } else {
+            errorMessage.value =
+              err.response.data.message ||
+              "Could not create journal, please try again!";
+          }
         } finally {
           isLoading.value = false;
         }
@@ -137,6 +153,7 @@ export default {
       description,
       isLoading,
       errorMessage,
+      journal
     };
   },
 };
@@ -189,7 +206,8 @@ textarea:focus {
 h2 {
   margin-top: 0;
 }
-button, a {
+button,
+a {
   margin-top: 1rem;
   margin-bottom: 2rem;
   min-width: 6rem;
@@ -214,7 +232,7 @@ textarea {
 }
 .error-message {
   color: red;
-  font-size: 0.8rem;
+  font-size: 1rem;
   position: absolute;
   text-align: center;
   width: 100%;

@@ -91,8 +91,13 @@ export default {
         );
         router.push(`/journals/${journalID}`);
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Could not create entry!";
+        if (!err.response) {
+          errorMessage.value =
+            "Could not create entry, can't connect with server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Could not create entry!";
+        }
       } finally {
         isLoading.value = false;
       }
@@ -153,7 +158,7 @@ input:focus {
 }
 .error-message {
   color: red;
-  font-size: 0.8rem;
+  font-size: 1rem;
   position: absolute;
   text-align: center;
   width: 100%;

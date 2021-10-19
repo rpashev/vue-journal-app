@@ -1,6 +1,11 @@
 <template>
   <div class="home-user__page">
-    <div class="home-user__page-journals">
+    <p class="error-message submit-error" v-if="errorMessage">
+      {{ errorMessage }}
+    </p>
+    <base-spinner v-if="isLoading"></base-spinner>
+
+    <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
       <div>
         <base-button link :to="`/journals/create-journal`"
           >Create a New Journal</base-button
@@ -15,12 +20,8 @@
           :journalID="journal._id"
         ></journal-card>
       </div>
-      <p class="error-message submit-error" v-if="errorMessage">
-        {{ errorMessage }}
-      </p>
-      <base-spinner v-if="isLoading"></base-spinner>
     </div>
-    <div class="home-user__page-prompts">
+    <div v-if="!isLoading && !errorMessage" class="home-user__page-prompts">
       <go-pro />
       <writing-resources />
     </div>
@@ -53,20 +54,22 @@ export default {
 
         journals.value = response.data;
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Could not load journals!";
+        if (!err.response) {
+          errorMessage.value = "Could not load journals! The server is not responding!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Could not load journals!";
+        }
       } finally {
         isLoading.value = false;
       }
     };
     loadJournals();
-    
 
     return {
       journals,
       isLoading,
       errorMessage,
-      
     };
   },
 };
@@ -95,6 +98,13 @@ export default {
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+}
+.error-message {
+  color: red;
+  font-size: 1rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 .submit-error {
   position: static;

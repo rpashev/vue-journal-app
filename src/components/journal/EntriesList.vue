@@ -114,9 +114,13 @@ export default {
 
         // router.push(`/journals/${props.journalID}/`);
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message ||
-          "Could not delete entry! Please try again!";
+        if (!err.response) {
+          errorMessage.value = "Could not delete, can't connect to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message ||
+            "Could not delete entry! Please try again!";
+        }
         showDialog.value = false;
       } finally {
         isLoading.value = false;
@@ -192,7 +196,7 @@ export default {
 }
 .error-message {
   color: red;
-  font-size: 0.8rem;
+  font-size: 1rem;
   position: absolute;
   text-align: center;
   width: 100%;

@@ -1,7 +1,12 @@
 <template>
   <div class="single-journal__page">
-    <div class="single-journal__page-entries">
-      <h1 v-if="journal">{{ journal.journalName }}</h1>
+    <p class="error-message submit-error" v-if="errorMessage && !journal">
+      {{ errorMessage }}
+    </p>
+    <base-spinner class="spinner" v-if="isLoading"></base-spinner>
+
+    <div v-if="journal" class="single-journal__page-entries">
+      <h1>{{ journal.journalName }}</h1>
       <div class="actions-main">
         <base-button
           class="btn-entry"
@@ -37,9 +42,11 @@
         active-color="#DCEDFF"
         @update:modelValue="updatePage"
       />
-      <base-spinner v-if="isLoading"></base-spinner>
     </div>
-    <div class="single-journal__page-prompts">
+    <div
+      v-if="journal"
+      class="single-journal__page-prompts"
+    >
       <base-card class="card_description">
         <div v-if="journal" class="single-journal__page-description">
           <h2>Journal description</h2>
@@ -114,8 +121,13 @@ export default {
       try {
         journal.value = await journalService.getJournal(journalID);
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Couldn't load journal!";
+        if (!err.response) {
+          errorMessage.value =
+            "Could not load journal! Can't connect to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Couldn't load journal!";
+        }
       } finally {
         isLoading.value = false;
       }
@@ -139,11 +151,9 @@ export default {
     const saveCustomDates = (startingDate, endingDate) => {
       startDate.value = startingDate;
       endDate.value = endingDate;
-      
     };
 
     const filteredEntries = computed(() => {
-      
       return filterAndSortEntries(
         journal.value.entries,
         timeFilter.value,
@@ -166,8 +176,13 @@ export default {
         await journalService.deleteJournal(journalID);
         router.push("/journals");
       } catch (err) {
-        errorMessage.value =
-          err.response.data.message || "Could not delete, please try again!";
+        if (!err.response) {
+          errorMessage.value =
+            "Could not delete journal, lost connection to server!";
+        } else {
+          errorMessage.value =
+            err.response.data.message || "Could not delete, please try again!";
+        }
         showDialog.value = false;
       } finally {
         isLoading.value = false;
@@ -269,6 +284,10 @@ export default {
   justify-content: space-around;
   margin: 0 auto;
 }
+.spinner {
+  position: relative;
+  left: 50%;
+}
 .btn-entry {
   /* align-self: center;margin-left: 3rem; */
 }
@@ -280,6 +299,13 @@ h1 {
 p,
 h2 {
   text-align: center;
+}
+.error-message {
+  color: red;
+  font-size: 1rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 .submit-error {
   position: static;
