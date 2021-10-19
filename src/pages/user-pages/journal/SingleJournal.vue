@@ -13,6 +13,7 @@
       </div>
 
       <entries-filters
+        @custom-filter="saveCustomDates"
         @getqueries="saveQueries"
         v-if="journal"
         :entries="journal.entries"
@@ -60,7 +61,7 @@
           </div>
         </div>
       </base-card>
-      <WritingResources class="resources" />
+      <writing-resources class="resources" />
     </div>
 
     <base-dialog
@@ -103,6 +104,8 @@ export default {
     let searchQuery = ref("");
     let timeFilter = ref("alltime");
     let perPage = ref(10);
+    let startDate = ref(null);
+    let endDate = ref(null);
 
     // getting/loading journal
     const loadJournal = async () => {
@@ -133,11 +136,20 @@ export default {
       perPage.value = +queries[2];
     };
 
+    const saveCustomDates = (startingDate, endingDate) => {
+      startDate.value = startingDate;
+      endDate.value = endingDate;
+      
+    };
+
     const filteredEntries = computed(() => {
+      
       return filterAndSortEntries(
         journal.value.entries,
         timeFilter.value,
-        searchQuery.value
+        searchQuery.value,
+        startDate.value,
+        endDate.value
       );
     });
 
@@ -205,6 +217,7 @@ export default {
       page,
       numberOfPages,
       paginatedEntries,
+      saveCustomDates,
     };
   },
 };

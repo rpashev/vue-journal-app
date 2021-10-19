@@ -1,7 +1,12 @@
 import dayjs from "dayjs";
 
-export const filterAndSortEntries = (entries, timeFilter, searchQuery) => {
-  //journal.value.entries
+export const filterAndSortEntries = (
+  entries,
+  timeFilter,
+  searchQuery,
+  startingDate,
+  endingDate
+) => {
   return entries
     .filter((entry) => {
       const noTagsEntryBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
@@ -45,6 +50,26 @@ export const filterAndSortEntries = (entries, timeFilter, searchQuery) => {
           let diff = today.diff(entryDate, "year");
           if (diff <= 1) {
             return entry;
+          }
+        }
+        if (timeFilter === "custom") {
+          if (startingDate && endingDate) {
+            let fromDate = dayjs(startingDate);
+            let toDate = dayjs(endingDate);
+            // console.log(fromDate > toDate)
+            if (fromDate < toDate) {
+              if (entryDate >= fromDate && entryDate <= toDate) {
+                return entry;
+              }
+            } else if (fromDate > toDate) {
+              if (entryDate <= fromDate && entryDate >= toDate) {
+                return entry;
+              }
+            } else if (fromDate.isSame(toDate, "day")) {
+              if (entryDate.isSame(fromDate, "day")) {
+                return entry;
+              }
+            }
           }
         }
       }

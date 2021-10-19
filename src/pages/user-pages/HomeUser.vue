@@ -21,8 +21,8 @@
       <base-spinner v-if="isLoading"></base-spinner>
     </div>
     <div class="home-user__page-prompts">
-      <writing-resources />
       <go-pro />
+      <writing-resources />
     </div>
   </div>
 </template>
@@ -60,11 +60,13 @@ export default {
       }
     };
     loadJournals();
+    
 
     return {
       journals,
       isLoading,
       errorMessage,
+      
     };
   },
 };

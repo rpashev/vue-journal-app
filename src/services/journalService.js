@@ -11,7 +11,7 @@ export default {
       //     Authorization: `Bearer ${localStorage.getItem("token")}`,
       //   },
     });
-    console.log(response);
+    
     return response;
   },
   async getJournal(id) {
