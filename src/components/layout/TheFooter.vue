@@ -12,30 +12,30 @@
     <div class="footer__info">
       <ul class="footer__info-group">
         <li>
-          <router-link to="/sign-up">What is a Journal?</router-link>
+          <router-link to="/journal-definition">What is a Journal?</router-link>
         </li>
         <li>
-          <router-link to="/sign-up">What to write about?</router-link>
+          <router-link to="/journal-types">Types of Journals</router-link>
         </li>
         <li>
-          <router-link to="/">Benefits of Journaling</router-link>
+          <router-link to="/benefits">Benefits of Journaling</router-link>
         </li>
         <li>
-          <router-link to="/login">Journal Prompts</router-link>
+          <router-link to="/journal-prompts">Journal Prompts</router-link>
         </li>
       </ul>
       <ul class="footer__info-group">
         <li>
-          <router-link to="/sign-up">Dream Journal</router-link>
+          <router-link to="/dream-journal">Dream Journal</router-link>
         </li>
         <li>
-          <router-link to="/sign-up">Reflective Journal</router-link>
+          <router-link to="/reflective-journal">Reflective Journal</router-link>
         </li>
         <li>
-          <router-link to="/sign-up">Travel Journal</router-link>
+          <router-link to="/travel-journal">Travel Journal</router-link>
         </li>
         <li>
-          <router-link to="/sign-up">Five Year Journal</router-link>
+          <router-link to="/five-year-journal">Five Year Journal</router-link>
         </li>
       </ul>
     </div>

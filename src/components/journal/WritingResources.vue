@@ -6,31 +6,31 @@
         <ul class="basics">
           <h4>Journal Basics</h4>
           <li>
-            <router-link to="/sign-up">What is a Journal?</router-link>
+            <router-link to="/journal-definition">What is a Journal?</router-link>
           </li>
           <li>
-            <router-link to="/sign-up">What is a Journal Entry?</router-link>
+            <router-link to="/journal-types">Types of Journals</router-link>
           </li>
           <li>
-            <router-link to="/sign-up">Benefits of Journaling</router-link>
+            <router-link to="/benefits">Benefits of Journaling</router-link>
           </li>
           <li>
-            <router-link to="/sign-up">Journal Prompts</router-link>
+            <router-link to="/journal-prompts">Journal Prompts</router-link>
           </li>
         </ul>
         <ul class="types">
           <h4>Types of Journals</h4>
           <li>
-            <router-link to="/sign-up">Reflective Journal</router-link>
+            <router-link to="/reflective-journal">Reflective Journal</router-link>
           </li>
           <li>
-            <router-link to="/sign-up">Dream Journal</router-link>
+            <router-link to="/dream-journal">Dream Journal</router-link>
           </li>
           <li>
-            <router-link to="/sign-up">Travel Journal</router-link>
+            <router-link to="/travel-journal">Travel Journal</router-link>
           </li>
           <li>
-            <router-link to="/sign-up">5 Year Journal</router-link>
+            <router-link to="/five-year-journal">5 Year Journal</router-link>
           </li>
         </ul>
       </div>

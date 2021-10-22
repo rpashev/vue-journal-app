@@ -9,7 +9,17 @@ import SingleJournal from "../pages/user-pages/journal/SingleJournal.vue";
 import SingleEntry from "../pages/user-pages/journal/SingleEntry.vue";
 import EditEntry from "../pages/user-pages/journal/EditEntry.vue";
 import CreateJournal from "../pages/user-pages/journal/CreateJournal.vue";
-import EditJournal from "../pages/user-pages/journal/EditJournal.vue"
+import EditJournal from "../pages/user-pages/journal/EditJournal.vue";
+import BenefitsOfJournaling from "../pages/information-pages/BenefitsJournaling.vue"
+import DreamJournal from "../pages/information-pages/DreamJournal.vue"
+import FiveYearJournal from "../pages/information-pages/FiveYearJournal.vue"
+import JournalDefinition from "../pages/information-pages/JournalDefinition.vue"
+import JournalPrompts from "../pages/information-pages/JournalPrompts.vue"
+import ReflectiveJournal from "../pages/information-pages/ReflectiveJournal.vue"
+import TravelJournal from "../pages/information-pages/TravelJournal.vue"
+import JournalTypes from "../pages/information-pages/JournalTypes.vue"
+
+
 // import { useStore } from "vuex";
 import store from "../store/index";
 
@@ -82,6 +92,54 @@ const routes = [
     component: EditJournal,
     meta: { requiresAuth: true },
   },
+  {
+    path: "/benefits",
+    name: "Benefits",
+    component: BenefitsOfJournaling,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/dream-journal",
+    name: "DreamJournal",
+    component: DreamJournal,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/five-year-journal",
+    name: "FiveYearJournal",
+    component: FiveYearJournal,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/journal-prompts",
+    name: "JournalPrompts",
+    component: JournalPrompts,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/reflective-journal",
+    name: "ReflectiveJournal",
+    component: ReflectiveJournal,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/travel-journal",
+    name: "TravelJournal",
+    component: TravelJournal,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/journal-definition",
+    name: "JournalDefinition",
+    component: JournalDefinition,
+    meta: { requiresAuth: false },
+  },{
+    path: "/journal-types",
+    name: "JournalTypes",
+    component: JournalTypes,
+    meta: { requiresAuth: false },
+  },
+  
 ];
 
 // const store = useStore();
