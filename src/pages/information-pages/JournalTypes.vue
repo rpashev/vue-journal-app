@@ -148,11 +148,12 @@ li {
 .types-page__resources {
   width: 25%;
 }
-a {
+a, a h3:hover {
   text-decoration: none;
   color: rgb(139, 14, 14);
   font-weight: bold;
 }
+
 span a,
 p a {
   font-size: 0.9rem;

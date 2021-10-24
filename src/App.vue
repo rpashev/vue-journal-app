@@ -29,7 +29,7 @@ export default {
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  line-height: 1.3;
+  line-height: 1.4;
   
 }
 #app {

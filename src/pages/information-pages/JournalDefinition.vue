@@ -73,7 +73,7 @@ ul a {
   color: #59595e;
 }
 ul a:hover {
-    color: rgb(139, 14, 14);
+  color: rgb(139, 14, 14);
 }
 p {
   width: 80%;
