@@ -92,5 +92,6 @@ a:active,
 a:hover,
 a.router-link-active {
   color: rgb(139, 14, 14);
+  font-weight: bold;
 }
 </style>
