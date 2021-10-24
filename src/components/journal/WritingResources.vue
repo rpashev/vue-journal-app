@@ -45,18 +45,21 @@ export default {};
 <style scoped>
 .resources_card {
   /* background: #ECFDF5; */
-  min-width: 30rem;
+  width: 22rem;
+  min-width: 20rem;
+  margin: 0;
+  height: 30rem !important;
 }
 .resources {
   display: flex;
   flex-direction: column;
-  margin-top: rem;
+  /* margin-top: rem; */
   width: 100%;
   color: #111827;
 }
 .resources__lists {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: auto;
