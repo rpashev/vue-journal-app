@@ -16,62 +16,163 @@
       </p>
       <ol>
         <li>
-          To make sense of things that happened. What you write should sound as
-          if you are describing the details to someone who wasn't there. Be as
-          descriptive as possible. Just the act of writing down the details of
-          what happened may give you perspective that you may not have otherwise
-          considered had you just continued to think about it.
+          <strong>To make sense of things that happened.</strong> What you write
+          should sound as if you are describing the details to someone who
+          wasn't there. Be as descriptive as possible. Just the act of writing
+          down the details of what happened may give you perspective that you
+          may not have otherwise considered had you just continued to think
+          about it.
         </li>
         <li>
-          To speculate as to why something is the way it is. Your views can come
-          from your own common sense, or from something you have heard at a
-          lecture or read in a book. Either way, speculating why something is
-          the way it is can be a very useful exercise in reasoning.
+          <strong>To speculate as to why something is the way it is.</strong>
+          Your views can come from your own common sense, or from something you
+          have heard at a lecture or read in a book. Either way, speculating why
+          something is the way it is can be a very useful exercise in reasoning.
         </li>
         <li>
-          To align future actions with your reflected values and experiences.
+          <strong
+            >To align future actions with your reflected values and
+            experiences.</strong
+          >
           After positing your interpretation, continue to observe the subject of
           your speculation to decide whether you want to stick to your original
           views, or make changes. That is one of the great things about an
           online journal--you can make changes to your entries at any time.
         </li>
         <li>
-          To get thoughts and ideas out of your head. Writing down your thoughts
-          can help relieve pressure or help resolve problems. It will also help
-          you focus the task at hand.
+          <strong>To get thoughts and ideas out of your head.</strong> Writing
+          down your thoughts can help relieve pressure or help resolve problems.
+          It will also help you focus the task at hand.
         </li>
         <li>
-          To share your thoughts and ideas with others. Getting opinions from
-          others about what you wrote can help you clarify your feelings for a
-          deeper understanding of yourself.
+          <strong>To share your thoughts and ideas with others.</strong> Getting
+          opinions from others about what you wrote can help you clarify your
+          feelings for a deeper understanding of yourself.
         </li>
       </ol>
-      <h2>Topic Examples</h2>
+      <h2>10 Thoughtful and Reflective Journal Prompts</h2>
       <p>
-        To create a reflective journal that really provides detail on your
-        overall perspective on a variety of different situations, consider using
-        one of the prompts below to help with your thought process.
+        These are intended to challenge you to think deeper about yourself. Try
+        not to answer in simple one sentence responses. Dig deeper into your
+        responses. After every one, ask yourself why you chose that answer.
+        Challenge yourself and learn about yourself.
       </p>
-      <ul>
+      <ol>
         <li>
-          Write about which relationships have the most meaning to you and why.
-          Include ways you can grow to help maintain these close relationships
-          and get rid of the toxic relationships currently in your life.
-        </li>
-        <li>Write about what you are learning at school or in college.</li>
-        <li>
-          Write about someone in your life who has experienced a positive change
-          and how you can learn from their situation.
+          <p>
+            <strong>Describe a place that feels like home.</strong> What is it
+            about this place that feels like home? Think about the location, the
+            time of day, and who is with you. Have you felt “at home” anywhere
+            else? What do those places have in common?
+          </p>
         </li>
         <li>
-          Write about what you want out of the next five years of your life and
-          what you can do to achieve these goals.
+          <p>
+            <strong>What’s your favorite childhood memory?</strong> Like
+            describing a place that feels like home, this is bringing us to a
+            happy place and a happy time. Think of where you are, who you are
+            with, and what you are doing. What makes this memory your favorite?
+          </p>
         </li>
-      </ul>
+        <li>
+          <p>
+            <strong>What do you want your tombstone to say?</strong> Thomas
+            Jefferson left explicit instructions for his tombstone. It
+            commemorates him for being the author of the Declaration of
+            Independence and the Statute of Virginia for religious freedom, and
+            the Father of the University of Virginia. The former Secretary of
+            State and President of the United States, and that’s what he wanted
+            to be remembered for. So what do you want your tombstone to
+            commemorate you for?
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Think of someone you admire.</strong> Describe what
+            qualities they possess that you admire. Is this someone you look up
+            to? Or someone you’re jealous of? What role do these qualities play
+            in your admiration or jealousy?
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>What do you hope people say about you?</strong> We all know
+            that there are things we say about others (good and bad) that we
+            just can’t say to that person. For some, it’s a deep admiration or
+            even silent love. For others, it could be harsh criticism. Most of
+            the time, we won’t know what our impression is upon others. What do
+            you hope others say about you when you’re not there? Is that any
+            different from what you think they really say about you?
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>If today was your last day, how you spend it?</strong> If
+            you only had one day, what would you do? Where would you go? Who
+            would you spend it with? Would you run to the rooftops and break all
+            the rules? Or would you spend your day just like any other day?
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>What are you self-conscious about?</strong> We all have
+            little insecurities that we try to hide. Some of us are more open
+            about them, and some insecurities are much more difficult to hide.
+            What don’t you like about yourself? What are your secret (or not so
+            secret) insecurities that you hide? Why do you think you have these
+            insecurities? Did you always have that insecurity, or did it grow
+            over time? Why do you think that characteristic about yourself is a
+            negative thing?
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>What do you like about yourself?</strong> Now that we’ve
+            discussed what you don’t like about yourself, remember that there is
+            always someone that admires something about you. There is always
+            something about you to be admired. Try to imagine what a stranger
+            would think about you from a neutral, unbiased opinion. You have
+            qualities to admire, even if you’re self-conscious about yourself.
+            Look at yourself like you would anyone else, and realize how amazing
+            you are.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>What’s a compliment that you received recently?</strong>
+            Because the previous prompt can be difficult at times. So think
+            about what someone has complimented you for. Sometimes, the
+            compliments might also go beyond your looks and to your personality.
+            Those are even more endearing, as it shows that you have much more
+            to offer beyond your looks. So think hard and think of a compliment
+            someone has given you recently.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong
+              >If you could run any business (and the business would be a
+              guaranteed success), what business would you run?</strong
+            >
+            This will help you rediscover what you truly enjoy, as our jobs are
+            not always what we dream of or what we do in our pastimes. But
+            intelligent humans are passionate about something, and they make
+            their passions their careers. Not every passion should be a career,
+            as working your passion as a job could kill the enjoyment. But this
+            question will help you rediscover your passion. What you choose to
+            do with that information is up to you.
+          </p>
+        </li>
+      </ol>
       <p class="source">
         Source:
         <a href="https://penzu.com/how-to-write-a-reflective-journal"
           >https://penzu.com/how-to-write-a-reflective-journal</a
+        >
+        <br>
+        Source: <a
+          href="https://gentwenty.com/thoughtful-and-reflective-journal-prompts/"
+          >https://gentwenty.com/thoughtful-and-reflective-journal-prompts/</a
         >
       </p>
     </div>
@@ -113,6 +214,11 @@ li {
 }
 p {
   width: 85%;
+}
+h2 {
+  align-self: left;
+  width: 85%;
+  margin-top: 2rem;
 }
 .source {
   margin-top: 2rem;

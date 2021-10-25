@@ -73,7 +73,7 @@
           </p>
         </li>
       </ol>
-      <h2>5 tips for getting started with writing a dream diary</h2>
+      <h2>5 tips for getting started with writing a dream journal</h2>
       <ol>
         <li>
           <h3>Don't wait; write!</h3>
@@ -184,6 +184,11 @@ ol {
 li {
   margin-bottom: 1.5rem;
   color: #59595e;
+}
+h2 {
+    align-self: left;
+    width: 85%;
+    margin-top: 2rem;
 }
 p {
   width: 85%;

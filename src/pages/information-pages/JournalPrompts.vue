@@ -132,6 +132,11 @@ li {
 p {
   width: 85%;
 }
+h2 {
+    align-self: left;
+    width: 85%;
+    margin-top: 2rem;
+}
 .source {
   margin-top: 2rem;
   font-size: 0.9rem;
