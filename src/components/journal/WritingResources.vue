@@ -86,12 +86,14 @@ a {
   text-decoration: none;
   font-size: 0.9rem;
   color: #111827;
+  transition: all 0.2s ease-out;
 
 }
 a:active,
 a:hover,
 a.router-link-active {
   color: rgb(139, 14, 14);
-  font-weight: bold;
+  font-size: 0.95rem;
+  /* font-weight: bold; */
 }
 </style>

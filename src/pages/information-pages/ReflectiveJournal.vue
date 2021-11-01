@@ -169,8 +169,9 @@
         <a href="https://penzu.com/how-to-write-a-reflective-journal"
           >https://penzu.com/how-to-write-a-reflective-journal</a
         >
-        <br>
-        Source: <a
+        <br />
+        Source:
+        <a
           href="https://gentwenty.com/thoughtful-and-reflective-journal-prompts/"
           >https://gentwenty.com/thoughtful-and-reflective-journal-prompts/</a
         >
@@ -224,8 +225,12 @@ h2 {
   margin-top: 2rem;
   font-size: 0.9rem;
 }
-a {
+.source a {
   color: black;
   text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.source a:hover {
+  color: rgb(139, 14, 14);
 }
 </style>

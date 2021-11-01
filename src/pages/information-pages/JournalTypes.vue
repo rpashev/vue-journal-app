@@ -158,5 +158,9 @@ span a,
 p a {
   font-size: 0.9rem;
   text-align: right;
+  transition: font-size 0.2s ease-out; 
+}
+span a:hover {
+  font-size: 0.95rem;
 }
 </style>

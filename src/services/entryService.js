@@ -14,6 +14,6 @@ export default {
     await axiosAuth.patch(`/${journalID}/${entryID}`, data);
   },
   async deleteEntry(journalID, entryID) {
-    await axiosAuth.delete(`/${journalID}/${entryID}s`);
+    await axiosAuth.delete(`/${journalID}/${entryID}`);
   },
 };

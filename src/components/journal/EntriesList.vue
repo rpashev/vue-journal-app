@@ -182,7 +182,7 @@ export default {
 
 .entry__actions button,
 .entry__actions a {
-  height: 2rem;
+  height: auto;
   text-align: center;
   padding: 0.4rem 0.5rem;
   margin: 0 0.5rem;

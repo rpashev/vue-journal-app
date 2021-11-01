@@ -186,9 +186,9 @@ li {
   color: #59595e;
 }
 h2 {
-    align-self: left;
-    width: 85%;
-    margin-top: 2rem;
+  align-self: left;
+  width: 85%;
+  margin-top: 2rem;
 }
 p {
   width: 85%;
@@ -197,8 +197,12 @@ p {
   margin-top: 2rem;
   font-size: 0.9rem;
 }
-a {
+.source a {
   color: black;
   text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.source a:hover {
+  color: rgb(139, 14, 14);
 }
 </style>

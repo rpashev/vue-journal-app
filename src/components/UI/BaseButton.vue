@@ -40,6 +40,7 @@ a {
   cursor: pointer;
   border-radius: 5px;
   display: inline-block;
+  transition: background-color 0.3s ease-out;
 }
 
 a:hover,
