@@ -114,13 +114,10 @@ export default {
 
         // router.push(`/journals/${props.journalID}/`);
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value = "Could not delete, can't connect to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message ||
-            "Could not delete entry! Please try again!";
-        }
+        errorMessage.value =
+          err.response?.data?.message ||
+          "Could not delete entry! Please try again!";
+
         showDialog.value = false;
       } finally {
         isLoading.value = false;

@@ -101,14 +101,9 @@ export default {
           });
           router.push("/");
         } catch (err) {
-          if (!err.response) {
-            errorMessage.value =
-              "Could not create journal, lost connection to server!";
-          } else {
-            errorMessage.value =
-              err.response.data.message ||
-              "Could not create journal, please try again!";
-          }
+          errorMessage.value =
+            err.response?.data?.message ||
+            "Could not create journal, please try again!";
         } finally {
           isLoading.value = false;
         }

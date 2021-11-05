@@ -43,10 +43,7 @@
         @update:modelValue="updatePage"
       />
     </div>
-    <div
-      v-if="journal"
-      class="single-journal__page-prompts"
-    >
+    <div v-if="journal" class="single-journal__page-prompts">
       <base-card class="card_description">
         <div v-if="journal" class="single-journal__page-description">
           <h2>Journal description</h2>
@@ -121,13 +118,8 @@ export default {
       try {
         journal.value = await journalService.getJournal(journalID);
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value =
-            "Could not load journal! Can't connect to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Couldn't load journal!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Couldn't load journal!";
       } finally {
         isLoading.value = false;
       }
@@ -176,13 +168,9 @@ export default {
         await journalService.deleteJournal(journalID);
         router.push("/journals");
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value =
-            "Could not delete journal, lost connection to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Could not delete, please try again!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Could not delete, please try again!";
+
         showDialog.value = false;
       } finally {
         isLoading.value = false;
@@ -285,8 +273,8 @@ export default {
   margin: 0 auto;
 }
 .spinner {
-  position: relative;
-  left: 50%;
+  /* position: relative;
+  left: 50%; */
 }
 .btn-entry {
   /* align-self: center;margin-left: 3rem; */

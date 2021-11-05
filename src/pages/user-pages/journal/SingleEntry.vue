@@ -59,12 +59,8 @@ export default {
         const response = await entryService.getEntry(journalID, entryID);
         entry.value = response;
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value = "Could not load entry! Can't connect to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Could not load entry!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Could not load entry!";
       } finally {
         isLoading.value = false;
       }
@@ -91,7 +87,7 @@ export default {
         router.push(`/journals/${journalID}/`);
       } catch (err) {
         errorMessage.value =
-          err.response.data.message ||
+          err.response?.data?.message ||
           "Could not delete entry! Please try again!";
         showDialog.value = false;
       } finally {

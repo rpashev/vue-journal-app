@@ -91,13 +91,8 @@ export default {
         );
         router.push(`/journals/${journalID}`);
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value =
-            "Could not create entry, can't connect with server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Could not create entry!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Could not create entry!";
       } finally {
         isLoading.value = false;
       }

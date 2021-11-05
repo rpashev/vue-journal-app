@@ -54,12 +54,8 @@ export default {
 
         journals.value = response.data;
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value = "Could not load journals! The server is not responding!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Could not load journals!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Could not load journals!";
       } finally {
         isLoading.value = false;
       }

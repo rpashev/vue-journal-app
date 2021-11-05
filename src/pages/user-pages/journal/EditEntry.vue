@@ -4,10 +4,7 @@
     <p class="error-message submit-error" v-if="errorMessage && !body">
       {{ errorMessage }}
     </p>
-    <form
-      v-if="!isLoading  && body"
-      @submit.prevent="submitHandler"
-    >
+    <form v-if="!isLoading && body" @submit.prevent="submitHandler">
       <div class="entry__container">
         <div class="entry__title">
           <label for="entry-title">Entry title</label>
@@ -50,11 +47,10 @@
         <base-button class="btn-back" link :to="`/journals/${journalID}`"
           >Back</base-button
         >
-        
       </div>
       <p class="error-message submit-error" v-if="errorMessage">
-      {{ errorMessage }}
-    </p>
+        {{ errorMessage }}
+      </p>
     </form>
   </div>
 </template>
@@ -87,19 +83,15 @@ export default {
         const response = await entryService.getEntry(journalID, entryID);
 
         entry.value = response;
-      } catch (err) {
-        if (!err.response) {
-          errorMessage.value = "Could not load entry, can't connect to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Could not load entry!";
-        }
-      } finally {
-        isLoading.value = false;
-        // console.log(entry.value.date.slice(0,10));
         title.value = entry.value.title;
         body.value = entry.value.body;
         date.value = entry.value.date.slice(0, 10);
+      } catch (err) {
+        errorMessage.value =
+          err.response?.data?.message || "Could not load entry!";
+      } finally {
+        isLoading.value = false;
+        // console.log(entry.value.date.slice(0,10));
       }
     };
     loadEntry();
@@ -123,13 +115,8 @@ export default {
         );
         router.push(`/journals/${journalID}/${entryID}/`);
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value =
-            "Could not update entry, can't connect to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Could not edit entry!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Could not edit entry!";
       } finally {
         isLoading.value = false;
       }

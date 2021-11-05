@@ -104,16 +104,10 @@ export default {
         description.value = journal.value.description;
         journalName.value = journal.value.journalName;
       } catch (err) {
-        if (!err.response) {
-          errorMessage.value =
-            "Could not load journal data, lost connection to server!";
-        } else {
-          errorMessage.value =
-            err.response.data.message || "Couldn't load journal!";
-        }
+        errorMessage.value =
+          err.response?.data?.message || "Couldn't load journal!";
       } finally {
         isLoading.value = false;
-        
       }
     };
     loadJournal();
@@ -132,14 +126,9 @@ export default {
           });
           router.push(`/journals/${journalID}`);
         } catch (err) {
-          if (!err.response) {
-            errorMessage.value =
-              "Could not edit journal, lost connection to server!";
-          } else {
-            errorMessage.value =
-              err.response.data.message ||
-              "Could not create journal, please try again!";
-          }
+          errorMessage.value =
+            err.response?.data?.message ||
+            "Could not create journal, please try again!";
         } finally {
           isLoading.value = false;
         }
@@ -153,7 +142,7 @@ export default {
       description,
       isLoading,
       errorMessage,
-      journal
+      journal,
     };
   },
 };

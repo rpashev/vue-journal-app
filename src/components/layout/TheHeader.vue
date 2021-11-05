@@ -85,10 +85,10 @@ a.router-link-active {
   height: 100%;
   width: 100%;
   margin-left: 2rem;
+  transition: all 0.2s ease-in;
 }
 .logo:hover {
   /* border-bottom: 2px solid black; */
-  transition: all 0.2s ease-in;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 </style>
