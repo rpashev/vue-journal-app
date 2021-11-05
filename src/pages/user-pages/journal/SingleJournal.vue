@@ -228,9 +228,9 @@ export default {
 
 <style scoped>
 .single-journal__page {
-  /* padding-top: 2rem; */
   padding-right: 2rem;
   display: flex;
+
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
@@ -244,6 +244,7 @@ export default {
 }
 .single-journal__page-prompts {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   width: 32%;
   height: 100%;
@@ -261,23 +262,26 @@ export default {
   margin-bottom: 2rem;
 }
 .actions-main {
-  width: 30%;
+  width: 80%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 2rem;
 }
 .actions {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
+  text-align: center;
 }
-.spinner {
-  /* position: relative;
-  left: 50%; */
+.btn-entry,
+.btn-back {
+  width: 8rem;
+  min-width: 8rem;
+  text-align: center;
 }
-.btn-entry {
-  /* align-self: center;margin-left: 3rem; */
+.resources {
+  /* flex-shrink: 4; */
 }
 h1 {
   margin-bottom: 2rem;
@@ -298,5 +302,25 @@ h2 {
 .submit-error {
   position: static;
   text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .single-journal__page {
+    display: block;
+    padding: 0;
+  }
+  .single-journal__page-entries {
+    width: 100%;
+  }
+  .resources {
+    display: none;
+  }
+  .single-journal__page-prompts {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .card_description {
+    /* width: 50%; */min-width: auto;
+  }
 }
 </style>

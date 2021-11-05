@@ -172,6 +172,12 @@ export default {
   font-size: 0.8rem;
   color: #9098a5;
 }
+.entry__date, .entry__intro {
+  min-width: 6rem;
+}
+.entry__date {
+  align-self: flex-start;
+}
 .entry__actions {
   display: flex;
   /* margin: 0 auto; */
@@ -201,5 +207,19 @@ export default {
 .submit-error {
   position: static;
   text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .entries-list__container {
+    width: 100%;
+    /* padding-left: 0; */
+    /* margin: 0 auto; */
+  }
+  .entries-list {
+    padding: 0 0.8rem;
+  }
+  #entry__actions-edit {
+    display: none;
+  }
 }
 </style>

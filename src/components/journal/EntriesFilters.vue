@@ -95,12 +95,11 @@ export default {
 <style scoped>
 .entries__filters {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
   padding-left: 1.5rem;
   margin-top: 1.5rem;
-  /* height: 4rem; */
 }
 .time__filter,
 .search,
@@ -109,7 +108,13 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  /* position: relative; */
+  flex-shrink: 2;
+}
+.search {
+  flex-shrink: 5;
   position: relative;
+  /* background: red; */
 }
 .form-control {
   height: 3rem;
@@ -117,14 +122,14 @@ export default {
 }
 input,
 select {
-  width: 16rem;
+  width: 10rem;
   padding: 0.4rem;
   outline: none;
   font: inherit;
   font-size: 0.8rem;
 }
 input {
-  width: 25rem;
+  width: 15rem;
 }
 .per__filter select {
   width: 7rem;
@@ -138,5 +143,13 @@ input {
   position: absolute;
   right: 0.3rem;
   bottom: 0.15rem;
+}
+
+@media (max-width: 40rem) {
+  .entries__filters {
+    width: 100%;
+    padding: 0;
+    flex-shrink: 4;
+  }
 }
 </style>

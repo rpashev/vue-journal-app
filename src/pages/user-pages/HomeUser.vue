@@ -106,4 +106,13 @@ export default {
   position: static;
   text-align: center;
 }
+
+@media (max-width: 40rem) {
+  .home-user__page {
+    display: block;
+  }
+  .home-user__page-journals {
+    margin: 0 auto;
+  }
+}
 </style>
