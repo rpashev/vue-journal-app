@@ -110,6 +110,7 @@ export default {
 @media (max-width: 40rem) {
   .home-user__page {
     display: block;
+    padding: 2rem 0;
   }
   .home-user__page-journals {
     margin: 0 auto;

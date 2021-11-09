@@ -60,4 +60,7 @@ h2 {
 .ql-align-justify{
   text-align: justify;
 }
+@media (max-width: 40rem){
+
+}
 </style>

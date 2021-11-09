@@ -1,8 +1,13 @@
 <template>
-  <header>
+  <header :style="styleBackground">
     <nav>
       <div class="logo__container">
-        <router-link to="/"><div class="logo"></div></router-link>
+        <router-link v-if="!isLoggedIn" to="/"
+          ><div class="logo"></div
+        ></router-link>
+        <router-link v-if="isLoggedIn" to="/"
+          ><div class="logo-white"></div
+        ></router-link>
       </div>
       <ul>
         <li v-if="!isLoggedIn">
@@ -12,10 +17,15 @@
           <router-link to="/sign-up">Sign Up</router-link>
         </li>
         <li v-if="userName">
-          <router-link to="/user-profile">{{ userName }}</router-link>
+          <router-link
+            :class="{ user: isLoggedIn }"
+            active-class="active-user"
+            to="/user-profile"
+            >{{ userName }}</router-link
+          >
         </li>
         <li v-if="isLoggedIn">
-          <a @click="logout">Logout</a>
+          <a :class="{ user: isLoggedIn }" @click="logout">Logout</a>
         </li>
       </ul>
     </nav>
@@ -30,6 +40,11 @@ export default {
     },
     userName() {
       return this.$store.getters.firstName;
+    },
+    styleBackground() {
+      return {
+        background: this.isLoggedIn ? "rgb(139, 14, 14)" : "white",
+      };
     },
   },
   methods: {
@@ -76,6 +91,17 @@ a.router-link-active {
   border-bottom: 2px solid #03692d;
   cursor: pointer;
 }
+.user {
+  color: white;
+}
+.user:active,
+.user:hover {
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+.active-user {
+  border-bottom: 2px solid white;
+}
 .logo__container {
   width: 6rem;
   height: 6rem;
@@ -85,10 +111,17 @@ a.router-link-active {
   height: 100%;
   width: 100%;
   margin-left: 2rem;
-  transition: all 0.2s ease-in;
+  transition: all 0.3s ease-in;
 }
-.logo:hover {
+.logo-white {
+  background: url("../../assets/images/logo-white.png") center/contain no-repeat;
+  height: 100%;
+  width: 100%;
+  margin-left: 2rem;
+  transition: all 0.3s ease-in;
+}
+.logo:hover, .logo-white:hover {
   /* border-bottom: 2px solid black; */
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 </style>
