@@ -35,7 +35,7 @@ a {
   padding: 0.75rem 1.5rem;
   font: inherit;
   background-color: #3498db;
-  border: 1px solid #3498db;
+  border: 2px solid #3498db;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -61,13 +61,32 @@ button:active {
 .alternative:active {
   background-color: black;
   color: white;
+  border: none;
 }
-.forbidden, .forbidden:hover {
+.forbidden,
+.forbidden:hover {
   cursor: not-allowed;
   background-color: #3498db;
   color: white;
 }
-.allowed {
-  background-color: rgb(116, 173, 29);
+.cta {
+  background-color: green;
+  border: none;
+
+  /* background-color: rgb(116, 173, 29); */
+}
+.cta:hover {
+  border: none;
+  color: white;
+  background-color: black;
+}
+.dark {
+  background-color: #2f3940;
+  border: none;
+}
+.dark:hover {
+  color: white;
+  background: black;
+  border: none;
 }
 </style>

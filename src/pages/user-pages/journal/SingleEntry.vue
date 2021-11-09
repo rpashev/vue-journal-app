@@ -11,7 +11,7 @@
 
       <div class="entry__actions">
         <base-button
-          mode="allowed"
+          mode="dark"
           id="entry__actions-edit"
           link
           :to="`/journals/${journalID}/${entryID}/edit`"
@@ -24,7 +24,11 @@
           >Delete</base-button
         >
       </div>
-      <base-button id="entry__actions-back" link :to="`/journals/${journalID}`"
+      <base-button
+        mode="dark"
+        id="entry__actions-back"
+        link
+        :to="`/journals/${journalID}`"
         >Back to journal</base-button
       >
     </div>

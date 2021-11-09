@@ -9,12 +9,15 @@
       <h1>{{ journal.journalName }}</h1>
       <div class="actions-main">
         <base-button
+          mode="cta"
           class="btn-entry"
           link
           :to="`/journals/${journalID}/new-entry`"
           >New Entry</base-button
         >
-        <base-button class="btn-back" link :to="`/journals/`">Back</base-button>
+        <base-button mode="dark" class="btn-back" link :to="`/journals/`"
+          >Back</base-button
+        >
       </div>
 
       <entries-filters
@@ -56,7 +59,7 @@
             <base-button
               link
               :to="`/journals/${journalID}/edit-journal`"
-              mode="allowed"
+              mode="dark"
               >Edit Journal</base-button
             >
             <base-button @click="toggleShowDialog" mode="alternative"
@@ -280,6 +283,9 @@ export default {
   min-width: 8rem;
   text-align: center;
 }
+/* .btn-entry {
+  background-color: red !important;
+} */
 .resources {
   /* flex-shrink: 4; */
 }
@@ -320,7 +326,8 @@ h2 {
     padding: 0 1rem;
   }
   .card_description {
-    /* width: 50%; */min-width: auto;
+    /* width: 50%; */
+    min-width: auto;
   }
 }
 </style>

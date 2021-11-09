@@ -28,13 +28,14 @@
         <div class="entry__date">{{ readableDate(entry.date) }}</div>
         <div class="entry__actions">
           <base-button
+          mode="dark"
             id="entry__actions-view"
             link
             :to="`/journals/${journalID}/${entry._id}`"
             >View</base-button
           >
           <base-button
-            mode="allowed"
+            mode="dark"
             id="entry__actions-edit"
             link
             :to="`/journals/${journalID}/${entry._id}/edit`"

@@ -2,12 +2,16 @@
   <div class="journals__list-item" @click="openJournal">
     <div class="background">
       <h2>{{ journalName }}</h2>
-      <p>{{readableDescription(description) || null}}</p>
+      <p>{{ readableDescription(description) || null }}</p>
       <div class="actions">
-        <base-button link :to="`/journals/${journalID}`" @click.stop
+        <base-button mode="dark" link :to="`/journals/${journalID}`" @click.stop
           >View Entries</base-button
         >
-        <base-button link :to="`/journals/${journalID}/new-entry`" @click.stop
+        <base-button
+          mode="cta"
+          link
+          :to="`/journals/${journalID}/new-entry`"
+          @click.stop
           >New Entry</base-button
         >
       </div>
@@ -25,15 +29,15 @@ export default {
       router.push(`/journals/${props.journalID}`);
     };
     const readableDescription = (description) => {
-      if(description.length > 120) {
-        return description.slice(0, 120) + "..."
+      if (description.length > 120) {
+        return description.slice(0, 120) + "...";
       } else {
-        return description
+        return description;
       }
-    }
+    };
     return {
       openJournal,
-      readableDescription
+      readableDescription,
     };
   },
 };
@@ -44,11 +48,10 @@ export default {
   height: 30rem;
   margin: 2rem;
   min-width: 300px;
-
+  transition: all 0.4s ease-out;
 }
 .journals__list-item:hover {
   transform: scale(1.03);
-  transition: all 0.4s ease-out;
   cursor: pointer;
 }
 .background {
@@ -58,7 +61,6 @@ export default {
   align-items: center;
   background: url("../../assets/images/journal.png") center/contain no-repeat;
   height: 80%;
-
 }
 .actions {
   display: flex;
@@ -75,7 +77,6 @@ h2 {
   text-align: center;
   width: 60%;
   overflow: hidden;
-
 }
 p {
   text-align: center;

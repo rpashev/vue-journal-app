@@ -9,7 +9,7 @@
           many more additional functionalities!
         </p>
       </div>
-      <base-button @click="toggleShowGoPro" mode="alternative">Learn More</base-button>
+      <base-button @click="toggleShowGoPro" mode="dark">Learn More</base-button>
     </div>
   </base-card>
   <pro-modal @close="toggleShowGoPro" :show="showGoPro" />

@@ -7,7 +7,7 @@
 
     <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
       <div>
-        <base-button link :to="`/journals/create-journal`"
+        <base-button mode="cta" link :to="`/journals/create-journal`"
           >Create a New Journal</base-button
         >
       </div>

@@ -13,7 +13,7 @@
         </section>
         <menu v-if="!fixed">
           <slot name="actions">
-            <base-button @click="tryClose">Cancel</base-button>
+            <base-button mode="dark" @click="tryClose">Cancel</base-button>
 
             <base-button @click="confirmDelete" mode="alternative"
               >Delete</base-button
