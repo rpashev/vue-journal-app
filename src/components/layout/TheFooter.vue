@@ -98,4 +98,30 @@ p {
   color: #fff;
   opacity: 0.4;
 }
+
+@media (max-width: 1024px) {
+  footer {
+    /* display: block; */
+    
+  }
+  .footer__info {
+    display: block;
+  } 
+  .footer__info-group:last-child {
+    display: none;
+  }
+  a {
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+  li {
+    margin: 0;
+  }
+}
+@media (max-width: 40rem) {
+  
+  
+}
 </style>

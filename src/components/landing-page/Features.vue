@@ -92,6 +92,9 @@ export default {
   min-width: 250px;
   flex-shrink: 0;
 }
+h2 {
+  text-align: center;
+}
 p {
   font-size: 1.2rem;
   text-align: center;
@@ -129,9 +132,22 @@ p {
 a {
   margin-top: 0.5rem;
 }
+
+@media (max-width: 1024px) {
+  .features {
+    /* flex-direction: column; */
+    width: 100%;
+  }
+  .features__feature {
+    width: 40%;
+  }
+}
 @media (max-width: 40rem) {
   .features {
     flex-direction: column;
+  }
+  .features__feature {
+    width: 90%;
   }
 }
 </style>

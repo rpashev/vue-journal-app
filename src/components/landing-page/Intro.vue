@@ -67,4 +67,26 @@ a {
   position: absolute;
   top: 3rem;
 }
+
+@media (max-width: 1024px) {
+  .background {
+    background: none;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+  .landing-page__prompt {
+    width: 60%;
+  }
+}
+@media (max-width: 1024px) {
+  .landing-page__prompt {
+    width: 50%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .landing-page__prompt {
+    width: 80%;
+  }
+}
 </style>

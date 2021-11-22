@@ -79,4 +79,20 @@ a:hover,
 a.router-link-active {
   color: rgb(0, 0, 0);
 }
+
+@media (max-width: 1024px) {
+  
+  ul {
+    margin: 0 !important;
+  }
+  li {
+    text-align: center;
+  }
+  h2 {
+    width: 80%;
+    text-align: center;
+  }
+}
+@media (max-width: 40rem) {
+}
 </style>

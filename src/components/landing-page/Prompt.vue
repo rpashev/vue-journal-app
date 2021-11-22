@@ -26,6 +26,9 @@ export default {};
   flex-direction: column;
   align-items: center;
 }
+h1 {
+  text-align: center;
+}
 p {
   width: 50%;
   font-size: 1.2rem;
@@ -33,5 +36,13 @@ p {
 }
 a {
   margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  p {
+    width: 80%;
+  }
+}
+@media (max-width: 40rem) {
 }
 </style>

@@ -28,12 +28,11 @@ export default {
 }
 body {
   margin: 0;
+  padding: 0;
   font-family: "Roboto", sans-serif;
   line-height: 1.4;
-  
 }
 #app {
- 
   position: relative;
   min-height: 100vh;
 }
@@ -57,10 +56,9 @@ h2 {
 .ql-align-left {
   text-align: left;
 }
-.ql-align-justify{
+.ql-align-justify {
   text-align: justify;
 }
-@media (max-width: 40rem){
-
+@media (max-width: 40rem) {
 }
 </style>

@@ -32,6 +32,7 @@ export default {};
 .landing__promotion-items {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .landing__promotion-item {
   margin: 0.5rem 1rem;
@@ -44,5 +45,13 @@ img {
 h3 {
   text-align: center;
   color: #8e8e93;
+}
+
+@media (max-width: 1024px) {
+  
+}
+@media (max-width: 40rem) {
+  
+  
 }
 </style>
