@@ -1,6 +1,6 @@
 <template>
   <div class="journals__list-item" @click="openJournal">
-    <div class="background">
+    <div class="card">
       <h2>{{ journalName }}</h2>
       <p>{{ readableDescription(description) || null }}</p>
       <div class="actions">
@@ -54,12 +54,13 @@ export default {
   transform: scale(1.03);
   cursor: pointer;
 }
-.background {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: url("../../assets/images/journal.png") center/contain no-repeat;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
+  border-radius: 16px;
   height: 80%;
 }
 .actions {
@@ -75,8 +76,15 @@ export default {
 }
 h2 {
   text-align: center;
-  width: 60%;
+  width: 100%;
+  margin-top: 0;
+  border-radius: 16px 16px 0 0;
+
+  padding: 1rem;
+  color: white;
   overflow: hidden;
+  /* background-color: rgb(139, 14, 14); */
+  background-color: #2f3940;
 }
 p {
   text-align: center;

@@ -22,8 +22,8 @@
       </div>
     </div>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-prompts">
-      <go-pro />
       <writing-resources />
+      <go-pro />
     </div>
   </div>
 </template>
@@ -79,6 +79,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  background-color: #F9FAFB;
 }
 .home-user__page-journals {
   width: 65%;
