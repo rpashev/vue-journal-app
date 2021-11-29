@@ -15,21 +15,21 @@
   padding: 4rem;
 }
 h1 {
-  color: white;
+  color: #F0F0F0;
   margin-bottom: 4rem;
   text-align: center;
 }
 a {
   width: 25%;
   text-align: center;
-  color: white;
+  color: #F0F0F0;
 }
 
 @media (max-width: 1024px) {
   a {
     width: 50%;
     text-align: center;
-    color: white;
+    color: #F0F0F0;
   }
 }
 @media (max-width: 40rem) {

@@ -9,7 +9,7 @@
           many more additional functionalities!
         </p>
       </div>
-      <base-button @click="toggleShowGoPro" mode="dark">Learn More</base-button>
+      <base-button @click="toggleShowGoPro" mode="alternative">Learn More</base-button>
     </div>
   </base-card>
   <pro-modal @close="toggleShowGoPro" :show="showGoPro" />
@@ -26,10 +26,9 @@ export default {
       showGoPro.value = !showGoPro.value;
     };
     return {
-        showGoPro,
-        toggleShowGoPro
-    }
-
+      showGoPro,
+      toggleShowGoPro,
+    };
   },
 };
 </script>
@@ -37,14 +36,21 @@ export default {
 <style scoped>
 .container {
   display: flex;
-  flex-direction: row;
+  width: 20rem;
+  min-width: 20rem;
+
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
 }
 .logo {
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   background: url("../../assets/images/pro.png") center/contain no-repeat;
 }
+p {
+  margin-bottom: 2rem;
+}
+
 </style>

@@ -223,6 +223,7 @@ export default {
 <style scoped>
 .signup__page {
   height: 50rem;
+  background-color: white;
   /* padding-top: 2rem; */
 }
 .signup__card {

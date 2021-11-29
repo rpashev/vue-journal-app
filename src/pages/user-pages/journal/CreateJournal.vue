@@ -44,6 +44,7 @@
       </div>
       <div class="actions">
         <base-button
+          mode="cta"
           type="submit"
           tag="button"
           :disabled="v$.$invalid"
@@ -52,7 +53,7 @@
           }"
           >Create</base-button
         >
-        <base-button id="entry__actions-back" link :to="'/'"
+        <base-button id="entry__actions-back" link :to="'/'" mode="dark"
           >Cancel</base-button
         >
       </div>

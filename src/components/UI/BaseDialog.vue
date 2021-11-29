@@ -73,19 +73,19 @@ dialog {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: white;
+  background-color: #f0f0f0;
 }
 
 header {
   background-color: rgb(139, 14, 14);
-  color: white;
+  color: #f0f0f0;
   width: 100%;
   padding: 1rem;
 }
 
 header h3 {
   margin: 0;
-  color: white;
+  color: #f0f0f0;
   text-align: center;
 }
 

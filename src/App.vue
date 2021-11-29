@@ -37,6 +37,7 @@ body {
   min-height: 100vh;
 }
 main {
+  background-color: #F9FAFB;
   padding-bottom: 12rem;
   margin: 0 auto;
   height: auto;

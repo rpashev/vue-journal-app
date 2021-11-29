@@ -126,9 +126,7 @@ export default {
 
 <style scoped>
 .login__page {
-  /* background: white; */
-  /* margin-bottom: 0; */
-  /* padding-top: 2rem; */
+  background-color: white;
 }
 .login__card {
   height: 27rem;

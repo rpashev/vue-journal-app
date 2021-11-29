@@ -52,13 +52,14 @@
         <base-button
           type="submit"
           tag="button"
+          mode="cta"
           :disabled="v$.$invalid"
           :class="{
             forbidden: v$.$invalid,
           }"
           >Edit</base-button
         >
-        <base-button id="entry__actions-back" link :to="'/'"
+        <base-button id="entry__actions-back" link :to="'/'" mode="dark"
           >Cancel</base-button
         >
       </div>

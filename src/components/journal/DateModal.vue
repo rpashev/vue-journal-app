@@ -93,19 +93,19 @@ dialog {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: white;
+  background-color: #F0F0F0;
 }
 
 header {
   background-color: #3498db;
-  color: white;
+  color: #F0F0F0;
   width: 100%;
   padding: 1rem;
 }
 
 header h3 {
   margin: 0;
-  color: white;
+  color: #F0F0F0;
   text-align: center;
 }
 .dates {

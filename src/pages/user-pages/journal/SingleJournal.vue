@@ -233,7 +233,7 @@ export default {
 .single-journal__page {
   padding-right: 2rem;
   display: flex;
-
+  background-color: #f9fafb;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
@@ -253,7 +253,7 @@ export default {
   height: 100%;
 }
 .card_description {
-  background: #eff6ff;
+  /* background: #eff6ff; */
   width: 100%;
   min-width: 30rem;
 }

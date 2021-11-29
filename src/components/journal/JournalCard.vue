@@ -45,6 +45,7 @@ export default {
 <style scoped>
 .journals__list-item {
   width: 40%;
+  max-width: 300px;
   height: 30rem;
   margin: 2rem;
   min-width: 300px;
@@ -81,7 +82,8 @@ h2 {
   border-radius: 16px 16px 0 0;
 
   padding: 1rem;
-  color: white;
+  color: #F0F0F0;
+  
   overflow: hidden;
   /* background-color: rgb(139, 14, 14); */
   background-color: #2f3940;
@@ -90,5 +92,6 @@ p {
   text-align: center;
   width: 50%;
   font-size: 0.9rem;
+  opacity: 0.8;
 }
 </style>

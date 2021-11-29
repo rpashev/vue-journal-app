@@ -5,7 +5,6 @@
       <dialog open v-if="show">
         <header>
           <h2>Upgrade to our Pro version!</h2>
-         
         </header>
         <div class="logo"></div>
         <div class="features">
@@ -45,29 +44,27 @@ export default {
 
 <style scoped>
 .logo {
-    background: url("../../assets/images/pro.png") center/contain no-repeat;
-    height: 10rem;
+  background: url("../../assets/images/pro.png") center/contain no-repeat;
+  height: 10rem;
 }
 ul {
-    text-align: center;
-    list-style: none;
-    padding-left: 0;
-
+  text-align: center;
+  list-style: none;
+  padding-left: 0;
 }
 ul li {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
 }
 ul > li:first-of-type {
-    margin-top: 0rem;
+  margin-top: 0rem;
 }
 p {
-    text-align: center;
-    margin-top: 1.5rem;
-    font-style: italic;
-    font-weight: bold;
-    /* color: black; */
-    
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+  /* color: black; */
 }
 .backdrop {
   position: fixed;
@@ -81,29 +78,30 @@ p {
 
 dialog {
   position: fixed;
-  top: 20vh;
-  left: 10%;
-  width: 80%;
+  top: 15vh;
+  /* left: 10%; */
+  /* margin: 0 auto; */
+  margin: 0 auto;
+  width: 95%;
   z-index: 100;
   border-radius: 12px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0;
-  margin: 0;
   overflow: hidden;
-  background-color: white;
+  background-color: #f0f0f0;
 }
 
 header {
   background-color: rgb(139, 14, 14);
-  color: white;
+  color: #f0f0f0;
   width: 100%;
   padding: 1rem;
 }
 
 header h2 {
   margin: 0;
-  color: white;
+  color: #f0f0f0;
   text-align: center;
 }
 
@@ -141,6 +139,10 @@ menu button {
   dialog {
     left: calc(50% - 20rem);
     width: 35rem;
+    margin: 0;
+  }
+  ul li {
+    font-size: 1.2rem;
   }
 }
 </style>

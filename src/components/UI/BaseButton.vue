@@ -36,7 +36,7 @@ a {
   font: inherit;
   background-color: #3498db;
   border: 2px solid #3498db;
-  color: white;
+  color: #F0F0F0;
   cursor: pointer;
   border-radius: 5px;
   display: inline-block;
@@ -53,21 +53,21 @@ button:active {
 
 .alternative {
   background-color: rgb(139, 14, 14);
-  color: white;
+  color: #F0F0F0;
   border: none;
 }
 
 .alternative:hover,
 .alternative:active {
   background-color: black;
-  color: white;
+  color: #F0F0F0;
   border: none;
 }
 .forbidden,
 .forbidden:hover {
   cursor: not-allowed;
   background-color: #3498db;
-  color: white;
+  color: #F0F0F0;
 }
 .cta {
   background-color: green;
@@ -77,7 +77,7 @@ button:active {
 }
 .cta:hover {
   border: none;
-  color: white;
+  color: #F0F0F0;
   background-color: black;
 }
 .dark {
@@ -85,7 +85,7 @@ button:active {
   border: none;
 }
 .dark:hover {
-  color: white;
+  color: #F0F0F0;
   background: black;
   border: none;
 }

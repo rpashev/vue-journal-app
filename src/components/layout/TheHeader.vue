@@ -92,15 +92,15 @@ a.router-link-active {
   cursor: pointer;
 }
 .user {
-  color: white;
+  color: #F0F0F0;
 }
 .user:active,
 .user:hover {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #F0F0F0;
   cursor: pointer;
 }
 .active-user {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #F0F0F0;
 }
 .logo__container {
   width: 6rem;

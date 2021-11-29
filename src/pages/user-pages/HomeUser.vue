@@ -22,8 +22,8 @@
       </div>
     </div>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-prompts">
-      <writing-resources />
       <go-pro />
+      <writing-resources />
     </div>
   </div>
 </template>
@@ -77,7 +77,7 @@ export default {
   padding: 2rem 4rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
   background-color: #F9FAFB;
 }
@@ -90,7 +90,7 @@ export default {
 }
 .journals__list {
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 1.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -106,6 +106,9 @@ export default {
 .submit-error {
   position: static;
   text-align: center;
+}
+.home-user__page-prompts {
+  margin-top: 4rem;
 }
 
 @media (max-width: 40rem) {
