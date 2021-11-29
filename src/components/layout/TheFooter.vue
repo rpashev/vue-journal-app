@@ -69,7 +69,7 @@ footer {
   background: #2f3940;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .footer__info {
   display: flex;
@@ -99,9 +99,9 @@ p {
   opacity: 0.4;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 40rem) {
   footer {
-    /* display: block; */
+    justify-content: space-around;
   }
   .footer__info {
     display: block;

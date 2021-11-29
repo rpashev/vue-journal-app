@@ -1,6 +1,6 @@
 <template>
   <the-header />
-  <main>
+  <main :style="styleBackground">
     <router-view></router-view>
   </main>
   <the-footer />
@@ -9,6 +9,7 @@
 import TheHeader from "../src/components/layout/TheHeader.vue";
 import TheFooter from "../src/components/layout/TheFooter.vue";
 import { useStore } from "vuex";
+import { computed } from "@vue/reactivity";
 
 export default {
   components: {
@@ -18,6 +19,16 @@ export default {
   setup() {
     const store = useStore();
     store.dispatch("tryLogin");
+
+    const styleBackground = computed(() => {
+      return {
+        background: store.getters.token ? "#f9fafb" : "white",
+      };
+    });
+
+    return {
+      styleBackground,
+    };
   },
 };
 </script>
@@ -37,7 +48,7 @@ body {
   min-height: 100vh;
 }
 main {
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
   padding-bottom: 12rem;
   margin: 0 auto;
   height: auto;

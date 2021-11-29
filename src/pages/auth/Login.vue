@@ -1,68 +1,66 @@
 <template>
   <div class="login__page">
-    <base-card class="login__card">
-      <div>
-        <h1>Sign In</h1>
-        <form @submit.prevent="submitHandler">
-          <div class="form-control">
-            <label
-              for="email"
-              :class="{
-                'error-label': v$.email.$errors.length && v$.email.$dirty,
-              }"
-              >E-Mail</label
-            >
-            <input
-              type="email"
-              id="email"
-              @blur="v$.email.$touch"
-              v-model.trim="formState.email"
-              :class="{
-                'error-input': v$.email.$errors.length && v$.email.$dirty,
-              }"
-            />
-            <p class="error-message" v-if="v$.email.$error">
-              Please enter a valid email!
-            </p>
-          </div>
-          <div class="form-control">
-            <label
-              for="password"
-              :class="{
-                'error-label': v$.password.$errors.length && v$.password.$dirty,
-              }"
-              >Password</label
-            >
-            <input
-              type="password"
-              id="password"
-              v-model.trim="formState.password"
-              @blur="v$.password.$touch"
-              :class="{
-                'error-input': v$.password.$errors.length && v$.password.$dirty,
-              }"
-            />
-            <p class="error-message" v-if="v$.password.$error">
-              The password should be at least 6 symbols!
-            </p>
-          </div>
-          <!-- <button></button> -->
-          <base-button
-            type="submit"
-            tag="button"
-            :disabled="v$.$invalid"
+    <div class="login__card">
+      <h1>Sign In</h1>
+      <form @submit.prevent="submitHandler">
+        <div class="form-control">
+          <label
+            for="email"
             :class="{
-              forbidden: v$.$invalid,
+              'error-label': v$.email.$errors.length && v$.email.$dirty,
             }"
-            >Submit</base-button
+            >E-Mail</label
           >
-          <p class="error-message submit-error" v-if="errorMessage">
-            {{ errorMessage }}
+          <input
+            type="email"
+            id="email"
+            @blur="v$.email.$touch"
+            v-model.trim="formState.email"
+            :class="{
+              'error-input': v$.email.$errors.length && v$.email.$dirty,
+            }"
+          />
+          <p class="error-message" v-if="v$.email.$error">
+            Please enter a valid email!
           </p>
-          <base-spinner v-if="isLoading"></base-spinner>
-        </form>
-      </div>
-    </base-card>
+        </div>
+        <div class="form-control">
+          <label
+            for="password"
+            :class="{
+              'error-label': v$.password.$errors.length && v$.password.$dirty,
+            }"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            v-model.trim="formState.password"
+            @blur="v$.password.$touch"
+            :class="{
+              'error-input': v$.password.$errors.length && v$.password.$dirty,
+            }"
+          />
+          <p class="error-message" v-if="v$.password.$error">
+            The password should be at least 6 symbols!
+          </p>
+        </div>
+        <!-- <button></button> -->
+        <base-button
+          type="submit"
+          tag="button"
+          :disabled="v$.$invalid"
+          :class="{
+            forbidden: v$.$invalid,
+          }"
+          >Submit</base-button
+        >
+        <p class="error-message submit-error" v-if="errorMessage">
+          {{ errorMessage }}
+        </p>
+        <base-spinner v-if="isLoading"></base-spinner>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -126,16 +124,21 @@ export default {
 
 <style scoped>
 .login__page {
-  background-color: white;
+  padding-bottom: 4rem;
 }
 .login__card {
-  height: 27rem;
   width: 30rem;
-  margin-top: 0rem !important;
-
+  margin: 0 auto;
+  padding: 1rem 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
+  border-radius: 16px;
+}
+h1 {
+  margin: 0;
 }
 form {
   margin: 1rem;
+  height: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -186,5 +189,15 @@ button {
 .submit-error {
   position: static;
   text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .login__card {
+    width: 95%;
+    margin-top: 2rem;
+    box-shadow: none;
+    padding: 1rem 0;
+  }
+  
 }
 </style>
