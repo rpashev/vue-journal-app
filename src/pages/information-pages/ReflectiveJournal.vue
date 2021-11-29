@@ -166,13 +166,16 @@
       </ol>
       <p class="source">
         Source:
-        <a href="https://penzu.com/how-to-write-a-reflective-journal"
+        <a
+          href="https://penzu.com/how-to-write-a-reflective-journal"
+          target="blank"
           >https://penzu.com/how-to-write-a-reflective-journal</a
         >
         <br />
         Source:
         <a
           href="https://gentwenty.com/thoughtful-and-reflective-journal-prompts/"
+          target="blank"
           >https://gentwenty.com/thoughtful-and-reflective-journal-prompts/</a
         >
       </p>
@@ -232,5 +235,22 @@ h2 {
 }
 .source a:hover {
   color: rgb(139, 14, 14);
+}
+
+@media (max-width: 1024px) {
+  .reflective-journal-page {
+    padding-left: 0;
+  }
+  .reflective-journal-page__resources {
+    display: none !important;
+  }
+  .reflective-journal-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
 }
 </style>

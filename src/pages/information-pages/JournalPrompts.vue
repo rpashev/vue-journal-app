@@ -88,7 +88,7 @@
       </p>
       <p class="source">
         Source:
-        <a href="https://penzu.com/journal-prompts"
+        <a href="https://penzu.com/journal-prompts" target="blank"
           >https://penzu.com/journal-prompts</a
         >
       </p>
@@ -148,5 +148,22 @@ h2 {
 }
 .source a:hover {
   color: rgb(139, 14, 14);
+}
+
+@media (max-width: 1024px) {
+  .prompts-page {
+    padding-left: 0;
+  }
+  .prompts-page__resources {
+    display: none !important;
+  }
+  .prompts-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
 }
 </style>

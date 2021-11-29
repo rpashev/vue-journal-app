@@ -112,4 +112,21 @@ ol {
 .benefits-page__resources {
   width: 25%;
 }
+
+@media (max-width: 1024px) {
+  .benefits-page {
+    padding-left: 0;
+  }
+  .benefits-page__resources {
+    display: none !important;
+  }
+  .benefits-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
+}
 </style>

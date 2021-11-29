@@ -107,7 +107,7 @@
       </ol>
       <p class="source">
         Source:
-        <a href="https://penzu.com/travel-journal-guide"
+        <a href="https://penzu.com/travel-journal-guide" target="blank"
           >https://penzu.com/travel-journal-guide</a
         >
       </p>
@@ -168,5 +168,22 @@ h2 {
 }
 .source a:hover {
   color: rgb(139, 14, 14);
+}
+
+@media (max-width: 1024px) {
+  .travel-journal-page {
+    padding-left: 0;
+  }
+  .travel-journal-page__resources {
+    display: none !important;
+  }
+  .travel-journal-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
 }
 </style>

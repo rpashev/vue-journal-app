@@ -1,13 +1,12 @@
 <template>
   <footer>
-    <ul class="footer__prompts">
-      <li v-if="!isLoggedIn">
+    <ul v-if="!isLoggedIn" class="footer__prompts">
+      <li>
         <router-link to="/sign-up">Free Sign Up</router-link>
       </li>
-      <li v-if="!isLoggedIn">
+      <li>
         <router-link to="/login">Login</router-link>
       </li>
-    
     </ul>
     <div class="footer__info">
       <ul class="footer__info-group">
@@ -70,14 +69,15 @@ footer {
   background: #2f3940;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .footer__info {
   display: flex;
 }
 ul {
   list-style: none;
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
 }
 li {
   margin: 0.2rem;
@@ -102,11 +102,10 @@ p {
 @media (max-width: 1024px) {
   footer {
     /* display: block; */
-    
   }
   .footer__info {
     display: block;
-  } 
+  }
   .footer__info-group:last-child {
     display: none;
   }
@@ -119,9 +118,5 @@ p {
   li {
     margin: 0;
   }
-}
-@media (max-width: 40rem) {
-  
-  
 }
 </style>

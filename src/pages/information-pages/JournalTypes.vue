@@ -148,7 +148,8 @@ li {
 .types-page__resources {
   width: 25%;
 }
-a, a h3:hover {
+a,
+a h3:hover {
   text-decoration: none;
   color: rgb(139, 14, 14);
   font-weight: bold;
@@ -158,9 +159,26 @@ span a,
 p a {
   font-size: 0.9rem;
   text-align: right;
-  transition: font-size 0.2s ease-out; 
+  transition: font-size 0.2s ease-out;
 }
 span a:hover {
   font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+  .types-page {
+    padding-left: 0;
+  }
+  .types-page__resources {
+    display: none !important;
+  }
+  .types-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
 }
 </style>

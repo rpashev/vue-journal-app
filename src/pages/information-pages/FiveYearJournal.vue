@@ -58,7 +58,7 @@
       </ol>
       <p class="source">
         Source:
-        <a href="https://penzu.com/five-year-journal"
+        <a href="https://penzu.com/five-year-journal" target="blank"
           >https://penzu.com/five-year-journal</a
         >
       </p>
@@ -118,5 +118,22 @@ h2 {
 }
 .source a:hover {
   color: rgb(139, 14, 14);
+}
+
+@media (max-width: 1024px) {
+  .five-year-journal-page {
+    padding-left: 0;
+  }
+  .five-year-journal-page__resources {
+    display: none !important;
+  }
+  .five-year-journal-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
 }
 </style>

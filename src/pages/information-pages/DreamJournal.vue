@@ -145,7 +145,7 @@
       </ol>
       <p class="source">
         Source:
-        <a href="https://penzu.com/dream-journal"
+        <a href="https://penzu.com/dream-journal" target="blank"
           >https://penzu.com/dream-journal</a
         >
       </p>
@@ -204,5 +204,22 @@ p {
 }
 .source a:hover {
   color: rgb(139, 14, 14);
+}
+
+@media (max-width: 1024px) {
+  .dream-journal-page {
+    padding-left: 0;
+  }
+  .dream-journal-page__resources {
+    display: none !important;
+  }
+  .dream-journal-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
 }
 </style>

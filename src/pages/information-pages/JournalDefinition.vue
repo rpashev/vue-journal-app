@@ -81,4 +81,21 @@ p {
 .definition-page__resources {
   width: 25%;
 }
+
+@media (max-width: 1024px) {
+  .definition-page {
+    padding-left: 0;
+  }
+  .definition-page__resources {
+    display: none !important;
+  }
+  .definition-page__article {
+    width: 100%;
+    padding: 0 1rem;
+    min-width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
+}
 </style>
