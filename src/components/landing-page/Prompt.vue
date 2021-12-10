@@ -36,6 +36,9 @@ p {
 }
 a {
   margin-top: 1.5rem;
+  text-align: center;
+  width: 12rem;
+  font-size: 1.2rem !important;
 }
 
 @media (max-width: 1024px) {
