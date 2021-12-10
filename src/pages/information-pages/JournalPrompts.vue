@@ -107,9 +107,10 @@
 
 <script>
 import WritingResources from "../../components/journal/WritingResources.vue";
+import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 
 export default {
-  components: { WritingResources },
+  components: { WritingResources, IntroInfo },
 };
 </script>
 
