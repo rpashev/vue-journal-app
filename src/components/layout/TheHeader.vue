@@ -122,6 +122,6 @@ a.router-link-active {
 }
 .logo:hover, .logo-white:hover {
   /* border-bottom: 2px solid black; */
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 </style>
