@@ -1,8 +1,8 @@
 <template>
   <div class="travel-journal-page">
     <intro-info
-      image="https://www.newzealand.com/assets/Campaigns/Ignite/SMALL-Job1970_TNZ_Stop_Dreaming_Aus_North_Island_Sky_Final_HR__aWxvdmVrZWxseQo_FocalPointCropWzQyMCw5NjAsNTAsNTAsNzUsImpwZyIsNjUsMi41XQ.jpg"
-      title="Want to find out what your dreams mean? Try writing them up!"
+      image="https://images.unsplash.com/photo-1471958680802-1345a694ba6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1266&q=80"
+      title="Travel journal: record your travel experiences to get the most from your travels."
     />
     <div class="travel-journal-page-content">
       <div class="travel-journal-page__article">

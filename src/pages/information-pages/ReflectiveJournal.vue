@@ -1,8 +1,8 @@
 <template>
   <div class="reflective-journal-page">
     <intro-info
-      image="https://www.newzealand.com/assets/Campaigns/Ignite/SMALL-Job1970_TNZ_Stop_Dreaming_Aus_North_Island_Sky_Final_HR__aWxvdmVrZWxseQo_FocalPointCropWzQyMCw5NjAsNTAsNTAsNzUsImpwZyIsNjUsMi41XQ.jpg"
-      title="Want to find out what your dreams mean? Try writing them up!"
+      image="https://cdn.pixabay.com/photo/2016/01/09/18/28/notebook-1130742_960_720.jpg"
+      title="Reflective journal: reasons to lead a reflective journal and useful journal prompts."
     />
     <div class="reflective-journal-page-content">
       <div class="reflective-journal-page__article">

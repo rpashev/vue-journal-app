@@ -2,7 +2,7 @@
   <div class="dream-journal-page">
     <intro-info
       image="https://www.newzealand.com/assets/Campaigns/Ignite/SMALL-Job1970_TNZ_Stop_Dreaming_Aus_North_Island_Sky_Final_HR__aWxvdmVrZWxseQo_FocalPointCropWzQyMCw5NjAsNTAsNTAsNzUsImpwZyIsNjUsMi41XQ.jpg"
-      title="Want to find out what your dreams mean? Try writing them up!"
+      title="Dream journal: why to keep a dream journal and tips on starting."
     />
     <div class="dream-journal-page-content">
       <div class="dream-journal-page__article">
