@@ -52,6 +52,7 @@ main {
   padding-bottom: 12rem;
   margin: 0 auto;
   height: auto;
+  min-width: 320px;
 }
 h1,
 p,

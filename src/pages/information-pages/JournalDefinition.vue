@@ -25,11 +25,21 @@
           you're in charge. Your journal is a space where you're absolutely free
           to express yourself.
         </p>
+        <p>
+          A journal offers you a private place to write and reflect your
+          thoughts. They are not written for others to read but rather yourself.
+          You can write a genuine story of your life in a journal. If you feel
+          unhappy, you can vent your anger through "brain-dump". For someone who
+          is managing depression, a journal can be a good way to keep track of
+          your mood. Memorable days such as birthday and holiday trip are also
+          worth to write in a journal so that you can look back and relive those
+          moments next time!
+        </p>
         <h3>Next steps:</h3>
         <ul>
           <li>
             <router-link to="/benefits">
-              What are the benifts of journaling?</router-link
+              What are the benefits of journaling?</router-link
             >
           </li>
           <li>
@@ -104,6 +114,12 @@ p {
   }
   h1 {
     text-align: center;
+  }
+}
+
+@media (max-width: 40rem) {
+  p {
+    width: 95%;
   }
 }
 </style>

@@ -58,4 +58,10 @@ export default {
     width: 90%;
   }
 }
+@media (max-width: 40rem) {
+  .title {
+    font-size: 1.8rem;
+    width: 90%;
+  }
+}
 </style>

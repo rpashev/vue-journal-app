@@ -139,4 +139,9 @@ ol {
     text-align: center;
   }
 }
+@media (max-width: 40rem) {
+  p {
+    width: 95%;
+  }
+}
 </style>

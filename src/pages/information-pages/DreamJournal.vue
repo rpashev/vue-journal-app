@@ -2,7 +2,7 @@
   <div class="dream-journal-page">
     <intro-info
       image="https://www.newzealand.com/assets/Campaigns/Ignite/SMALL-Job1970_TNZ_Stop_Dreaming_Aus_North_Island_Sky_Final_HR__aWxvdmVrZWxseQo_FocalPointCropWzQyMCw5NjAsNTAsNTAsNzUsImpwZyIsNjUsMi41XQ.jpg"
-      title="Dream journal: why to keep a dream journal and tips on starting."
+      title="Dream journal: why keep a dream journal - tips on starting"
     />
     <div class="dream-journal-page-content">
       <div class="dream-journal-page__article">
@@ -82,7 +82,7 @@
         <h2>5 tips for getting started with writing a dream journal</h2>
         <ol>
           <li>
-            <h3>Don't wait; write!</h3>
+            <h3>Don't wait, write!</h3>
             <p>
               Keep your dream journal as close to your bed as possible. That
               way, you can quickly start writing in it when you first wake up in
@@ -231,6 +231,12 @@ p {
   }
   h1 {
     text-align: center;
+  }
+}
+
+@media (max-width: 40rem) {
+  p {
+    width: 95%;
   }
 }
 </style>

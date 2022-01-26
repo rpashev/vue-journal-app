@@ -74,6 +74,9 @@ footer {
 .footer__info {
   display: flex;
 }
+.footer__info, .footer__prompts {
+  padding-bottom: 2.5rem;
+}
 ul {
   list-style: none;
   margin: 0;
