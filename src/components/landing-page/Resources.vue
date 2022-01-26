@@ -60,13 +60,13 @@ export default {};
   align-items: center;
   padding: 0;
   margin: 0 2rem 2rem;
+  list-style: none;
 }
+
 h1 {
   text-align: center;
 }
-ul {
-  list-style: none;
-}
+
 a {
   font: inherit;
   margin: 0;
@@ -81,7 +81,6 @@ a.router-link-active {
 }
 
 @media (max-width: 1024px) {
-  
   ul {
     margin: 0 !important;
   }
@@ -94,5 +93,11 @@ a.router-link-active {
   }
 }
 @media (max-width: 40rem) {
+  .resources {
+    padding: 0 0.25rem;
+  }
+  a {
+    font-size: 1rem;
+  }
 }
 </style>

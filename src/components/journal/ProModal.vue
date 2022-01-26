@@ -4,7 +4,7 @@
     <transition name="dialog">
       <dialog open v-if="show">
         <header>
-          <h2>Upgrade to our Pro version!</h2>
+          <h3>Upgrade to our Pro version!</h3>
         </header>
         <div class="logo"></div>
         <div class="features">
@@ -54,7 +54,7 @@ ul {
 }
 ul li {
   margin: 0.5rem 0;
-  font-size: 1rem;
+  /* font-size: 0.8rem; */
 }
 ul > li:first-of-type {
   margin-top: 0rem;
@@ -64,7 +64,6 @@ p {
   margin-top: 1.5rem;
   font-style: italic;
   font-weight: bold;
-  /* color: black; */
 }
 .backdrop {
   position: fixed;
@@ -79,10 +78,7 @@ p {
 dialog {
   position: fixed;
   top: 15vh;
-  /* left: 10%; */
-  /* margin: 0 auto; */
   margin: 0 auto;
-  width: 95%;
   z-index: 100;
   border-radius: 12px;
   border: none;
@@ -92,6 +88,10 @@ dialog {
   background-color: #f0f0f0;
 }
 
+.features {
+  padding: 0 1rem;
+}
+
 header {
   background-color: rgb(139, 14, 14);
   color: #f0f0f0;
@@ -99,7 +99,7 @@ header {
   padding: 1rem;
 }
 
-header h2 {
+header h3 {
   margin: 0;
   color: #f0f0f0;
   text-align: center;
@@ -135,14 +135,21 @@ menu button {
   transform: scale(1);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
   dialog {
-    left: calc(50% - 20rem);
-    width: 35rem;
-    margin: 0;
+    top: 5vh;
   }
-  ul li {
-    font-size: 1.2rem;
+}
+
+@media (max-width: 40rem) {
+  dialog {
+    width: 90%;
+  }
+  li {
+    font-size: 0.8rem;
+  }
+  .logo {
+    height: 7rem;
   }
 }
 </style>

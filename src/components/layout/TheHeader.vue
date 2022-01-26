@@ -65,6 +65,7 @@ header {
   z-index: 100 !important;
   width: 100%;
   height: 7rem;
+  padding-top: 0.5rem;
 }
 
 nav {
@@ -92,19 +93,24 @@ a.router-link-active {
   cursor: pointer;
 }
 .user {
-  color: #F0F0F0;
+  color: #f0f0f0;
 }
 .user:active,
 .user:hover {
-  border-bottom: 2px solid #F0F0F0;
+  border-bottom: 2px solid #f0f0f0;
   cursor: pointer;
 }
 .active-user {
-  border-bottom: 2px solid #F0F0F0;
+  border-bottom: 2px solid #f0f0f0;
 }
 .logo__container {
   width: 6rem;
   height: 6rem;
+}
+.logo__container a {
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 .logo {
   background: url("../../assets/images/logo4.png") center/contain no-repeat;
@@ -120,8 +126,22 @@ a.router-link-active {
   margin-left: 2rem;
   transition: all 0.3s ease-in;
 }
-.logo:hover, .logo-white:hover {
+.logo:hover,
+.logo-white:hover {
   /* border-bottom: 2px solid black; */
   transform: scale(1.04);
+}
+
+@media (max-width: 40rem) {
+  ul {
+    padding-left: 0.5rem;
+  }
+  .logo {
+    margin-left: 0.5rem;
+  }
+
+  a {
+    margin: 0 1rem;
+  }
 }
 </style>

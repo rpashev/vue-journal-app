@@ -23,17 +23,15 @@
         Custom email reminders help you make sure you never forget to write.
       </p>
     </div>
-    <div class="features__feature">
+    <div class="features__feature feature-pro">
       <div class="features__feature-icon icon4"></div>
       <h2>Fully Customizable Diary</h2>
-      <p>
-        Make each journal your own with custom covers, backgrounds, and fonts.
-      </p>
+      <p>Customize each journal your with covers, backgrounds, and fonts.</p>
       <base-button @click="toggleShowGoPro" mode="alternative"
         >Go PRO</base-button
       >
     </div>
-    <div class="features__feature">
+    <div class="features__feature feature-pro">
       <div class="features__feature-icon icon5"></div>
       <h2>Smart Journal Search</h2>
       <p>Quickly and easily search through your journals, entries, and tags.</p>
@@ -41,7 +39,7 @@
         >Go PRO</base-button
       >
     </div>
-    <div class="features__feature">
+    <div class="features__feature feature-pro">
       <div class="features__feature-icon icon6"></div>
       <h2>Military Grade Security</h2>
       <p>
@@ -79,19 +77,22 @@ export default {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 80%;
 }
 .features__feature {
   display: flex;
   flex-direction: column;
   width: 28%;
+  /* height: 300px; */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 2rem;
+  padding: 0 0.5rem;
   min-width: 250px;
   flex-shrink: 0;
 }
+
 h2 {
   text-align: center;
 }
@@ -145,9 +146,12 @@ a {
 @media (max-width: 40rem) {
   .features {
     flex-direction: column;
+    width: 100%;
   }
   .features__feature {
-    width: 90%;
+    width: 95%;
+    margin: 2rem 0;
+    /* min-width: none; */
   }
 }
 </style>

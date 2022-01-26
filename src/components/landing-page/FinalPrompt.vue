@@ -33,8 +33,12 @@ a {
   }
 }
 @media (max-width: 40rem) {
+  .final-prompt {
+    padding: 2rem;
+  }
   a {
     width: 100%;
   }
+  
 }
 </style>

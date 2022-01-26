@@ -86,7 +86,7 @@ a {
 
 @media (max-width: 40rem) {
   .landing-page__prompt {
-    width: 80%;
+    width: 90%;
   }
 }
 </style>
