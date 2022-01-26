@@ -33,6 +33,7 @@ button,
 a {
   text-decoration: none;
   padding: 0.75rem 1.5rem;
+  border: none;
   font: inherit;
   background-color: #3b82f6;
   color: #f0f0f0;
@@ -65,6 +66,7 @@ button:active {
 .forbidden:hover {
   cursor: not-allowed;
   background-color: #3b82f6;
+  border: none;
   color: #f0f0f0;
 }
 

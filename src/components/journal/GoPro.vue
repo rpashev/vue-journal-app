@@ -1,17 +1,21 @@
 <template>
-  <base-card class="go-pro__card">
-    <div class="container">
-      <div class="logo"></div>
-      <div class="description">
-        <p>
-          Sign up for My Journal Pro to gain many extras! Customize your
-          journals, increase your security, export your journals locally and
-          many more additional functionalities!
-        </p>
+  <div class="container">
+    <base-card>
+      <div class="content">
+        <div class="logo"></div>
+        <div class="description">
+          <p>
+            Sign up for My Journal Pro to gain many extras! Customize your
+            journals, increase your security, export your journals locally and
+            many more additional functionalities!
+          </p>
+        </div>
+        <base-button @click="toggleShowGoPro" mode="alternative"
+          >Learn More</base-button
+        >
       </div>
-      <base-button @click="toggleShowGoPro" mode="alternative">Learn More</base-button>
-    </div>
-  </base-card>
+    </base-card>
+  </div>
   <pro-modal @close="toggleShowGoPro" :show="showGoPro" />
 </template>
 
@@ -35,14 +39,15 @@ export default {
 
 <style scoped>
 .container {
+  width: 350px;
+  max-width: 350px;
+  margin: 0 auto;
+}
+.content {
   display: flex;
-  width: 20rem;
-  min-width: 20rem;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
 }
 .logo {
   width: 100%;
@@ -51,7 +56,6 @@ export default {
   background: url("../../assets/images/pro1.png") center/contain no-repeat;
 }
 p {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
-
 </style>

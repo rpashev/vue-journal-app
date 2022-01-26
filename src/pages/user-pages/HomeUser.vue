@@ -9,26 +9,32 @@
     </p>
     <base-spinner v-if="isLoading"></base-spinner>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
+      <h1>Your journals</h1>
+      <div class="fallback" v-if="!isLoading && !errorMessage && !journals.length">
+        <p>No journals have yet been created.</p>
+        <base-button link :to="`/journals/create-journal`"
+          >GET STARTED</base-button
+        >
+      </div>
+
       <div class="journals__list">
         <journal-card
           v-for="journal in journals"
           :journalName="journal.journalName"
-          :description="journal.description"
           :key="journal.id"
-          :journalID="journal._id"
+          :journalID="journal.id"
+          :entriesAmount="journal.entriesAmount"
         ></journal-card>
       </div>
     </div>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-prompts">
       <go-pro />
-      <writing-resources />
     </div>
   </div>
 </template>
 
 <script>
 import JournalCard from "../../components/journal/JournalCard.vue";
-import WritingResources from "../../components/journal/WritingResources.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 import GoPro from "../../components/journal/GoPro.vue";
 import journalService from "../../services/journalService";
@@ -37,7 +43,7 @@ import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
-  components: { JournalCard, WritingResources, GoPro, IntroInfo },
+  components: { JournalCard, GoPro, IntroInfo },
   setup() {
     const store = useStore();
     console.log(store.getters.token);
@@ -51,6 +57,7 @@ export default {
         isLoading.value = true;
         const response = await journalService.getJournals();
 
+        console.log(response.data);
         journals.value = response.data;
       } catch (err) {
         errorMessage.value =
@@ -73,7 +80,7 @@ export default {
 <style scoped>
 .home-user__page {
   width: 100%;
-  padding: 2rem 4rem;
+  padding: 0 4rem 2rem 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -81,7 +88,7 @@ export default {
   background-color: #f9fafb;
 }
 .home-user__page-journals {
-  width: 65%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,6 +101,12 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
 }
+.fallback {
+  text-align: center;
+}
+.home-user__page-prompts {
+  margin-top: 4.5rem;
+}
 .error-message {
   color: red;
   font-size: 1rem;
@@ -105,14 +118,26 @@ export default {
   position: static;
   text-align: center;
 }
+h1 {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .home-user__page {
+    display: block;
+    padding: 0 2rem;
+  }
+  .home-user__page-journals {
+    width: 100%;
+  }
+  .home-user__page-prompts {
+    margin-top: 0;
+  }
+}
 
 @media (max-width: 40rem) {
   .home-user__page {
-    display: block;
     padding: 2rem 0;
-  }
-  .home-user__page-journals {
-    margin: 0 auto;
   }
 }
 </style>

@@ -6,7 +6,9 @@
         <ul class="basics">
           <h4>Journal Basics</h4>
           <li>
-            <router-link to="/journal-definition">What is a Journal?</router-link>
+            <router-link to="/journal-definition"
+              >What is a Journal?</router-link
+            >
           </li>
           <li>
             <router-link to="/journal-types">Types of Journals</router-link>
@@ -21,7 +23,9 @@
         <ul class="types">
           <h4>Types of Journals</h4>
           <li>
-            <router-link to="/reflective-journal">Reflective Journal</router-link>
+            <router-link to="/reflective-journal"
+              >Reflective Journal</router-link
+            >
           </li>
           <li>
             <router-link to="/dream-journal">Dream Journal</router-link>
@@ -75,7 +79,6 @@ export default {};
 h3 {
   text-align: center;
   color: #111827;
-
 }
 ul {
   list-style: none;
@@ -87,7 +90,6 @@ a {
   font-size: 0.9rem;
   color: #111827;
   transition: all 0.2s ease-out;
-
 }
 a:active,
 a:hover,

@@ -2,16 +2,14 @@
   <div class="journals__list-item" @click="openJournal">
     <div class="card">
       <h2>{{ journalName }}</h2>
-      <p>{{ readableDescription(description) || null }}</p>
+      <p class="entries-number">
+        You have <span>{{ entriesAmount }}</span> entries in this journal.
+      </p>
       <div class="actions">
         <base-button mode="dark" link :to="`/journals/${journalID}`" @click.stop
           >View Entries</base-button
         >
-        <base-button
-          
-          link
-          :to="`/journals/${journalID}/new-entry`"
-          @click.stop
+        <base-button link :to="`/journals/${journalID}/new-entry`" @click.stop
           >New Entry</base-button
         >
       </div>
@@ -22,22 +20,15 @@
 <script>
 import { useRouter } from "vue-router";
 export default {
-  props: ["journalName", "description", "journalID"],
+  props: ["journalName", "journalID", "entriesAmount"],
   setup(props) {
     const router = useRouter();
     const openJournal = () => {
       router.push(`/journals/${props.journalID}`);
     };
-    const readableDescription = (description) => {
-      if (description.length > 120) {
-        return description.slice(0, 120) + "...";
-      } else {
-        return description;
-      }
-    };
+
     return {
       openJournal,
-      readableDescription,
     };
   },
 };
@@ -47,12 +38,12 @@ export default {
   width: 40%;
   max-width: 300px;
   height: 30rem;
-  margin: 2rem;
+  margin: 0.5rem 1rem 0 1rem;
   min-width: 300px;
   transition: all 0.4s ease-out;
 }
 .journals__list-item:hover {
-  transform: scale(1.03);
+  transform: scale(1.01);
   cursor: pointer;
 }
 .card {
@@ -82,16 +73,19 @@ h2 {
   border-radius: 16px 16px 0 0;
 
   padding: 1rem;
-  color: #F0F0F0;
-  
+  color: #f0f0f0;
+
   overflow: hidden;
   /* background-color: rgb(139, 14, 14); */
   background-color: #2f3940;
 }
-p {
+
+.entries-number {
   text-align: center;
-  width: 50%;
-  font-size: 0.9rem;
+  width: 60%;
   opacity: 0.8;
+}
+.entries-number span {
+  font-weight: bold;
 }
 </style>
