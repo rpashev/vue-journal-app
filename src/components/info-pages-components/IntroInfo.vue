@@ -1,8 +1,12 @@
 <template>
   <div class="intro" :style="styleBackground">
     <h1 class="title">{{ title }}</h1>
-    <base-button v-if="!isLoggedIn" link :to="`/sign-up`" >GET STARTED</base-button>
-    <base-button v-if="isLoggedIn" link :to="`/journals/create-journal`" >Create a journal</base-button>
+    <base-button v-if="!isLoggedIn" link :to="`/sign-up`"
+      >GET STARTED</base-button
+    >
+    <base-button v-if="isLoggedIn" link :to="`/journals/create-journal`"
+      >CREATE A JOURNAL</base-button
+    >
   </div>
 </template>
 
@@ -20,7 +24,10 @@ export default {
     });
 
     const styleBackground = computed(() => {
-      return { background: `url(${props.image}) center/cover no-repeat`, "margin-top": store.getters.token ? "0" : "2rem" };
+      return {
+        background: `url(${props.image}) center/cover no-repeat`,
+        "margin-top": store.getters.token ? "0" : "2rem",
+      };
     });
 
     return {
@@ -39,8 +46,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  
-  
 }
 .title {
   color: #fff;

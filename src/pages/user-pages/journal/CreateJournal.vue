@@ -44,7 +44,7 @@
       </div>
       <div class="actions">
         <base-button
-          mode="cta"
+          
           type="submit"
           tag="button"
           :disabled="v$.$invalid"

@@ -67,7 +67,7 @@ export default {
 
 <style scoped>
 .logo {
-  background: url("../../assets/images/pro.png") center/contain no-repeat;
+  background: url("../../assets/images/pro1.png") center/contain no-repeat;
   height: 10rem;
 }
 
@@ -97,7 +97,7 @@ dialog {
 }
 
 header {
-  background-color: #3498db;
+  background-color: #3b82f6;
   color: #F0F0F0;
   width: 100%;
   padding: 1rem;

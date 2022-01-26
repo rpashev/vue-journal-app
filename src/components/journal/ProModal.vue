@@ -44,8 +44,9 @@ export default {
 
 <style scoped>
 .logo {
-  background: url("../../assets/images/pro.png") center/contain no-repeat;
-  height: 10rem;
+  background: url("../../assets/images/pro1.png") center/contain no-repeat;
+  height: 5rem;
+  margin: 1.5rem 0;
 }
 ul {
   text-align: center;
@@ -147,9 +148,6 @@ menu button {
   }
   li {
     font-size: 0.8rem;
-  }
-  .logo {
-    height: 7rem;
   }
 }
 </style>

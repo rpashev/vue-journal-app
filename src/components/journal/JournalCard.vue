@@ -8,7 +8,7 @@
           >View Entries</base-button
         >
         <base-button
-          mode="cta"
+          
           link
           :to="`/journals/${journalID}/new-entry`"
           @click.stop

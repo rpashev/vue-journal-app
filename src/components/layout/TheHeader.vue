@@ -43,7 +43,7 @@ export default {
     },
     styleBackground() {
       return {
-        background: this.isLoggedIn ? "rgb(139, 14, 14)" : "white",
+        background: this.isLoggedIn ? "#2f3940" : "white",
       };
     },
   },
@@ -120,7 +120,7 @@ a.router-link-active {
   transition: all 0.3s ease-in;
 }
 .logo-white {
-  background: url("../../assets/images/logo-white.png") center/contain no-repeat;
+  background: url("../../assets/images/logo-white1.png") center/contain no-repeat;
   height: 100%;
   width: 100%;
   margin-left: 2rem;

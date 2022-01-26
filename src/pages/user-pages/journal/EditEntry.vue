@@ -42,7 +42,7 @@
           :class="{
             forbidden: isInvalid,
           }"
-          mode="cta"
+         
           >Edit entry</base-button
         >
         <base-button mode="dark" class="btn-back" link :to="`/journals/${journalID}`"

@@ -34,58 +34,46 @@ a {
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   font: inherit;
-  background-color: #3498db;
-  border: 2px solid #3498db;
-  color: #F0F0F0;
+  background-color: #3b82f6;
+  color: #f0f0f0;
   cursor: pointer;
   border-radius: 5px;
   display: inline-block;
-  transition: background-color 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: rgb(250, 250, 250);
-  color: #3498db;
+  background-color: #1d4ed8;
 }
 
 .alternative {
   background-color: rgb(139, 14, 14);
-  color: #F0F0F0;
+  color: #f0f0f0;
   border: none;
 }
 
 .alternative:hover,
 .alternative:active {
   background-color: black;
-  color: #F0F0F0;
+  color: #f0f0f0;
   border: none;
 }
 .forbidden,
 .forbidden:hover {
   cursor: not-allowed;
-  background-color: #3498db;
-  color: #F0F0F0;
+  background-color: #3b82f6;
+  color: #f0f0f0;
 }
-.cta {
-  background-color: green;
-  border: none;
 
-  /* background-color: rgb(116, 173, 29); */
-}
-.cta:hover {
-  border: none;
-  color: #F0F0F0;
-  background-color: black;
-}
 .dark {
   background-color: #2f3940;
   border: none;
 }
 .dark:hover {
-  color: #F0F0F0;
+  color: #f0f0f0;
   background: black;
   border: none;
 }

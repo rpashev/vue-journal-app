@@ -46,8 +46,9 @@ export default {
 }
 .logo {
   width: 100%;
-  height: 7rem;
-  background: url("../../assets/images/pro.png") center/contain no-repeat;
+  height: 6rem;
+  margin-bottom: 0.5rem;
+  background: url("../../assets/images/pro1.png") center/contain no-repeat;
 }
 p {
   margin-bottom: 2rem;

@@ -52,7 +52,7 @@
         <base-button
           type="submit"
           tag="button"
-          mode="cta"
+         
           :disabled="v$.$invalid"
           :class="{
             forbidden: v$.$invalid,

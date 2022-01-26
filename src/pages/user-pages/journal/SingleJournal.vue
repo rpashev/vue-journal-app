@@ -9,7 +9,7 @@
       <h1>{{ journal.journalName }}</h1>
       <div class="actions-main">
         <base-button
-          mode="cta"
+         
           class="btn-entry"
           link
           :to="`/journals/${journalID}/new-entry`"

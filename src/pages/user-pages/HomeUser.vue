@@ -1,16 +1,14 @@
 <template>
+  <intro-info
+    image="https://d3c2plo0qyv3hc.cloudfront.net/images/public/seo-background.jpg"
+    title="Let's write!"
+  />
   <div class="home-user__page">
     <p class="error-message submit-error" v-if="errorMessage">
       {{ errorMessage }}
     </p>
     <base-spinner v-if="isLoading"></base-spinner>
-
     <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
-      <div>
-        <base-button mode="cta" link :to="`/journals/create-journal`"
-          >Create a New Journal</base-button
-        >
-      </div>
       <div class="journals__list">
         <journal-card
           v-for="journal in journals"
@@ -31,6 +29,7 @@
 <script>
 import JournalCard from "../../components/journal/JournalCard.vue";
 import WritingResources from "../../components/journal/WritingResources.vue";
+import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 import GoPro from "../../components/journal/GoPro.vue";
 import journalService from "../../services/journalService";
 import { useStore } from "vuex";
@@ -38,7 +37,7 @@ import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
-  components: { JournalCard, WritingResources, GoPro },
+  components: { JournalCard, WritingResources, GoPro, IntroInfo },
   setup() {
     const store = useStore();
     console.log(store.getters.token);
@@ -79,7 +78,7 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
 }
 .home-user__page-journals {
   width: 65%;
@@ -90,7 +89,6 @@ export default {
 }
 .journals__list {
   width: 100%;
-  margin-top: 1.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -106,9 +104,6 @@ export default {
 .submit-error {
   position: static;
   text-align: center;
-}
-.home-user__page-prompts {
-  margin-top: 4rem;
 }
 
 @media (max-width: 40rem) {
