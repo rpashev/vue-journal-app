@@ -194,7 +194,7 @@ export default {
         } catch (err) {
           errorMessage.value =
             err.response?.data?.message ||
-            "Could not log in, plsea chek your input!";
+            "Could not sign up!";
         } finally {
           isLoading.value = false;
         }
@@ -305,13 +305,18 @@ h1 {
   text-align: center;
 }
 
+@media (max-width: 1024px) {
+  .signup__card {
+    margin-top: 6rem;
+  }
+}
+
 @media (max-width: 40rem) {
   .signup__card {
     width: 95%;
     margin-top: 2rem;
     box-shadow: none;
     padding: 1rem 0;
-
   }
 }
 </style>

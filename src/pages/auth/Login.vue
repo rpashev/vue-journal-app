@@ -104,7 +104,7 @@ export default {
         } catch (err) {
           errorMessage.value =
             err.response?.data?.message ||
-            "Could not log in, please check your input!";
+            "Could not log in!";
         } finally {
           isLoading.value = false;
         }
@@ -191,6 +191,12 @@ button {
   text-align: center;
 }
 
+@media (max-width: 1024px) {
+  .login__card {
+    margin-top: 6rem;
+  }
+}
+
 @media (max-width: 40rem) {
   .login__card {
     width: 95%;
@@ -198,6 +204,5 @@ button {
     box-shadow: none;
     padding: 1rem 0;
   }
-  
 }
 </style>
