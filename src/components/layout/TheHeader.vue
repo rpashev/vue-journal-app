@@ -1,7 +1,12 @@
 <template>
   <header :style="styleBackground">
     <nav>
-      <div class="logo__container">
+      <div
+        :class="{
+          logo__container: true,
+          'logged-logo': isLoggedIn,
+        }"
+      >
         <router-link v-if="!isLoggedIn" to="/"
           ><div class="logo"></div
         ></router-link>
@@ -11,17 +16,20 @@
       </div>
       <ul>
         <li v-if="!isLoggedIn">
+          <router-link to="/">Home</router-link>
+        </li>
+        <li v-if="!isLoggedIn">
           <router-link to="/login">Login</router-link>
         </li>
         <li v-if="!isLoggedIn">
           <router-link to="/sign-up">Sign Up</router-link>
         </li>
-        <li v-if="userName">
+        <li v-if="isLoggedIn">
           <router-link
             :class="{ user: isLoggedIn }"
             active-class="active-user"
-            to="/user-profile"
-            >{{ userName }}</router-link
+            to="/journals"
+            >Journals</router-link
           >
         </li>
         <li v-if="isLoggedIn">
@@ -38,9 +46,7 @@ export default {
     isLoggedIn() {
       return this.$store.getters.userId;
     },
-    userName() {
-      return this.$store.getters.firstName;
-    },
+
     styleBackground() {
       return {
         background: this.isLoggedIn ? "#2f3940" : "white",
@@ -57,8 +63,7 @@ export default {
 </script>
 <style scoped>
 header {
-  /* height: 6rem; */
-  /* position: fixed; */
+  min-width: 300px;
   top: 0;
   left: 0;
   background: white;
@@ -106,7 +111,10 @@ a.router-link-active {
 .logo__container {
   width: 6rem;
   height: 6rem;
+  min-width: 4rem;
+  margin-left: 2rem;
 }
+
 .logo__container a {
   margin: 0;
   width: 100%;
@@ -116,14 +124,13 @@ a.router-link-active {
   background: url("../../assets/images/logo4.png") center/contain no-repeat;
   height: 100%;
   width: 100%;
-  margin-left: 2rem;
   transition: all 0.3s ease-in;
 }
 .logo-white {
-  background: url("../../assets/images/logo-white1.png") center/contain no-repeat;
+  background: url("../../assets/images/logo-white1.png") center/contain
+    no-repeat;
   height: 100%;
   width: 100%;
-  margin-left: 2rem;
   transition: all 0.3s ease-in;
 }
 .logo:hover,
@@ -136,12 +143,29 @@ a.router-link-active {
   ul {
     padding-left: 0.5rem;
   }
-  .logo {
+  .logo__container {
     margin-left: 0.5rem;
   }
 
   a {
     margin: 0 1rem;
+  }
+}
+
+@media (max-width: 22rem) {
+  .logo__container {
+    width: 5rem;
+    height: 5rem;
+  }
+  .logged-logo {
+    width: 6rem;
+    height: 6rem;
+  }
+  ul {
+    padding: 0;
+  }
+  a {
+    margin: 0 0.75rem;
   }
 }
 </style>

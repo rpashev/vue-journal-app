@@ -1,6 +1,6 @@
 <template>
   <the-header />
-  <main :style="styleBackground">
+  <main>
     <router-view></router-view>
   </main>
   <the-footer />
@@ -21,20 +21,18 @@ export default {
     const store = useStore();
     store.dispatch("tryLogin");
 
-    const styleBackground = computed(() => {
-      return {
-        background: store.getters.token ? "#f9fafb" : "white",
-      };
+    const isLoggedIn = computed(() => {
+      return !!store.getters.token;
     });
 
-    watch(styleBackground, (current) => {
-      const body = document.querySelector("body");
-      body.style.background = current.background;
+    const body = document.querySelector("body");
+    body.style.background = isLoggedIn.value ? "#f9fafb" : "white";
+
+    watch(isLoggedIn, (current) => {
+      body.style.background = current ? "#f9fafb" : "white";
     });
 
-    return {
-      styleBackground,
-    };
+    return {};
   },
 };
 </script>
@@ -54,7 +52,6 @@ body {
   min-height: 100vh;
 }
 main {
-  background-color: #f9fafb;
   padding-bottom: 12rem;
   margin: 0 auto;
   height: auto;

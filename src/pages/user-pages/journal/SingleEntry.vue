@@ -4,14 +4,13 @@
     <p class="error-message submit-error" v-if="errorMessage && !entry">
       {{ errorMessage }}
     </p>
-    <div v-if="!isLoading && entry">
-      <h1>{{ entry.title }}</h1>
+    <div v-if="!isLoading && entry" class="entry-container">
+      <h2>{{ entry.title }}</h2>
       <h3>{{ readableDate(entry.date) }}</h3>
       <div v-html="entry.body" class="entry__body"></div>
 
       <div class="entry__actions">
         <base-button
-          mode="dark"
           id="entry__actions-edit"
           link
           :to="`/journals/${journalID}/${entryID}/edit`"
@@ -116,21 +115,44 @@ export default {
 
 <style scoped>
 .single-entry__page {
-  
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
+.entry-container {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
 .entry__body {
-  width: 50%;
+  width: 100%;
 }
 .entry__actions {
-  width: 12%;
+  width: 100%;
   margin-top: 4rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+.entry__actions a,
+.entry__actions button {
+  min-width: 6rem;
+}
+
+.entry__actions a:first-of-type,
+.entry__actions button:first-of-type {
+  margin-right: 1rem;
 }
 #entry__actions-back {
   margin-top: 2rem;
@@ -164,5 +186,16 @@ export default {
 .submit-error {
   position: static;
   text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .entry-container {
+    width: 80%;
+  }
+}
+@media (max-width: 40rem) {
+  .entry-container {
+    width: 90%;
+  }
 }
 </style>

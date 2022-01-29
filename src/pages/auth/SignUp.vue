@@ -221,7 +221,7 @@ export default {
   padding: 1rem 0.5rem;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-  border-radius: 16px;
+  border-radius: 8px;
 }
 h1 {
   margin: 0;
@@ -288,6 +288,10 @@ input:focus {
 h1 {
   text-align: center;
 }
+button {
+  margin-top: 0.5rem;
+  width: 40%;
+}
 .error-label {
   color: red;
 }
@@ -314,9 +318,12 @@ h1 {
 @media (max-width: 40rem) {
   .signup__card {
     width: 95%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     box-shadow: none;
     padding: 1rem 0;
+  }
+  button {
+    width: 100%;
   }
 }
 </style>

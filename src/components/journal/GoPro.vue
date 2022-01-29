@@ -58,4 +58,10 @@ export default {
 p {
   margin-bottom: 1.5rem;
 }
+
+@media (max-width: 40rem) {
+  .container {
+    width: 90%;
+  }
+}
 </style>

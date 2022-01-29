@@ -66,6 +66,7 @@ footer {
   bottom: 0;
   height: 12rem;
   width: 100%;
+  min-width: 320px;
   background: #2f3940;
   display: flex;
   align-items: center;
@@ -74,7 +75,8 @@ footer {
 .footer__info {
   display: flex;
 }
-.footer__info, .footer__prompts {
+.footer__info,
+.footer__prompts {
   padding-bottom: 2.5rem;
 }
 ul {
