@@ -35,7 +35,6 @@
             >View</base-button
           >
           <base-button
-            mode="dark"
             id="entry__actions-edit"
             link
             :to="`/journals/${journalID}/${entry._id}/edit`"
@@ -146,7 +145,7 @@ export default {
 .entries-list__container {
   margin-top: 1rem;
   width: 75%;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 .entris-list {
   width: 100%;

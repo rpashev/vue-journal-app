@@ -7,7 +7,7 @@
       below.
     </p>
     <div class="actions">
-      <base-button link :to="`/journals/${journalID}/edit-journal`" mode="dark"
+      <base-button link :to="`/journals/${journalID}/edit-journal`"
         >Edit Journal</base-button
       >
       <base-button @click="toggleShowDialog" mode="alternative"
@@ -30,11 +30,19 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 25%;
-  min-width: 300px;
+  min-width: 310px;
   margin-top: 6rem;
-  padding: 0.25rem 1rem 1rem 1rem;
+  padding: 0.25rem 1.5rem 1.5rem 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
+}
+p {
+  font-size: 0.9rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  text-shadow: 1px 1px rgb(218, 214, 214);
+}
+h2 {
+  text-shadow: 1px 1px rgb(218, 214, 214);
 }
 .actions {
   display: flex;
@@ -43,9 +51,9 @@ export default {
 }
 
 @media (max-width: 1024px) {
-    .journal-info {
-        width: 60%;
-        margin: 2rem auto;
-    }
+  .journal-info {
+    width: 60%;
+    margin: 2rem auto;
+  }
 }
 </style>

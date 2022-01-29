@@ -4,7 +4,7 @@
     <transition name="dialog">
       <dialog open v-if="show">
         <header>
-          <h3>Upgrade to our Pro version!</h3>
+          <h3>Upgrade to our PRO version!</h3>
         </header>
         <div class="logo"></div>
         <div class="features">

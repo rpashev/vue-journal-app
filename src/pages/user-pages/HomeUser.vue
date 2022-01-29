@@ -119,6 +119,7 @@ export default {
 }
 h1 {
   margin-bottom: 2rem;
+  text-shadow: 1px 1px rgb(218, 214, 214);
 }
 
 @media (max-width: 1024px) {

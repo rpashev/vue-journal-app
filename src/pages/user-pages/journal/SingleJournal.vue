@@ -32,7 +32,9 @@
         :journalID="journalID"
       ></entries-list>
 
-      <p v-if="noEntries">No entries in this journal yet!</p>
+      <p class="no-entries-message" v-if="noEntries">
+        No entries in this journal yet!
+      </p>
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
@@ -211,11 +213,9 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background-color: red;
-}
 .single-journal__page {
   padding-right: 2rem;
+  padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   background-color: #f9fafb;
@@ -251,11 +251,13 @@ body {
 .btn-back {
   width: 8rem;
   min-width: 8rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 
 h1 {
   margin-bottom: 2rem;
+  text-shadow: 1px 1px rgb(218, 214, 214);
 }
 p,
 h2 {
@@ -271,6 +273,11 @@ h2 {
 .submit-error {
   position: static;
   text-align: center;
+}
+.no-entries-message {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 1024px) {

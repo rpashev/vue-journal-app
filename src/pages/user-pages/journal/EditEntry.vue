@@ -42,7 +42,7 @@
           :class="{
             forbidden: isInvalid,
           }"
-          >Edit</base-button
+          >Submit</base-button
         >
         <base-button
           mode="dark"

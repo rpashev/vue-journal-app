@@ -139,6 +139,9 @@ h2 {
 .entry__body {
   width: 100%;
 }
+.entry__body >>> * {
+  background-color: transparent !important;
+}
 .entry__actions {
   width: 100%;
   margin-top: 4rem;

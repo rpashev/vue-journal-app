@@ -52,15 +52,14 @@
         <base-button
           type="submit"
           tag="button"
-         
           :disabled="v$.$invalid"
           :class="{
             forbidden: v$.$invalid,
           }"
-          >Edit</base-button
+          >Submit</base-button
         >
         <base-button id="entry__actions-back" link :to="'/'" mode="dark"
-          >Cancel</base-button
+          >Back</base-button
         >
       </div>
 
@@ -151,12 +150,15 @@ export default {
 
 <style scoped>
 .edit-journal__page {
-  margin: 0 auto;
-  width: 60%;
-  /* padding-top: 3rem; */
+  padding: 3rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 form {
-  width: 100%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,7 +173,6 @@ form {
 }
 input,
 textarea {
-  /* margin: 0 1rem 1rem 1rem; */
   border: 1.5px solid rgb(173, 169, 169);
 }
 input:focus,
@@ -190,8 +191,8 @@ textarea:focus {
 }
 .actions {
   display: flex;
-  width: 30%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
 }
 h2 {
   margin-top: 0;
@@ -202,12 +203,16 @@ a {
   margin-bottom: 2rem;
   min-width: 6rem;
 }
+#entry__actions-back {
+  margin-left: 1rem;
+}
 textarea {
   font-size: 1.1rem;
   width: 100%;
   color: #59595e;
   outline: none;
   padding: 0.25rem;
+  resize: none;
 }
 .error__container {
   position: relative;
@@ -230,5 +235,17 @@ textarea {
 .submit-error {
   position: static;
   text-align: center;
+}
+
+@media (max-width: 1024px) {
+  form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 40rem) {
+  form {
+    width: 100%;
+  }
 }
 </style>
