@@ -9,7 +9,6 @@
       <h1>{{ journal.journalName }}</h1>
       <div class="actions-main">
         <base-button
-         
           class="btn-entry"
           link
           :to="`/journals/${journalID}/new-entry`"
@@ -46,30 +45,12 @@
         @update:modelValue="updatePage"
       />
     </div>
-    <div v-if="journal" class="single-journal__page-prompts">
-      <base-card class="card_description">
-        <div v-if="journal" class="single-journal__page-description">
-          <h2>Journal description</h2>
-          <p v-if="journal.description">{{ journal.description }}</p>
-          <p v-else>
-            You have not added a description of this journal yet! You can add
-            one below.
-          </p>
-          <div class="actions">
-            <base-button
-              link
-              :to="`/journals/${journalID}/edit-journal`"
-              mode="dark"
-              >Edit Journal</base-button
-            >
-            <base-button @click="toggleShowDialog" mode="alternative"
-              >Delete Journal</base-button
-            >
-          </div>
-        </div>
-      </base-card>
-      <writing-resources class="resources" />
-    </div>
+    <journal-info
+      v-if="journal"
+      :description="journal.description"
+      :journalID="journalID"
+      :toggleShowDialog="toggleShowDialog"
+    />
 
     <base-dialog
       @remove="deleteJournal"
@@ -88,16 +69,16 @@ import journalService from "../../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 import { filterAndSortEntries } from "../../../helper-functions/filter-and-sort-entries";
-import WritingResources from "../../../components/journal/WritingResources.vue";
 import VPagination from "@hennge/vue3-pagination";
+import JournalInfo from "../../../components/journal/JournalInfo.vue";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 export default {
   components: {
     EntriesFilters,
     EntriesList,
-    WritingResources,
     VPagination,
+    JournalInfo,
   },
   setup() {
     const route = useRoute();
@@ -233,6 +214,7 @@ export default {
 .single-journal__page {
   padding-right: 2rem;
   display: flex;
+  flex-wrap: wrap;
   background-color: #f9fafb;
   flex-direction: row;
   align-items: flex-start;
@@ -245,22 +227,7 @@ export default {
   justify-content: center;
   flex-direction: column;
 }
-.single-journal__page-prompts {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 32%;
-  height: 100%;
-}
-.card_description {
-  /* background: #eff6ff; */
-  width: 100%;
-  min-width: 30rem;
-}
-.card_description p,
-.card_description h2 {
-  color: #312e81;
-}
+
 .pagination {
   margin-bottom: 2rem;
 }
@@ -283,16 +250,9 @@ export default {
   min-width: 8rem;
   text-align: center;
 }
-/* .btn-entry {
-  background-color: red !important;
-} */
-.resources {
-  /* flex-shrink: 4; */
-}
+
 h1 {
   margin-bottom: 2rem;
-  /* align-self: center; */
-  /* width: 50%; */
 }
 p,
 h2 {
@@ -310,24 +270,13 @@ h2 {
   text-align: center;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 1024px) {
   .single-journal__page {
     display: block;
     padding: 0;
   }
   .single-journal__page-entries {
     width: 100%;
-  }
-  .resources {
-    display: none;
-  }
-  .single-journal__page-prompts {
-    width: 100%;
-    padding: 0 1rem;
-  }
-  .card_description {
-    /* width: 50%; */
-    min-width: auto;
   }
 }
 </style>
