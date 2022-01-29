@@ -211,6 +211,9 @@ export default {
 </script>
 
 <style scoped>
+body {
+  background-color: red;
+}
 .single-journal__page {
   padding-right: 2rem;
   display: flex;
@@ -232,9 +235,9 @@ export default {
   margin-bottom: 2rem;
 }
 .actions-main {
-  width: 80%;
+  width: 70%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 2rem;
 }
 .actions {
@@ -277,6 +280,9 @@ h2 {
   }
   .single-journal__page-entries {
     width: 100%;
+  }
+  .actions-main {
+    width: 85%;
   }
 }
 </style>

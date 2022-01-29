@@ -10,7 +10,10 @@
     <base-spinner v-if="isLoading"></base-spinner>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
       <h1>Your journals</h1>
-      <div class="fallback" v-if="!isLoading && !errorMessage && !journals.length">
+      <div
+        class="fallback"
+        v-if="!isLoading && !errorMessage && !journals.length"
+      >
         <p>No journals have yet been created.</p>
         <base-button link :to="`/journals/create-journal`"
           >GET STARTED</base-button
@@ -38,15 +41,12 @@ import JournalCard from "../../components/journal/JournalCard.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 import GoPro from "../../components/journal/GoPro.vue";
 import journalService from "../../services/journalService";
-import { useStore } from "vuex";
 // import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
   components: { JournalCard, GoPro, IntroInfo },
   setup() {
-    const store = useStore();
-    console.log(store.getters.token);
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let journals = ref([]);
@@ -57,7 +57,6 @@ export default {
         isLoading.value = true;
         const response = await journalService.getJournals();
 
-        console.log(response.data);
         journals.value = response.data;
       } catch (err) {
         errorMessage.value =

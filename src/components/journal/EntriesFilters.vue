@@ -25,7 +25,7 @@
         </select>
       </div>
     </div>
-    <div class="form-control">
+    <div class="form-control search-form-control">
       <div class="search">
         <div class="search-icon"></div>
         <input
@@ -126,6 +126,8 @@ select {
   padding: 0.4rem;
   outline: none;
   font: inherit;
+  border: 1.5px solid rgb(173, 169, 169);
+  background-color: transparent;
   font-size: 0.8rem;
 }
 input {

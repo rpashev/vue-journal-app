@@ -10,6 +10,7 @@ import TheHeader from "../src/components/layout/TheHeader.vue";
 import TheFooter from "../src/components/layout/TheFooter.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
+import { watch } from "@vue/runtime-core";
 
 export default {
   components: {
@@ -24,6 +25,11 @@ export default {
       return {
         background: store.getters.token ? "#f9fafb" : "white",
       };
+    });
+
+    watch(styleBackground, (current) => {
+      const body = document.querySelector("body");
+      body.style.background = current.background;
     });
 
     return {
@@ -53,6 +59,7 @@ main {
   margin: 0 auto;
   height: auto;
   min-width: 320px;
+  max-width: 2000px;
 }
 h1,
 p,
@@ -71,7 +78,5 @@ h2 {
 }
 .ql-align-justify {
   text-align: justify;
-}
-@media (max-width: 40rem) {
 }
 </style>

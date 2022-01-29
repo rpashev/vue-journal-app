@@ -34,7 +34,7 @@ export default {
   margin-top: 6rem;
   padding: 0.25rem 1rem 1rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 .actions {
   display: flex;

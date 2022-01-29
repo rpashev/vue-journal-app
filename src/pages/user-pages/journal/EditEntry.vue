@@ -42,10 +42,13 @@
           :class="{
             forbidden: isInvalid,
           }"
-         
-          >Edit entry</base-button
+          >Edit</base-button
         >
-        <base-button mode="dark" class="btn-back" link :to="`/journals/${journalID}`"
+        <base-button
+          mode="dark"
+          class="btn-back"
+          link
+          :to="`/journals/${journalID}`"
           >Back</base-button
         >
       </div>
@@ -141,7 +144,8 @@ export default {
 </script>
 <style scoped>
 .edit-entry__page {
-  /* padding-top: 6rem; */
+  padding: 3rem 2rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,6 +156,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 55%;
 }
 input,
 label,
@@ -159,19 +164,27 @@ h2 {
   color: #59595e;
   font: inherit;
   outline: none;
+  width: 100%;
 }
 .entry__container {
   display: flex;
+  width: 100%;
   justify-content: space-around;
 }
+.entry__body {
+  width: 100%;
+  margin-top: 1rem;
+}
 .entry__container input {
-  margin: 0 1rem 1rem 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.25rem;
   border: 1.5px solid rgb(173, 169, 169);
   padding: 0.2rem 0.5rem;
 }
 .entry-editor__content {
-  width: 50rem;
-  max-width: 50rem;
+  max-width: 60rem;
+  width: 100% !important;
 }
 input:focus {
   border-color: #3d008d;
@@ -183,12 +196,13 @@ input[disabled] {
 }
 .actions {
   display: flex;
-  width: 30%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
 }
 button,
 a {
   margin-top: 2rem;
+  min-width: 6rem;
 }
 .error-message {
   color: red;
@@ -208,6 +222,9 @@ h2 {
 button {
   margin-top: 2rem;
 }
+.btn-back {
+  margin-left: 1rem;
+}
 .ql-align-center {
   text-align: center;
 }
@@ -219,5 +236,20 @@ button {
 }
 .ql-align-justify {
   text-align: justify;
+}
+
+@media (max-width: 1024px) {
+  form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 40rem) {
+  form {
+    width: 100%;
+  }
+  .entry__container {
+    flex-direction: column;
+  }
 }
 </style>
