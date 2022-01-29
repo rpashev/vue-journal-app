@@ -6,9 +6,9 @@
     <base-spinner v-if="isLoading"></base-spinner>
     <ul class="entries-list">
       <li class="entries-list__title">
-        <div>Entry</div>
-        <div>Date</div>
-        <div>Actions</div>
+        <div class="entry-heading">Entry</div>
+        <div class="date-heading">Date</div>
+        <div class="actions-heading">Actions</div>
       </li>
       <li
         v-for="entry in entriesData"
@@ -28,7 +28,7 @@
         <div class="entry__date">{{ readableDate(entry.date) }}</div>
         <div class="entry__actions">
           <base-button
-          mode="dark"
+            mode="dark"
             id="entry__actions-view"
             link
             :to="`/journals/${journalID}/${entry._id}`"
@@ -51,6 +51,7 @@
             >Delete</base-button
           >
         </div>
+        <hr />
       </li>
     </ul>
 
@@ -159,8 +160,13 @@ export default {
   grid-template-columns: 4fr 2fr 2fr;
   align-items: center;
 }
+.entry__intro {
+  overflow: hidden;
+  width: 90%;
+}
 .entries-list__title {
   border-bottom: 1px solid black;
+  overflow: hidden;
   padding-bottom: 0.5rem;
   color: #4b525b;
   font-weight: bold;
@@ -173,7 +179,8 @@ export default {
   font-size: 0.8rem;
   color: #9098a5;
 }
-.entry__date, .entry__intro {
+.entry__date,
+.entry__intro {
   min-width: 6rem;
 }
 .entry__date {
@@ -188,7 +195,7 @@ export default {
 .entry__actions a {
   height: auto;
   text-align: center;
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.75rem;
   margin: 0 0.5rem;
 }
 #entry__actions-view {
@@ -213,14 +220,48 @@ export default {
 @media (max-width: 40rem) {
   .entries-list__container {
     width: 100%;
-    /* padding-left: 0; */
-    /* margin: 0 auto; */
   }
   .entries-list {
     padding: 0 0.8rem;
   }
-  #entry__actions-edit {
+
+  .entries-list__item,
+  .entries-list__title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .entry__intro,
+  .entry__date,
+  .entry-heading,
+  .date-heading {
+    width: 45%;
+  }
+  .entry__actions {
+    width: 100%;
+    justify-content: space-between;
+    margin: 0.75rem 0;
+    font-size: 1.1rem;
+  }
+
+  .entry__actions button,
+  .entry__actions a {
+    padding: 0.4rem 1.85rem;
+  }
+
+  .actions-heading {
     display: none;
+  }
+  hr {
+    color: black;
+    width: 100%;
+  }
+}
+
+@media (max-width: 22rem) {
+  .entry__actions button,
+  .entry__actions a {
+    padding: 0.4rem 1.3rem;
   }
 }
 </style>
