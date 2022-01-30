@@ -28,7 +28,7 @@
         </div>
         <menu>
           <base-button @click="tryClose" mode="alternative">Cancel</base-button>
-          <base-button @click="saveDates">Load</base-button>
+          <base-button @click="saveDates">Save</base-button>
         </menu>
       </dialog>
     </transition>
@@ -48,18 +48,17 @@ export default {
 
     function tryClose() {
       context.emit("close");
-    //   console.log(startDate, endDate)
+      //   console.log(startDate, endDate)
     }
-    function saveDates(){
-        context.emit("custom-dates", startDate.value, endDate.value)
-
+    function saveDates() {
+      context.emit("custom-dates", startDate.value, endDate.value);
     }
 
     return {
       tryClose,
       startDate,
       endDate,
-      saveDates
+      saveDates,
     };
   },
 };
@@ -86,6 +85,7 @@ dialog {
   top: 20vh;
   left: 10%;
   width: 80%;
+  min-width: 250px;
   z-index: 100;
   border-radius: 12px;
   border: none;
@@ -93,19 +93,19 @@ dialog {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 }
 
 header {
   background-color: #3b82f6;
-  color: #F0F0F0;
+  color: #f0f0f0;
   width: 100%;
   padding: 1rem;
 }
 
 header h3 {
   margin: 0;
-  color: #F0F0F0;
+  color: #f0f0f0;
   text-align: center;
 }
 .dates {
@@ -113,22 +113,21 @@ header h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 3rem 0;
+  margin: 1rem 0;
 }
 .entry__date {
-  margin-top: 1rem;
-  /* align-self: flex-end; */
+  width: 80%;
+  margin: 1.5rem auto 0 auto;
 }
 .entry__date input {
   padding: 0.2rem 0.5rem;
-  margin-left: 2rem;
-  width: 15rem;
+  width: 100%;
   font: inherit;
-
 }
 .entry__date label {
   display: inline-block;
-  width: 6rem;
+  width: 100%;
+  margin-bottom: 0.25rem;
 }
 .entry__date input:focus {
   outline: none;
@@ -141,6 +140,8 @@ menu {
 }
 menu button {
   margin: 0 1.5rem;
+  width: 6rem;
+  min-width: 5rem;
 }
 
 .dialog-enter-from,

@@ -215,6 +215,9 @@ export default {
   position: static;
   text-align: center;
 }
+hr {
+  display: none;
+}
 
 @media (max-width: 40rem) {
   .entries-list__container {
@@ -245,13 +248,14 @@ export default {
 
   .entry__actions button,
   .entry__actions a {
-    padding: 0.4rem 1.85rem;
+    padding: 0.4rem 2rem;
   }
 
   .actions-heading {
     display: none;
   }
   hr {
+    display: block;
     color: black;
     width: 100%;
   }
