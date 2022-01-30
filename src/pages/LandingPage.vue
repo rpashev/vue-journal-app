@@ -1,10 +1,5 @@
 <template>
   <div class="landing-page main">
-    <!-- <base-dialog
-      :show="showDialog"
-      title="Are you sure?"
-      @close="changeShowDialog"
-    /> -->
     <landing-page-intro />
     <landing-page-promotion />
     <landing-page-privacy />

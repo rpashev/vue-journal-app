@@ -170,6 +170,7 @@ export default {
     });
     let isLoading = ref(false);
     let errorMessage = ref(null);
+
     const rules = computed(() => {
       return {
         email: { required, email },
@@ -185,16 +186,17 @@ export default {
     const submitHandler = async () => {
       errorMessage.value = null;
       isLoading.value = true;
+
       if (v$._value.$invalid) {
-        console.log("invalid");
+        isLoading.value = false;
+        return;
       } else {
         try {
           await store.dispatch("signup", formState);
           router.push("/journals");
         } catch (err) {
           errorMessage.value =
-            err.response?.data?.message ||
-            "Could not sign up!";
+            err.response?.data?.message || "Could not sign up!";
         } finally {
           isLoading.value = false;
         }
@@ -306,7 +308,7 @@ button {
 }
 .submit-error {
   position: static;
-  text-align: center;
+  font-weight: bold;
 }
 
 @media (max-width: 1024px) {

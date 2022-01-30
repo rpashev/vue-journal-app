@@ -15,10 +15,6 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
 .landing__prompt {
   margin: 3rem 0;

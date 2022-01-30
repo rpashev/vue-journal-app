@@ -11,10 +11,6 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
 .landing__privacy {
   margin: 3rem 0;
@@ -35,7 +31,6 @@ a {
   text-align: center;
   width: 12rem;
   font-size: 1.2rem !important;
-  
 }
 
 @media (max-width: 1024px) {

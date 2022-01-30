@@ -18,10 +18,6 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
 .landing-page__intro {
   width: 100%;

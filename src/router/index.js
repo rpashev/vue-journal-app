@@ -3,22 +3,21 @@ import LandingPage from "../pages/LandingPage.vue";
 import Login from "../pages/auth/Login.vue";
 import SignUp from "../pages/auth/SignUp.vue";
 import HomeUser from "../pages/user-pages/HomeUser.vue";
-import UserProfile from "../pages/user-pages/UserProfile.vue";
 import NewEntry from "../pages/user-pages/journal/NewEntry.vue";
 import SingleJournal from "../pages/user-pages/journal/SingleJournal.vue";
 import SingleEntry from "../pages/user-pages/journal/SingleEntry.vue";
 import EditEntry from "../pages/user-pages/journal/EditEntry.vue";
 import CreateJournal from "../pages/user-pages/journal/CreateJournal.vue";
 import EditJournal from "../pages/user-pages/journal/EditJournal.vue";
-import BenefitsOfJournaling from "../pages/information-pages/BenefitsJournaling.vue"
-import DreamJournal from "../pages/information-pages/DreamJournal.vue"
-import FiveYearJournal from "../pages/information-pages/FiveYearJournal.vue"
-import JournalDefinition from "../pages/information-pages/JournalDefinition.vue"
-import JournalPrompts from "../pages/information-pages/JournalPrompts.vue"
-import ReflectiveJournal from "../pages/information-pages/ReflectiveJournal.vue"
-import TravelJournal from "../pages/information-pages/TravelJournal.vue"
-import JournalTypes from "../pages/information-pages/JournalTypes.vue"
-
+import BenefitsOfJournaling from "../pages/information-pages/BenefitsJournaling.vue";
+import DreamJournal from "../pages/information-pages/DreamJournal.vue";
+import FiveYearJournal from "../pages/information-pages/FiveYearJournal.vue";
+import JournalDefinition from "../pages/information-pages/JournalDefinition.vue";
+import JournalPrompts from "../pages/information-pages/JournalPrompts.vue";
+import ReflectiveJournal from "../pages/information-pages/ReflectiveJournal.vue";
+import TravelJournal from "../pages/information-pages/TravelJournal.vue";
+import JournalTypes from "../pages/information-pages/JournalTypes.vue";
+import NotFound from "../pages/NotFound.vue";
 
 // import { useStore } from "vuex";
 import store from "../store/index";
@@ -49,12 +48,7 @@ const routes = [
     component: HomeUser,
     meta: { requiresAuth: true },
   },
-  {
-    path: "/user-profile",
-    name: "UserProfile",
-    component: UserProfile,
-    meta: { requiresAuth: true },
-  },
+
   {
     path: "/journals/:journalID/new-entry",
     name: "NewEntry",
@@ -133,13 +127,18 @@ const routes = [
     name: "JournalDefinition",
     component: JournalDefinition,
     meta: { requiresAuth: false },
-  },{
+  },
+  {
     path: "/journal-types",
     name: "JournalTypes",
     component: JournalTypes,
     meta: { requiresAuth: false },
   },
-  
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
+    component: NotFound,
+  },
 ];
 
 // const store = useStore();

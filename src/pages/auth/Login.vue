@@ -96,7 +96,8 @@ export default {
       isLoading.value = true;
 
       if (v$._value.$invalid) {
-        console.log("invalid");
+        isLoading.value = false;
+        return;
       } else {
         try {
           await store.dispatch("login", formState);
@@ -189,7 +190,8 @@ button {
 }
 .submit-error {
   position: static;
-  text-align: center;
+  font-weight: bold;
+  /* text-align: center; */
 }
 
 @media (max-width: 1024px) {

@@ -20,9 +20,6 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
 
 <style scoped>
 .landing__promotion {
@@ -48,10 +45,7 @@ h3 {
 }
 
 @media (max-width: 1024px) {
-  
 }
 @media (max-width: 40rem) {
-  
-  
 }
 </style>

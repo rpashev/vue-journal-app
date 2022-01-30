@@ -28,7 +28,7 @@
         id="entry__actions-back"
         link
         :to="`/journals/${journalID}`"
-        >Back to journal</base-button
+        >Back</base-button
       >
     </div>
 
@@ -159,6 +159,7 @@ h2 {
 }
 #entry__actions-back {
   margin-top: 2rem;
+  min-width: 6rem;
 }
 .submit-error {
   position: static;
