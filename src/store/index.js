@@ -10,26 +10,33 @@ export default createStore({
     journals: null,
     entries: null,
   },
+
   getters: {
     token(state) {
       return state.token;
     },
+
     email(state) {
       return state.email;
     },
+
     userId(state) {
       return state.userId;
     },
+
     firstName(state) {
       return state.firstName;
     },
+
     journals(state) {
       return state.journals;
     },
+
     entries(state) {
       return state.entries;
     },
   },
+
   mutations: {
     setUser(state, payload) {
       state.token = payload.token;
@@ -38,6 +45,7 @@ export default createStore({
       state.firstName = payload.firstName;
       state.journals = payload.journals;
     },
+
     resetUser(state) {
       state.token = null;
       state.userId = null;
@@ -46,10 +54,12 @@ export default createStore({
       state.journals = null;
       state.entries = null;
     },
+
     setEntries(state, payload) {
       state.entries = payload.entries;
     },
   },
+
   actions: {
     async login(context, payload) {
       return context.dispatch("auth", {
@@ -57,12 +67,14 @@ export default createStore({
         mode: "login",
       });
     },
+
     async signup(context, payload) {
       return context.dispatch("auth", {
         ...payload,
         mode: "signup",
       });
     },
+
     async auth(context, payload) {
       let url = "http://localhost:5000/auth/login";
 
@@ -79,6 +91,7 @@ export default createStore({
         firstName: response.data.firstName,
         journals: response.data.journals,
       };
+
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("userId", response.data.userId);
       localStorage.setItem("email", response.data.email);
@@ -87,6 +100,7 @@ export default createStore({
 
       context.commit("setUser", { ...userData });
     },
+
     tryLogin(context) {
       const token = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
@@ -113,6 +127,7 @@ export default createStore({
       localStorage.removeItem("journals");
       context.commit("resetUser", payload);
     },
+    
     getEntries(context, payload) {
       context.commit("setEntries", payload);
     },

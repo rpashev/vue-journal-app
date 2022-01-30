@@ -50,14 +50,18 @@ export default {
   setup() {
     const route = useRoute();
     const router = useRouter();
+
     const entryID = route.params.entryID;
     const journalID = route.params.journalID;
+
     const errorMessage = ref(null);
     const isLoading = ref(false);
     let entry = ref(null);
 
     const loadEntry = async () => {
       isLoading.value = true;
+      errorMessage.value = null;
+
       try {
         const response = await entryService.getEntry(journalID, entryID);
         entry.value = response;
@@ -68,6 +72,7 @@ export default {
         isLoading.value = false;
       }
     };
+
     loadEntry();
 
     const readableDate = (date) => {
@@ -77,6 +82,7 @@ export default {
     };
 
     const showDialog = ref(false);
+
     const toggleShowDialog = () => {
       showDialog.value = !showDialog.value;
     };
@@ -84,6 +90,7 @@ export default {
     const deleteEntry = async () => {
       isLoading.value = true;
       errorMessage.value = null;
+      
       try {
         await entryService.deleteEntry(journalID, entryID);
         toggleShowDialog();

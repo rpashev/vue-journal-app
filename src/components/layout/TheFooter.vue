@@ -49,6 +49,7 @@ import { computed } from "@vue/reactivity";
 export default {
   setup() {
     const store = useStore();
+    
     const isLoggedIn = computed(() => {
       return !!store.getters.token;
     });

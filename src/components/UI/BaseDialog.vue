@@ -31,6 +31,7 @@ export default {
   emits: ["remove", "close"],
 
   setup(props, context) {
+
     function tryClose() {
       if (props.fixed) {
         return;
@@ -42,6 +43,7 @@ export default {
     function confirmDelete() {
       context.emit("remove");
     }
+    
     return {
       tryClose,
       confirmDelete,

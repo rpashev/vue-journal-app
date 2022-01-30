@@ -53,6 +53,7 @@ export default {
       };
     },
   },
+
   methods: {
     logout() {
       this.$store.dispatch("logout");
@@ -61,6 +62,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 header {
   min-width: 300px;

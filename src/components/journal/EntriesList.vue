@@ -65,7 +65,6 @@
 
 <script>
 import { ref } from "@vue/reactivity";
-// import { computed } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 import entryService from "../../services/entryService";
 
@@ -73,26 +72,30 @@ export default {
   props: ["entriesData", "journalID"],
   setup(props, context) {
     const router = useRouter();
+
     const viewEntry = (entry) => {
       router.push(`/journals/${props.journalID}/${entry}`);
     };
+
     const entryContent = (entry) => {
       if (entry.body) {
         let cleanBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
         if (cleanBody.length > 30) {
           cleanBody = cleanBody.slice(0, 30) + "...";
         }
-
         return cleanBody;
       }
     };
+
     const readableDate = (date) => {
       if (date) {
         return date.substr(0, 10);
       }
     };
+
     //deleting logic
     const showDialog = ref(false);
+
     const toggleShowDialog = () => {
       showDialog.value = !showDialog.value;
     };
@@ -108,19 +111,18 @@ export default {
     const deleteEntry = async () => {
       isLoading.value = true;
       errorMessage.value = null;
+
       try {
         await entryService.deleteEntry(props.journalID, entryIdToDelete.value);
         context.emit("deleted-entry");
-        showDialog.value = false;
-
-        // router.push(`/journals/${props.journalID}/`);
+        
       } catch (err) {
         errorMessage.value =
           err.response?.data?.message ||
           "Could not delete entry! Please try again!";
 
-        showDialog.value = false;
       } finally {
+        showDialog.value = false;
         isLoading.value = false;
       }
     };

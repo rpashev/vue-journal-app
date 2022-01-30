@@ -56,7 +56,7 @@ export const filterAndSortEntries = (
           if (startingDate && endingDate) {
             let fromDate = dayjs(startingDate);
             let toDate = dayjs(endingDate);
-            // console.log(fromDate > toDate)
+
             if (fromDate < toDate) {
               if (entryDate >= fromDate && entryDate <= toDate) {
                 return entry;

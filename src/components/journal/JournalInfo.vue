@@ -20,7 +20,6 @@
 <script>
 export default {
   props: ["description", "journalID", "toggleShowDialog"],
-  setup() {},
 };
 </script>
 

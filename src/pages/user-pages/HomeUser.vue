@@ -41,7 +41,6 @@ import JournalCard from "../../components/journal/JournalCard.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 import GoPro from "../../components/journal/GoPro.vue";
 import journalService from "../../services/journalService";
-// import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 
 export default {
@@ -50,7 +49,6 @@ export default {
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let journals = ref([]);
-    // const store = useStore();
 
     const loadJournals = async () => {
       try {

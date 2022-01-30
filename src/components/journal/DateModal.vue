@@ -50,6 +50,7 @@ export default {
       context.emit("close");
       //   console.log(startDate, endDate)
     }
+    
     function saveDates() {
       context.emit("custom-dates", startDate.value, endDate.value);
     }

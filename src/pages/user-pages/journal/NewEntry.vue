@@ -48,7 +48,6 @@
         >
       </div>
 
-      <!-- <div v-html="content"></div> -->
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
@@ -62,7 +61,6 @@ import { VueEditor } from "vue3-editor";
 import { computed, ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 import { useRouter } from "vue-router";
-
 import entryService from "../../../services/entryService";
 import { customToolbar } from "../../../helper-functions/vue-editor";
 
@@ -75,6 +73,7 @@ export default {
 
     let isLoading = ref(false);
     let errorMessage = ref(null);
+
     const router = useRouter();
     const route = useRoute();
     const journalID = route.params.journalID;
@@ -85,6 +84,8 @@ export default {
 
     const submitHandler = async () => {
       isLoading.value = true;
+      errorMessage.value = null;
+
       try {
         await entryService.createEntry(
           title.value,
@@ -115,6 +116,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .new-entry__page {
   padding: 3rem 2rem;

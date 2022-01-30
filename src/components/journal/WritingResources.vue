@@ -42,10 +42,6 @@
   >
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
 .resources_card {
   /* background: #ECFDF5; */

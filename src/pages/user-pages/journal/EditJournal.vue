@@ -81,12 +81,15 @@ export default {
   setup() {
     const description = ref("");
     const journalName = ref("");
+    let journal = ref(null);
+
     let isLoading = ref(false);
     let errorMessage = ref(null);
+
     const router = useRouter();
     const route = useRoute();
     const journalID = route.params.journalID;
-    let journal = ref(null);
+
 
     const rules = computed(() => {
       return {
@@ -99,6 +102,7 @@ export default {
     const loadJournal = async () => {
       isLoading.value = true;
       errorMessage.value = null;
+
       try {
         journal.value = await journalService.getJournal(journalID);
         description.value = journal.value.description;
@@ -110,6 +114,7 @@ export default {
         isLoading.value = false;
       }
     };
+
     loadJournal();
 
     const submitHandler = async () => {
@@ -117,7 +122,8 @@ export default {
       isLoading.value = true;
 
       if (v$._value.$invalid) {
-        console.log("invalid");
+        isLoading.value = false;
+        return;
       } else {
         try {
           await journalService.updateJournal(journalID, {

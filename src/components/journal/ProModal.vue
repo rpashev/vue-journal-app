@@ -31,6 +31,7 @@ export default {
   emits: ["close"],
 
   setup(props, context) {
+    
     function tryClose() {
       context.emit("close");
     }

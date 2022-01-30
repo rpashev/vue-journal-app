@@ -64,6 +64,7 @@
     </form>
   </div>
 </template>
+
 <script>
 import { ref, computed } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
@@ -75,8 +76,10 @@ export default {
   setup() {
     const description = ref("");
     const journalName = ref("");
+
     let isLoading = ref(false);
     let errorMessage = ref(null);
+
     const router = useRouter();
 
     const rules = computed(() => {
@@ -92,7 +95,8 @@ export default {
       isLoading.value = true;
 
       if (v$._value.$invalid) {
-        console.log("invalid");
+        isLoading.value = false;
+        return;
       } else {
         try {
           await journalService.createJournal({

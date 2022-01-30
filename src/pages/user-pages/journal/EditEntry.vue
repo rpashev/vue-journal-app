@@ -76,6 +76,7 @@ export default {
 
     const errorMessage = ref(null);
     const isLoading = ref(false);
+
     let entry = ref(null);
     const title = ref();
     const body = ref();
@@ -83,6 +84,8 @@ export default {
 
     const loadEntry = async () => {
       isLoading.value = true;
+      errorMessage.value = null;
+
       try {
         const response = await entryService.getEntry(journalID, entryID);
 
@@ -95,9 +98,9 @@ export default {
           err.response?.data?.message || "Could not load entry!";
       } finally {
         isLoading.value = false;
-        // console.log(entry.value.date.slice(0,10));
       }
     };
+
     loadEntry();
 
     const readableDate = (date) => {
@@ -105,11 +108,15 @@ export default {
         return date.substr(0, 10);
       }
     };
+
     const isInvalid = computed(() => {
       return body.value === "";
     });
+
     const submitHandler = async () => {
       isLoading.value = true;
+      errorMessage.value = null;
+
       try {
         await entryService.editEntry(
           journalID,
@@ -142,6 +149,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .edit-entry__page {
   padding: 3rem 2rem;

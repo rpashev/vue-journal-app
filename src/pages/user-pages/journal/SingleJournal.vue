@@ -85,9 +85,9 @@ export default {
   setup() {
     const route = useRoute();
     const router = useRouter();
+
     const journalID = route.params.journalID;
     let journal = ref(null);
-
     let isLoading = ref(false);
     let errorMessage = ref(null);
 
@@ -110,6 +110,7 @@ export default {
         isLoading.value = false;
       }
     };
+    
     loadJournal();
 
     const noEntries = computed(() => {
@@ -119,6 +120,7 @@ export default {
         return false;
       }
     });
+
     // sort & filter entries
     const saveQueries = (queries) => {
       timeFilter.value = queries[0];
@@ -147,17 +149,17 @@ export default {
     const toggleShowDialog = () => {
       showDialog.value = !showDialog.value;
     };
+
     const deleteJournal = async () => {
       isLoading.value = true;
       errorMessage.value = null;
+
       try {
         await journalService.deleteJournal(journalID);
         router.push("/journals");
       } catch (err) {
         errorMessage.value =
           err.response?.data?.message || "Could not delete, please try again!";
-
-        showDialog.value = false;
       } finally {
         isLoading.value = false;
         showDialog.value = false;
@@ -185,6 +187,7 @@ export default {
         );
       }
     });
+
     //resetting the page to page 1 if filters become active
     watch([searchQuery, timeFilter, perPage], () => {
       page.value = 1;

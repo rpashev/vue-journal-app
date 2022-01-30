@@ -60,8 +60,6 @@ export default {
     const contentQuery = ref("");
     const per = ref(10);
     const showDateModal = ref(false);
-    // const startDate = ref(null);
-    // const endDate = ref(null);
 
     watch([timeQuery, contentQuery, per], (current) => {
       if (current[0] === "custom") {
@@ -75,6 +73,7 @@ export default {
       showDateModal.value = !showDateModal.value;
       timeQuery.value = "alltime";
     };
+
     const getDates = (startDateFilter, endDateFilter) => {
       context.emit("custom-filter", startDateFilter, endDateFilter);
       showDateModal.value = false;
@@ -108,13 +107,11 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  /* position: relative; */
   flex-shrink: 2;
 }
 .search {
   flex-shrink: 5;
   position: relative;
-  /* background: red; */
 }
 .form-control {
   height: 3rem;

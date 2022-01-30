@@ -23,6 +23,7 @@ export default {
   props: ["journalName", "journalID", "entriesAmount"],
   setup(props) {
     const router = useRouter();
+
     const openJournal = () => {
       router.push(`/journals/${props.journalID}`);
     };
@@ -33,6 +34,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .journals__list-item {
   width: 40%;

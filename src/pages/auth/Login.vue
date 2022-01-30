@@ -75,6 +75,7 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
+
     const formState = reactive({
       email: "",
       password: "",
@@ -88,6 +89,7 @@ export default {
         password: { required, minLength: minLength(6) },
       };
     });
+    
     // eslint-disable-next-line no-unused-vars
     const v$ = useVuelidate(rules, formState);
 

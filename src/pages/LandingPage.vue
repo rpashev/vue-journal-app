@@ -19,8 +19,6 @@ import LandingPageResources from "../components/landing-page/Resources.vue";
 import LandingPageFeatures from "../components/landing-page/Features.vue";
 import LandingPageFinalPrompt from "../components/landing-page/FinalPrompt.vue";
 
-// import { ref } from "@vue/reactivity";
-
 export default {
   components: {
     LandingPageIntro,
