@@ -26,7 +26,7 @@
 .background {
   height: 800px;
   width: 100%;
-  background: url("../../assets/images/try1.png") top/contain no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/background_uuw9pl.png") top/contain no-repeat;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ a {
   position: relative;
 }
 .logo {
-  background: url("../../assets/images/logo3.png") center/cover no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/logo3_dkivyb.png") center/cover no-repeat;
   margin: 0 auto;
   height: 100%;
   width: 100%;

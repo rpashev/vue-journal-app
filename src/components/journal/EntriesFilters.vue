@@ -135,7 +135,7 @@ input {
 }
 
 .search-icon {
-  background: url("../../assets/images/search-icon.png") center/contain
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/search-icon_uqpvfe.png") center/contain
     no-repeat;
   width: 1rem;
   height: 1.5rem;

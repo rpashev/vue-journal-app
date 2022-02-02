@@ -123,13 +123,13 @@ a.router-link-active {
   height: 100%;
 }
 .logo {
-  background: url("../../assets/images/logo4.png") center/contain no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/logo4_zsvynm.png") center/contain no-repeat;
   height: 100%;
   width: 100%;
   transition: all 0.3s ease-in;
 }
 .logo-white {
-  background: url("../../assets/images/logo-white1.png") center/contain
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800566/journal-app/logo-white1_fdxfr8.png") center/contain
     no-repeat;
   height: 100%;
   width: 100%;

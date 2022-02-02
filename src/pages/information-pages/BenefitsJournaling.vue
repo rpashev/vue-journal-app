@@ -1,7 +1,7 @@
 <template>
   <div class="benefits-page">
     <intro-info
-      image="https://d3c2plo0qyv3hc.cloudfront.net/images/public/seo-background.jpg"
+      image="https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/seo-background_jr9i6c.jpg"
       title="What are the benefits of writing a journal?"
     />
     <div class="benefits-page-content">

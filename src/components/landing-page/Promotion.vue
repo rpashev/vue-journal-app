@@ -3,19 +3,19 @@
     <h3>Loved by more than 2,000,000 writers, featured on...</h3>
     <div class="landing__promotion-items">
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press1.png" alt="promotion 1" />
+        <img src="https://res.cloudinary.com/rpashev/image/upload/v1643800566/journal-app/press1_banzuf.png" alt="promotion 1" />
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press2.png" alt="promotion 2"/>
+        <img src="https://res.cloudinary.com/rpashev/image/upload/v1643800566/journal-app/press2_s00hcv.png" alt="promotion 2"/>
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press3.png" alt="promotion 3"/>
+        <img src="https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/press3_kppbvt.png" alt="promotion 3"/>
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press4.png" alt="promotion 4"/>
+        <img src="https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/press4_tlv1if.png" alt="promotion 4"/>
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press5.png" alt="promotion 5"/>
+        <img src="https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/press5_lonjmc.png" alt="promotion 5"/>
       </div>
     </div>
   </div>

@@ -67,7 +67,7 @@ export default {
 
 <style scoped>
 .logo {
-  background: url("../../assets/images/pro1.png") center/contain no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/pro1_epbkw1.png") center/contain no-repeat;
   height: 10rem;
 }
 

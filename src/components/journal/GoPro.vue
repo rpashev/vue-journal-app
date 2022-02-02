@@ -53,7 +53,7 @@ export default {
   width: 100%;
   height: 6rem;
   margin-bottom: 0.5rem;
-  background: url("../../assets/images/pro1.png") center/contain no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/pro1_epbkw1.png") center/contain no-repeat;
 }
 p {
   margin-bottom: 1.5rem;

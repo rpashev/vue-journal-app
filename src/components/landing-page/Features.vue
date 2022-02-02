@@ -101,32 +101,32 @@ p {
   text-align: center;
 }
 .icon1 {
-  background: url("../../assets/images/icon1.png") center/cover;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/icon1_bc6vcp.png") center/cover;
   width: 80px;
   height: 80px;
 }
 .icon2 {
-  background: url("../../assets/images/icon2.png") center/cover;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon2_kayd0p.png") center/cover;
   width: 80px;
   height: 80px;
 }
 .icon3 {
-  background: url("../../assets/images/icon3.png") center/cover;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon3_ovn9as.png") center/cover;
   width: 80px;
   height: 80px;
 }
 .icon4 {
-  background: url("../../assets/images/icon4.png") center/cover;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon4_hxvwrd.png") center/cover;
   width: 80px;
   height: 80px;
 }
 .icon5 {
-  background: url("../../assets/images/icon5.png") center/cover;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon5_siyvdu.png") center/cover;
   width: 80px;
   height: 80px;
 }
 .icon6 {
-  background: url("../../assets/images/icon6.png") center/cover;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon6_clxki4.png") center/cover;
   width: 80px;
   height: 80px;
 }

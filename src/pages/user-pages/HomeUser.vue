@@ -1,6 +1,6 @@
 <template>
   <intro-info
-    image="https://d3c2plo0qyv3hc.cloudfront.net/images/public/seo-background.jpg"
+    image="https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/seo-background_jr9i6c.jpg"
     title="Let's write!"
   />
   <div class="home-user__page">

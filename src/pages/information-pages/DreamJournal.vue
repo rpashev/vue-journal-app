@@ -1,7 +1,7 @@
 <template>
   <div class="dream-journal-page">
     <intro-info
-      image="https://www.newzealand.com/assets/Campaigns/Ignite/SMALL-Job1970_TNZ_Stop_Dreaming_Aus_North_Island_Sky_Final_HR__aWxvdmVrZWxseQo_FocalPointCropWzQyMCw5NjAsNTAsNTAsNzUsImpwZyIsNjUsMi41XQ.jpg"
+      image="https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/dream-journal_ggpe1b.jpg"
       title="Dream journal: why keep a dream journal - tips on starting"
     />
     <div class="dream-journal-page-content">
