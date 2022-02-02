@@ -3,19 +3,19 @@
     <h3>Loved by more than 2,000,000 writers, featured on...</h3>
     <div class="landing__promotion-items">
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press1.png" />
+        <img src="../../assets/images/press1.png" alt="promotion 1" />
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press2.png" />
+        <img src="../../assets/images/press2.png" alt="promotion 2"/>
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press3.png" />
+        <img src="../../assets/images/press3.png" alt="promotion 3"/>
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press4.png" />
+        <img src="../../assets/images/press4.png" alt="promotion 4"/>
       </div>
       <div class="landing__promotion-item">
-        <img src="../../assets/images/press5.png" />
+        <img src="../../assets/images/press5.png" alt="promotion 5"/>
       </div>
     </div>
   </div>
