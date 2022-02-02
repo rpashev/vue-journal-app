@@ -1,7 +1,7 @@
 <template>
   <div class="dream-journal-page">
     <intro-info
-      image="https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/dream-journal_ggpe1b.jpg"
+      image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/dream-journal_ggpe1b_vnv9eh.webp"
       title="Dream journal: why keep a dream journal - tips on starting"
     />
     <div class="dream-journal-page-content">

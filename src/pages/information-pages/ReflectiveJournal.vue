@@ -1,7 +1,7 @@
 <template>
   <div class="reflective-journal-page">
     <intro-info
-      image="https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/reflective_juhrvt.webp"
+      image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/reflective_juhrvt_w3v7hf.webp"
       title="Reflective journal: reasons to lead a reflective journal and useful journal prompts."
     />
     <div class="reflective-journal-page-content">

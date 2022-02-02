@@ -1,7 +1,7 @@
 <template>
   <div class="travel-journal-page">
     <intro-info
-      image="https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/travel_p9zxai.jpg"
+      image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/travel_p9zxai_txmzww.webp"
       title="Travel journal: record your travel experiences to get the most from your travels."
     />
     <div class="travel-journal-page-content">

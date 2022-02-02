@@ -1,7 +1,7 @@
 <template>
   <div class="five-year-journal-page">
     <intro-info
-      image="https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/five-year_gfy3g1.jpg"
+      image="https://res.cloudinary.com/rpashev/image/upload/v1643818248/journal-app/five-year_gfy3g1_q7yfqc.webp"
       title="Five year journal - set your goals for the next five years. Rediscover your purpose!"
     />
     <div class="five-year-journal-page-content">

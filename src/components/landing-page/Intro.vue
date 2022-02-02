@@ -26,7 +26,7 @@
 .background {
   height: 800px;
   width: 100%;
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/background_uuw9pl.png") top/contain no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/background_uuw9pl_lqwiom.webp") top/contain no-repeat;
   margin: 0;
   display: flex;
   flex-direction: column;
