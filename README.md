@@ -1,5 +1,5 @@
 # Journal App 
-A responsive single page application allowing registered users to create and use personal journals. Regsitered users can peform all CRUD operations when it comes to their journals and the journal entries within them. This app is built with the MEVN stack - Mongo/Express/Vue/Node.  
+A responsive single page application allowing registered users to create and use personal journals. Regsitered users can peform all CRUD operations when it comes to their journals and the journal entries within them. This app is built with the MEVN stack - Mongo/Express/Vue/Node. The landing page is a recreation of the landing page of [penzu.com](https://penzu.com/).
 
 Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)** that I have built for the app.    
 > Live demo coming soon
@@ -24,7 +24,7 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 - error handling on the backend and consuming it on the frontend was often frustrating but nevertheless rewarding
 - first time I've used VueX + combining it with persistent state with local storage was challenging
 - first time I've used the released with Vue 3 Composition API so it took time to get used to but I liked the new approach 
-- implementing the entry filters with the help of "dayjs" was a challenge as comparing dates turned out to be not a trivial task
+- implementing the entry filters with the help of "dayjs" was a challenge as comparing dates turned out to be not a trivial task, specially for custom date ranges
 - first time I've implemented front end pagination
 - implementing an external text editor with a custom configuration took a deep dive into documentation and stackoverflow
 - coming up with design ideas for the logged in part was hard and ultimately not very successful
@@ -34,7 +34,7 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 ## Technologies Used  
 
 ### Front End
-- Vue 3
+- Vue 3 with Composition API
 - Vue Router
 - VueX
 - Vue3-editor
@@ -51,27 +51,32 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 
 
 ## Features
+### All users are able to:
+- view all of the 8 purely informational pages
+
 ### Anonymous users are able to:
-- view the homepage
+- view the landing page
 - register
 - login
 
 ### Authenticated users are able to:
-- search for any movie/tv series by name from the "Database" page
-- add movies to their "Watchlist" and "Watched" lists
-- remove movies from their "Watchlist" and "Watched" lists
-- view their "Watchlist" and "Watched" lists
-- view a list of movies that other users have in their user lists from the "Explore" page
-- view a "Details" page for each movie
-- search movies by name in all lists
-- view their "Profile Page" 
-- upload an avatar
+- create multiple journals
+- edit a journal's name and description
+- delete a journal
+- view their journals
+- view a single journal with its entries
+- create a journal entry with a text editor
+- edit a journal entry
+- delete a journal entry
+- view a journal entry
+- filter entries by date including a custom date range filter
+- filter for the amount of entries showing on a page
+- search entries by title/content
 - logout
 
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
@@ -95,13 +100,13 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 
 
 ## Room for Improvement
-- create and implement a more professional design, especially for the User Profile page
-- implement an "Add Review" feature on the front end which already exists on the [backend](https://github.com/rpashev/rest-movie-apps)
+- redesign the logged in part of the app 
+- use a mobile first approach when styling and preferebly switch to SCSS
+- refactor some of the more repetitive code on the front end by implementing composables/hooks when appropriate
 - implement an "Auto Logout" functionality on JWT expiration
-- improve user feedback when adding/removing movies from user lists from Details page
-- spend more time on refactoring repetitive code
-- break up some of the bigger components into smaller ones
-- change webpack configuration so SCSS variables are auto imported in every SCSS file instead of manually importing it
+- break up some of the larger components
+- implement a backend pagination for the journal entries
+- implement a feature that allows users to add images to their entries
 
 
 ## Contact
