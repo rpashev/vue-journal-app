@@ -16,28 +16,29 @@ Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)*
 
 
 ## General Information
-Journaling is an interest of mine so I was very keen on creating an app that I am passionate about while improving my web development skills. CRUD operations are essential for most web applications and I had a great opportunity to practice implementing these features in this single page application. It was an amazing learning experience to work on connecting the Vue front end with the Express/Mongo [Backend](https://github.com/rpashev/rest-movie-apps) and making every feature work with error handling. This is the most complex [REST API](https://github.com/rpashev/journal-app-REST) that I have built so far and I found myself dealing with plenty of challenges.
+Journaling is an interest of mine so I was very keen on creating an app that I am passionate about while improving my web development skills. CRUD operations are essential for most web applications and I had a great opportunity to practice implementing these features in this single page application. It was an amazing learning experience to work on connecting the Vue front end with the Express/Mongo [Backend](https://github.com/rpashev/rest-movie-apps) and making every feature work with error handling. This is the most complex [REST API](https://github.com/rpashev/journal-app-REST) that I have built so far and I found myself dealing with plenty of challenges. The most challenging project I've built to date.
 
 
 ## Challenges
 - coming up with a solution for the relationship between user-journal-entry was challenging in terms of data models/schemas
 - error handling on the backend and consuming it on the frontend was often frustrating but nevertheless rewarding
-- first time I've used VueX + combining it with persisting state with local storage was challenging
+- first time I've used VueX + combining it with persistent state with local storage was challenging
+- first time I've used the released with Vue 3 Composition API so it took time to get used to but I liked the new approach 
+- implementing the entry filters with the help of "dayjs" was a challenge as comparing dates turned out to be not a trivial task
+- first time I've implemented front end pagination
+- implementing an external text editor with a custom configuration took a deep dive into documentation and stackoverflow
 - coming up with design ideas for the logged in part was hard and ultimately not very successful
-- not thinking about responsive design at first proved to be a grave mistake as the CSS ended up messy and unoptimized
-- coming up with a design was a struggle and I am still not happy about the way the application looks
+- initially not thinking about responsive design proved to be a grave mistake as the CSS ended up messy and the media queries overblown and inconsistent
 
 
 ## Technologies Used  
 
 ### Front End
-- React 17.0.2
-- React Router 6.0.2
-- Context API
-- SASS/SCSS
-- CSS/SCSS Modules
+- Vue 3
+- Vue Router
+- VueX
+- Vue3-editor
 - Axios
-- React Transition Group  
   
  ### Back End
  - Node
@@ -47,8 +48,6 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
  - Mongoose
  - JWT
  - Axios
- - Cloudinary
- - [OMDB Api](https://www.omdbapi.com/)
 
 
 ## Features
