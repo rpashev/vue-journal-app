@@ -24,9 +24,9 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 - error handling on the backend and consuming it on the frontend was often frustrating but nevertheless rewarding
 - first time I've used VueX + combining it with persistent state with local storage was challenging
 - first time I've used the released with Vue 3 Composition API so it took time to get used to but I liked the new approach 
-- implementing the entry filters with the help of "dayjs" was a challenge as comparing dates turned out to be not a trivial task, specially for custom date ranges
+- implementing the entry filters with the help of "dayjs" was a challenge as comparing dates turned out to be not a trivial task, especially for custom date ranges
 - first time I've implemented front end pagination
-- implementing an external text editor with a custom configuration took a deep dive into documentation and stackoverflow
+- implementing an external text editor with a custom configuration took a deep dive into the documentation and stackoverflow
 - coming up with design ideas for the logged in part was hard and ultimately not very successful
 - initially not thinking about responsive design proved to be a grave mistake as the CSS ended up messy and the media queries overblown and inconsistent
 
