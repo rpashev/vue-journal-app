@@ -1,8 +1,7 @@
 # Journal App 
-A responsive single page application allowing registered users to search for movies in an external database and organize the movies in userlists. This app is built with the MERN stack - Mongo/Express/React/Node.  
+A responsive single page application allowing registered users to create and use personal journals. Regsitered users can peform all CRUD operations when it comes to their journals and the journal entries within them. This app is built with the MEVN stack - Mongo/Express/Vue/Node.  
 
-Here you can find the **[REST API](https://github.com/rpashev/rest-movie-apps)** that I have created for the app.  
-The application uses **[OMDB Api](https://www.omdbapi.com/)** as a movie database.  
+Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)** that I have built for the app.    
 > Live demo coming soon
 
 ## Table of Contents
@@ -17,15 +16,15 @@ The application uses **[OMDB Api](https://www.omdbapi.com/)** as a movie databas
 
 
 ## General Information
-This app is the second version of an app I made for the [software academy](https://softuni.bg/) I attended. As a person that often watches movies it was an easy choice for me to make such an application. My goal was to confirm and build upon my React skills while working on a topic that greatly interests me. Building a [REST API](https://github.com/rpashev/rest-movie-apps) was also something I strived to do as I want to be able to create full-stack applications.
+Journaling is an interest of mine so I was very keen on creating an app that I am passionate about while improving my web development skills. CRUD operations are essential for most web applications and I had a great opportunity to practice implementing these features in this single page application. It was an amazing learning experience to work on connecting the Vue front end with the Express/Mongo [Backend](https://github.com/rpashev/rest-movie-apps) and making every feature work with error handling. This is the most complex [REST API](https://github.com/rpashev/journal-app-REST) that I have built so far and I found myself dealing with plenty of challenges.
 
 
 ## Challenges
-- working with an external api such as [OMDB Api](https://www.omdbapi.com/) was challenging as the API had limitations which I had to consider
-- the combination of front end + external api + my own api made it challenging to come up with a solution that optimizes the data flow of the app
-- the first time I used SASS/SCSS was in this app so I had to get used to nesting - something that I now greatly appreciate 
-- first time I dealt with file upload for the feature allowing users to upload images to Cloudinary
-- error handling was challenging
+- coming up with a solution for the relationship between user-journal-entry was challenging in terms of data models/schemas
+- error handling on the backend and consuming it on the frontend was often frustrating but nevertheless rewarding
+- first time I've used VueX + combining it with persisting state with local storage was challenging
+- coming up with design ideas for the logged in part was hard and ultimately not very successful
+- not thinking about responsive design at first proved to be a grave mistake as the CSS ended up messy and unoptimized
 - coming up with a design was a struggle and I am still not happy about the way the application looks
 
 
