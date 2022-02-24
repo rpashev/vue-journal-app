@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let axiosAuth = axios.create({
-  baseURL: "http://localhost:5000/journals/",
+  baseURL: `${process.env.VUE_APP_BASE_URL}journals`,
 });
 
 axiosAuth.interceptors.request.use(function (config) {

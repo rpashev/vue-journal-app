@@ -76,10 +76,11 @@ export default createStore({
     },
 
     async auth(context, payload) {
-      let url = "http://localhost:5000/auth/login";
+      console.log(process.env.VUE_APP_BASE_URL)
+      let url = `${process.env.VUE_APP_BASE_URL}auth/login`;
 
       if (payload.mode === "signup") {
-        url = "http://localhost:5000/auth/signup";
+        url = `${process.env.VUE_APP_BASE_URL}auth/signup`;
       }
 
       const response = await axios.post(url, { ...payload });
@@ -127,7 +128,7 @@ export default createStore({
       localStorage.removeItem("journals");
       context.commit("resetUser", payload);
     },
-    
+
     getEntries(context, payload) {
       context.commit("setEntries", payload);
     },
