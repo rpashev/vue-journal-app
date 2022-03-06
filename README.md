@@ -9,7 +9,6 @@ Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)*
 * [Challenges](#challenges)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
@@ -73,10 +72,6 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 - filter for the amount of entries showing on a page
 - search entries by title/content
 - logout
-
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
 
 
 ## Setup
