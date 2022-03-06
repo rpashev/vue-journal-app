@@ -76,82 +76,79 @@ export default {
   margin-top: 3rem;
   display: flex;
   flex-flow: wrap;
+  gap: 4rem;
   justify-content: center;
-  align-items: flex-start;
-  width: 80%;
+  align-items: stretch;
+  width: 90%;
 }
+
 .features__feature {
   display: flex;
   flex-direction: column;
-  width: 28%;
-  /* height: 300px; */
+  flex: 0 0 28%;
   align-items: center;
-  justify-content: flex-start;
-  margin: 2rem;
   padding: 0 0.5rem;
   min-width: 250px;
-  flex-shrink: 0;
 }
 
 h2 {
   text-align: center;
+  margin-bottom: 1rem;
 }
+
 p {
   font-size: 1.2rem;
   text-align: center;
-}
-.icon1 {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/icon1_bc6vcp.png") center/cover;
-  width: 80px;
-  height: 80px;
-}
-.icon2 {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon2_kayd0p.png") center/cover;
-  width: 80px;
-  height: 80px;
-}
-.icon3 {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon3_ovn9as.png") center/cover;
-  width: 80px;
-  height: 80px;
-}
-.icon4 {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon4_hxvwrd.png") center/cover;
-  width: 80px;
-  height: 80px;
-}
-.icon5 {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon5_siyvdu.png") center/cover;
-  width: 80px;
-  height: 80px;
-}
-.icon6 {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon6_clxki4.png") center/cover;
-  width: 80px;
-  height: 80px;
-}
-a {
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 1024px) {
-  .features {
-    /* flex-direction: column; */
-    width: 100%;
-  }
-  .features__feature {
-    width: 40%;
-  }
+.features__feature-icon {
+  width: 5rem;
+  height: 5rem;
 }
+
+.icon1 {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800564/journal-app/icon1_bc6vcp.png")
+    center/cover;
+}
+
+.icon2 {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon2_kayd0p.png")
+    center/cover;
+}
+
+.icon3 {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon3_ovn9as.png")
+    center/cover;
+}
+
+.icon4 {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon4_hxvwrd.png")
+    center/cover;
+}
+
+.icon5 {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon5_siyvdu.png")
+    center/cover;
+}
+
+.icon6 {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/icon6_clxki4.png")
+    center/cover;
+}
+
+button {
+  margin-top: auto;
+}
+
 @media (max-width: 40rem) {
   .features {
     flex-direction: column;
+    align-items: center;
     width: 100%;
   }
   .features__feature {
-    width: 95%;
-    margin: 2rem 0;
-    /* min-width: none; */
+    width: 80%;
   }
 }
 </style>

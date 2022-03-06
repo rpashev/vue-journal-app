@@ -5,14 +5,11 @@
         <div class="logo__container">
           <div class="logo"></div>
         </div>
-
         <p>
           Your private, 100% customizable online journal. Loved by over 2
           million writers around the world.
         </p>
-        <base-button link to="/sign-up"
-          >Start your free journal now!</base-button
-        >
+        <base-button link to="/sign-up">Start your free journal</base-button>
       </div>
     </div>
   </div>
@@ -21,31 +18,37 @@
 <style scoped>
 .landing-page__intro {
   width: 100%;
-  /* margin-bottom: 0rem; */
 }
+
 .background {
   height: 800px;
   width: 100%;
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/background_uuw9pl_lqwiom.webp") top/contain no-repeat;
-  margin: 0;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/background_uuw9pl_lqwiom.webp")
+    top/cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 }
+
 .landing-page__prompt {
-  width: 30%;
+  width: 35%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 p {
-  margin-top: 2rem;
   font-size: 1.2rem;
   text-align: center;
+  width: 80%;
+  margin: 2rem auto;
 }
+
 a {
-  width: 100%;
-  text-align: center;
   font-size: 1.2rem !important;
+  padding: 0.75rem 1.75rem !important;
 }
 
 .logo__container {
@@ -55,8 +58,10 @@ a {
   margin-top: 1rem;
   position: relative;
 }
+
 .logo {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/logo3_dkivyb.png") center/cover no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800565/journal-app/logo3_dkivyb.png")
+    center/cover no-repeat;
   margin: 0 auto;
   height: 100%;
   width: 100%;
@@ -70,19 +75,20 @@ a {
     height: auto;
     margin-bottom: 2rem;
   }
+
   .landing-page__prompt {
     width: 60%;
-  }
-}
-@media (max-width: 1024px) {
-  .landing-page__prompt {
-    width: 50%;
   }
 }
 
 @media (max-width: 40rem) {
   .landing-page__prompt {
     width: 90%;
+  }
+
+  a {
+    font-size: 0.95rem !important;
+    padding: 0.75rem 1.25rem !important;
   }
 }
 </style>

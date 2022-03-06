@@ -40,45 +40,46 @@ export default {
   width: 40%;
   max-width: 300px;
   height: 30rem;
-  margin: 0.5rem 1rem 0 1rem;
   min-width: 300px;
-  transition: all 0.4s ease-out;
+  transition: all 0.2s ease-out;
 }
+
 .journals__list-item:hover {
   transform: scale(1.01);
   cursor: pointer;
 }
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-  border-radius: 16px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   height: 80%;
 }
+
 .actions {
   display: flex;
   justify-content: space-between;
   margin: 2rem;
 }
+
 .actions a {
   width: 45%;
   text-align: center;
   padding: 0.4rem;
   font-size: 0.9rem;
 }
+
 h2 {
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
   width: 100%;
-  margin-top: 0;
-  border-radius: 16px 16px 0 0;
-
   padding: 1rem;
   color: #f0f0f0;
-
-  overflow: hidden;
-  /* background-color: rgb(139, 14, 14); */
   background-color: #2f3940;
 }
 
@@ -87,6 +88,7 @@ h2 {
   width: 60%;
   opacity: 0.8;
 }
+
 .entries-number span {
   font-weight: bold;
 }

@@ -94,6 +94,7 @@ export default {
 .journals__list {
   width: 100%;
   display: flex;
+  gap: 3rem;
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;

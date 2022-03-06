@@ -39,40 +39,53 @@ export default {
 
 <style>
 * {
-  box-sizing: border-box;
-}
-body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  line-height: 1.4;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  min-width: 320px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
 #app {
   position: relative;
   min-height: 100vh;
 }
+
 main {
   padding-bottom: 12rem;
-  margin: 0 auto;
-  height: auto;
-  min-width: 320px;
-  max-width: 2000px;
 }
+
 h1,
 p,
 h3,
 h2 {
   color: #59595e;
 }
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
 .ql-align-center {
   text-align: center;
 }
+
 .ql-align-right {
   text-align: right;
 }
+
 .ql-align-left {
   text-align: left;
 }
+
 .ql-align-justify {
   text-align: justify;
 }

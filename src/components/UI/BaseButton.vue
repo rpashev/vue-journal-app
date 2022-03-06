@@ -33,15 +33,20 @@ button,
 a {
   text-decoration: none;
   text-align: center;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1.25rem;
   border: none;
   font: inherit;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
   background-color: #3b82f6;
-  color: #f0f0f0;
+  color: #e9e7e7e0;
   cursor: pointer;
-  border-radius: 5px;
-  display: inline-block;
+  border-radius: 4px;
   transition: all 0.3s ease-out;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 a:hover,

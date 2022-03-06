@@ -12,33 +12,28 @@
   align-items: center;
   background: #425059;
   width: 100%;
-  padding: 4rem;
+  padding: 3.5rem;
 }
+
 h1 {
-  color: #F0F0F0;
+  color: #f0f0f0;
   margin-bottom: 4rem;
   text-align: center;
 }
+
 a {
-  width: 25%;
-  text-align: center;
-  color: #F0F0F0;
+  color: #f0f0f0;
+  width: 18rem;
+  font-size: 1.2rem !important;
 }
 
-@media (max-width: 1024px) {
-  a {
-    width: 50%;
-    text-align: center;
-    color: #F0F0F0;
-  }
-}
-@media (max-width: 40rem) {
+@media (max-width: 33em) {
   .final-prompt {
     padding: 2rem;
   }
-  a {
-    width: 100%;
-  }
   
+  h1 {
+    font-size: 1.5rem;
+  }
 }
 </style>

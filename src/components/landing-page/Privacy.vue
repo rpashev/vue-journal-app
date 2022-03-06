@@ -13,19 +13,23 @@
 
 <style scoped>
 .landing__privacy {
-  margin: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
 }
+
 h1 {
   text-align: center;
+  margin-bottom: 1rem;
 }
+
 p {
   width: 50%;
-  font-size: 1.2rem;
   text-align: center;
+  font-size: 1.1rem;
 }
+
 a {
   margin-top: 1.5rem;
   text-align: center;

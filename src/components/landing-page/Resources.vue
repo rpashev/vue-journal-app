@@ -1,6 +1,6 @@
 <template>
   <div class="resources">
-    <h1>Journal Writing Resources</h1>
+    <h1>Journal writing resources</h1>
     <div class="resources__lists">
       <ul class="basics">
         <h2>Journal Basics</h2>
@@ -40,8 +40,9 @@
 .resources {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
 }
+
 .resources__lists {
   display: flex;
   flex-direction: row;
@@ -49,27 +50,34 @@
   justify-content: center;
   width: auto;
 }
+
 .basics,
 .types {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0;
   margin: 0 2rem 2rem;
   list-style: none;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
 }
 
 a {
   font: inherit;
-  margin: 0;
   text-decoration: none;
   color: #59595e;
-  font-size: 1.1rem;
 }
+
 a:active,
 a:hover,
 a.router-link-active {
@@ -77,9 +85,6 @@ a.router-link-active {
 }
 
 @media (max-width: 1024px) {
-  ul {
-    margin: 0 !important;
-  }
   li {
     text-align: center;
   }
@@ -88,12 +93,10 @@ a.router-link-active {
     text-align: center;
   }
 }
+
 @media (max-width: 40rem) {
-  .resources {
-    padding: 0 0.25rem;
-  }
-  a {
-    font-size: 1rem;
+  .resources__lists {
+    flex-direction: column;
   }
 }
 </style>
