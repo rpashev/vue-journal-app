@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -69,8 +71,8 @@ h2 {
 }
 
 h1 {
-  text-transform: uppercase;
   font-weight: 400;
+  text-transform: uppercase;
   font-size: 1.8rem;
 }
 

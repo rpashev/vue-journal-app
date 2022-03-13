@@ -6,8 +6,8 @@
           <div class="logo"></div>
         </div>
         <p>
-          Your private, 100% customizable online journal. Loved by over 2
-          million writers around the world.
+          Your secure, fully customizable digital journal. Loved by over 20
+          billion writers around the world.
         </p>
         <base-button link to="/sign-up">Start your free journal</base-button>
       </div>
@@ -69,7 +69,7 @@ a {
   top: 3rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .background {
     background: none;
     height: auto;
@@ -78,6 +78,10 @@ a {
 
   .landing-page__prompt {
     width: 60%;
+    margin-top: 0;
+  }
+  .logo__container {
+    margin-top: 0;
   }
 }
 

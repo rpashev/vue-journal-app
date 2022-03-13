@@ -2,49 +2,43 @@
   <div class="features">
     <div class="features__feature">
       <div class="features__feature-icon icon1"></div>
-      <h2>100% Private</h2>
+      <h2>Full Privacy</h2>
       <p>
-        Designed to focus on privacy, your entries are totally private by
-        default!
+        All your entries are private by default and can be accessed only by you.
       </p>
     </div>
     <div class="features__feature">
       <div class="features__feature-icon icon2"></div>
-      <h2>Available Everywhere</h2>
+      <h2>Write From Anywhere</h2>
       <p>
-        Enjoy journaling on the move. Available for iOS and Android and totally
-        free!
+        Write from your phone, tablet or desktop - all devices are supported.
       </p>
     </div>
     <div class="features__feature">
       <div class="features__feature-icon icon3"></div>
-      <h2>Never Forget to Write</h2>
-      <p>
-        Custom email reminders help you make sure you never forget to write.
-      </p>
+      <h2>Reminders To Write</h2>
+      <p>You can set up custom emails to remind you to write an entry.</p>
     </div>
     <div class="features__feature feature-pro">
       <div class="features__feature-icon icon4"></div>
-      <h2>Fully Customizable Diary</h2>
-      <p>Customize each journal your with covers, backgrounds, and fonts.</p>
+      <h2>Full Customization</h2>
+      <p>You can customize your journals in all ways imaginable.</p>
       <base-button @click="toggleShowGoPro" mode="alternative"
         >Go PRO</base-button
       >
     </div>
     <div class="features__feature feature-pro">
       <div class="features__feature-icon icon5"></div>
-      <h2>Smart Journal Search</h2>
-      <p>Quickly and easily search through your journals, entries, and tags.</p>
+      <h2>Journal Search</h2>
+      <p>You can easily search through journals and all of your entries.</p>
       <base-button @click="toggleShowGoPro" mode="alternative"
         >Go PRO</base-button
       >
     </div>
     <div class="features__feature feature-pro">
       <div class="features__feature-icon icon6"></div>
-      <h2>Military Grade Security</h2>
-      <p>
-        Further protect your diary with military-grade 256-bit AES encryption.
-      </p>
+      <h2>Top Notch Security</h2>
+      <p>You can additionally protect your journals with a password.</p>
       <base-button @click="toggleShowGoPro" mode="alternative"
         >Go PRO</base-button
       >
@@ -73,7 +67,6 @@ export default {
 
 <style scoped>
 .features {
-  margin-top: 3rem;
   display: flex;
   flex-flow: wrap;
   gap: 4rem;
@@ -93,13 +86,14 @@ export default {
 
 h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 p {
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 1rem;
+  width: 90%;
 }
 
 .features__feature-icon {

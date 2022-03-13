@@ -220,10 +220,11 @@ export default {
 }
 .signup__card {
   width: 30rem;
+  max-width: 30rem;
   padding: 1rem 0.5rem;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 h1 {
   margin: 0;
@@ -232,12 +233,11 @@ form {
   margin: 1rem;
   height: 100%;
   padding: 1rem;
+  gap: 1.35rem;
   display: flex;
   flex-direction: column;
 }
-.form-control {
-  margin: 1.2rem 0;
-}
+
 .names,
 .checkboxes {
   display: flex;
@@ -249,25 +249,26 @@ form {
 }
 
 label {
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 0.5rem;
   display: block;
 }
 #chekboxes {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 #chekboxes div {
   display: flex;
-  width: 45%;
-  justify-content: space-between;
+  gap: 0.5rem;
   align-items: flex-start;
 }
 #chekboxes label {
   font-size: 0.8rem;
   font-weight: normal;
+  position: relative;
+  top: -0.1rem;
 }
 #chekboxes input {
   width: auto;
@@ -293,6 +294,7 @@ h1 {
 button {
   margin-top: 0.5rem;
   width: 40%;
+  max-width: 20rem;
 }
 .error-label {
   color: red;
@@ -311,9 +313,9 @@ button {
   font-weight: bold;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .signup__card {
-    margin-top: 6rem;
+    margin-top: 1rem;
   }
 }
 
@@ -323,6 +325,13 @@ button {
     margin-top: 1.5rem;
     box-shadow: none;
     padding: 1rem 0;
+  }
+  .names {
+    flex-direction: column;
+    gap: 1.35rem;
+  }
+  .names div {
+    width: 100%;
   }
   button {
     width: 100%;

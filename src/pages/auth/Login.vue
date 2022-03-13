@@ -89,7 +89,7 @@ export default {
         password: { required, minLength: minLength(6) },
       };
     });
-    
+
     // eslint-disable-next-line no-unused-vars
     const v$ = useVuelidate(rules, formState);
 
@@ -106,8 +106,7 @@ export default {
           router.push("/journals");
         } catch (err) {
           errorMessage.value =
-            err.response?.data?.message ||
-            "Could not log in!";
+            err.response?.data?.message || "Could not log in!";
         } finally {
           isLoading.value = false;
         }
@@ -131,10 +130,11 @@ export default {
 }
 .login__card {
   width: 30rem;
+  max-width: 30rem;
   margin: 0 auto;
   padding: 1rem 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 h1 {
   margin: 0;
@@ -144,15 +144,12 @@ form {
   height: 100%;
   padding: 1rem;
   display: flex;
+  gap: 1.35rem;
   flex-direction: column;
 }
 
-.form-control {
-  margin: 1.2rem 0;
-}
-
 label {
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -176,6 +173,7 @@ h1 {
 button {
   margin-top: 1.5rem;
   width: 40%;
+  max-width: 20rem;
 }
 
 .error-label {
@@ -193,12 +191,11 @@ button {
 .submit-error {
   position: static;
   font-weight: bold;
-  /* text-align: center; */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .login__card {
-    margin-top: 6rem;
+    margin-top: 1rem;
   }
 }
 

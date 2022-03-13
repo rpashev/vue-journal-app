@@ -37,6 +37,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 8rem;
+}
+
+@media (max-width: 64em) {
+  .landing-page {
+    gap: 6rem;
+  }
 }
 </style>

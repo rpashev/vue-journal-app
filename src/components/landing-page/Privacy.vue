@@ -1,11 +1,10 @@
 <template>
   <div class="landing__privacy">
-    <h1>Privacy is our #1 Concern!</h1>
+    <h1>Guaranteed privacy</h1>
     <p>
-      Even when carefully kept, paper journals can be read by anyone who happens
-      upon them. We keep your journals safe with strong password protection and
-      military strength encryption so you can rest easy knowing that your
-      entries are secure with us.
+      Paper journals can be read by anyone if discovered unlike digital ones.
+      Your journals are completely safe with us as we encrypt them using the
+      most cutting edge technology.
     </p>
     <base-button link to="/sign-up">Get Started</base-button>
   </div>

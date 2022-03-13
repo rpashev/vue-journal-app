@@ -1,13 +1,9 @@
 <template>
   <div class="landing__promotion">
-    <h3>Loved by more than 2,000,000 writers, featured on...</h3>
+    <div class="heading">
+      <h3>Featured on</h3>
+    </div>
     <div class="landing__promotion-items">
-      <div class="landing__promotion-item">
-        <img
-          src="https://res.cloudinary.com/rpashev/image/upload/v1643800566/journal-app/press1_banzuf.png"
-          alt="promotion 1"
-        />
-      </div>
       <div class="landing__promotion-item">
         <img
           src="https://res.cloudinary.com/rpashev/image/upload/v1643800566/journal-app/press2_s00hcv.png"
@@ -39,30 +35,42 @@
 <style scoped>
 .landing__promotion {
   width: 90%;
+  margin-top: -5rem;
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  color: #8e8e93;
+  margin-bottom: 1.5rem;
+}
+
+.heading::before,
+.heading::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #8e8e93;
+  opacity: 0.35;
 }
 
 .landing__promotion-items {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
 }
 
 .landing__promotion-item {
   display: flex;
   align-items: flex-start;
-  width: 10rem;
-  height: 5rem;
+  height: 3rem;
 }
 
 img {
-  width: 100%;
-}
-
-h3 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #8e8e93;
+  height: 100%;
 }
 </style>

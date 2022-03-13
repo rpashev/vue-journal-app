@@ -1,14 +1,10 @@
 <template>
   <div class="landing__prompt">
-    <h1>What do you want to write about?</h1>
+    <h1>Limitless options</h1>
     <p>
-      Whether you’re looking for a tool to record your daily emotions and
-      activities in a reflective journal, keep track of milestones in a food
-      journal, or even record your dreams in a dream
-      journal, we've got you covered. We give you all the tools you need to
-      focus on the ideas you want to preserve, rather than the process of
-      writing itself. 
-      <!-- <br><br> Check out the writing resources below to learn more about journaling and inspire yourself! -->
+      You are the full master of your journal - whether you want to keep a dream
+      journal, a school journal or just a general one, you are free to create
+      unlimited amount of journals on any topic you can think of.
     </p>
     <base-button link to="/sign-up">Get Started</base-button>
   </div>
