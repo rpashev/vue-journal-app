@@ -36,6 +36,7 @@
 .landing__promotion {
   width: 90%;
   margin-top: -5rem;
+  max-width: 70rem;
 }
 
 .heading {
@@ -53,15 +54,16 @@
   height: 2px;
   width: 100%;
   background-color: #8e8e93;
-  opacity: 0.35;
+  opacity: 0.25;
 }
 
 .landing__promotion-items {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 2.5rem;
   flex-wrap: wrap;
+  gap: 4rem;
+  align-content: center;
 }
 
 .landing__promotion-item {

@@ -63,6 +63,7 @@
 h1 {
   text-align: center;
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 h2 {

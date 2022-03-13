@@ -25,7 +25,7 @@ export default {
 
     const styleBackground = computed(() => {
       return {
-        background: `url(${props.image}) center/cover no-repeat`,
+        background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${props.image}) center/cover no-repeat`,
         "margin-top": store.getters.token ? "0" : "2rem",
       };
     });
@@ -45,6 +45,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
   margin-bottom: 1rem;
 }
 .title {

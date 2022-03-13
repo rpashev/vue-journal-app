@@ -21,40 +21,52 @@
         </p>
         <ol>
           <li>
-            <strong>To make sense of things that happened.</strong> What you
-            write should sound as if you are describing the details to someone
-            who wasn't there. Be as descriptive as possible. Just the act of
-            writing down the details of what happened may give you perspective
-            that you may not have otherwise considered had you just continued to
-            think about it.
+            <p>
+              <strong>To make sense of things that happened.</strong> What you
+              write should sound as if you are describing the details to someone
+              who wasn't there. Be as descriptive as possible. Just the act of
+              writing down the details of what happened may give you perspective
+              that you may not have otherwise considered had you just continued
+              to think about it.
+            </p>
           </li>
           <li>
-            <strong>To speculate as to why something is the way it is.</strong>
-            Your views can come from your own common sense, or from something
-            you have heard at a lecture or read in a book. Either way,
-            speculating why something is the way it is can be a very useful
-            exercise in reasoning.
+            <p>
+              <strong
+                >To speculate as to why something is the way it is.</strong
+              >
+              Your views can come from your own common sense, or from something
+              you have heard at a lecture or read in a book. Either way,
+              speculating why something is the way it is can be a very useful
+              exercise in reasoning.
+            </p>
           </li>
           <li>
-            <strong
-              >To align future actions with your reflected values and
-              experiences.</strong
-            >
-            After positing your interpretation, continue to observe the subject
-            of your speculation to decide whether you want to stick to your
-            original views, or make changes. That is one of the great things
-            about an online journal--you can make changes to your entries at any
-            time.
+            <p>
+              <strong
+                >To align future actions with your reflected values and
+                experiences.</strong
+              >
+              After positing your interpretation, continue to observe the
+              subject of your speculation to decide whether you want to stick to
+              your original views, or make changes. That is one of the great
+              things about an online journal--you can make changes to your
+              entries at any time.
+            </p>
           </li>
           <li>
-            <strong>To get thoughts and ideas out of your head.</strong> Writing
-            down your thoughts can help relieve pressure or help resolve
-            problems. It will also help you focus the task at hand.
+            <p>
+              <strong>To get thoughts and ideas out of your head.</strong>
+              Writing down your thoughts can help relieve pressure or help
+              resolve problems. It will also help you focus the task at hand.
+            </p>
           </li>
           <li>
-            <strong>To share your thoughts and ideas with others.</strong>
-            Getting opinions from others about what you wrote can help you
-            clarify your feelings for a deeper understanding of yourself.
+            <p>
+              <strong>To share your thoughts and ideas with others.</strong>
+              Getting opinions from others about what you wrote can help you
+              clarify your feelings for a deeper understanding of yourself.
+            </p>
           </li>
         </ol>
         <h2>10 Thoughtful and Reflective Journal Prompts</h2>
@@ -208,6 +220,11 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 .reflective-journal-page__article {
   width: 55%;
@@ -219,22 +236,27 @@ export default {
 .reflective-journal-page__resources {
   width: 25%;
 }
-ol,
-ul {
+ol {
   padding-left: 0;
   width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 li {
-  margin-bottom: 1.5rem;
   color: #59595e;
 }
 p {
   width: 85%;
 }
+p:not(last-of-type) {
+  margin-bottom: 1rem;
+}
 h2 {
   align-self: left;
   width: 85%;
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .source {
   margin-top: 2rem;

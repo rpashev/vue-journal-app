@@ -72,7 +72,6 @@ h2 {
 
 h1 {
   font-weight: 400;
-  text-transform: uppercase;
   font-size: 1.8rem;
 }
 

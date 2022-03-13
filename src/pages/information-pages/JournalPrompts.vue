@@ -119,6 +119,11 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 .prompts-page__article {
   width: 55%;
@@ -141,10 +146,14 @@ li {
 p {
   width: 85%;
 }
+p:not(last-of-type) {
+  margin-bottom: 1rem;
+}
 h2 {
   align-self: left;
   width: 85%;
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .source {
   margin-top: 2rem;

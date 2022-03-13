@@ -125,7 +125,7 @@
 
 <script>
 import WritingResources from "../../components/journal/WritingResources.vue";
-import IntroInfo from "../../components/info-pages-components/IntroInfo.vue"
+import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 
 export default {
   components: { WritingResources, IntroInfo },
@@ -137,6 +137,11 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 .types-page__article {
   width: 55%;
@@ -152,6 +157,10 @@ ul {
 }
 li {
   margin-bottom: 1.5rem;
+}
+
+h3 {
+  margin-bottom: 0.3rem;
 }
 
 .types-page__article > p {
@@ -170,11 +179,19 @@ a h3:hover {
 span a,
 p a {
   font-size: 0.9rem;
-  text-align: right;
-  transition: font-size 0.2s ease-out;
+  text-align: left;
+  transition: all 0.2s ease-out;
+  display: block;
+}
+span a {
+  margin-top: -0.5rem;
+}
+p:not(last-of-type) {
+  margin-bottom: 1rem;
 }
 span a:hover {
-  font-size: 0.95rem;
+  transform: translateX(3px);
+  /* color: red; */
 }
 
 @media (max-width: 1024px) {

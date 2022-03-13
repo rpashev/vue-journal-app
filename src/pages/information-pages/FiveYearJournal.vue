@@ -87,6 +87,11 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 .five-year-journal-page__article {
   width: 55%;
@@ -100,20 +105,25 @@ export default {
 }
 ol,
 ul {
-  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 85%;
 }
 li {
-  margin-bottom: 1.5rem;
   color: #59595e;
 }
 p {
   width: 85%;
 }
+p:not(last-of-type) {
+  margin-bottom: 1rem;
+}
 h2 {
   align-self: left;
   width: 85%;
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .source {
   margin-top: 2rem;

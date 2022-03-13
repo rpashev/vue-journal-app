@@ -72,6 +72,15 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+h3 {
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
 }
 .definition-page__article {
   width: 55%;
@@ -82,6 +91,9 @@ export default {
 }
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 ul a {
   text-decoration: none;
@@ -95,6 +107,9 @@ ul a:hover {
 }
 p {
   width: 80%;
+}
+p:not(last-of-type) {
+  margin-bottom: 1rem;
 }
 .definition-page__resources {
   width: 25%;

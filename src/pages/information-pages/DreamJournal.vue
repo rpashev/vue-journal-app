@@ -177,6 +177,11 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 .dream-journal-page__article {
   width: 55%;
@@ -191,18 +196,27 @@ export default {
 ol {
   padding-left: 0;
   width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 li {
-  margin-bottom: 1.5rem;
   color: #59595e;
 }
 h2 {
   align-self: left;
   width: 85%;
   margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-bottom: 0.25rem;
 }
 p {
   width: 85%;
+}
+p:not(last-of-type) {
+  margin-bottom: 1rem;
 }
 .source {
   margin-top: 2rem;

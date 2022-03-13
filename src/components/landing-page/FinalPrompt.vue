@@ -19,6 +19,7 @@ h1 {
   color: #f0f0f0;
   margin-bottom: 4rem;
   text-align: center;
+  text-transform: uppercase;
 }
 
 a {
@@ -31,7 +32,7 @@ a {
   .final-prompt {
     padding: 2rem;
   }
-  
+
   h1 {
     font-size: 1.5rem;
   }

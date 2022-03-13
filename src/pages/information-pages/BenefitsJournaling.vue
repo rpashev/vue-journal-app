@@ -104,6 +104,7 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 0 0 2rem 2rem;
+  margin-top: 2.5rem;
 }
 .benefits-page__article {
   width: 55%;
@@ -112,15 +113,25 @@ export default {
   align-items: center;
   min-width: 30rem;
 }
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
 ol {
   padding-left: 0;
   width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 .benefits-page__article > p {
   width: 85%;
 }
 .benefits-page__resources {
   width: 25%;
+}
+p:not(last-of-type) {
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 1024px) {
