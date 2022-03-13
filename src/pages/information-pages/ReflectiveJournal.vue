@@ -3,6 +3,7 @@
     <intro-info
       image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/reflective_juhrvt_w3v7hf.webp"
       title="Reflective journal: reasons to lead a reflective journal and useful journal prompts."
+      opacity="0.4"
     />
     <div class="reflective-journal-page-content">
       <div class="reflective-journal-page__article">

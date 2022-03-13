@@ -115,12 +115,10 @@ export default {
       try {
         await entryService.deleteEntry(props.journalID, entryIdToDelete.value);
         context.emit("deleted-entry");
-        
       } catch (err) {
         errorMessage.value =
           err.response?.data?.message ||
           "Could not delete entry! Please try again!";
-
       } finally {
         showDialog.value = false;
         isLoading.value = false;
@@ -158,7 +156,7 @@ export default {
 .entries-list__item,
 .entries-list__title {
   display: grid;
-  grid-template-columns: 4fr 2fr 2fr;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: center;
 }
 .entry__intro {
@@ -188,20 +186,16 @@ export default {
   align-self: flex-start;
 }
 .entry__actions {
-  display: flex;
-  /* margin: 0 auto; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 }
 
 .entry__actions button,
 .entry__actions a {
-  height: auto;
-  text-align: center;
-  padding: 0.4rem 0.75rem;
-  margin: 0 0.5rem;
+  padding: 0.4rem 1.2rem !important;
 }
-#entry__actions-view {
-  margin-left: 0rem;
-}
+
 .entry-list__item-title:hover {
   cursor: pointer;
   color: black;
@@ -221,10 +215,13 @@ hr {
   display: none;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 56.25em) {
   .entries-list__container {
-    width: 100%;
+    width: 90%;
   }
+}
+
+@media (max-width: 40rem) {
   .entries-list {
     padding: 0 0.8rem;
   }

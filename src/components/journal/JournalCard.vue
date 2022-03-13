@@ -45,7 +45,7 @@ export default {
 }
 
 .journals__list-item:hover {
-  transform: scale(1.01);
+  transform: scale(1.03) translateY(-4px);
   cursor: pointer;
 }
 
@@ -57,6 +57,7 @@ export default {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   height: 80%;
+  overflow: hidden;
 }
 
 .actions {

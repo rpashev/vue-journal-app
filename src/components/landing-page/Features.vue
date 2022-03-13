@@ -69,7 +69,7 @@ export default {
 .features {
   display: flex;
   flex-flow: wrap;
-  gap: 4rem;
+  gap: 3rem;
   justify-content: center;
   align-items: stretch;
   width: 90%;
@@ -86,7 +86,7 @@ export default {
 
 h2 {
   text-align: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 p {

@@ -38,7 +38,7 @@
         </li>
       </ul>
     </div>
-    <p>Copyright Journal App Inc. 2021</p>
+    <p>&copy; Copyright Journal App Inc. 2021</p>
   </footer>
 </template>
 
@@ -99,7 +99,7 @@ a:hover {
 }
 p {
   position: absolute;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   bottom: 0.5rem;
   color: #fff;
   opacity: 0.4;

@@ -3,6 +3,7 @@
     <intro-info
       image="https://res.cloudinary.com/rpashev/image/upload/v1643818248/journal-app/five-year_gfy3g1_q7yfqc.webp"
       title="Five year journal - set your goals for the next five years. Rediscover your purpose!"
+      opacity="0.7"
     />
     <div class="five-year-journal-page-content">
       <div class="five-year-journal-page__article">

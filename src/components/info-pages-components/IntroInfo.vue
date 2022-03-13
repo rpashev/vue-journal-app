@@ -15,7 +15,7 @@ import { computed } from "@vue/reactivity";
 import { useStore } from "vuex";
 
 export default {
-  props: ["title", "image"],
+  props: ["title", "image", "opacity"],
   setup(props) {
     const store = useStore();
 
@@ -25,7 +25,7 @@ export default {
 
     const styleBackground = computed(() => {
       return {
-        background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${props.image}) center/cover no-repeat`,
+        background: `linear-gradient(rgba(0,0,0,${props.opacity}), rgba(0,0,0,${props.opacity})), url(${props.image}) center/cover no-repeat`,
         "margin-top": store.getters.token ? "0" : "2rem",
       };
     });
@@ -50,9 +50,8 @@ export default {
 }
 .title {
   color: #fff;
-  width: 55%;
+  max-width: 50rem;
   font-weight: 300;
-  margin-bottom: 0.5rem 0;
   font-family: "Open Sans";
   font-size: 2.7rem;
   text-align: center;
@@ -61,13 +60,12 @@ export default {
 @media (max-width: 1024px) {
   .title {
     font-size: 2.2rem;
-    width: 90%;
+    width: 95%;
   }
 }
 @media (max-width: 40rem) {
   .title {
     font-size: 1.8rem;
-    width: 90%;
   }
 }
 </style>

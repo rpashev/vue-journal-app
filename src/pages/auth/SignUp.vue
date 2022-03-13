@@ -268,7 +268,7 @@ label {
   font-size: 0.8rem;
   font-weight: normal;
   position: relative;
-  top: -0.1rem;
+  top: -0.2rem;
 }
 #chekboxes input {
   width: auto;

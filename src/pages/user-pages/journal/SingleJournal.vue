@@ -110,7 +110,7 @@ export default {
         isLoading.value = false;
       }
     };
-    
+
     loadJournal();
 
     const noEntries = computed(() => {
@@ -238,10 +238,12 @@ export default {
   margin-bottom: 2rem;
 }
 .actions-main {
-  width: 70%;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 2rem;
+  gap: 5rem;
+  width: 95%;
 }
 .actions {
   width: 100%;
@@ -252,15 +254,14 @@ export default {
 }
 .btn-entry,
 .btn-back {
-  width: 8rem;
-  min-width: 8rem;
-  font-size: 1.3rem;
+  min-width: 10rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 
 h1 {
   margin-bottom: 2rem;
-  text-shadow: 1px 1px rgb(218, 214, 214);
+  text-transform: uppercase;
 }
 p,
 h2 {
@@ -283,16 +284,18 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 75em) {
   .single-journal__page {
     display: block;
-    padding: 0;
+    padding-right: 0;
   }
   .single-journal__page-entries {
     width: 100%;
   }
   .actions-main {
-    width: 85%;
+    gap: 1rem;
   }
 }
+
+
 </style>

@@ -3,6 +3,7 @@
     <intro-info
       image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/travel_p9zxai_txmzww.webp"
       title="Travel journal: record your travel experiences to get the most from your travels."
+      opacity="0.45"
     />
     <div class="travel-journal-page-content">
       <div class="travel-journal-page__article">

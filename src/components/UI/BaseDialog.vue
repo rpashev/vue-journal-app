@@ -31,7 +31,6 @@ export default {
   emits: ["remove", "close"],
 
   setup(props, context) {
-
     function tryClose() {
       if (props.fixed) {
         return;
@@ -43,7 +42,7 @@ export default {
     function confirmDelete() {
       context.emit("remove");
     }
-    
+
     return {
       tryClose,
       confirmDelete,
@@ -69,11 +68,9 @@ dialog {
   left: 10%;
   width: 80%;
   z-index: 100;
-  border-radius: 12px;
+  border-radius: 4px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 0;
-  margin: 0;
   overflow: hidden;
   background-color: #f0f0f0;
 }
@@ -89,6 +86,8 @@ header h3 {
   margin: 0;
   color: #f0f0f0;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 section {
@@ -99,10 +98,8 @@ menu {
   padding: 1rem;
   display: flex;
   justify-content: center;
-  margin: 0;
-}
-menu button {
-  margin: 0 1.5rem;
+  margin-top: 2rem;
+  gap: 1.5rem;
 }
 
 .dialog-enter-from,

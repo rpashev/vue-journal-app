@@ -2,7 +2,6 @@
   <div class="entries__filters">
     <div class="form-control">
       <div class="time__filter">
-        <!-- <label for="timeFilter">Since</label> -->
         <select name="timeFilter" id="timeFilter" v-model="timeQuery">
           <option value="alltime">All Time</option>
           <option value="today">Today</option>
@@ -16,7 +15,6 @@
     </div>
     <div class="form-control">
       <div class="per__filter">
-        <!-- <label for="timeFilter">Since</label> -->
         <select name="per" id="per" v-model="per">
           <option value="5">Show 5</option>
           <option value="10">Show 10</option>
@@ -27,7 +25,6 @@
     </div>
     <div class="form-control search-form-control">
       <div class="search">
-        <div class="search-icon"></div>
         <input
           v-model="contentQuery"
           type="search"
@@ -35,8 +32,8 @@
           placeholder="Search this journal..."
           name="search"
         />
+        <div class="search-icon"></div>
       </div>
-      <!-- <div>{{ filteredEntries }}</div> -->
     </div>
     <date-modal
       @custom-dates="getDates"
@@ -93,33 +90,26 @@ export default {
 
 <style scoped>
 .entries__filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-  padding-left: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 8rem 1fr;
+  gap: 1.5rem;
+  width: 75%;
 }
-.time__filter,
-.search,
-.per__filter {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  flex-shrink: 2;
-}
-.search {
-  flex-shrink: 5;
-  position: relative;
-}
+
 .form-control {
-  height: 3rem;
-  margin: 0 1rem;
+  height: 2.5rem;
+  width: 100%;
+}
+
+.form-control > * {
+  height: 100%;
 }
 input,
 select {
-  width: 10rem;
+  width: 100%;
+  height: 100%;
   padding: 0.4rem;
   outline: none;
   font: inherit;
@@ -127,28 +117,50 @@ select {
   background-color: transparent;
   font-size: 0.8rem;
 }
-input {
-  width: 15rem;
+
+input:focus {
+  background-color: #e9e9e98a;
 }
-.per__filter select {
-  width: 7rem;
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  margin-right: -1.5rem;
+  padding-right: 2rem;
+  padding-left: 0.6rem;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 
 .search-icon {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/search-icon_uqpvfe.png") center/contain
-    no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/search-icon_uqpvfe.png")
+    center/contain no-repeat;
   width: 1rem;
-  height: 1.5rem;
-  position: absolute;
-  right: 0.3rem;
-  bottom: 0.15rem;
+  height: 1rem;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 56.25em) {
   .entries__filters {
-    width: 100%;
-    padding: 0;
-    flex-shrink: 4;
+    width: 90%;
+  }
+}
+
+@media (max-width: 40em) {
+  .entries__filters {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .search-form-control {
+    grid-column: 1/-1;
   }
 }
 </style>

@@ -31,7 +31,6 @@ export default {
   emits: ["close"],
 
   setup(props, context) {
-    
     function tryClose() {
       context.emit("close");
     }
@@ -44,29 +43,6 @@ export default {
 </script>
 
 <style scoped>
-.logo {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/pro1_epbkw1.png") center/contain no-repeat;
-  height: 5rem;
-  margin: 1.5rem 0;
-}
-ul {
-  text-align: center;
-  list-style: none;
-  padding-left: 0;
-}
-ul li {
-  margin: 0.5rem 0;
-  /* font-size: 0.8rem; */
-}
-ul > li:first-of-type {
-  margin-top: 0rem;
-}
-p {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-style: italic;
-  font-weight: bold;
-}
 .backdrop {
   position: fixed;
   top: 0;
@@ -82,10 +58,8 @@ dialog {
   top: 15vh;
   margin: 0 auto;
   z-index: 100;
-  border-radius: 12px;
+  border-radius: 4px;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 0;
   overflow: hidden;
   background-color: #f0f0f0;
 }
@@ -97,14 +71,35 @@ dialog {
 header {
   background-color: rgb(139, 14, 14);
   color: #f0f0f0;
-  width: 100%;
   padding: 1rem;
 }
 
 header h3 {
-  margin: 0;
   color: #f0f0f0;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.logo {
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/pro1_epbkw1.png")
+    center/contain no-repeat;
+  height: 5rem;
+  margin: 1.5rem 0;
+}
+ul {
+  text-align: center;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+p {
+  text-align: center;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
 }
 
 menu {

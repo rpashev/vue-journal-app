@@ -2,6 +2,7 @@
   <intro-info
     image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/seo-background_jr9i6c_tms19p.webp"
     title="Let's write!"
+    opacity="0.4"
   />
   <div class="home-user__page">
     <p class="error-message submit-error" v-if="errorMessage">
@@ -77,7 +78,7 @@ export default {
 <style scoped>
 .home-user__page {
   width: 100%;
-  padding: 0 4rem 2rem 4rem;
+  padding: 1rem 4rem 2rem 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -118,7 +119,7 @@ export default {
 }
 h1 {
   margin-bottom: 2rem;
-  text-shadow: 1px 1px rgb(218, 214, 214);
+  text-transform: uppercase;
 }
 
 @media (max-width: 1024px) {

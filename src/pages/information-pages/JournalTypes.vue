@@ -3,6 +3,7 @@
     <intro-info
       image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/seo-background_jr9i6c_tms19p.webp"
       title="What types of journals exist and which one is suitable for you?"
+      opacity="0.3"
     />
     <div class="types-page-content">
       <div class="types-page__article">

@@ -71,7 +71,7 @@ button:active {
 .forbidden,
 .forbidden:hover {
   cursor: not-allowed;
-  background-color: #3b82f6;
+  background-color: #a1a1a1;
   border: none;
   color: #f0f0f0;
 }

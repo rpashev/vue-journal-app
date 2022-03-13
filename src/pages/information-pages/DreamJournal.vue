@@ -3,6 +3,7 @@
     <intro-info
       image="https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/dream-journal_ggpe1b_vnv9eh.webp"
       title="Dream journal: why keep a dream journal - tips on starting"
+      opacity="0.3"
     />
     <div class="dream-journal-page-content">
       <div class="dream-journal-page__article">
