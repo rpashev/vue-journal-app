@@ -49,7 +49,7 @@ import { computed } from "@vue/reactivity";
 export default {
   setup() {
     const store = useStore();
-    
+
     const isLoggedIn = computed(() => {
       return !!store.getters.token;
     });
@@ -70,8 +70,9 @@ footer {
   min-width: 320px;
   background: #2f3940;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 1rem;
 }
 .footer__info {
   display: flex;
@@ -107,7 +108,8 @@ p {
 
 @media (max-width: 40rem) {
   footer {
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2rem;
   }
   .footer__info {
     display: block;

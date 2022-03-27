@@ -135,7 +135,7 @@ button {
   margin-top: auto;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .features {
     flex-direction: column;
     align-items: center;

@@ -136,18 +136,21 @@ export default {
   justify-content: center;
 }
 form {
-  width: 55%;
+  width: 30rem;
+  max-width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
 }
 .form-control {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0;
+  gap: 0.25rem;
   font: inherit;
+  width: 100%;
 }
 input,
 textarea {
@@ -160,20 +163,18 @@ textarea:focus {
   outline: none;
 }
 #journalName {
-  height: 3rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   outline: none;
   color: #59595e;
 }
-h2 {
-  margin-top: 0;
-}
+
 .actions {
   display: flex;
   width: 100%;
   justify-content: center;
+  gap: 1.5rem;
 }
 button,
 a {
@@ -181,15 +182,13 @@ a {
   margin-bottom: 2rem;
   min-width: 6rem;
 }
-#entry__actions-back {
-  margin-left: 1rem;
-}
+
 textarea {
   font-size: 1.1rem;
   width: 100%;
   color: #59595e;
   outline: none;
-  padding: 0.25rem;
+  padding: 0.5rem;
   resize: none;
 }
 .error__container {
@@ -215,15 +214,22 @@ textarea {
   text-align: center;
 }
 
-@media (max-width: 1024px) {
-  form {
-    width: 90%;
+@media (max-width: 40em) {
+  .create-journal__page {
+    padding: 3rem 1.5rem;
   }
-}
-
-@media (max-width: 40rem) {
   form {
     width: 100%;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  #journalName {
+    font-size: 1rem;
+  }
+  button,
+  a {
+    width: 50%;
   }
 }
 </style>

@@ -6,7 +6,7 @@
     </p>
     <div v-if="!isLoading && entry" class="entry-container">
       <h2>{{ entry.title }}</h2>
-      <h3>{{ readableDate(entry.date) }}</h3>
+      <h3>Entry date: {{ readableDate(entry.date) }}</h3>
       <div v-html="entry.body" class="entry__body"></div>
 
       <div class="entry__actions">
@@ -90,7 +90,7 @@ export default {
     const deleteEntry = async () => {
       isLoading.value = true;
       errorMessage.value = null;
-      
+
       try {
         await entryService.deleteEntry(journalID, entryID);
         toggleShowDialog();
@@ -141,10 +141,17 @@ h2 {
   width: 100%;
   overflow-wrap: break-word;
   text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+h3 {
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
 .entry__body {
   width: 100%;
+  margin-top: 3rem;
 }
 .entry__body >>> * {
   background-color: transparent !important;
@@ -154,16 +161,13 @@ h2 {
   margin-top: 4rem;
   display: flex;
   justify-content: center;
+  gap: 1rem;
 }
 .entry__actions a,
 .entry__actions button {
   min-width: 6rem;
 }
 
-.entry__actions a:first-of-type,
-.entry__actions button:first-of-type {
-  margin-right: 1rem;
-}
 #entry__actions-back {
   margin-top: 2rem;
   min-width: 6rem;
@@ -199,14 +203,24 @@ h2 {
   text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .entry-container {
     width: 80%;
   }
 }
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
+  .single-entry__page {
+    padding: 3rem 1.25rem;
+  }
   .entry-container {
-    width: 90%;
+    width: 100%;
+  }
+  .entry__actions a,
+  .entry__actions button {
+    width: 50%;
+  }
+  #entry__actions-back {
+    width: 50%;
   }
 }
 </style>

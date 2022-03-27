@@ -157,7 +157,7 @@ export default {
 .entries-list__title {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  align-items: center;
+  align-items: start;
 }
 .entry__intro {
   overflow: hidden;

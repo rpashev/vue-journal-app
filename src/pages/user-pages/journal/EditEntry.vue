@@ -4,7 +4,7 @@
     <p class="error-message submit-error" v-if="errorMessage && !body">
       {{ errorMessage }}
     </p>
-    <form v-if="!isLoading && body" @submit.prevent="submitHandler">
+    <form v-if="!isLoading && !errorMessage" @submit.prevent="submitHandler">
       <div class="entry__container">
         <div class="entry__title">
           <label for="entry-title">Entry title</label>
@@ -176,8 +176,17 @@ h2 {
 }
 .entry__container {
   display: flex;
+  align-items: stretch;
   width: 100%;
-  justify-content: space-around;
+  gap: 3rem;
+  margin-bottom: 1rem;
+}
+.entry__title {
+  width: 50%;
+}
+
+.entry__date {
+  flex: 1;
 }
 .entry__body {
   width: 100%;
@@ -185,14 +194,17 @@ h2 {
 }
 .entry__container input {
   width: 100%;
-  margin-bottom: 1rem;
   margin-top: 0.25rem;
   border: 1.5px solid rgb(173, 169, 169);
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
+  height: 40px;
 }
 .entry-editor__content {
   max-width: 60rem;
   width: 100% !important;
+}
+.entry-editor__content:focus {
+  border-color: #3d008d;
 }
 input:focus {
   border-color: #3d008d;
@@ -206,10 +218,11 @@ input[disabled] {
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-top: 2rem;
+  gap: 1.5rem;
 }
 button,
 a {
-  margin-top: 2rem;
   min-width: 6rem;
 }
 .error-message {
@@ -227,12 +240,7 @@ h2 {
   text-align: center;
   font-size: 1.2rem;
 }
-button {
-  margin-top: 2rem;
-}
-.btn-back {
-  margin-left: 1rem;
-}
+
 .ql-align-center {
   text-align: center;
 }
@@ -246,18 +254,26 @@ button {
   text-align: justify;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   form {
     width: 90%;
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   form {
     width: 100%;
   }
   .entry__container {
     flex-direction: column;
+    gap: 1rem;
+  }
+  button,
+  a {
+    width: 50%;
+  }
+  .entry__title {
+    width: 100%;
   }
 }
 </style>
