@@ -1,10 +1,15 @@
 <template>
-  <div class="journals__list-item" @click="openJournal">
-    <div class="card">
-      <h2>{{ journalName }}</h2>
+  <div class="card" @click="openJournal">
+    <div class="card__side front">
+      <div class="img"></div>
+      <h2>
+        <span class="title-span">{{ journalName }}</span>
+      </h2>
       <p class="entries-number">
         You have <span>{{ entriesAmount }}</span> entries in this journal.
       </p>
+    </div>
+    <div class="card__side back">
       <div class="actions">
         <base-button mode="dark" link :to="`/journals/${journalID}`" @click.stop
           >View Entries</base-button
@@ -36,34 +41,52 @@ export default {
 </script>
 
 <style scoped>
-.journals__list-item {
-  width: 40%;
-  max-width: 300px;
-  height: 30rem;
-  min-width: 300px;
-  transition: all 0.2s ease-out;
-}
-
-.journals__list-item:hover {
-  transform: scale(1.03) translateY(-4px);
-  cursor: pointer;
-}
-
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: 26rem;
+  max-width: 300px;
+  min-width: 300px;
   align-items: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  height: 80%;
+  cursor: pointer;
+  perspective: 1500px;
+  position: relative;
+}
+
+.card__side {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
   overflow: hidden;
+  transition: all 0.8s ease;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.card:hover .front {
+  transform: rotateY(-180deg);
+}
+.card:hover .back {
+  transform: rotateY(0);
+}
+
+.img {
+  background: linear-gradient(rgba(59, 130, 246, 0.1), rgba(47, 57, 64, 0.1)),
+    url("../../assets/images/reflective.jpg") top 30% center / cover no-repeat;
+  width: 100%;
+  height: 13rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.back {
+  background: linear-gradient(#3b82f6, #2f3940);
+  transform: rotateY(180deg);
 }
 
 .actions {
   display: flex;
   justify-content: space-between;
-  margin: 2rem;
 }
 
 .actions a {
@@ -74,20 +97,32 @@ export default {
 }
 
 h2 {
-  text-align: center;
+  text-align: right;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 400;
-  width: 100%;
-  padding: 1rem;
+  font-weight: 300;
   color: #f0f0f0;
-  background-color: #2f3940;
+  position: absolute;
+  top: 7rem;
+  right: 2rem;
+  font-size: 1.6rem;
+  width: 75%;
+}
+
+.title-span {
+  background-image: linear-gradient(
+    rgba(59, 130, 246, 0.9),
+    rgba(85, 122, 148, 0.9)
+  );
+  padding: 0.4rem 0.6rem;
+  box-decoration-break: clone;
 }
 
 .entries-number {
   text-align: center;
-  width: 60%;
   opacity: 0.8;
+  margin: 4.5rem auto 0 auto;
+  max-width: 10rem;
 }
 
 .entries-number span {
