@@ -11,11 +11,15 @@
     </div>
     <div class="card__side back">
       <div class="actions">
-        <base-button mode="dark" link :to="`/journals/${journalID}`" @click.stop
-          >View Entries</base-button
-        >
-        <base-button link :to="`/journals/${journalID}/new-entry`" @click.stop
+        <base-button
+          mode="light"
+          link
+          :to="`/journals/${journalID}/new-entry`"
+          @click.stop
           >New Entry</base-button
+        >
+        <base-button link :to="`/journals/${journalID}`" @click.stop
+          >View Entries</base-button
         >
       </div>
     </div>
@@ -43,8 +47,8 @@ export default {
 <style scoped>
 .card {
   height: 26rem;
-  max-width: 300px;
-  min-width: 300px;
+  max-width: 310px;
+  min-width: 310px;
   align-items: center;
   cursor: pointer;
   perspective: 1500px;
@@ -76,24 +80,29 @@ export default {
     url("../../assets/images/reflective.jpg") top 30% center / cover no-repeat;
   width: 100%;
   height: 13rem;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
 }
 
 .back {
   background: linear-gradient(#3b82f6, #2f3940);
   transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .actions {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .actions a {
-  width: 45%;
   text-align: center;
+  width: 12rem;
   padding: 0.4rem;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 h2 {
@@ -106,7 +115,7 @@ h2 {
   top: 7rem;
   right: 2rem;
   font-size: 1.6rem;
-  width: 75%;
+  width: 70%;
 }
 
 .title-span {
@@ -121,11 +130,35 @@ h2 {
 .entries-number {
   text-align: center;
   opacity: 0.8;
-  margin: 4.5rem auto 0 auto;
+  margin: 5rem auto 0 auto;
   max-width: 10rem;
 }
 
 .entries-number span {
   font-weight: bold;
+}
+
+@media (hover: none), (max-width: 56.25em) {
+  .card {
+    height: auto;
+    background: linear-gradient(#3b82f6, #2f3940);
+    padding-bottom: 1.5rem;
+    border-radius: 3px;
+  }
+  .card__side {
+    position: static;
+    height: auto;
+    transform: rotateY(0);
+    box-shadow: none;
+    background: none;
+  }
+  .entries-number {
+    color: #f0f0f0;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    top: 6.5rem;
+  }
 }
 </style>

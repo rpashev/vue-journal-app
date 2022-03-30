@@ -23,6 +23,9 @@
               v$.journalName.$errors.length && v$.journalName.$dirty,
           }"
         />
+        <span class="length-note"
+          >The name is required and must be at most 40 characters long.</span
+        >
         <div class="error__container">
           <p class="error-message" v-if="v$.journalName.$error">
             You have to enter a name for the journal!
@@ -68,7 +71,7 @@
 <script>
 import { ref, computed } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
-import { required } from "@vuelidate/validators";
+import { required, maxLength } from "@vuelidate/validators";
 import journalService from "../../../services/journalService";
 import { useRouter } from "vue-router";
 
@@ -84,7 +87,7 @@ export default {
 
     const rules = computed(() => {
       return {
-        journalName: { required },
+        journalName: { required, maxLengthValue: maxLength(40) },
       };
     });
 
@@ -162,6 +165,18 @@ textarea:focus {
   background-color: #faf6ff;
   outline: none;
 }
+
+.length-note {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  width: 100%;
+}
+
+.length-note::before {
+  content: "*";
+  color: red;
+}
+
 #journalName {
   padding: 0.5rem;
   width: 100%;

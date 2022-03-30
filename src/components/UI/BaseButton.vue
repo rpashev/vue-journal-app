@@ -53,7 +53,7 @@ a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: #1d4ed8;
+  background-color: #5797fd;
 }
 
 .alternative {
@@ -84,5 +84,13 @@ button:active {
   color: #f0f0f0;
   background: black;
   border: none;
+}
+
+.light {
+  background: #f0f0f0;
+  color: #2f3940;
+}
+.light:hover {
+  background: #d6d5d5;
 }
 </style>
