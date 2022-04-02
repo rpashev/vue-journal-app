@@ -145,6 +145,9 @@ h2 {
     padding-bottom: 1.5rem;
     border-radius: 3px;
   }
+  .card:hover {
+    transform: none;
+  }
   .card__side {
     position: static;
     height: auto;

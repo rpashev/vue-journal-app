@@ -262,6 +262,7 @@ export default {
 h1 {
   margin-bottom: 2rem;
   text-transform: uppercase;
+  text-align: center;
 }
 p,
 h2 {
@@ -296,6 +297,4 @@ h2 {
     gap: 1rem;
   }
 }
-
-
 </style>

@@ -293,8 +293,8 @@ h1 {
 }
 button {
   margin-top: 0.5rem;
-  width: 40%;
-  max-width: 20rem;
+  width: 100%;
+  max-width: 12rem;
 }
 .error-label {
   color: red;
@@ -334,7 +334,7 @@ button {
     width: 100%;
   }
   button {
-    width: 100%;
+    max-width: none;
   }
 }
 </style>

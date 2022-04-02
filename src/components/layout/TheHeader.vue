@@ -18,20 +18,23 @@
         <li v-if="!isLoggedIn">
           <router-link to="/">Home</router-link>
         </li>
-        <li v-if="!isLoggedIn">
-          <router-link to="/login">Login</router-link>
-        </li>
-        <li v-if="!isLoggedIn">
-          <router-link to="/sign-up">Sign Up</router-link>
-        </li>
         <li v-if="isLoggedIn">
-          <router-link
-            :class="{ user: isLoggedIn }"
-            active-class="active-user"
-            to="/journals"
+          <router-link :class="{ user: isLoggedIn }" to="/journals"
             >My Journals</router-link
           >
         </li>
+        <li>
+          <router-link to="/about" :class="{ user: isLoggedIn }"
+            >About</router-link
+          >
+        </li>
+        <li v-if="!isLoggedIn">
+          <router-link to="/login">Login</router-link>
+        </li>
+        <li v-if="!isLoggedIn" class="cta">
+          <router-link to="/sign-up">Sign Up</router-link>
+        </li>
+
         <li v-if="isLoggedIn">
           <a :class="{ user: isLoggedIn }" @click="logout">Logout</a>
         </li>
@@ -40,7 +43,7 @@
     <mobile-nav v-if="mobileActive" :toggleNav="toggleMobileNav"></mobile-nav>
     <button
       @click="toggleMobileNav"
-      :class="{ white: mobileActive }"
+      :class="{ white: mobileActive || isLoggedIn }"
       class="toggle-button"
     >
       <span class="toggle-button__bar"></span>
@@ -113,7 +116,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-  margin-right: 2rem;
+  margin-right: 4rem;
 }
 
 a {
@@ -121,6 +124,9 @@ a {
   text-decoration: none;
   color: #59595e;
   cursor: pointer;
+  display: block;
+  border-bottom: 2px solid transparent;
+  font-size: 1.1rem;
 }
 
 a:active,
@@ -129,30 +135,56 @@ a.router-link-active {
   border-bottom: 2px solid #03692d;
 }
 
+.cta a {
+  padding: 0.5rem 1.6rem;
+  border: 2px solid #59595e;
+  border-radius: 4px;
+  transition: all 0.25s ease-out;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+.cta a:hover,
+.cta a:active {
+  background-color: #59595e;
+  color: #f0f0f0;
+}
+
 .user {
   color: #f0f0f0;
 }
 
 .user:active,
-.user:hover {
-  border-bottom: 2px solid #f0f0f0;
+.user:hover,
+.user.router-link-active {
+  border-bottom: 2px solid #f0f0f0 !important;
   cursor: pointer;
-}
-
-.active-user {
-  border-bottom: 2px solid #f0f0f0;
 }
 
 .logo__container {
   width: 5rem;
   height: 5rem;
   min-width: 4rem;
-  margin-left: 2rem;
+  margin-left: 4rem;
+}
+
+.logged-logo {
+  width: 6rem;
+  height: 6rem;
 }
 
 .logo__container a {
   width: 100%;
   height: 100%;
+  border: none;
+}
+
+.logo__container a:active,
+.logo__container a.router-link-active {
+  border-bottom: none;
 }
 
 .logo {
@@ -201,6 +233,10 @@ a.router-link-active {
 @media (max-width: 40em) {
   .main-nav {
     display: none;
+  }
+
+  .logo__container {
+    margin-left: 1.5rem;
   }
 
   .toggle-button {

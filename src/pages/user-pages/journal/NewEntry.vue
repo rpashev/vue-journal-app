@@ -146,15 +146,27 @@ h2 {
 }
 .entry__container {
   display: flex;
+  align-items: stretch;
   width: 100%;
-  justify-content: space-around;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.entry__title {
+  width: 50%;
+}
+
+.entry__date {
+  flex: 1;
+}
+.entry__body {
+  width: 100%;
 }
 .entry__container input {
   width: 100%;
-  margin-bottom: 1rem;
   margin-top: 0.25rem;
   border: 1.5px solid rgb(173, 169, 169);
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
+  height: 40px;
 }
 .entry-editor__content {
   max-width: 60rem;
@@ -179,6 +191,7 @@ input:focus {
 h2 {
   text-align: center;
   font-size: 1.2rem;
+  margin-bottom: 0.75rem;
 }
 .actions {
   display: flex;

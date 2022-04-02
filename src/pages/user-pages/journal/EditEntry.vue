@@ -178,7 +178,7 @@ h2 {
   display: flex;
   align-items: stretch;
   width: 100%;
-  gap: 3rem;
+  gap: 2rem;
   margin-bottom: 1rem;
 }
 .entry__title {

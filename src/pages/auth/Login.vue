@@ -172,8 +172,8 @@ h1 {
 }
 button {
   margin-top: 1.5rem;
-  width: 40%;
-  max-width: 20rem;
+  width: 100%;
+  max-width: 12rem;
 }
 
 .error-label {
@@ -207,7 +207,7 @@ button {
     padding: 1rem 0;
   }
   button {
-    width: 100%;
+    max-width: none;
   }
 }
 </style>

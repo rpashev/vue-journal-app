@@ -2,13 +2,15 @@
   <nav class="mobile-nav">
     <ul>
       <li v-if="!isLoggedIn" @click="toggleNav">
-        <router-link to="/">Home</router-link>
+        <router-link active-class="active-user" to="/">Home</router-link>
       </li>
       <li v-if="!isLoggedIn" @click="toggleNav">
-        <router-link to="/login">Login</router-link>
+        <router-link active-class="active-user" to="/login">Login</router-link>
       </li>
       <li v-if="!isLoggedIn" @click="toggleNav">
-        <router-link to="/sign-up">Sign Up</router-link>
+        <router-link active-class="active-user" to="/sign-up"
+          >Sign Up</router-link
+        >
       </li>
       <li v-if="isLoggedIn" @click="toggleNav">
         <router-link
@@ -17,6 +19,9 @@
           to="/journals"
           >Journals</router-link
         >
+      </li>
+      <li @click="toggleNav">
+        <router-link active-class="active-user" to="/about">About</router-link>
       </li>
       <li v-if="isLoggedIn" @click="toggleNav">
         <a :class="{ user: isLoggedIn }" @click="logout">Logout</a>
@@ -73,6 +78,10 @@ a {
   font-size: 1.9rem;
   color: #f0f0f0;
   text-transform: uppercase;
+}
+
+.active-user {
+  color: rgb(239, 131, 131);
 }
 
 @keyframes slidein {
