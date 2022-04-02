@@ -207,7 +207,7 @@ a {
   margin-left: 1rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   form {
     width: 90%;
   }
@@ -219,6 +219,14 @@ a {
   }
   .entry__container {
     flex-direction: column;
+    gap: 1rem;
+  }
+  button,
+  a {
+    width: 50%;
+  }
+  .entry__title {
+    width: 100%;
   }
 }
 </style>
