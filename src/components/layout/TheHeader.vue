@@ -13,7 +13,7 @@
         ><div class="logo-white"></div
       ></router-link>
     </div>
-    <nav>
+    <nav class="main-nav">
       <ul>
         <li v-if="!isLoggedIn">
           <router-link to="/">Home</router-link>
@@ -29,7 +29,7 @@
             :class="{ user: isLoggedIn }"
             active-class="active-user"
             to="/journals"
-            >Journals</router-link
+            >My Journals</router-link
           >
         </li>
         <li v-if="isLoggedIn">
@@ -37,11 +37,32 @@
         </li>
       </ul>
     </nav>
+    <mobile-nav v-if="mobileActive" :toggleNav="toggleMobileNav"></mobile-nav>
+    <button
+      @click="toggleMobileNav"
+      :class="{ white: mobileActive }"
+      class="toggle-button"
+    >
+      <span class="toggle-button__bar"></span>
+      <span class="toggle-button__bar"></span>
+      <span class="toggle-button__bar"></span>
+    </button>
   </header>
 </template>
 
 <script>
+import MobileNav from "./MobileNav.vue";
 export default {
+  components: {
+    MobileNav,
+  },
+
+  data() {
+    return {
+      mobileActive: false,
+    };
+  },
+
   computed: {
     isLoggedIn() {
       return this.$store.getters.userId;
@@ -58,6 +79,11 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       this.$router.push("/");
+    },
+
+    toggleMobileNav() {
+      this.mobileActive = !this.mobileActive;
+      console.log(this.mobileActive);
     },
   },
 };
@@ -76,12 +102,12 @@ header {
   align-items: center;
 }
 
-nav {
+.main-nav {
   display: flex;
   justify-content: space-between;
 }
 
-ul {
+.main-nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
@@ -150,20 +176,35 @@ a.router-link-active {
   transform: scale(1.02);
 }
 
-@media (max-width: 40rem) {
-  ul {
-    gap: 1.5rem;
-  }
-
-  .logo__container {
-    margin-left: 0.5rem;
-  }
+.toggle-button {
+  display: none;
+  width: 3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 2rem;
+  z-index: 200;
+}
+.toggle-button__bar {
+  width: 100%;
+  height: 0.2rem;
+  background: #2f3940;
+  display: block;
+  margin: 0.6rem 0;
+  transition: all 0.3s ease-out;
 }
 
-@media (max-width: 22rem) {
-  .logged-logo {
-    width: 6rem;
-    height: 6rem;
+.white .toggle-button__bar {
+  background: #f0f0f0;
+}
+
+@media (max-width: 40em) {
+  .main-nav {
+    display: none;
+  }
+
+  .toggle-button {
+    display: block;
   }
 }
 </style>
