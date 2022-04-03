@@ -89,6 +89,15 @@ export default {
       console.log(this.mobileActive);
     },
   },
+  watch: {
+    mobileActive(newVal) {
+      if (newVal === true) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    },
+  },
 };
 </script>
 
