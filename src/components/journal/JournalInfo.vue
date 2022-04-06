@@ -49,7 +49,7 @@ h2 {
   justify-content: space-between;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .journal-info {
     width: 60%;
     margin: 2rem auto;

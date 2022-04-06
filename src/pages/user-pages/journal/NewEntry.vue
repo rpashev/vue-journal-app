@@ -213,7 +213,7 @@ a {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   form {
     width: 100%;
   }

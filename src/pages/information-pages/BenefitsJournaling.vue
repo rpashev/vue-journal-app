@@ -86,40 +86,37 @@
           </li>
         </ol>
       </div>
-      <writing-resources class="benefits-page__resources" />
+      <Resources :info="true" />
     </div>
   </div>
 </template>
 
 <script>
-import WritingResources from "../../components/journal/WritingResources.vue";
+import Resources from "../../components/landing-page/Resources.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 
 export default {
-  components: { WritingResources, IntroInfo },
+  components: { Resources, IntroInfo },
 };
 </script>
 
 <style scoped>
 .benefits-page-content {
   display: flex;
-  justify-content: space-around;
-  padding: 0 0 2rem 2rem;
-  margin-top: 2.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 6rem;
 }
 .benefits-page__article {
-  width: 55%;
+  max-width: 45rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30rem;
+  /* min-width: 30rem; */
 }
-h1 {
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
+
 ol {
-  padding-left: 0;
   width: 85%;
   display: flex;
   flex-direction: column;
@@ -128,32 +125,27 @@ ol {
 .benefits-page__article > p {
   width: 85%;
 }
-.benefits-page__resources {
-  width: 25%;
+
+p {
+  max-width: 40rem;
 }
+
 p:not(last-of-type) {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 75em) {
   .benefits-page-content {
-    padding-left: 0;
-  }
-  .benefits-page__resources {
-    display: none !important;
-  }
-  .benefits-page__article {
-    width: 100%;
-    padding: 0 1rem;
-    min-width: auto;
-  }
-  h1 {
-    text-align: center;
+    padding: 2rem 1.5rem;
   }
 }
-@media (max-width: 40rem) {
-  p {
-    width: 95%;
+
+@media (max-width: 56.25em) {
+  .benefits-page-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
   }
 }
 </style>

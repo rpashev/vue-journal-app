@@ -55,46 +55,42 @@
           </li>
         </ul>
       </div>
-      <writing-resources class="definition-page__resources" />
+      <Resources :info="true" />
     </div>
   </div>
 </template>
 
 <script>
-import WritingResources from "../../components/journal/WritingResources.vue";
+import Resources from "../../components/landing-page/Resources.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 
 export default {
-  components: { WritingResources, IntroInfo },
+  components: { Resources, IntroInfo },
 };
 </script>
 <style scoped>
 .definition-page-content {
   display: flex;
-  justify-content: space-around;
-  padding: 0 0 2rem 2rem;
-  margin-top: 2.5rem;
-}
-h1 {
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-h3 {
-  margin-bottom: 0.75rem;
-  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 6rem;
 }
 .definition-page__article {
-  width: 55%;
+  max-width: 45rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30rem;
+  /* min-width: 30rem; */
 }
+
 ul {
-  list-style: none;
+  width: 85%;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  list-style: none;
+  align-items: center;
 }
 ul a {
   text-decoration: none;
@@ -102,40 +98,64 @@ ul a {
   font-size: 1.1rem;
   font-weight: bold;
   color: #59595e;
+  transition: all 0.2s;
+  display: block;
+  text-align: center !important;
 }
 ul a:hover {
   color: rgb(139, 14, 14);
 }
-p {
-  width: 80%;
+li {
+  color: #59595e;
 }
+.definition-page__article > p {
+  width: 85%;
+}
+
+p {
+  max-width: 40rem;
+}
+
 p:not(last-of-type) {
   margin-bottom: 1rem;
 }
-.definition-page__resources {
-  width: 25%;
+h2 {
+  align-self: left;
+  width: 85%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
-@media (max-width: 1024px) {
+.source {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+.source a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.source a:hover {
+  color: rgb(139, 14, 14);
+}
+
+@media (max-width: 75em) {
   .definition-page-content {
-    padding-left: 0;
-  }
-  .definition-page__resources {
-    display: none !important;
-  }
-  .definition-page__article {
-    width: 100%;
-    padding: 0 1rem;
-    min-width: auto;
-  }
-  h1 {
-    text-align: center;
+    padding: 2rem 1.5rem;
   }
 }
 
-@media (max-width: 40rem) {
-  p {
-    width: 95%;
+@media (max-width: 56.25em) {
+  .definition-page-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
   }
 }
 </style>

@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 * {
   margin: 0;
@@ -71,8 +71,11 @@ h2 {
 }
 
 h1 {
-  font-weight: 400;
-  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .ql-align-center {

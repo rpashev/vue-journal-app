@@ -132,13 +132,13 @@ menu button {
   transform: scale(1);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   dialog {
     top: 5vh;
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   dialog {
     width: 90%;
   }

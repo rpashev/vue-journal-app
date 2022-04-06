@@ -319,7 +319,7 @@ button {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .signup__card {
     width: 95%;
     margin-top: 1.5rem;

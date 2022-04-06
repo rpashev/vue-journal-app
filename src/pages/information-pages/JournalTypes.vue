@@ -70,9 +70,7 @@
             >
           </li>
           <li>
-            <router-link to="/five-year-journal"
-              ><h3>5 Year Journal</h3></router-link
-            >
+            <router-link to="/types"><h3>5 Year Journal</h3></router-link>
 
             <p>
               A 5-year journal is essentially a journal specifically designed to
@@ -80,11 +78,7 @@
               a period of 5 years. This journal could be a hardback bound
               notebook, or thanks to technological advances, a digital journal.
             </p>
-            <span
-              ><router-link to="/five-year-journal"
-                >Read More...</router-link
-              ></span
-            >
+            <span><router-link to="/types">Read More...</router-link></span>
           </li>
           <li>
             <h3>School Journal</h3>
@@ -119,57 +113,81 @@
           </li>
         </ul>
       </div>
-      <writing-resources class="types-page__resources" />
+      <Resources :info="true" />
     </div>
   </div>
 </template>
 
 <script>
-import WritingResources from "../../components/journal/WritingResources.vue";
+import Resources from "../../components/landing-page/Resources.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 
 export default {
-  components: { WritingResources, IntroInfo },
+  components: { Resources, IntroInfo },
 };
 </script>
 
 <style scoped>
 .types-page-content {
   display: flex;
-  justify-content: space-around;
-  padding: 0 0 2rem 2rem;
-  margin-top: 2.5rem;
-}
-h1 {
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 6rem;
 }
 .types-page__article {
-  width: 55%;
+  max-width: 45rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30rem;
+  /* min-width: 30rem; */
 }
+
+ol,
 ul {
-  padding-left: 0;
   width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
   list-style: none;
 }
 li {
-  margin-bottom: 1.5rem;
+  color: #59595e;
 }
-
-h3 {
-  margin-bottom: 0.3rem;
-}
-
 .types-page__article > p {
   width: 85%;
 }
-.types-page__resources {
-  width: 25%;
+
+p {
+  max-width: 40rem;
 }
+
+p:not(last-of-type) {
+  margin-bottom: 1rem;
+}
+h2 {
+  align-self: left;
+  width: 85%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-bottom: 0.25rem;
+}
+
+.source {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+.source a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.source a:hover {
+  color: rgb(139, 14, 14);
+}
+
 a,
 a h3:hover {
   text-decoration: none;
@@ -187,34 +205,24 @@ p a {
 span a {
   margin-top: -0.5rem;
 }
-p:not(last-of-type) {
-  margin-bottom: 1rem;
-}
+
 span a:hover {
   transform: translateX(3px);
   /* color: red; */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 75em) {
   .types-page-content {
-    padding-left: 0;
-  }
-  .types-page__resources {
-    display: none !important;
-  }
-  .types-page__article {
-    width: 100%;
-    padding: 0 1rem;
-    min-width: auto;
-  }
-  h1 {
-    text-align: center;
+    padding: 2rem 1.5rem;
   }
 }
 
-@media (max-width: 40rem) {
-  p {
-    width: 95%;
+@media (max-width: 56.25em) {
+  .types-page-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
   }
 }
 </style>

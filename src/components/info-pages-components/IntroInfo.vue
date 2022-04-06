@@ -55,15 +55,17 @@ export default {
   font-family: "Open Sans";
   font-size: 2.7rem;
   text-align: center;
+  text-transform: none;
+  margin-bottom: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .title {
     font-size: 2.2rem;
     width: 95%;
   }
 }
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .title {
     font-size: 1.8rem;
   }

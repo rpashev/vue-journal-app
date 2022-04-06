@@ -122,7 +122,7 @@ menu {
   transform: scale(1);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   dialog {
     left: calc(50% - 20rem);
     width: 40rem;

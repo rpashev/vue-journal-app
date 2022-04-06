@@ -256,7 +256,7 @@ textarea {
   text-align: center;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .edit-journal__page {
     padding: 3rem 1.5rem;
   }

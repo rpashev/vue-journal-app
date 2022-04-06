@@ -122,7 +122,7 @@ h1 {
   text-transform: uppercase;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .home-user__page {
     display: block;
     padding: 0 2rem;
@@ -135,7 +135,7 @@ h1 {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .home-user__page {
     padding: 2rem 0;
   }

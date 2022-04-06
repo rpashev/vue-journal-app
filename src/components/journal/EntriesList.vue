@@ -221,7 +221,7 @@ hr {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .entries-list {
     padding: 0 0.8rem;
   }

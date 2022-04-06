@@ -50,7 +50,7 @@ export default {
       context.emit("close");
       //   console.log(startDate, endDate)
     }
-    
+
     function saveDates() {
       context.emit("custom-dates", startDate.value, endDate.value);
     }
@@ -67,7 +67,8 @@ export default {
 
 <style scoped>
 .logo {
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/pro1_epbkw1.png") center/contain no-repeat;
+  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643800563/journal-app/pro1_epbkw1.png")
+    center/contain no-repeat;
   height: 10rem;
 }
 
@@ -165,7 +166,7 @@ menu button {
   transform: scale(1);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   dialog {
     left: calc(50% - 20rem);
     width: 35rem;

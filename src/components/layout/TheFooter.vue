@@ -106,11 +106,11 @@ p {
   opacity: 0.4;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   footer {
     justify-content: center;
     gap: 2rem;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
   }
   .footer__info {
     display: block;

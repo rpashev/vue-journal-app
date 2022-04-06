@@ -101,52 +101,54 @@
           >
         </p>
       </div>
-      <writing-resources class="prompts-page__resources" />
+      <Resources :info="true" />
     </div>
   </div>
 </template>
 
 <script>
-import WritingResources from "../../components/journal/WritingResources.vue";
+import Resources from "../../components/landing-page/Resources.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 
 export default {
-  components: { WritingResources, IntroInfo },
+  components: { Resources, IntroInfo },
 };
 </script>
 
 <style scoped>
 .prompts-page-content {
   display: flex;
-  justify-content: space-around;
-  padding: 0 0 2rem 2rem;
-  margin-top: 2.5rem;
-}
-h1 {
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 6rem;
 }
 .prompts-page__article {
-  width: 55%;
+  max-width: 45rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30rem;
+  /* min-width: 30rem; */
 }
-.prompts-page__resources {
-  width: 25%;
-}
+
+ol,
 ul {
-  padding-left: 0;
   width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 li {
-  margin-bottom: 1rem;
   color: #59595e;
 }
-p {
+.prompts-page__article > p {
   width: 85%;
 }
+
+p {
+  max-width: 40rem;
+}
+
 p:not(last-of-type) {
   margin-bottom: 1rem;
 }
@@ -156,6 +158,10 @@ h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+h3 {
+  margin-bottom: 0.25rem;
+}
+
 .source {
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -169,26 +175,18 @@ h2 {
   color: rgb(139, 14, 14);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 75em) {
   .prompts-page-content {
-    padding-left: 0;
-  }
-  .prompts-page__resources {
-    display: none !important;
-  }
-  .prompts-page__article {
-    width: 100%;
-    padding: 0 1rem;
-    min-width: auto;
-  }
-  h1 {
-    text-align: center;
+    padding: 2rem 1.5rem;
   }
 }
 
-@media (max-width: 40rem) {
-  p {
-    width: 95%;
+@media (max-width: 56.25em) {
+  .prompts-page-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
   }
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
-  <div class="resources">
-    <h1>Journal writing resources</h1>
+  <div :class="{ resources: true, 'from-info': info }">
+    <h1 v-if="info">
+      New to journaling? <br />
+      We've got you covered!
+    </h1>
+    <h1 v-else>Journal Writing Resources</h1>
     <div class="resources__lists">
       <ul class="basics">
         <h2>Journal Basics</h2>
@@ -36,6 +40,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  props: ["info", "title"],
+};
+</script>
+
 <style scoped>
 .resources {
   display: flex;
@@ -43,12 +53,35 @@
   width: 90%;
 }
 
+.from-info {
+  width: 20rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.08);
+}
+
+.from-info .resources__lists {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.from-info ul {
+  width: 100%;
+}
+
+.from-info h1 {
+  font-size: 1.25rem;
+}
+
+.from-info h2 {
+  font-size: 1.15rem;
+}
+
 .resources__lists {
   display: flex;
   flex-direction: row;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
-  width: auto;
 }
 
 .basics,
@@ -56,13 +89,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 2rem 2rem;
   list-style: none;
+  width: auto;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   text-transform: uppercase;
 }
 
@@ -85,7 +118,7 @@ a.router-link-active {
   color: rgb(0, 0, 0);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   li {
     text-align: center;
   }
@@ -95,7 +128,25 @@ a.router-link-active {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 56.25em) {
+  .from-info {
+    box-shadow: none;
+    width: 110%;
+    margin-bottom: -2rem;
+    padding: 1rem 0 2rem 0;
+    background-color: #425059;
+    box-shadow: none;
+    color: #f0f0f0;
+  }
+
+  .from-info h1,
+  .from-info a,
+  .from-info h2 {
+    color: #f0f0f0;
+  }
+}
+
+@media (max-width: 40em) {
   .resources__lists {
     flex-direction: column;
   }

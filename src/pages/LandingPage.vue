@@ -4,7 +4,7 @@
     <landing-page-promotion />
     <landing-page-privacy />
     <landing-page-prompt />
-    <landing-page-resources />
+    <landing-page-resources title="Journal writing resources" />
     <landing-page-features />
     <landing-page-final-prompt />
   </div>

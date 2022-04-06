@@ -37,11 +37,11 @@ a {
   font-size: 1.2rem !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   p {
     width: 80%;
   }
 }
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
 }
 </style>

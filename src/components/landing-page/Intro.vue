@@ -85,7 +85,7 @@ a {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .landing-page__prompt {
     width: 90%;
   }
