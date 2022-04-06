@@ -39,15 +39,17 @@ export default {
 
 <style scoped>
 .container {
-  width: 350px;
-  max-width: 350px;
+  width: 25rem;
+  max-width: 25rem;
   margin: 0 auto;
+  margin-top: 3rem;
 }
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .logo {
   width: 100%;
@@ -62,7 +64,7 @@ p {
 
 @media (max-width: 40em) {
   .container {
-    width: 90%;
+    width: 310px;
   }
 }
 </style>

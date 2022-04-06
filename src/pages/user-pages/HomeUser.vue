@@ -10,7 +10,7 @@
     </p>
     <base-spinner v-if="isLoading"></base-spinner>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
-      <h1>Your journals</h1>
+      <h1>{{ username }}'s journals</h1>
       <div
         class="fallback"
         v-if="!isLoading && !errorMessage && !journals.length"
@@ -31,9 +31,8 @@
         ></journal-card>
       </div>
     </div>
-    <div v-if="!isLoading && !errorMessage" class="home-user__page-prompts">
-      <go-pro />
-    </div>
+
+    <go-pro />
   </div>
 </template>
 
@@ -42,7 +41,8 @@ import JournalCard from "../../components/journal/JournalCard.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 import GoPro from "../../components/journal/GoPro.vue";
 import journalService from "../../services/journalService";
-import { ref } from "@vue/reactivity";
+import { ref, computed } from "@vue/reactivity";
+import { useStore } from "vuex";
 
 export default {
   components: { JournalCard, GoPro, IntroInfo },
@@ -50,6 +50,12 @@ export default {
     let isLoading = ref(false);
     let errorMessage = ref(null);
     let journals = ref([]);
+
+    const store = useStore();
+
+    const username = computed(() => {
+      return store.getters.firstName;
+    });
 
     const loadJournals = async () => {
       try {
@@ -70,6 +76,7 @@ export default {
       journals,
       isLoading,
       errorMessage,
+      username,
     };
   },
 };
@@ -80,10 +87,10 @@ export default {
   width: 100%;
   padding: 1rem 4rem 2rem 4rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   background-color: #f9fafb;
+  margin-top: 2rem;
 }
 .home-user__page-journals {
   width: 75%;
@@ -102,10 +109,13 @@ export default {
 }
 .fallback {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
 }
-.home-user__page-prompts {
-  margin-top: 4.5rem;
-}
+
 .error-message {
   color: red;
   font-size: 1rem;
@@ -129,9 +139,6 @@ h1 {
   }
   .home-user__page-journals {
     width: 100%;
-  }
-  .home-user__page-prompts {
-    margin-top: 0;
   }
 }
 
