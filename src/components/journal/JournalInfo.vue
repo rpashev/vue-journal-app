@@ -28,31 +28,52 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
-  min-width: 310px;
-  margin-top: 6rem;
-  padding: 0.25rem 1.5rem 1.5rem 1.5rem;
+  justify-content: space-between;
+  min-width: 320px;
+  max-width: 400px;
+  min-height: 15rem;
+  margin: 6rem auto 2rem auto;
+  padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
 }
 p {
   font-size: 0.9rem;
   padding: 0 0.5rem 0.5rem 0.5rem;
-  text-shadow: 1px 1px rgb(218, 214, 214);
 }
-h2 {
-  text-shadow: 1px 1px rgb(218, 214, 214);
-}
+
 .actions {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.actions button,
+.actions a {
+  width: 50%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 64em) {
   .journal-info {
     width: 60%;
     margin: 2rem auto;
+  }
+}
+@media (max-width: 30em) {
+  .journal-info {
+    box-shadow: none;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .actions button,
+  .actions a {
+    width: 100%;
+    font-size: 0.85rem;
   }
 }
 </style>
