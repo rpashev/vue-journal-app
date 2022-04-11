@@ -107,7 +107,7 @@ ul {
   gap: 0.75rem;
 }
 li {
-  color: #59595e;
+  color: var(--color-gray-dark);
 }
 .five-year-journal-page__article > p {
   width: 85%;
@@ -140,7 +140,7 @@ h3 {
   transition: all 0.3s ease-out;
 }
 .source a:hover {
-  color: rgb(139, 14, 14);
+  color: var(--color-red);
 }
 
 @media (max-width: 75em) {

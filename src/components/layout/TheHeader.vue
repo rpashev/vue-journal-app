@@ -73,7 +73,7 @@ export default {
 
     styleBackground() {
       return {
-        background: this.isLoggedIn ? "#2f3940" : "white",
+        background: this.isLoggedIn ? "var(--color-gray-darker)" : "white",
       };
     },
   },
@@ -131,7 +131,7 @@ header {
 a {
   font: inherit;
   text-decoration: none;
-  color: #59595e;
+  color: var(--color-gray-dark);
   cursor: pointer;
   display: block;
   border-bottom: 2px solid transparent;
@@ -146,7 +146,7 @@ a.router-link-active {
 
 .cta a {
   padding: 0.5rem 1.6rem;
-  border: 2px solid #59595e;
+  border: 2px solid var(--color-gray-dark);
   border-radius: 4px;
   transition: all 0.25s ease-out;
   text-transform: uppercase;
@@ -158,18 +158,18 @@ a.router-link-active {
 
 .cta a:hover,
 .cta a:active {
-  background-color: #59595e;
-  color: #f0f0f0;
+  background-color: var(--color-gray-dark);
+  color: var(--color-gray-light);
 }
 
 .user {
-  color: #f0f0f0;
+  color: var(--color-gray-light);
 }
 
 .user:active,
 .user:hover,
 .user.router-link-active {
-  border-bottom: 2px solid #f0f0f0 !important;
+  border-bottom: 2px solid var(--color-gray-light) !important;
   cursor: pointer;
 }
 
@@ -229,14 +229,14 @@ a.router-link-active {
 .toggle-button__bar {
   width: 100%;
   height: 0.2rem;
-  background: #2f3940;
+  background: var(--color-gray-darker);
   display: block;
   margin: 0.6rem 0;
   transition: all 0.3s ease-out;
 }
 
 .white .toggle-button__bar {
-  background: #f0f0f0;
+  background: var(--color-gray-light);
 }
 
 @media (max-width: 40em) {

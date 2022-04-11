@@ -85,7 +85,7 @@ export default {
 <style scoped>
 .home-user__page {
   width: 100%;
-  padding: 1rem 4rem 2rem 4rem;
+  padding: 1rem 4rem 6rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,7 +117,7 @@ export default {
 }
 
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 1rem;
   position: absolute;
   text-align: center;

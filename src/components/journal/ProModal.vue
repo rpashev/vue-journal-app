@@ -9,11 +9,11 @@
         <div class="logo"></div>
         <div class="features">
           <ul>
-            <li>Customize your journal with different backgrounds</li>
-            <li>Encrypt your journals with a secure password</li>
-            <li>Export your journals locally in different formats</li>
-            <li>Get our Android app for FREE with NO ADs</li>
-            <li>Upload images as a part of your journal entries</li>
+            <li>Customize with different backgrounds</li>
+            <li>Encrypt journals with a secure password</li>
+            <li>Export journals locally in different formats</li>
+            <li>Get our Android app for FREE</li>
+            <li>Images in your journal entries</li>
           </ul>
         </div>
         <p>Coming soon!</p>
@@ -61,21 +61,21 @@ dialog {
   border-radius: 4px;
   border: none;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: var(--color-gray-light);
 }
 
 .features {
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 header {
-  background-color: rgb(139, 14, 14);
-  color: #f0f0f0;
+  background-color: var(--color-red);
+  color: var(--color-gray-light);
   padding: 1rem;
 }
 
 header h3 {
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   text-align: center;
   text-transform: uppercase;
   font-weight: 400;

@@ -297,14 +297,14 @@ button {
   max-width: 12rem;
 }
 .error-label {
-  color: red;
+  color: var(--color-error);
 }
 .error-input,
 .error-input:focus {
   background: rgb(255, 233, 233);
 }
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 0.8rem;
   position: absolute;
 }

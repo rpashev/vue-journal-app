@@ -42,7 +42,7 @@
           >
           <base-button
             id="entry__actions-delete"
-            mode="alternative"
+            mode="flat"
             @click="
               toggleShowDialog();
               saveEntryId(entry._id);
@@ -147,10 +147,12 @@ export default {
   width: 75%;
   padding-bottom: 1.5rem;
 }
-.entris-list {
+.entries-list {
   width: 100%;
   list-style: none;
-  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .entries-list__item,
@@ -201,7 +203,7 @@ export default {
   color: black;
 }
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 1rem;
   position: absolute;
   text-align: center;

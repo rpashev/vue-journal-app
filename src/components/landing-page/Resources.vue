@@ -109,7 +109,7 @@ h2 {
 a {
   font: inherit;
   text-decoration: none;
-  color: #59595e;
+  color: var(--color-gray-dark);
 }
 
 a:active,
@@ -136,13 +136,13 @@ a.router-link-active {
     padding: 1rem 0 2rem 0;
     background-color: #425059;
     box-shadow: none;
-    color: #f0f0f0;
+    color: var(--color-gray-light);
   }
 
   .from-info h1,
   .from-info a,
   .from-info h2 {
-    color: #f0f0f0;
+    color: var(--color-gray-light);
   }
 }
 

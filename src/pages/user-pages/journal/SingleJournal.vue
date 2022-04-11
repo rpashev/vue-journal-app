@@ -217,8 +217,7 @@ export default {
 
 <style scoped>
 .single-journal__page {
-  padding-right: 2rem;
-  padding-top: 1rem;
+  padding: 3rem 2rem 8rem 0rem;
   display: flex;
   flex-wrap: wrap;
   background-color: #f9fafb;
@@ -235,7 +234,8 @@ export default {
 }
 
 .pagination {
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  /* align-self: flex-start; */
 }
 .actions-main {
   display: flex;
@@ -269,7 +269,7 @@ h2 {
   text-align: center;
 }
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 1rem;
   position: absolute;
   text-align: center;

@@ -40,6 +40,21 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
+:root {
+  --color-red: #b91c1c;
+  --color-red-light: #fecaca;
+  --color-error: red;
+  --color-gray-light: #f5f5f5;
+  --color-gray-lightest: #fafafa;
+  --color-gray-medium: #a1a1a1;
+  --color-gray-dark: #59595e;
+  --color-gray-darker: #2f3940;
+  --color-gray-darkest: #212528;
+  --color-blue: #3b82f6;
+  --color-blue-light: #5797fd;
+  --color-blue-lightest: #dbeafe;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +82,11 @@ h1,
 p,
 h3,
 h2 {
-  color: #59595e;
+  color: var(--color-gray-dark);
+}
+h1,
+h2 {
+  line-height: 1.3;
 }
 
 h1 {

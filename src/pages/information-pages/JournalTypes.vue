@@ -152,7 +152,7 @@ ul {
   list-style: none;
 }
 li {
-  color: #59595e;
+  color: var(--color-gray-dark);
 }
 .types-page__article > p {
   width: 85%;
@@ -185,13 +185,13 @@ h3 {
   transition: all 0.3s ease-out;
 }
 .source a:hover {
-  color: rgb(139, 14, 14);
+  color: var(--color-red);
 }
 
 a,
 a h3:hover {
   text-decoration: none;
-  color: rgb(139, 14, 14);
+  color: var(--color-red);
   font-weight: bold;
 }
 
@@ -208,7 +208,7 @@ span a {
 
 span a:hover {
   transform: translateX(3px);
-  /* color: red; */
+  /* color: var(--color-error); */
 }
 
 @media (max-width: 75em) {

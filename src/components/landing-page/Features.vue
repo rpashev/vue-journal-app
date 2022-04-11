@@ -86,7 +86,7 @@ export default {
 
 h2 {
   text-align: center;
-  margin: 0.5rem 0;
+  margin-bottom: 0.4rem;
 }
 
 p {
@@ -99,6 +99,7 @@ p {
 .features__feature-icon {
   width: 5rem;
   height: 5rem;
+  margin-bottom: 1.25rem;
 }
 
 .icon1 {

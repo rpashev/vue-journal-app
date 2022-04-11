@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .new-entry__page {
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 8rem 2rem;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -136,7 +136,7 @@ form {
 input,
 label,
 h2 {
-  color: #59595e;
+  color: var(--color-gray-dark);
   font: inherit;
   outline: none;
   width: 100%;
@@ -178,7 +178,7 @@ input:focus {
   outline: none;
 }
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 1rem;
   position: absolute;
   text-align: center;

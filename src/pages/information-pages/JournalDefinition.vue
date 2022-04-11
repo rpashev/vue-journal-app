@@ -97,16 +97,16 @@ ul a {
   font: inherit;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #59595e;
+  color: var(--color-gray-dark);
   transition: all 0.2s;
   display: block;
   text-align: center !important;
 }
 ul a:hover {
-  color: rgb(139, 14, 14);
+  color: var(--color-red);
 }
 li {
-  color: #59595e;
+  color: var(--color-gray-dark);
 }
 .definition-page__article > p {
   width: 85%;
@@ -141,7 +141,7 @@ h3 {
   transition: all 0.3s ease-out;
 }
 .source a:hover {
-  color: rgb(139, 14, 14);
+  color: var(--color-red);
 }
 
 @media (max-width: 75em) {

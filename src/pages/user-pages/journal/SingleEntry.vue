@@ -122,7 +122,7 @@ export default {
 
 <style scoped>
 .single-entry__page {
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 8rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -192,7 +192,7 @@ h3 {
   text-align: justify;
 }
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 1rem;
   position: absolute;
   text-align: center;

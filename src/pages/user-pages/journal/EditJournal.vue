@@ -158,7 +158,7 @@ export default {
 
 <style scoped>
 .edit-journal__page {
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 8rem 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -172,13 +172,13 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 .form-control {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
   font: inherit;
   width: 100%;
 }
@@ -194,20 +194,19 @@ textarea:focus {
 }
 .length-note {
   font-size: 0.8rem;
-  margin-top: 0.2rem;
   width: 100%;
 }
 
 .length-note::before {
   content: "*";
-  color: red;
+  color: var(--color-error);
 }
 #journalName {
   padding: 0.5rem;
   width: 100%;
   font-size: 1.1rem;
   outline: none;
-  color: #59595e;
+  color: var(--color-gray-dark);
 }
 .actions {
   display: flex;
@@ -228,7 +227,7 @@ a {
 textarea {
   font-size: 1.1rem;
   width: 100%;
-  color: #59595e;
+  color: var(--color-gray-dark);
   outline: none;
   padding: 0.5rem;
   resize: none;
@@ -238,14 +237,14 @@ textarea {
   width: 100%;
 }
 .error-label {
-  color: red;
+  color: var(--color-error);
 }
 .error-input,
 .error-input:focus {
   background: rgb(255, 233, 233);
 }
 .error-message {
-  color: red;
+  color: var(--color-error);
   font-size: 1rem;
   position: absolute;
   text-align: center;

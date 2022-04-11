@@ -16,14 +16,14 @@
 }
 
 h1 {
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   margin-bottom: 4rem;
   text-align: center;
   text-transform: uppercase;
 }
 
 a {
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   width: 18rem;
   font-size: 1.2rem !important;
 }

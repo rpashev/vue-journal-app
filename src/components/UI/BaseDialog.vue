@@ -72,19 +72,19 @@ dialog {
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: var(--color-gray-light);
 }
 
 header {
-  background-color: rgb(139, 14, 14);
-  color: #f0f0f0;
+  background-color: var(--color-red);
+  color: var(--color-gray-light);
   width: 100%;
   padding: 1rem;
 }
 
 header h3 {
   margin: 0;
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   text-align: center;
   text-transform: uppercase;
   font-weight: 400;

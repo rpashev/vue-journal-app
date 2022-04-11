@@ -55,7 +55,7 @@ export default {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: #2f3940;
+  background-color: var(--color-gray-darker);
   z-index: 100;
   animation-name: slidein;
   animation-duration: 0.3s;
@@ -76,7 +76,7 @@ a {
   font: inherit;
   display: block;
   font-size: 1.9rem;
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   text-transform: uppercase;
 }
 

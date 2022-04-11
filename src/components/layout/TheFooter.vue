@@ -68,7 +68,7 @@ footer {
   height: 12rem;
   width: 100%;
   min-width: 320px;
-  background: #2f3940;
+  background: var(--color-gray-darker);
   display: flex;
   align-items: flex-start;
   justify-content: center;

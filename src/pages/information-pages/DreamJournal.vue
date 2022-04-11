@@ -226,7 +226,7 @@ h3 {
   transition: all 0.3s ease-out;
 }
 .source a:hover {
-  color: rgb(139, 14, 14);
+  color: var(--color-red);
 }
 
 @media (max-width: 75em) {

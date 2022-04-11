@@ -57,7 +57,7 @@ export default {
 
 .card__side {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
   transition: all 0.8s ease;
   height: 100%;
@@ -84,7 +84,7 @@ export default {
 }
 
 .back {
-  background: linear-gradient(#3b82f6, #2f3940);
+  background: linear-gradient(var(--color-blue), var(--color-gray-darker));
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   position: absolute;
   top: 7rem;
   right: 2rem;
@@ -141,9 +141,9 @@ h2 {
 @media (hover: none), (max-width: 56.25em) {
   .card {
     height: auto;
-    background: linear-gradient(#3b82f6, #2f3940);
+    background: linear-gradient(var(--color-blue), var(--color-gray-darker));
     padding-bottom: 1.5rem;
-    border-radius: 3px;
+    border-radius: 4px;
   }
   .card:hover {
     transform: none;
@@ -156,7 +156,7 @@ h2 {
     background: none;
   }
   .entries-number {
-    color: #f0f0f0;
+    color: var(--color-gray-light);
     margin-top: 4rem;
     margin-bottom: 2rem;
   }

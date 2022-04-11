@@ -89,25 +89,25 @@ dialog {
   width: 80%;
   min-width: 250px;
   z-index: 100;
-  border-radius: 12px;
+  border-radius: 4px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: var(--color-gray-light);
 }
 
 header {
-  background-color: #3b82f6;
-  color: #f0f0f0;
+  background-color: var(--color-blue);
+  color: var(--color-gray-light);
   width: 100%;
   padding: 1rem;
 }
 
 header h3 {
   margin: 0;
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   text-align: center;
 }
 .dates {

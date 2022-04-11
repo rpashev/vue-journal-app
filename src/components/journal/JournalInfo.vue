@@ -10,7 +10,7 @@
       <base-button link :to="`/journals/${journalID}/edit-journal`"
         >Edit Journal</base-button
       >
-      <base-button @click="toggleShowDialog" mode="alternative"
+      <base-button @click="toggleShowDialog" mode="flat"
         >Delete Journal</base-button
       >
     </div>
@@ -35,7 +35,7 @@ export default {
   margin: 6rem auto 2rem auto;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 p {
   font-size: 0.9rem;

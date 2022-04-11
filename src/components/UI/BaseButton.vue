@@ -38,8 +38,8 @@ a {
   font: inherit;
   letter-spacing: 1px;
   font-size: 0.9rem;
-  background-color: #3b82f6;
-  color: #e9e7e7e0;
+  background-color: var(--color-blue);
+  color: var(--color-gray-light);
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s ease-out;
@@ -53,44 +53,55 @@ a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: #5797fd;
+  background-color: var(--color-blue-light);
 }
 
 .alternative {
-  background-color: rgb(139, 14, 14);
-  color: #f0f0f0;
+  background-color: var(--color-red);
+  color: var(--color-gray-light);
   border: none;
 }
 
 .alternative:hover,
 .alternative:active {
-  background-color: black;
-  color: #f0f0f0;
+  background-color: var(--color-error);
+  color: var(--color-gray-light);
   border: none;
 }
+.flat {
+  background-color: transparent;
+  color: var(--color-gray-dark);
+  font-weight: 500;
+}
+.flat:hover,
+.flat:active {
+  background-color: var(--color-red-light);
+}
+
 .forbidden,
 .forbidden:hover {
   cursor: not-allowed;
-  background-color: #a1a1a1;
+  background-color: var(--color-gray-medium);
   border: none;
-  color: #f0f0f0;
+  color: var(--color-gray-light);
 }
 
 .dark {
-  background-color: #2f3940;
+  background-color: var(--color-gray-darker);
   border: none;
 }
 .dark:hover {
-  color: #f0f0f0;
+  color: var(--color-gray-light);
   background: black;
   border: none;
 }
 
 .light {
-  background: #f0f0f0;
-  color: #2f3940;
+  background: var(--color-gray-lightest);
+  color: var(--color-gray-darker);
 }
-.light:hover {
-  background: #d6d5d5;
+.light:hover,
+.light:active {
+  background: var(--color-blue-lightest);
 }
 </style>
