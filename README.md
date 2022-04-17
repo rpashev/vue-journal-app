@@ -97,6 +97,7 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 ## Room for Improvement
 - redesign the logged in part of the app 
 - use a mobile first approach when styling and preferebly switch to SCSS
+- follow official Vue recommended conventions for naming files/components and props
 - refactor some of the more repetitive code on the front end by implementing composables/hooks when appropriate
 - implement an "Auto Logout" functionality on JWT expiration
 - break up some of the larger components
