@@ -15,9 +15,7 @@
           <slot name="actions">
             <base-button mode="dark" @click="tryClose">Cancel</base-button>
 
-            <base-button @click="confirmDelete" mode="alternative"
-              >Delete</base-button
-            >
+            <base-button @click="confirmDelete" mode="alternative">Delete</base-button>
           </slot>
         </menu>
       </dialog>
@@ -35,7 +33,7 @@ export default {
       if (props.fixed) {
         return;
       }
-      console.log("from tryCLose");
+      // console.log("from tryCLose");
       context.emit("close");
     }
 

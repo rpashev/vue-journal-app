@@ -17,6 +17,7 @@ export default {
     TheHeader,
     TheFooter,
   },
+
   setup() {
     const store = useStore();
     store.dispatch("tryLogin");
@@ -84,6 +85,7 @@ h3,
 h2 {
   color: var(--color-gray-dark);
 }
+
 h1,
 h2 {
   line-height: 1.3;

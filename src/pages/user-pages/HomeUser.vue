@@ -11,14 +11,9 @@
     <base-spinner v-if="isLoading"></base-spinner>
     <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
       <h1>{{ username }}'s journals</h1>
-      <div
-        class="fallback"
-        v-if="!isLoading && !errorMessage && !journals.length"
-      >
+      <div class="fallback" v-if="!isLoading && !errorMessage && !journals.length">
         <p>No journals have yet been created.</p>
-        <base-button link :to="`/journals/create-journal`"
-          >GET STARTED</base-button
-        >
+        <base-button link :to="`/journals/create-journal`">GET STARTED</base-button>
       </div>
 
       <div class="journals__list">
@@ -64,8 +59,7 @@ export default {
 
         journals.value = response.data;
       } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Could not load journals!";
+        errorMessage.value = err.response?.data?.message || "Could not load journals!";
       } finally {
         isLoading.value = false;
       }
@@ -128,7 +122,7 @@ export default {
   text-align: center;
 }
 h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-transform: uppercase;
 }
 

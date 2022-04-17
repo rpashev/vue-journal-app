@@ -35,11 +35,7 @@
         <div class="search-icon"></div>
       </div>
     </div>
-    <date-modal
-      @custom-dates="getDates"
-      :show="showDateModal"
-      @close="cancelShowDateModal"
-    />
+    <date-modal @custom-dates="getDates" :show="showDateModal" @close="cancelShowDateModal" />
   </div>
 </template>
 
@@ -60,7 +56,7 @@ export default {
 
     watch([timeQuery, contentQuery, per], (current) => {
       if (current[0] === "custom") {
-        console.log("custom");
+        // console.log("custom");
         showDateModal.value = true;
       }
       context.emit("getqueries", current);

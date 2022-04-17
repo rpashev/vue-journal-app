@@ -8,7 +8,6 @@ export default createStore({
     userId: null,
     firstName: null,
     journals: null,
-    entries: null,
   },
 
   getters: {
@@ -31,10 +30,6 @@ export default createStore({
     journals(state) {
       return state.journals;
     },
-
-    entries(state) {
-      return state.entries;
-    },
   },
 
   mutations: {
@@ -54,10 +49,6 @@ export default createStore({
       state.journals = null;
       state.entries = null;
     },
-
-    setEntries(state, payload) {
-      state.entries = payload.entries;
-    },
   },
 
   actions: {
@@ -76,7 +67,7 @@ export default createStore({
     },
 
     async auth(context, payload) {
-      console.log(process.env.VUE_APP_BASE_URL)
+      // console.log(process.env.VUE_APP_BASE_URL)
       let url = `${process.env.VUE_APP_BASE_URL}auth/login`;
 
       if (payload.mode === "signup") {
@@ -127,10 +118,6 @@ export default createStore({
       localStorage.removeItem("firstName");
       localStorage.removeItem("journals");
       context.commit("resetUser", payload);
-    },
-
-    getEntries(context, payload) {
-      context.commit("setEntries", payload);
     },
   },
   modules: {},

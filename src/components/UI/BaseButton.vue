@@ -32,7 +32,6 @@ export default {
 button,
 a {
   text-decoration: none;
-  text-align: center;
   padding: 0.5rem 1.25rem;
   border: none;
   font: inherit;

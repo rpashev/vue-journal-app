@@ -8,8 +8,7 @@
             <label
               for="firstName"
               :class="{
-                'error-label':
-                  v$.firstName.$errors.length && v$.firstName.$dirty,
+                'error-label': v$.firstName.$errors.length && v$.firstName.$dirty,
               }"
               >First Name</label
             >
@@ -19,13 +18,10 @@
               v-model.trim="formState.firstName"
               @blur="v$.firstName.$touch"
               :class="{
-                'error-input':
-                  v$.firstName.$errors.length && v$.firstName.$dirty,
+                'error-input': v$.firstName.$errors.length && v$.firstName.$dirty,
               }"
             />
-            <p class="error-message" v-if="v$.firstName.$error">
-              First name is required!
-            </p>
+            <p class="error-message" v-if="v$.firstName.$error">First name is required!</p>
           </div>
           <div>
             <label
@@ -44,9 +40,7 @@
                 'error-input': v$.lastName.$errors.length && v$.lastName.$dirty,
               }"
             />
-            <p class="error-message" v-if="v$.lastName.$error">
-              Last name is required!
-            </p>
+            <p class="error-message" v-if="v$.lastName.$error">Last name is required!</p>
           </div>
         </div>
         <div class="form-control email">
@@ -66,9 +60,7 @@
               'error-input': v$.email.$errors.length && v$.email.$dirty,
             }"
           />
-          <p class="error-message" v-if="v$.email.$error">
-            Please enter a valid email!
-          </p>
+          <p class="error-message" v-if="v$.email.$error">Please enter a valid email!</p>
         </div>
         <div class="form-control password">
           <label
@@ -95,8 +87,7 @@
           <label
             for="repeatPassword"
             :class="{
-              'error-label':
-                v$.repeatPassword.$errors.length && v$.repeatPassword.$dirty,
+              'error-label': v$.repeatPassword.$errors.length && v$.repeatPassword.$dirty,
             }"
             >Confirm your password</label
           >
@@ -106,27 +97,18 @@
             v-model.trim="formState.repeatPassword"
             @blur="v$.repeatPassword.$touch"
             :class="{
-              'error-input':
-                v$.repeatPassword.$errors.length && v$.repeatPassword.$dirty,
+              'error-input': v$.repeatPassword.$errors.length && v$.repeatPassword.$dirty,
             }"
           />
-          <p class="error-message" v-if="v$.repeatPassword.$error">
-            Passwords should match!
-          </p>
+          <p class="error-message" v-if="v$.repeatPassword.$error">Passwords should match!</p>
         </div>
         <div class="form-control" id="chekboxes">
           <div>
             <input type="checkbox" id="terms" v-model.trim="formState.terms" />
-            <label for="terms" id="id-terms"
-              >I agree with the terms and conditions</label
-            >
+            <label for="terms" id="id-terms">I agree with the terms and conditions</label>
           </div>
           <div>
-            <input
-              type="checkbox"
-              id="updates"
-              v-model.trim="formState.updates"
-            />
+            <input type="checkbox" id="updates" v-model.trim="formState.updates" />
             <label for="updates">I want regular updates by email</label>
           </div>
         </div>
@@ -195,8 +177,7 @@ export default {
           await store.dispatch("signup", formState);
           router.push("/journals");
         } catch (err) {
-          errorMessage.value =
-            err.response?.data?.message || "Could not sign up!";
+          errorMessage.value = err.response?.data?.message || "Could not sign up!";
         } finally {
           isLoading.value = false;
         }
@@ -294,7 +275,7 @@ h1 {
 button {
   margin-top: 0.5rem;
   width: 100%;
-  max-width: 12rem;
+  max-width: 8rem;
 }
 .error-label {
   color: var(--color-error);

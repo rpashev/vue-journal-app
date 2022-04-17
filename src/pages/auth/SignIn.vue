@@ -20,9 +20,7 @@
               'error-input': v$.email.$errors.length && v$.email.$dirty,
             }"
           />
-          <p class="error-message" v-if="v$.email.$error">
-            Please enter a valid email!
-          </p>
+          <p class="error-message" v-if="v$.email.$error">Please enter a valid email!</p>
         </div>
         <div class="form-control">
           <label
@@ -105,8 +103,7 @@ export default {
           await store.dispatch("login", formState);
           router.push("/journals");
         } catch (err) {
-          errorMessage.value =
-            err.response?.data?.message || "Could not log in!";
+          errorMessage.value = err.response?.data?.message || "Could not log in!";
         } finally {
           isLoading.value = false;
         }
@@ -173,7 +170,7 @@ h1 {
 button {
   margin-top: 1.5rem;
   width: 100%;
-  max-width: 12rem;
+  max-width: 8rem;
 }
 
 .error-label {

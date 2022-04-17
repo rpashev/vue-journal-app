@@ -6,12 +6,8 @@
         'logged-logo': isLoggedIn,
       }"
     >
-      <router-link v-if="!isLoggedIn" to="/"
-        ><div class="logo"></div
-      ></router-link>
-      <router-link v-if="isLoggedIn" to="/"
-        ><div class="logo-white"></div
-      ></router-link>
+      <router-link v-if="!isLoggedIn" to="/"><div class="logo"></div></router-link>
+      <router-link v-if="isLoggedIn" to="/"><div class="logo-white"></div></router-link>
     </div>
     <nav class="main-nav">
       <ul>
@@ -19,14 +15,10 @@
           <router-link to="/">Home</router-link>
         </li>
         <li v-if="isLoggedIn">
-          <router-link :class="{ user: isLoggedIn }" to="/journals"
-            >My Journals</router-link
-          >
+          <router-link :class="{ user: isLoggedIn }" to="/journals">My Journals</router-link>
         </li>
         <li>
-          <router-link to="/about" :class="{ user: isLoggedIn }"
-            >About</router-link
-          >
+          <router-link to="/about" :class="{ user: isLoggedIn }">About</router-link>
         </li>
         <li v-if="!isLoggedIn">
           <router-link to="/login">Login</router-link>
@@ -86,7 +78,7 @@ export default {
 
     toggleMobileNav() {
       this.mobileActive = !this.mobileActive;
-      console.log(this.mobileActive);
+      // console.log(this.mobileActive);
     },
   },
   watch: {

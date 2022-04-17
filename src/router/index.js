@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "../pages/LandingPage.vue";
-import Login from "../pages/auth/Login.vue";
+import SignIn from "../pages/auth/SignIn.vue";
 import SignUp from "../pages/auth/SignUp.vue";
 const NewEntry = () => import("../pages/user-pages/journal/NewEntry.vue");
 const HomeUser = () => import("../pages/user-pages/HomeUser.vue");
@@ -30,8 +30,8 @@ const routes = [
   },
   {
     path: "/login",
-    name: "Login",
-    component: Login,
+    name: "SignIn",
+    component: SignIn,
     meta: { requiresGuest: true },
   },
   {
@@ -153,6 +153,7 @@ const router = createRouter({
     }
   },
 });
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!store.getters.token) {
