@@ -8,15 +8,10 @@
     <div v-if="journal" class="single-journal__page-entries">
       <h1>{{ journal.journalName }}</h1>
       <div class="actions-main">
-        <base-button
-          class="btn-entry"
-          link
-          :to="`/journals/${journalID}/new-entry`"
+        <base-button class="btn-entry" link :to="`/journals/${journalID}/new-entry`"
           >New Entry</base-button
         >
-        <base-button mode="dark" class="btn-back" link :to="`/journals/`"
-          >Back</base-button
-        >
+        <base-button mode="dark" class="btn-back" link :to="`/journals/`">Back</base-button>
       </div>
 
       <entries-filters
@@ -32,9 +27,7 @@
         :journalID="journalID"
       ></entries-list>
 
-      <p class="no-entries-message" v-if="noEntries">
-        No entries in this journal yet!
-      </p>
+      <p class="no-entries-message" v-if="noEntries">No entries in this journal yet!</p>
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
@@ -63,7 +56,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import EntriesFilters from "../../../components/journal/EntriesFilters.vue";
 import EntriesList from "../../../components/journal/EntriesList.vue";
 import { useRoute, useRouter } from "vue-router";
@@ -75,144 +68,113 @@ import VPagination from "@hennge/vue3-pagination";
 import JournalInfo from "../../../components/journal/JournalInfo.vue";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
-export default {
-  components: {
-    EntriesFilters,
-    EntriesList,
-    VPagination,
-    JournalInfo,
-  },
-  setup() {
-    const route = useRoute();
-    const router = useRouter();
+const route = useRoute();
+const router = useRouter();
 
-    const journalID = route.params.journalID;
-    let journal = ref(null);
-    let isLoading = ref(false);
-    let errorMessage = ref(null);
+const journalID = route.params.journalID;
+let journal = ref(null);
+let isLoading = ref(false);
+let errorMessage = ref(null);
 
-    let searchQuery = ref("");
-    let timeFilter = ref("alltime");
-    let perPage = ref(10);
-    let startDate = ref(null);
-    let endDate = ref(null);
+let searchQuery = ref("");
+let timeFilter = ref("alltime");
+let perPage = ref(10);
+let startDate = ref(null);
+let endDate = ref(null);
 
-    // getting/loading journal
-    const loadJournal = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
-      try {
-        journal.value = await journalService.getJournal(journalID);
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Couldn't load journal!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
-
-    loadJournal();
-
-    const noEntries = computed(() => {
-      if (journal.value) {
-        return journal.value.entries.length === 0;
-      } else {
-        return false;
-      }
-    });
-
-    // sort & filter entries
-    const saveQueries = (queries) => {
-      timeFilter.value = queries[0];
-      searchQuery.value = queries[1];
-      perPage.value = +queries[2];
-    };
-
-    const saveCustomDates = (startingDate, endingDate) => {
-      startDate.value = startingDate;
-      endDate.value = endingDate;
-    };
-
-    const filteredEntries = computed(() => {
-      return filterAndSortEntries(
-        journal.value.entries,
-        timeFilter.value,
-        searchQuery.value,
-        startDate.value,
-        endDate.value
-      );
-    });
-
-    // deleting journal
-    const showDialog = ref(false);
-
-    const toggleShowDialog = () => {
-      showDialog.value = !showDialog.value;
-    };
-
-    const deleteJournal = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
-
-      try {
-        await journalService.deleteJournal(journalID);
-        router.push("/journals");
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Could not delete, please try again!";
-      } finally {
-        isLoading.value = false;
-        showDialog.value = false;
-      }
-    };
-
-    //front end pagination
-    const page = ref(1);
-
-    const numberOfPages = computed(() => {
-      if (journal.value) {
-        return Math.ceil(filteredEntries.value.length / perPage.value);
-      }
-    });
-
-    const updatePage = (currentPage) => {
-      page.value = currentPage;
-    };
-
-    const paginatedEntries = computed(() => {
-      if (journal.value) {
-        return filteredEntries.value.slice(
-          page.value * perPage.value - perPage.value,
-          page.value * perPage.value
-        );
-      }
-    });
-
-    //resetting the page to page 1 if filters become active
-    watch([searchQuery, timeFilter, perPage], () => {
-      page.value = 1;
-    });
-
-    return {
-      journal,
-      journalID,
-      isLoading,
-      errorMessage,
-      noEntries,
-      saveQueries,
-      filteredEntries,
-      loadJournal,
-      toggleShowDialog,
-      showDialog,
-      deleteJournal,
-      updatePage,
-      page,
-      numberOfPages,
-      paginatedEntries,
-      saveCustomDates,
-    };
-  },
+// getting/loading journal
+const loadJournal = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
+  try {
+    journal.value = await journalService.getJournal(journalID);
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Couldn't load journal!";
+  } finally {
+    isLoading.value = false;
+  }
 };
+
+loadJournal();
+
+const noEntries = computed(() => {
+  if (journal.value) {
+    return journal.value.entries.length === 0;
+  } else {
+    return false;
+  }
+});
+
+// sort & filter entries
+const saveQueries = (queries) => {
+  timeFilter.value = queries[0];
+  searchQuery.value = queries[1];
+  perPage.value = +queries[2];
+};
+
+const saveCustomDates = (startingDate, endingDate) => {
+  startDate.value = startingDate;
+  endDate.value = endingDate;
+};
+
+const filteredEntries = computed(() => {
+  return filterAndSortEntries(
+    journal.value.entries,
+    timeFilter.value,
+    searchQuery.value,
+    startDate.value,
+    endDate.value
+  );
+});
+
+// deleting journal
+const showDialog = ref(false);
+
+const toggleShowDialog = () => {
+  showDialog.value = !showDialog.value;
+};
+
+const deleteJournal = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
+
+  try {
+    await journalService.deleteJournal(journalID);
+    router.push("/journals");
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not delete, please try again!";
+  } finally {
+    isLoading.value = false;
+    showDialog.value = false;
+  }
+};
+
+//front end pagination
+const page = ref(1);
+
+const numberOfPages = computed(() => {
+  if (journal.value) {
+    return Math.ceil(filteredEntries.value.length / perPage.value);
+  }
+});
+
+const updatePage = (currentPage) => {
+  page.value = currentPage;
+};
+
+const paginatedEntries = computed(() => {
+  if (journal.value) {
+    return filteredEntries.value.slice(
+      page.value * perPage.value - perPage.value,
+      page.value * perPage.value
+    );
+  }
+});
+
+//resetting the page to page 1 if filters become active
+watch([searchQuery, timeFilter, perPage], () => {
+  page.value = 1;
+});
 </script>
 
 <style scoped>

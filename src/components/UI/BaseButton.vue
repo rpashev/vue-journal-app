@@ -69,6 +69,7 @@ button:active {
 }
 .flat {
   background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   color: var(--color-gray-dark);
   font-weight: 500;
 }
