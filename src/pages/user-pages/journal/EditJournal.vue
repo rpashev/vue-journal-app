@@ -1,9 +1,6 @@
 <template>
   <div class="edit-journal__page">
-    <p
-      class="error-message submit-error"
-      v-if="errorMessage && !isLoading && !journal"
-    >
+    <p class="error-message submit-error" v-if="errorMessage && !isLoading && !journal">
       {{ errorMessage }}
     </p>
     <form @submit.prevent="submitHandler" v-if="!isLoading && journal">
@@ -11,8 +8,7 @@
         <label for="journalName"
           ><h2
             :class="{
-              'error-label':
-                v$.journalName.$errors.length && v$.journalName.$dirty,
+              'error-label': v$.journalName.$errors.length && v$.journalName.$dirty,
             }"
           >
             Name of your journal
@@ -25,8 +21,7 @@
           v-model.trim="journalName"
           @blur="v$.journalName.$touch"
           :class="{
-            'error-input':
-              v$.journalName.$errors.length && v$.journalName.$dirty,
+            'error-input': v$.journalName.$errors.length && v$.journalName.$dirty,
           }"
         />
         <span class="length-note"
@@ -39,9 +34,7 @@
         </div>
       </div>
       <div class="form-control">
-        <label for="journalDescription"
-          ><h3>What is this journal about?</h3></label
-        >
+        <label for="journalDescription"><h3>What is this journal about?</h3></label>
         <textarea
           type="textarea"
           rows="8"
@@ -61,9 +54,7 @@
           }"
           >Submit</base-button
         >
-        <base-button id="entry__actions-back" link :to="'/'" mode="dark"
-          >Back</base-button
-        >
+        <base-button id="entry__actions-back" link :to="'/'" mode="dark">Back</base-button>
       </div>
 
       <p class="error-message submit-error" v-if="errorMessage">
@@ -73,86 +64,70 @@
     <base-spinner v-if="isLoading"></base-spinner>
   </div>
 </template>
-<script>
+<script setup>
 import { ref, computed } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required, maxLength } from "@vuelidate/validators";
 import journalService from "../../../services/journalService";
 import { useRouter, useRoute } from "vue-router";
 
-export default {
-  setup() {
-    const description = ref("");
-    const journalName = ref("");
-    let journal = ref(null);
+const description = ref("");
+const journalName = ref("");
+let journal = ref(null);
 
-    let isLoading = ref(false);
-    let errorMessage = ref(null);
+let isLoading = ref(false);
+let errorMessage = ref(null);
 
-    const router = useRouter();
-    const route = useRoute();
-    const journalID = route.params.journalID;
+const router = useRouter();
+const route = useRoute();
+const journalID = route.params.journalID;
 
-    const rules = computed(() => {
-      return {
-        journalName: { required, maxLengthValue: maxLength(40) },
-      };
-    });
+const rules = computed(() => {
+  return {
+    journalName: { required, maxLengthValue: maxLength(40) },
+  };
+});
 
-    const v$ = useVuelidate(rules, { journalName });
+const v$ = useVuelidate(rules, { journalName });
 
-    const loadJournal = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
+const loadJournal = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
 
-      try {
-        journal.value = await journalService.getJournal(journalID);
-        description.value = journal.value.description;
-        journalName.value = journal.value.journalName;
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Couldn't load journal!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
+  try {
+    journal.value = await journalService.getJournal(journalID);
+    description.value = journal.value.description;
+    journalName.value = journal.value.journalName;
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Couldn't load journal!";
+  } finally {
+    isLoading.value = false;
+  }
+};
 
-    loadJournal();
+loadJournal();
 
-    const submitHandler = async () => {
-      errorMessage.value = null;
-      isLoading.value = true;
+const submitHandler = async () => {
+  errorMessage.value = null;
+  isLoading.value = true;
 
-      if (v$._value.$invalid) {
-        isLoading.value = false;
-        return;
-      } else {
-        try {
-          await journalService.updateJournal(journalID, {
-            journalName: journalName.value,
-            description: description.value,
-          });
-          router.push(`/journals/${journalID}`);
-        } catch (err) {
-          errorMessage.value =
-            err.response?.data?.message ||
-            "Could not create journal, please try again!";
-        } finally {
-          isLoading.value = false;
-        }
-      }
-    };
-
-    return {
-      submitHandler,
-      v$,
-      journalName,
-      description,
-      isLoading,
-      errorMessage,
-      journal,
-    };
-  },
+  if (v$._value.$invalid) {
+    isLoading.value = false;
+    return;
+  } else {
+    try {
+      await journalService.updateJournal(journalID, {
+        journalName: journalName.value,
+        description: description.value,
+      });
+      router.push(`/journals/${journalID}`);
+    } catch (err) {
+      errorMessage.value =
+        err.response?.data?.message || "Could not create journal, please try again!";
+    } finally {
+      isLoading.value = false;
+    }
+  }
 };
 </script>
 

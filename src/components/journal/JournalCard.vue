@@ -11,36 +11,25 @@
     </div>
     <div class="card__side back">
       <div class="actions">
-        <base-button
-          mode="light"
-          link
-          :to="`/journals/${journalID}/new-entry`"
-          @click.stop
+        <base-button mode="light" link :to="`/journals/${journalID}/new-entry`" @click.stop
           >New Entry</base-button
         >
-        <base-button link :to="`/journals/${journalID}`" @click.stop
-          >View Entries</base-button
-        >
+        <base-button link :to="`/journals/${journalID}`" @click.stop>View Entries</base-button>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { useRouter } from "vue-router";
-export default {
-  props: ["journalName", "journalID", "entriesAmount"],
-  setup(props) {
-    const router = useRouter();
+import { defineProps } from "vue";
 
-    const openJournal = () => {
-      router.push(`/journals/${props.journalID}`);
-    };
+const props = defineProps(["journalName", "journalID", "entriesAmount"]);
 
-    return {
-      openJournal,
-    };
-  },
+const router = useRouter();
+
+const openJournal = () => {
+  router.push(`/journals/${props.journalID}`);
 };
 </script>
 
@@ -119,10 +108,7 @@ h2 {
 }
 
 .title-span {
-  background-image: linear-gradient(
-    rgba(59, 130, 246, 0.9),
-    rgba(85, 122, 148, 0.9)
-  );
+  background-image: linear-gradient(rgba(59, 130, 246, 0.9), rgba(85, 122, 148, 0.9));
   padding: 0.4rem 0.6rem;
   box-decoration-break: clone;
 }

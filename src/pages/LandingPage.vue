@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import LandingPageIntro from "../components/landing-page/Intro.vue";
 import LandingPagePromotion from "../components/landing-page/Promotion.vue";
 import LandingPagePrivacy from "../components/landing-page/Privacy.vue";
@@ -18,18 +18,6 @@ import LandingPagePrompt from "../components/landing-page/Prompt.vue";
 import LandingPageResources from "../components/landing-page/Resources.vue";
 import LandingPageFeatures from "../components/landing-page/Features.vue";
 import LandingPageFinalPrompt from "../components/landing-page/FinalPrompt.vue";
-
-export default {
-  components: {
-    LandingPageIntro,
-    LandingPagePromotion,
-    LandingPagePrivacy,
-    LandingPagePrompt,
-    LandingPageResources,
-    LandingPageFeatures,
-    LandingPageFinalPrompt,
-  },
-};
 </script>
 
 <style scoped>

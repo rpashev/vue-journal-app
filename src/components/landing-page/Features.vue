@@ -3,16 +3,12 @@
     <div class="features__feature">
       <div class="features__feature-icon icon1"></div>
       <h2>Full Privacy</h2>
-      <p>
-        All your entries are private by default and can be accessed only by you.
-      </p>
+      <p>All your entries are private by default and can be accessed only by you.</p>
     </div>
     <div class="features__feature">
       <div class="features__feature-icon icon2"></div>
       <h2>Write From Anywhere</h2>
-      <p>
-        Write from your phone, tablet or desktop - all devices are supported.
-      </p>
+      <p>Write from your phone, tablet or desktop - all devices are supported.</p>
     </div>
     <div class="features__feature">
       <div class="features__feature-icon icon3"></div>
@@ -23,45 +19,31 @@
       <div class="features__feature-icon icon4"></div>
       <h2>Full Customization</h2>
       <p>You can customize your journals in all ways imaginable.</p>
-      <base-button @click="toggleShowGoPro" mode="alternative"
-        >Go PRO</base-button
-      >
+      <base-button @click="toggleShowGoPro" mode="alternative">Go PRO</base-button>
     </div>
     <div class="features__feature feature-pro">
       <div class="features__feature-icon icon5"></div>
       <h2>Journal Search</h2>
       <p>You can easily search through journals and all of your entries.</p>
-      <base-button @click="toggleShowGoPro" mode="alternative"
-        >Go PRO</base-button
-      >
+      <base-button @click="toggleShowGoPro" mode="alternative">Go PRO</base-button>
     </div>
     <div class="features__feature feature-pro">
       <div class="features__feature-icon icon6"></div>
       <h2>Top Notch Security</h2>
       <p>You can additionally protect your journals with a password.</p>
-      <base-button @click="toggleShowGoPro" mode="alternative"
-        >Go PRO</base-button
-      >
+      <base-button @click="toggleShowGoPro" mode="alternative">Go PRO</base-button>
     </div>
     <pro-modal :show="showGoPro" @close="toggleShowGoPro" />
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "@vue/reactivity";
 import ProModal from "../journal/ProModal.vue";
-export default {
-  components: { ProModal },
-  setup() {
-    let showGoPro = ref(false);
-    const toggleShowGoPro = () => {
-      showGoPro.value = !showGoPro.value;
-    };
-    return {
-      showGoPro,
-      toggleShowGoPro,
-    };
-  },
+
+let showGoPro = ref(false);
+const toggleShowGoPro = () => {
+  showGoPro.value = !showGoPro.value;
 };
 </script>
 

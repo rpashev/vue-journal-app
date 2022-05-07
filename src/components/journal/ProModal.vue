@@ -25,21 +25,16 @@
   </teleport>
 </template>
 
-<script>
-export default {
-  props: ["show"],
-  emits: ["close"],
+<script setup>
+import { defineProps, defineEmits } from "vue";
 
-  setup(props, context) {
-    function tryClose() {
-      context.emit("close");
-    }
+defineProps(["show"]);
 
-    return {
-      tryClose,
-    };
-  },
-};
+const emit = defineEmits(["close"]);
+
+function tryClose() {
+  emit("close");
+}
 </script>
 
 <style scoped>

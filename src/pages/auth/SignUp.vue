@@ -130,68 +130,57 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { reactive, computed, ref } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
-export default {
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-    const formState = reactive({
-      email: "",
-      password: "",
-      repeatPassword: "",
-      firstName: "",
-      lastName: "",
-      terms: false,
-      updates: false,
-    });
-    let isLoading = ref(false);
-    let errorMessage = ref(null);
+const store = useStore();
+const router = useRouter();
+const formState = reactive({
+  email: "",
+  password: "",
+  repeatPassword: "",
+  firstName: "",
+  lastName: "",
+  terms: false,
+  updates: false,
+});
 
-    const rules = computed(() => {
-      return {
-        email: { required, email },
-        password: { required, minLength: minLength(6) },
-        repeatPassword: { required, sameAs: sameAs(`${formState.password}`) },
-        firstName: { required },
-        lastName: { required },
-      };
-    });
+let isLoading = ref(false);
+let errorMessage = ref(null);
 
-    const v$ = useVuelidate(rules, formState);
+const rules = computed(() => {
+  return {
+    email: { required, email },
+    password: { required, minLength: minLength(6) },
+    repeatPassword: { required, sameAs: sameAs(`${formState.password}`) },
+    firstName: { required },
+    lastName: { required },
+  };
+});
 
-    const submitHandler = async () => {
-      errorMessage.value = null;
-      isLoading.value = true;
+const v$ = useVuelidate(rules, formState);
 
-      if (v$._value.$invalid) {
-        isLoading.value = false;
-        return;
-      } else {
-        try {
-          await store.dispatch("signup", formState);
-          router.push("/journals");
-        } catch (err) {
-          errorMessage.value = err.response?.data?.message || "Could not sign up!";
-        } finally {
-          isLoading.value = false;
-        }
-      }
-    };
+const submitHandler = async () => {
+  errorMessage.value = null;
+  isLoading.value = true;
 
-    return {
-      submitHandler,
-      formState,
-      v$,
-      errorMessage,
-      isLoading,
-    };
-  },
+  if (v$._value.$invalid) {
+    isLoading.value = false;
+    return;
+  } else {
+    try {
+      await store.dispatch("signup", formState);
+      router.push("/journals");
+    } catch (err) {
+      errorMessage.value = err.response?.data?.message || "Could not sign up!";
+    } finally {
+      isLoading.value = false;
+    }
+  }
 };
 </script>
 

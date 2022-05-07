@@ -5,35 +5,24 @@
         <div class="logo"></div>
         <div class="description">
           <p>
-            Sign up for My Journal Pro to gain many extras! Customize your
-            journals, increase your security, export your journals locally and
-            many more additional functionalities!
+            Sign up for My Journal Pro to gain many extras! Customize your journals, increase your
+            security, export your journals locally and many more additional functionalities!
           </p>
         </div>
-        <base-button @click="toggleShowGoPro" mode="alternative"
-          >Learn More</base-button
-        >
+        <base-button @click="toggleShowGoPro" mode="alternative">Learn More</base-button>
       </div>
     </base-card>
   </div>
   <pro-modal @close="toggleShowGoPro" :show="showGoPro" />
 </template>
 
-<script>
+<script setup>
 import { ref } from "@vue/reactivity";
 import ProModal from "./ProModal.vue";
-export default {
-  components: { ProModal },
-  setup() {
-    const showGoPro = ref(false);
-    const toggleShowGoPro = () => {
-      showGoPro.value = !showGoPro.value;
-    };
-    return {
-      showGoPro,
-      toggleShowGoPro,
-    };
-  },
+
+const showGoPro = ref(false);
+const toggleShowGoPro = () => {
+  showGoPro.value = !showGoPro.value;
 };
 </script>
 

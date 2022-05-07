@@ -62,62 +62,51 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed, reactive, ref } from "@vue/reactivity";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
-export default {
-  setup() {
-    const store = useStore();
-    const router = useRouter();
+const store = useStore();
+const router = useRouter();
 
-    const formState = reactive({
-      email: "",
-      password: "",
-    });
-    let isLoading = ref(false);
-    let errorMessage = ref(null);
+const formState = reactive({
+  email: "",
+  password: "",
+});
 
-    const rules = computed(() => {
-      return {
-        email: { required, email },
-        password: { required, minLength: minLength(6) },
-      };
-    });
+let isLoading = ref(false);
+let errorMessage = ref(null);
 
-    // eslint-disable-next-line no-unused-vars
-    const v$ = useVuelidate(rules, formState);
+const rules = computed(() => {
+  return {
+    email: { required, email },
+    password: { required, minLength: minLength(6) },
+  };
+});
 
-    const submitHandler = async () => {
-      errorMessage.value = null;
-      isLoading.value = true;
+// eslint-disable-next-line no-unused-vars
+const v$ = useVuelidate(rules, formState);
 
-      if (v$._value.$invalid) {
-        isLoading.value = false;
-        return;
-      } else {
-        try {
-          await store.dispatch("login", formState);
-          router.push("/journals");
-        } catch (err) {
-          errorMessage.value = err.response?.data?.message || "Could not log in!";
-        } finally {
-          isLoading.value = false;
-        }
-      }
-    };
+const submitHandler = async () => {
+  errorMessage.value = null;
+  isLoading.value = true;
 
-    return {
-      submitHandler,
-      formState,
-      v$,
-      isLoading,
-      errorMessage,
-    };
-  },
+  if (v$._value.$invalid) {
+    isLoading.value = false;
+    return;
+  } else {
+    try {
+      await store.dispatch("login", formState);
+      router.push("/journals");
+    } catch (err) {
+      errorMessage.value = err.response?.data?.message || "Could not log in!";
+    } finally {
+      isLoading.value = false;
+    }
+  }
 };
 </script>
 
