@@ -5,37 +5,27 @@
   </main>
   <the-footer />
 </template>
-<script>
+
+<script setup>
 import TheHeader from "../src/components/layout/TheHeader.vue";
 import TheFooter from "../src/components/layout/TheFooter.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 
-export default {
-  components: {
-    TheHeader,
-    TheFooter,
-  },
+const store = useStore();
+store.dispatch("tryLogin");
 
-  setup() {
-    const store = useStore();
-    store.dispatch("tryLogin");
+const isLoggedIn = computed(() => {
+  return !!store.getters.token;
+});
 
-    const isLoggedIn = computed(() => {
-      return !!store.getters.token;
-    });
+const body = document.querySelector("body");
+body.style.background = isLoggedIn.value ? "#f9fafb" : "white";
 
-    const body = document.querySelector("body");
-    body.style.background = isLoggedIn.value ? "#f9fafb" : "white";
-
-    watch(isLoggedIn, (current) => {
-      body.style.background = current ? "#f9fafb" : "white";
-    });
-
-    return {};
-  },
-};
+watch(isLoggedIn, (current) => {
+  body.style.background = current ? "#f9fafb" : "white";
+});
 </script>
 
 <style>

@@ -10,17 +10,9 @@
         <div class="date-heading">Date</div>
         <div class="actions-heading">Actions</div>
       </li>
-      <li
-        v-for="entry in entriesData"
-        :key="entry.id"
-        class="entries-list__item"
-      >
+      <li v-for="entry in entriesData" :key="entry.id" class="entries-list__item">
         <div class="entry__intro">
-          <div
-            class="entry-list__item-title"
-            @click="viewEntry(entry._id)"
-            title="View Entry"
-          >
+          <div class="entry-list__item-title" @click="viewEntry(entry._id)" title="View Entry">
             {{ entry.title }}
           </div>
           <div v-html="entryContent(entry)" class="entry__description"></div>
@@ -63,81 +55,66 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 import entryService from "../../services/entryService";
+import { defineProps, defineEmits } from "vue";
 
-export default {
-  props: ["entriesData", "journalID"],
-  setup(props, context) {
-    const router = useRouter();
+const props = defineProps(["entriesData", "journalID"]);
 
-    const viewEntry = (entry) => {
-      router.push(`/journals/${props.journalID}/${entry}`);
-    };
+const emit = defineEmits(["deleted-entry"]);
 
-    const entryContent = (entry) => {
-      if (entry.body) {
-        let cleanBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
-        if (cleanBody.length > 30) {
-          cleanBody = cleanBody.slice(0, 30) + "...";
-        }
-        return cleanBody;
-      }
-    };
+const router = useRouter();
 
-    const readableDate = (date) => {
-      if (date) {
-        return date.substr(0, 10);
-      }
-    };
+const viewEntry = (entry) => {
+  router.push(`/journals/${props.journalID}/${entry}`);
+};
 
-    //deleting logic
-    const showDialog = ref(false);
+const entryContent = (entry) => {
+  if (entry.body) {
+    let cleanBody = entry.body.replace(/<\/?[^>]+(>|$)/g, "");
+    if (cleanBody.length > 30) {
+      cleanBody = cleanBody.slice(0, 30) + "...";
+    }
+    return cleanBody;
+  }
+};
 
-    const toggleShowDialog = () => {
-      showDialog.value = !showDialog.value;
-    };
+const readableDate = (date) => {
+  if (date) {
+    return date.substr(0, 10);
+  }
+};
 
-    const entryIdToDelete = ref(null);
-    let errorMessage = ref(null);
-    let isLoading = ref(false);
+//deleting logic
+const showDialog = ref(false);
 
-    const saveEntryId = (entryId) => {
-      entryIdToDelete.value = entryId;
-    };
+const toggleShowDialog = () => {
+  showDialog.value = !showDialog.value;
+};
 
-    const deleteEntry = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
+const entryIdToDelete = ref(null);
+let errorMessage = ref(null);
+let isLoading = ref(false);
 
-      try {
-        await entryService.deleteEntry(props.journalID, entryIdToDelete.value);
-        context.emit("deleted-entry");
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message ||
-          "Could not delete entry! Please try again!";
-      } finally {
-        showDialog.value = false;
-        isLoading.value = false;
-      }
-    };
+const saveEntryId = (entryId) => {
+  entryIdToDelete.value = entryId;
+};
 
-    return {
-      viewEntry,
-      entryContent,
-      readableDate,
-      toggleShowDialog,
-      showDialog,
-      entryIdToDelete,
-      saveEntryId,
-      deleteEntry,
-      errorMessage,
-      isLoading,
-    };
-  },
+const deleteEntry = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
+
+  try {
+    await entryService.deleteEntry(props.journalID, entryIdToDelete.value);
+    emit("deleted-entry");
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not delete entry! Please try again!";
+  } finally {
+    showDialog.value = false;
+    isLoading.value = false;
+  }
 };
 </script>
 

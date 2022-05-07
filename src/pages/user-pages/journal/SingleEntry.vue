@@ -10,24 +10,14 @@
       <div v-html="entry.body" class="entry__body"></div>
 
       <div class="entry__actions">
-        <base-button
-          id="entry__actions-edit"
-          link
-          :to="`/journals/${journalID}/${entryID}/edit`"
+        <base-button id="entry__actions-edit" link :to="`/journals/${journalID}/${entryID}/edit`"
           >Edit</base-button
         >
-        <base-button
-          id="entry__actions-delete"
-          mode="alternative"
-          @click="toggleShowDialog"
+        <base-button id="entry__actions-delete" mode="alternative" @click="toggleShowDialog"
           >Delete</base-button
         >
       </div>
-      <base-button
-        mode="dark"
-        id="entry__actions-back"
-        link
-        :to="`/journals/${journalID}`"
+      <base-button mode="dark" id="entry__actions-back" link :to="`/journals/${journalID}`"
         >Back</base-button
       >
     </div>
@@ -41,82 +31,63 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "@vue/reactivity";
 import { useRoute, useRouter } from "vue-router";
 import entryService from "../../../services/entryService";
 
-export default {
-  setup() {
-    const route = useRoute();
-    const router = useRouter();
+const route = useRoute();
+const router = useRouter();
 
-    const entryID = route.params.entryID;
-    const journalID = route.params.journalID;
+const entryID = route.params.entryID;
+const journalID = route.params.journalID;
 
-    const errorMessage = ref(null);
-    const isLoading = ref(false);
-    let entry = ref(null);
+const errorMessage = ref(null);
+const isLoading = ref(false);
+let entry = ref(null);
 
-    const loadEntry = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
+const loadEntry = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
 
-      try {
-        const response = await entryService.getEntry(journalID, entryID);
-        entry.value = response;
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Could not load entry!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
+  try {
+    const response = await entryService.getEntry(journalID, entryID);
+    entry.value = response;
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not load entry!";
+  } finally {
+    isLoading.value = false;
+  }
+};
 
-    loadEntry();
+loadEntry();
 
-    const readableDate = (date) => {
-      if (date) {
-        return date.substr(0, 10);
-      }
-    };
+const readableDate = (date) => {
+  if (date) {
+    return date.substr(0, 10);
+  }
+};
 
-    const showDialog = ref(false);
+const showDialog = ref(false);
 
-    const toggleShowDialog = () => {
-      showDialog.value = !showDialog.value;
-    };
+const toggleShowDialog = () => {
+  showDialog.value = !showDialog.value;
+};
 
-    const deleteEntry = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
+const deleteEntry = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
 
-      try {
-        await entryService.deleteEntry(journalID, entryID);
-        toggleShowDialog();
-        router.push(`/journals/${journalID}/`);
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message ||
-          "Could not delete entry! Please try again!";
-        showDialog.value = false;
-      } finally {
-        isLoading.value = false;
-      }
-    };
-
-    return {
-      journalID,
-      entryID,
-      isLoading,
-      errorMessage,
-      entry,
-      readableDate,
-      showDialog,
-      toggleShowDialog,
-      deleteEntry,
-    };
-  },
+  try {
+    await entryService.deleteEntry(journalID, entryID);
+    toggleShowDialog();
+    router.push(`/journals/${journalID}/`);
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not delete entry! Please try again!";
+    showDialog.value = false;
+  } finally {
+    isLoading.value = false;
+  }
 };
 </script>
 

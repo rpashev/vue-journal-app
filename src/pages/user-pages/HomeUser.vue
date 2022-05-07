@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import JournalCard from "../../components/journal/JournalCard.vue";
 import IntroInfo from "../../components/info-pages-components/IntroInfo.vue";
 import GoPro from "../../components/journal/GoPro.vue";
@@ -39,41 +39,29 @@ import journalService from "../../services/journalService";
 import { ref, computed } from "@vue/reactivity";
 import { useStore } from "vuex";
 
-export default {
-  components: { JournalCard, GoPro, IntroInfo },
-  setup() {
-    let isLoading = ref(false);
-    let errorMessage = ref(null);
-    let journals = ref([]);
+let isLoading = ref(false);
+let errorMessage = ref(null);
+let journals = ref([]);
 
-    const store = useStore();
+const store = useStore();
 
-    const username = computed(() => {
-      return store.getters.firstName;
-    });
+const username = computed(() => {
+  return store.getters.firstName;
+});
 
-    const loadJournals = async () => {
-      try {
-        isLoading.value = true;
-        const response = await journalService.getJournals();
+const loadJournals = async () => {
+  try {
+    isLoading.value = true;
+    const response = await journalService.getJournals();
 
-        journals.value = response.data;
-      } catch (err) {
-        errorMessage.value = err.response?.data?.message || "Could not load journals!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
-    loadJournals();
-
-    return {
-      journals,
-      isLoading,
-      errorMessage,
-      username,
-    };
-  },
+    journals.value = response.data;
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not load journals!";
+  } finally {
+    isLoading.value = false;
+  }
 };
+loadJournals();
 </script>
 
 <style scoped>

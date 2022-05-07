@@ -1,41 +1,32 @@
 <template>
   <div class="intro" :style="styleBackground">
     <h1 class="title">{{ title }}</h1>
-    <base-button v-if="!isLoggedIn" link :to="`/sign-up`"
-      >GET STARTED</base-button
-    >
+    <base-button v-if="!isLoggedIn" link :to="`/sign-up`">GET STARTED</base-button>
     <base-button v-if="isLoggedIn" link :to="`/journals/create-journal`"
       >CREATE A JOURNAL</base-button
     >
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from "@vue/reactivity";
 import { useStore } from "vuex";
+import { defineProps } from "vue";
 
-export default {
-  props: ["title", "image", "opacity"],
-  setup(props) {
-    const store = useStore();
+const props = defineProps(["title", "image", "opacity"]);
 
-    const isLoggedIn = computed(() => {
-      return !!store.getters.token;
-    });
+const store = useStore();
 
-    const styleBackground = computed(() => {
-      return {
-        background: `linear-gradient(rgba(0,0,0,${props.opacity}), rgba(0,0,0,${props.opacity})), url(${props.image}) center/cover no-repeat`,
-        "margin-top": store.getters.token ? "0" : "2rem",
-      };
-    });
+const isLoggedIn = computed(() => {
+  return !!store.getters.token;
+});
 
-    return {
-      isLoggedIn,
-      styleBackground,
-    };
-  },
-};
+const styleBackground = computed(() => {
+  return {
+    background: `linear-gradient(rgba(0,0,0,${props.opacity}), rgba(0,0,0,${props.opacity})), url(${props.image}) center/cover no-repeat`,
+    "margin-top": store.getters.token ? "0" : "2rem",
+  };
+});
 </script>
 
 <style scoped>

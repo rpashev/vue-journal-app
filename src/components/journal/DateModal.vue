@@ -9,21 +9,11 @@
         <div class="dates">
           <div class="entry__date">
             <label for="start-date">Start Date</label
-            ><input
-              type="date"
-              id="start-date"
-              name="start-date"
-              v-model="startDate"
-            />
+            ><input type="date" id="start-date" name="start-date" v-model="startDate" />
           </div>
           <div class="entry__date">
             <label for="end-date">End Date</label
-            ><input
-              type="date"
-              id="end-date"
-              name="end-date"
-              v-model="endDate"
-            />
+            ><input type="date" id="end-date" name="end-date" v-model="endDate" />
           </div>
         </div>
         <menu>
@@ -35,34 +25,28 @@
   </teleport>
 </template>
 
-<script>
+<script setup>
 import { ref } from "@vue/reactivity";
-export default {
-  props: ["show"],
-  emits: ["close", "custom-dates"],
+import { defineEmits, defineProps } from "vue";
 
-  setup(props, context) {
-    const defaultDate = new Date().toISOString().substr(0, 10);
-    const startDate = ref(defaultDate);
-    const endDate = ref(defaultDate);
+defineProps({
+  show: Boolean,
+});
 
-    function tryClose() {
-      context.emit("close");
-      //   console.log(startDate, endDate)
-    }
+const emit = defineEmits(["close", "custom-dates"]);
 
-    function saveDates() {
-      context.emit("custom-dates", startDate.value, endDate.value);
-    }
+const defaultDate = new Date().toISOString().substr(0, 10);
+const startDate = ref(defaultDate);
+const endDate = ref(defaultDate);
 
-    return {
-      tryClose,
-      startDate,
-      endDate,
-      saveDates,
-    };
-  },
-};
+function tryClose() {
+  emit("close");
+  //   console.log(startDate, endDate)
+}
+
+function saveDates() {
+  emit("custom-dates", startDate.value, endDate.value);
+}
 </script>
 
 <style scoped>

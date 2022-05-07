@@ -42,23 +42,15 @@
   </footer>
 </template>
 
-<script>
+<script setup>
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
 
-export default {
-  setup() {
-    const store = useStore();
+const store = useStore();
 
-    const isLoggedIn = computed(() => {
-      return !!store.getters.token;
-    });
-
-    return {
-      isLoggedIn,
-    };
-  },
-};
+const isLoggedIn = computed(() => {
+  return !!store.getters.token;
+});
 </script>
 
 <style scoped>

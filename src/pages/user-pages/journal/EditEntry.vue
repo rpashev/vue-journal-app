@@ -8,30 +8,15 @@
       <div class="entry__container">
         <div class="entry__title">
           <label for="entry-title">Entry title</label>
-          <input
-            type="text"
-            id="entry-title"
-            name="entry-title"
-            v-model="title"
-          />
+          <input type="text" id="entry-title" name="entry-title" v-model="title" />
         </div>
         <div class="entry__date">
           <label for="entry-date">Date</label
-          ><input
-            disabled
-            type="date"
-            id="entry-date"
-            name="entry-date"
-            v-model="date"
-          />
+          ><input disabled type="date" id="entry-date" name="entry-date" v-model="date" />
         </div>
       </div>
       <div class="entry__body">
-        <vue-editor
-          class="entry-editor__content"
-          v-model="body"
-          :editorToolbar="customToolbar"
-        >
+        <vue-editor class="entry-editor__content" v-model="body" :editorToolbar="customToolbar">
         </vue-editor>
       </div>
       <div class="actions">
@@ -44,11 +29,7 @@
           }"
           >Submit</base-button
         >
-        <base-button
-          mode="dark"
-          class="btn-back"
-          link
-          :to="`/journals/${journalID}`"
+        <base-button mode="dark" class="btn-back" link :to="`/journals/${journalID}`"
           >Back</base-button
         >
       </div>
@@ -59,94 +40,62 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { VueEditor } from "vue3-editor";
 import { ref, computed } from "@vue/reactivity";
 import { useRoute, useRouter } from "vue-router";
 import entryService from "../../../services/entryService";
 import { customToolbar } from "../../../helper-functions/vue-editor";
 
-export default {
-  components: { VueEditor },
-  setup() {
-    const route = useRoute();
-    const router = useRouter();
-    const entryID = route.params.entryID;
-    const journalID = route.params.journalID;
+const route = useRoute();
+const router = useRouter();
+const entryID = route.params.entryID;
+const journalID = route.params.journalID;
 
-    const errorMessage = ref(null);
-    const isLoading = ref(false);
+const errorMessage = ref(null);
+const isLoading = ref(false);
 
-    let entry = ref(null);
-    const title = ref();
-    const body = ref();
-    const date = ref();
+let entry = ref(null);
+const title = ref();
+const body = ref();
+const date = ref();
 
-    const loadEntry = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
+const loadEntry = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
 
-      try {
-        const response = await entryService.getEntry(journalID, entryID);
+  try {
+    const response = await entryService.getEntry(journalID, entryID);
 
-        entry.value = response;
-        title.value = entry.value.title;
-        body.value = entry.value.body;
-        date.value = entry.value.date.slice(0, 10);
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Could not load entry!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
+    entry.value = response;
+    title.value = entry.value.title;
+    body.value = entry.value.body;
+    date.value = entry.value.date.slice(0, 10);
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not load entry!";
+  } finally {
+    isLoading.value = false;
+  }
+};
 
-    loadEntry();
+loadEntry();
 
-    const readableDate = (date) => {
-      if (date) {
-        return date.substr(0, 10);
-      }
-    };
+const isInvalid = computed(() => {
+  return body.value === "";
+});
 
-    const isInvalid = computed(() => {
-      return body.value === "";
-    });
+const submitHandler = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
 
-    const submitHandler = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
-
-      try {
-        await entryService.editEntry(
-          journalID,
-          entryID,
-          title.value,
-          body.value
-        );
-        router.push(`/journals/${journalID}/${entryID}/`);
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Could not edit entry!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
-
-    return {
-      journalID,
-      entryID,
-      isLoading,
-      errorMessage,
-      title,
-      body,
-      date,
-      readableDate,
-      customToolbar,
-      isInvalid,
-      submitHandler,
-    };
-  },
+  try {
+    await entryService.editEntry(journalID, entryID, title.value, body.value);
+    router.push(`/journals/${journalID}/${entryID}/`);
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not edit entry!";
+  } finally {
+    isLoading.value = false;
+  }
 };
 </script>
 

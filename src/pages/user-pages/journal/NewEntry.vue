@@ -4,21 +4,11 @@
       <div class="entry__container">
         <div class="entry__title">
           <label for="entry-title">Entry title</label>
-          <input
-            type="text"
-            id="entry-title"
-            name="entry-title"
-            v-model="title"
-          />
+          <input type="text" id="entry-title" name="entry-title" v-model="title" />
         </div>
         <div class="entry__date">
           <label for="entry-date">Date</label
-          ><input
-            type="date"
-            id="entry-date"
-            name="entry-date"
-            v-model="date"
-          />
+          ><input type="date" id="entry-date" name="entry-date" v-model="date" />
         </div>
       </div>
       <div class="entry__body">
@@ -39,11 +29,7 @@
           }"
           >Submit</base-button
         >
-        <base-button
-          class="btn-back"
-          mode="dark"
-          link
-          :to="`/journals/${journalID}`"
+        <base-button class="btn-back" mode="dark" link :to="`/journals/${journalID}`"
           >Back</base-button
         >
       </div>
@@ -56,7 +42,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { VueEditor } from "vue3-editor";
 import { computed, ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
@@ -64,56 +50,33 @@ import { useRouter } from "vue-router";
 import entryService from "../../../services/entryService";
 import { customToolbar } from "../../../helper-functions/vue-editor";
 
-export default {
-  components: { VueEditor },
-  setup() {
-    const content = ref("");
-    const title = ref("");
-    const date = ref(new Date().toISOString().substr(0, 10));
+const content = ref("");
+const title = ref("");
+const date = ref(new Date().toISOString().substr(0, 10));
 
-    let isLoading = ref(false);
-    let errorMessage = ref(null);
+let isLoading = ref(false);
+let errorMessage = ref(null);
 
-    const router = useRouter();
-    const route = useRoute();
-    const journalID = route.params.journalID;
+const router = useRouter();
+const route = useRoute();
+const journalID = route.params.journalID;
 
-    const isInvalid = computed(() => {
-      return content.value === "";
-    });
+const isInvalid = computed(() => {
+  return content.value === "";
+});
 
-    const submitHandler = async () => {
-      isLoading.value = true;
-      errorMessage.value = null;
+const submitHandler = async () => {
+  isLoading.value = true;
+  errorMessage.value = null;
 
-      try {
-        await entryService.createEntry(
-          title.value,
-          content.value,
-          date.value,
-          journalID
-        );
-        router.push(`/journals/${journalID}`);
-      } catch (err) {
-        errorMessage.value =
-          err.response?.data?.message || "Could not create entry!";
-      } finally {
-        isLoading.value = false;
-      }
-    };
-
-    return {
-      content,
-      submitHandler,
-      date,
-      title,
-      customToolbar,
-      isInvalid,
-      errorMessage,
-      isLoading,
-      journalID,
-    };
-  },
+  try {
+    await entryService.createEntry(title.value, content.value, date.value, journalID);
+    router.push(`/journals/${journalID}`);
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || "Could not create entry!";
+  } finally {
+    isLoading.value = false;
+  }
 };
 </script>
 

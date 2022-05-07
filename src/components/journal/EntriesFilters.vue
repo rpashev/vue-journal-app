@@ -39,48 +39,37 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 import DateModal from "./DateModal.vue";
+import { defineProps, defineEmits } from "vue";
 
-export default {
-  props: ["entries"],
-  components: { DateModal },
+defineProps(["entries"]);
 
-  setup(props, context) {
-    const timeQuery = ref("alltime");
-    const contentQuery = ref("");
-    const per = ref(10);
-    const showDateModal = ref(false);
+const emit = defineEmits(["getqueries", "custom-filter"]);
 
-    watch([timeQuery, contentQuery, per], (current) => {
-      if (current[0] === "custom") {
-        // console.log("custom");
-        showDateModal.value = true;
-      }
-      context.emit("getqueries", current);
-    });
+const timeQuery = ref("alltime");
+const contentQuery = ref("");
+const per = ref(10);
+const showDateModal = ref(false);
 
-    const cancelShowDateModal = () => {
-      showDateModal.value = !showDateModal.value;
-      timeQuery.value = "alltime";
-    };
+watch([timeQuery, contentQuery, per], (current) => {
+  if (current[0] === "custom") {
+    // console.log("custom");
+    showDateModal.value = true;
+  }
+  emit("getqueries", current);
+});
 
-    const getDates = (startDateFilter, endDateFilter) => {
-      context.emit("custom-filter", startDateFilter, endDateFilter);
-      showDateModal.value = false;
-    };
+const cancelShowDateModal = () => {
+  showDateModal.value = !showDateModal.value;
+  timeQuery.value = "alltime";
+};
 
-    return {
-      timeQuery,
-      contentQuery,
-      per,
-      showDateModal,
-      cancelShowDateModal,
-      getDates,
-    };
-  },
+const getDates = (startDateFilter, endDateFilter) => {
+  emit("custom-filter", startDateFilter, endDateFilter);
+  showDateModal.value = false;
 };
 </script>
 
