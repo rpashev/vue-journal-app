@@ -17,9 +17,7 @@
         <li v-if="isLoggedIn">
           <router-link :class="{ user: isLoggedIn }" to="/journals">My Journals</router-link>
         </li>
-        <li>
-          <router-link to="/about" :class="{ user: isLoggedIn }">About</router-link>
-        </li>
+
         <li v-if="!isLoggedIn">
           <router-link to="/login">Login</router-link>
         </li>

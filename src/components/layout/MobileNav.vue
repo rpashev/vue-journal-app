@@ -8,21 +8,14 @@
         <router-link active-class="active-user" to="/login">Login</router-link>
       </li>
       <li v-if="!isLoggedIn" @click="toggleNav">
-        <router-link active-class="active-user" to="/sign-up"
-          >Sign Up</router-link
-        >
+        <router-link active-class="active-user" to="/sign-up">Sign Up</router-link>
       </li>
       <li v-if="isLoggedIn" @click="toggleNav">
-        <router-link
-          :class="{ user: isLoggedIn }"
-          active-class="active-user"
-          to="/journals"
+        <router-link :class="{ user: isLoggedIn }" active-class="active-user" to="/journals"
           >Journals</router-link
         >
       </li>
-      <li @click="toggleNav">
-        <router-link active-class="active-user" to="/about">About</router-link>
-      </li>
+
       <li v-if="isLoggedIn" @click="toggleNav">
         <a :class="{ user: isLoggedIn }" @click="logout">Logout</a>
       </li>
