@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="openJournal">
+  <li class="card" @click="openJournal">
     <div class="card__side front">
       <div class="img"></div>
       <h2>
@@ -17,7 +17,7 @@
         <base-button link :to="`/journals/${journalID}`" @click.stop>View Entries</base-button>
       </div>
     </div>
-  </div>
+  </li>
 </template>
 
 <script setup>
@@ -131,7 +131,8 @@ h2 {
     padding-bottom: 1.5rem;
     border-radius: 4px;
   }
-  .card:hover {
+  .card:hover .front,
+  .card:hover .back {
     transform: none;
   }
   .card__side {

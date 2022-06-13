@@ -1,8 +1,8 @@
 <template>
-  <div class="final-prompt">
+  <section class="final-prompt">
     <h1>Ready to start writing?</h1>
     <base-button link to="/sign-up">GET STARTED</base-button>
-  </div>
+  </section>
 </template>
 <style scoped>
 .final-prompt {

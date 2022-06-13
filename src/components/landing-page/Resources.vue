@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ resources: true, 'from-info': info }">
+  <section :class="{ resources: true, 'from-info': info }">
     <h1 v-if="info">
       New to journaling? <br />
       We've got you covered!
@@ -37,7 +37,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

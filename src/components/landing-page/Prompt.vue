@@ -1,13 +1,13 @@
 <template>
-  <div class="landing__prompt">
+  <section class="landing__prompt">
     <h1>Limitless options</h1>
     <p>
-      You are the full master of your journal - whether you want to keep a dream
-      journal, a school journal or just a general one, you are free to create
-      unlimited amount of journals on any topic you can think of.
+      You are the full master of your journal - whether you want to keep a dream journal, a school
+      journal or just a general one, you are free to create unlimited amount of journals on any
+      topic you can think of.
     </p>
     <base-button link to="/sign-up">Get Started</base-button>
-  </div>
+  </section>
 </template>
 
 <style scoped>

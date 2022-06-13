@@ -9,14 +9,14 @@
       {{ errorMessage }}
     </p>
     <base-spinner v-if="isLoading"></base-spinner>
-    <div v-if="!isLoading && !errorMessage" class="home-user__page-journals">
+    <section v-if="!isLoading && !errorMessage" class="home-user__page-journals">
       <h1>{{ username }}'s journals</h1>
       <div class="fallback" v-if="!isLoading && !errorMessage && !journals.length">
         <p>No journals have yet been created.</p>
         <base-button link :to="`/journals/create-journal`">GET STARTED</base-button>
       </div>
 
-      <div class="journals__list">
+      <ul class="journals__list">
         <journal-card
           v-for="journal in journals"
           :journalName="journal.journalName"
@@ -24,8 +24,8 @@
           :journalID="journal.id"
           :entriesAmount="journal.entriesAmount"
         ></journal-card>
-      </div>
-    </div>
+      </ul>
+    </section>
 
     <go-pro />
   </div>
@@ -82,6 +82,7 @@ loadJournals();
   justify-content: flex-start;
 }
 .journals__list {
+  list-style: none;
   width: 100%;
   display: flex;
   gap: 3rem;

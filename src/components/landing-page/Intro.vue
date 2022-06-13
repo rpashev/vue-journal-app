@@ -1,18 +1,18 @@
 <template>
-  <div class="landing-page__intro">
+  <section class="landing-page__intro">
     <div class="background">
       <div class="landing-page__prompt">
         <div class="logo__container">
           <div class="logo"></div>
         </div>
         <p>
-          Your secure, fully customizable digital journal. Loved by over 20
-          billion writers around the world.
+          Your secure, fully customizable digital journal. Loved by over 20 billion writers around
+          the world.
         </p>
         <base-button link to="/sign-up">Start your free journal</base-button>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

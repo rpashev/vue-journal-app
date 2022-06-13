@@ -1,5 +1,5 @@
 <template>
-  <div class="features">
+  <section class="features">
     <div class="features__feature">
       <div class="features__feature-icon icon1"></div>
       <h2>Full Privacy</h2>
@@ -34,7 +34,7 @@
       <base-button @click="toggleShowGoPro" mode="alternative">Go PRO</base-button>
     </div>
     <pro-modal :show="showGoPro" @close="toggleShowGoPro" />
-  </div>
+  </section>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section class="container">
     <base-card>
       <div class="content">
         <div class="logo"></div>
@@ -12,7 +12,7 @@
         <base-button @click="toggleShowGoPro" mode="alternative">Learn More</base-button>
       </div>
     </base-card>
-  </div>
+  </section>
   <pro-modal @close="toggleShowGoPro" :show="showGoPro" />
 </template>
 

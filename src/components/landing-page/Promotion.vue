@@ -1,5 +1,5 @@
 <template>
-  <div class="landing__promotion">
+  <section class="landing__promotion">
     <div class="heading">
       <h3>Featured on</h3>
     </div>
@@ -29,7 +29,7 @@
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
