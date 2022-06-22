@@ -25,9 +25,7 @@
           >The name is required and must be at most 40 characters long.</span
         >
         <div class="error__container">
-          <p class="error-message" v-if="v$.journalName.$error">
-            You have to enter a name for the journal!
-          </p>
+          <p class="error-message" v-if="v$.journalName.$error">You have to enter a valid name!</p>
         </div>
       </div>
       <div class="form-control">

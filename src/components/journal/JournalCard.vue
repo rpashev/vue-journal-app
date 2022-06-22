@@ -104,6 +104,7 @@ h2 {
   top: 7rem;
   right: 2rem;
   font-size: 1.6rem;
+  line-height: 1.6;
   width: 70%;
 }
 
