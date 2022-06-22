@@ -36,6 +36,9 @@
       <p class="error-message submit-error" v-if="errorMessage">
         {{ errorMessage }}
       </p>
+      <p class="error-message submit-error" v-if="errorMessageEditing">
+        {{ errorMessageEditing }}
+      </p>
     </form>
   </div>
 </template>
@@ -53,6 +56,7 @@ const entryID = route.params.entryID;
 const journalID = route.params.journalID;
 
 const errorMessage = ref(null);
+const errorMessageEditing = ref(null);
 const isLoading = ref(false);
 
 let entry = ref(null);
@@ -92,7 +96,7 @@ const submitHandler = async () => {
     await entryService.editEntry(journalID, entryID, title.value, body.value);
     router.push(`/journals/${journalID}/${entryID}/`);
   } catch (err) {
-    errorMessage.value = err.response?.data?.message || "Could not edit entry!";
+    errorMessageEditing.value = err.response?.data?.message || "Could not edit entry!";
   } finally {
     isLoading.value = false;
   }
@@ -180,6 +184,7 @@ a {
   position: absolute;
   text-align: center;
   width: 100%;
+  margin-top: 1rem;
 }
 .submit-error {
   position: static;
