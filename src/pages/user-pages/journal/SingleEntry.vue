@@ -122,6 +122,7 @@ h3 {
 
 .entry__body {
   width: 100%;
+  max-width: 40rem;
   margin-top: 3rem;
 }
 .entry__body >>> * {
