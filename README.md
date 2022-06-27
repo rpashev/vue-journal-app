@@ -26,7 +26,7 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 - implementing the entry filters with the help of "dayjs" was a challenge as comparing dates turned out to be not a trivial task, especially for custom date ranges
 - first time I've implemented front end pagination
 - implementing an external text editor with a custom configuration took a deep dive into the documentation and stackoverflow
-- coming up with design ideas for the logged in part was hard and ultimately not very successful
+- coming up with design ideas for the logged in part was hard
 - initially not thinking about responsive design proved to be a grave mistake as the CSS ended up messy and the media queries overblown and inconsistent
 
 
@@ -106,4 +106,4 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 
 
 ## Contact
-Created by me - feel free to contact me!
+Created by rpashev - feel free to [contact me](https://www.rpashev.com/).
