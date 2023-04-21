@@ -2,7 +2,7 @@
 A responsive single page application allowing registered users to create and use personal journals. Regsitered users can peform all CRUD operations when it comes to their journals and the journal entries within them. This app is built with the MEVN stack - Mongo/Express/Vue/Node. The landing page is a recreation of the landing page of [penzu.com](https://penzu.com/).
 
 Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)** that I have built for the app.    
-> Live demo **[HERE](https://www.my-journal.live/)**
+> Live demo **[HERE](https://my-journal-rp.netlify.app/)**
 
 ## Table of Contents
 * [General Info](#general-information)
