@@ -1,5 +1,5 @@
 # Journal App 
-A responsive single page application allowing registered users to create and use personal journals. Regsitered users can peform all CRUD operations when it comes to their journals and the journal entries within them. This app is built with the MEVN stack - Mongo/Express/Vue/Node. The landing page is a recreation of the landing page of [penzu.com](https://penzu.com/).
+A responsive single page application allowing registered users to create and use personal journals. Registered users can peform all CRUD operations when it comes to their journals and the journal entries within them. This app is built with the MEVN stack - Mongo/Express/Vue/Node. The landing page is a recreation of the landing page of [penzu.com](https://penzu.com/).
 
 Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)** that I have built for the app.    
 > Live demo **[HERE](https://my-journal-rp.netlify.app/)**
@@ -15,7 +15,7 @@ Here you can find the **[REST API](https://github.com/rpashev/journal-app-REST)*
 
 
 ## General Information
-Journaling is an interest of mine so I was very keen on creating an app that I am passionate about while improving my web development skills. CRUD operations are essential for most web applications and I had a great opportunity to practice implementing these features in this single page application. It was an amazing learning experience to work on connecting the Vue front end with the Express/Mongo [Backend](https://github.com/rpashev/rest-movie-apps) and making every feature work with error handling. This is the most complex [REST API](https://github.com/rpashev/journal-app-REST) that I have built so far and I found myself dealing with plenty of challenges. The most challenging project I've built to date.
+Journaling is an interest of mine so I was very keen on creating an app that I am passionate about while improving my web development skills. CRUD operations are essential for most web applications and I had a great opportunity to practice implementing these features in this single page application. It was an amazing learning experience to work on connecting the Vue front end with the Express/Mongo [Backend](https://github.com/rpashev/rest-movie-apps) and making every feature work with error handling. This is the most complex [REST API](https://github.com/rpashev/journal-app-REST) that I have built so far and I found myself dealing with plenty of challenges. 
 
 
 ## Challenges
@@ -79,7 +79,7 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 
 1. Make sure you have **`node`** and **`npm`** installed globally on your machine.  
 
-3. Clone the repo  
+2. Clone the repo  
     ### `git clone https://github.com/rpashev/vue-journal-app.git`  
 
 3. Install NPM packages  
@@ -90,8 +90,10 @@ Journaling is an interest of mine so I was very keen on creating an app that I a
 
 5. You can view the app on [http://localhost:8080](http://localhost:8080)  
  
-7. To build for production run the following command  
+6. To build for production run the following command  
     ### `npm run build`
+
+7. If you want to connect to the backend follow the instructions [here](https://github.com/rpashev/journal-app-REST/#readme)
 
 
 ## Room for Improvement
