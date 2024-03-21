@@ -56,7 +56,6 @@ body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
   min-width: 320px;
-  max-width: 2000px;
   margin: 0 auto;
 }
 
@@ -103,5 +102,10 @@ h1 {
 
 .ql-align-justify {
   text-align: justify;
+}
+
+.max-container {
+  margin: 0 auto;
+  max-width: 2000px;
 }
 </style>

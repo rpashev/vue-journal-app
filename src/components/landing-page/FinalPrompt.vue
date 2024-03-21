@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   background: #425059;
-  width: 100%;
+  width: 100vw;
   padding: 3.5rem;
 }
 

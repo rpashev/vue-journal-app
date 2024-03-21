@@ -5,7 +5,7 @@
       title="What are the benefits of writing a journal?"
       opacity="0.3"
     />
-    <div class="benefits-page-content">
+    <div class="benefits-page-content max-container">
       <div class="benefits-page__article">
         <h1>7 Benefits of journaling</h1>
         <p>

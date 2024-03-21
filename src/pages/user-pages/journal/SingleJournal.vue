@@ -1,5 +1,5 @@
 <template>
-  <div class="single-journal__page">
+  <div class="single-journal__page max-container">
     <p class="error-message submit-error" v-if="errorMessage && !journal">
       {{ errorMessage }}
     </p>

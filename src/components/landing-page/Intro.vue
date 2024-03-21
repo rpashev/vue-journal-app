@@ -21,29 +21,41 @@
 }
 
 .background {
-  height: 800px;
   width: 100%;
-  background: url("https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/background_uuw9pl_lqwiom.webp")
-    top/cover no-repeat;
+  background-image: url("https://res.cloudinary.com/rpashev/image/upload/v1643817968/journal-app/background_uuw9pl_lqwiom.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 110% auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  padding-bottom: 50%;
   justify-content: flex-start;
+  position: relative;
 }
 
 .landing-page__prompt {
   width: 35%;
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
+  margin-top: 0rem;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 p {
   font-size: 1.2rem;
   text-align: center;
   width: 80%;
+  max-width: 500px;
   margin: 2rem auto;
+  margin-top: -2rem;
+  margin-bottom: 0.75rem;
 }
 
 a {
@@ -55,7 +67,6 @@ a {
   width: 12rem;
   height: 12rem;
   margin: 0 auto;
-  margin-top: 1rem;
   position: relative;
 }
 
@@ -66,21 +77,30 @@ a {
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 3rem;
+  /* top: 4.5rem; */
 }
 
-@media (max-width: 64em) {
+@media (max-width: 74em) {
   .background {
     background: none;
     height: auto;
     margin-bottom: 2rem;
+    padding-bottom: 2rem;
   }
 
   .landing-page__prompt {
     width: 60%;
     margin-top: 0;
+    position: static;
+    transform: none;
   }
   .logo__container {
+    margin-top: 0;
+  }
+  .logo {
+    top: 1rem;
+  }
+  p {
     margin-top: 0;
   }
 }

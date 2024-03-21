@@ -5,7 +5,7 @@
       title="What types of journals exist and which one is suitable for you?"
       opacity="0.3"
     />
-    <div class="types-page-content">
+    <div class="types-page-content max-container">
       <div class="types-page__article">
         <h1>Types of journals</h1>
         <p>

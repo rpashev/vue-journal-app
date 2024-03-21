@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-entry__page">
+  <div class="edit-entry__page max-container">
     <base-spinner v-if="isLoading"></base-spinner>
     <p class="error-message submit-error" v-if="errorMessage && !body">
       {{ errorMessage }}

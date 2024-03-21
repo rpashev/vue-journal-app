@@ -1,5 +1,5 @@
 <template>
-  <div class="new-entry__page">
+  <div class="new-entry__page max-container">
     <form @submit.prevent="submitHandler">
       <div class="entry__container">
         <div class="entry__title">

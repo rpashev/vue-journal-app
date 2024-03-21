@@ -1,5 +1,5 @@
 <template>
-  <div class="create-journal__page">
+  <div class="create-journal__page max-container">
     <form @submit.prevent="submitHandler">
       <div class="form-control">
         <label for="journalName"

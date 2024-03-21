@@ -5,7 +5,7 @@
       title="So what can you write about? The options are limitless!"
       opacity="0.3"
     />
-    <div class="prompts-page-content">
+    <div class="prompts-page-content max-container">
       <div class="prompts-page__article">
         <h1>What can you write about?</h1>
         <p>

@@ -4,7 +4,7 @@
     title="Let's write!"
     opacity="0.4"
   />
-  <div class="home-user__page">
+  <div class="home-user__page max-container">
     <p class="error-message submit-error" v-if="errorMessage">
       {{ errorMessage }}
     </p>

@@ -5,7 +5,7 @@
       title="So what is a journal and how is it useful?"
       opacity="0.3"
     />
-    <div class="definition-page-content">
+    <div class="definition-page-content max-container">
       <div class="definition-page__article">
         <h1>What is a journal?</h1>
         <p>

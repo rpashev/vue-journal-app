@@ -1,11 +1,11 @@
 <template>
   <div class="landing-page main">
     <landing-page-intro />
-    <landing-page-promotion />
-    <landing-page-privacy />
-    <landing-page-prompt />
-    <landing-page-resources title="Journal writing resources" />
-    <landing-page-features />
+    <landing-page-promotion class="max-container" />
+    <landing-page-privacy class="max-container" />
+    <landing-page-prompt class="max-container" />
+    <landing-page-resources title="Journal writing resources" class="max-container" />
+    <landing-page-features class="max-container" />
     <landing-page-final-prompt />
   </div>
 </template>

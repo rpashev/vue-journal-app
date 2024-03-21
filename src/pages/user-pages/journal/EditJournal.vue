@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-journal__page">
+  <div class="edit-journal__page max-container">
     <p class="error-message submit-error" v-if="errorMessage && !isLoading && !journal">
       {{ errorMessage }}
     </p>

@@ -5,7 +5,7 @@
       title="Five year journal - set your goals for the next five years. Rediscover your purpose!"
       opacity="0.7"
     />
-    <div class="five-year-journal-page-content">
+    <div class="five-year-journal-page-content max-container">
       <div class="five-year-journal-page__article">
         <h1>5 Year Journal</h1>
         <p>

@@ -5,7 +5,7 @@
       title="Travel journal: record your travel experiences to get the most from your travels."
       opacity="0.45"
     />
-    <div class="travel-journal-page-content">
+    <div class="travel-journal-page-content max-container">
       <div class="travel-journal-page__article">
         <h1>Travel Journal</h1>
         <p>

@@ -5,7 +5,7 @@
       title="Reflective journal: reasons to lead a reflective journal and useful journal prompts."
       opacity="0.4"
     />
-    <div class="reflective-journal-page-content">
+    <div class="reflective-journal-page-content max-container">
       <div class="reflective-journal-page__article">
         <h1>Reflective Journal</h1>
         <p>

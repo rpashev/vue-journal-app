@@ -5,7 +5,7 @@
       title="Dream journal: why keep a dream journal - tips on starting"
       opacity="0.3"
     />
-    <div class="dream-journal-page-content">
+    <div class="dream-journal-page-content max-container">
       <div class="dream-journal-page__article">
         <h1>Dream Journal</h1>
         <p>
